@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('weights_capacities', function (Blueprint $table) {
             $table->id();
             $table->foreignId('car_id')->constrained('cars');
-            $table->string('fuel_capacity');
-            $table->string('cargo_capacity');
-            $table->string('curb_weight');
+            $table->string('fuel_capacity')->nullable();
+            $table->string('cargo_capacity')->nullable();
+            $table->string('curb_weight')->nullable();
             // $table->string('towing_capacity');
             // $table->string('gvwr');
             // $table->string('payload_capacity');

@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->foreignId('car_id')->constrained('cars');
-            $table->integer('performance');
-            $table->integer('efficency_range');
-            $table->integer('tech_innovation');
-            $table->integer('value');
-            $table->string('comment');
+            $table->integer('performance')->nullable();
+            $table->integer('efficency_range')->nullable();
+            $table->integer('tech_innovation')->nullable();
+            $table->integer('value')->nullable();
+            $table->string('comment')->nullable();
             $table->timestamps();
         });
     }

@@ -17,12 +17,13 @@ return new class extends Migration
             $table->id();
             $table->foreignId('car_id')->constrained('cars');
             $table->string('engine');
+            $table->string('horsepower');
             $table->string('trim');
             $table->string('torque');
             $table->integer('cylinders');
             $table->string('standard_mpg');
-            $table->string('tranmission');
-            $table->string('tranmission_type');
+            $table->string('transmission');
+            $table->string('transmission_type');
 
             $table->timestamps();
         });

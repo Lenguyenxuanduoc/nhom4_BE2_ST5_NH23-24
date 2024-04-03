@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('exteriors', function (Blueprint $table) {
             $table->id();
             $table->foreignId('car_id')->constrained('cars');
-            $table->string('length');
-            $table->string('width');
-            $table->string('wheelbase');
-            $table->string('ground_clearance');
+            $table->string('length')->nullable();
+            $table->string('width')->nullable();
+            $table->string('height')->nullable();
+            $table->string('wheelbase')->nullable();
             $table->timestamps();
         });
     }
