@@ -26,6 +26,10 @@ class PostsTagMappingSeeder extends Seeder
             [
                 "tag_id" => "1",
                 "posts_id" => "3"
+            ],
+            [
+                "tag_id" => "1",
+                "posts_id" => "4"
             ]
         ]);
     }

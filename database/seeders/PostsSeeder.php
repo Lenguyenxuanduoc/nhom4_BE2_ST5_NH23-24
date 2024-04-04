@@ -43,6 +43,15 @@ class PostsSeeder extends Seeder
                 "author" => "Terence W",
                 "images" => json_encode(["posts3_1.jpg", "posts3_2.jpg"]),
                 "posting_date" => Carbon::now()
+            ],
+            [
+                "title" => "Nissan Z Nismo Unveiled",
+                "content" => "It features an uptuned version of the 3.0L twin-turbocharged V6 powerplant seen in the regular Z,  now producing 420 hp and 384 lb-ft of torque—an increase of 20 hp and 34 lb-ft respectively. To many enthusiasts’ chagrin, the Z Nismo is exclusively equipped with a 9-speed automatic transmission. Those desiring the 6-speed manual gearbox will have to stick with the lower models.
+                            The chassis has been improved upon too, with stiffer springs, wider wheels, stickier tires, bigger brakes, motorsport-derived suspension bushings, and additional bracing all coming together to make for a more precise, engaging and agile driving machine.
+                            In typical Nismo fashion, the interior in the latest Z comes standard with the iconic Recaro sport bucket seats, with the seat cushions finished in a popping red-black-leather-alcantara combo. Driver assistance tech, such as blind-sport monitoring and lane-departure warning, also come as part of the package.",
+                "author" => "Terence W",
+                "images" => json_encode(["posts4_1.jpg", "posts4_2.jpg", "posts4_3.jpg", "posts4_4.jpg", "posts4_5.jpg", "posts4_6.jpg"]),
+                "posting_date" => Carbon::now()
             ]
         ]);
     }

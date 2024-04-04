@@ -48,7 +48,7 @@
            </div>
            <div class="header-right">
                 <div class="sq-box">
-                    <img src="{{asset('subarubrz.png')}}" alt="">
+                    <img src="{{asset('images\cars\subarubrz.png')}}" alt="">
                 </div>
            </div>
         </div>

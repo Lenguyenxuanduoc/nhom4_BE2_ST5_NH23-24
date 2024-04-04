@@ -16,7 +16,7 @@ class PostsTagsSeeder extends Seeder
     {
         \DB::table("posts_tags")->insert([
             ["name"=>"Supercar News"],
-            ["name"=>"Latest Lists"]
+            ["name"=>"Auction & Sales"]
         ]);
     }
 }
