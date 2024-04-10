@@ -23,9 +23,7 @@ class DatabaseSeeder extends Seeder
             ExteriorsSeeder::class,
             WeightsCapacitiesSeeder::class,
             UsersSeeder::class,
-            PostsSeeder::class,
-            PostsTagsSeeder::class,
-            PostsTagMappingSeeder::class
+            PostsSeeder::class
         ]);
     }
 }
