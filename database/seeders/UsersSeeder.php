@@ -32,7 +32,7 @@ class UsersSeeder extends Seeder
                 "password" => "user2",
                 "address" => "Ha Noi",
                 "permission" => false
-            ],
+            ]
         ]);
     }
 }
