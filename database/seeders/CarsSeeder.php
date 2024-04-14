@@ -56,7 +56,7 @@ class CarsSeeder extends Seeder
                 "images"=>json_encode(["gtr1.jpg", "gtr2.jpg", "gtr3.jpg", "gtr4.jpg", "gtr5.jpg"])
             ],
             [
-                "name"=>"BMW", 
+                "name"=>"BMW 4-Series", 
                 "manufacturer_id"=>"1", 
                 "category_id"=>"10", 
                 "price"=>"178624", 
@@ -66,7 +66,7 @@ class CarsSeeder extends Seeder
                 "images"=>json_encode(["BMW1.jpg", "BMW2.jpg", "BMW3.jpg", "BMW4.jpg", "BMW5.jpg"])
             ],
             [
-                "name"=>"Chevrolet", 
+                "name"=>"Chevrolet Corvette", 
                 "manufacturer_id"=>"2", 
                 "category_id"=>"4", 
                 "price"=>"221035", 
@@ -76,7 +76,7 @@ class CarsSeeder extends Seeder
                 "images"=>json_encode(["chevrolet1.jpg", "chevrolet2.jpg", "chevrolet3.jpg", "chevrolet4.jpg", "chevrolet5.jpg"])
             ],
             [
-                "name"=>"Dodge", 
+                "name"=>"Dodge Hornet", 
                 "manufacturer_id"=>"3", 
                 "category_id"=>"5", 
                 "price"=>"127845", 
@@ -86,7 +86,7 @@ class CarsSeeder extends Seeder
                 "images"=>json_encode(["dodge1.jpg", "dodge2.jpg", "dodge3.jpg", "dodge4.jpg", "dodge5.jpg"])
             ],
             [
-                "name"=>"Ferrari", 
+                "name"=>"Ferrari Daytona SP3", 
                 "manufacturer_id"=>"4", 
                 "category_id"=>"10", 
                 "price"=>"593181", 
@@ -96,7 +96,7 @@ class CarsSeeder extends Seeder
                 "images"=>json_encode(["ferrari1.jpg", "ferrari2.jpg", "ferrari3.jpg", "ferrari4.jpg", "ferrari5.jpg"])
             ],
             [
-                "name"=>"Huyndai", 
+                "name"=>"Huyndai Ioniq 5", 
                 "manufacturer_id"=>"6", 
                 "category_id"=>"10", 
                 "price"=>"133175", 
@@ -106,7 +106,7 @@ class CarsSeeder extends Seeder
                 "images"=>json_encode(["huyndai1.jpg", "huyndai2.jpg", "huyndai3.jpg", "huyndai4.jpg", "huyndai5.jpg"])
             ],
             [
-                "name"=>"Porsche", 
+                "name"=>"Porsche 911", 
                 "manufacturer_id"=>"10", 
                 "category_id"=>"10", 
                 "price"=>"350336", 
@@ -116,7 +116,7 @@ class CarsSeeder extends Seeder
                 "images"=>json_encode(["porsche1.jpg", "porsche2.jpg", "porsche3.jpg", "porsche4.jpg", "porsche5.jpg"])
             ],
             [
-                "name"=>"Toyota", 
+                "name"=>"Toyota Highlander", 
                 "manufacturer_id"=>"11", 
                 "category_id"=>"8", 
                 "price"=>"120620", 
