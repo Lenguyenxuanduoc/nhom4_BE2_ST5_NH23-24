@@ -1,0 +1,1099 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-family: Gilroy, sans-serif;
+}
+
+:root{
+    --color-primary: #1743e3;
+    --color-white: #eaeaea;
+    --color-black: #222;
+    --color-mt-score: #0073d8;
+}
+
+.btn{
+    display: inline-block;
+    width: fit-content;
+    padding: 12px 28px;
+    background: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: var(--color-white);
+    letter-spacing: .4px;
+    font-weight: 600;
+    transition: .4s ease;
+}
+
+.btn:hover{
+    background: transparent;
+    color: var(--color-primary);
+}
+
+.container{
+    max-width: 1620px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* ---------------------------------- Start navbar ---------------------------------- */
+nav{
+    width: 100%;
+    height: 5rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+}
+
+nav.shadow{
+    background-color: white;
+    box-shadow: 4px 4px 20px rgb(15 54 55 / 10%);
+    transition: 0.5s;
+
+    /* .social-link li a i{
+        transform: rotate(-45deg);
+        font-size: 22px;
+        color: var(--color-primary);
+    }
+    
+    .social-link li a:hover{
+        border-color: var(--color-primary);
+    } */
+}
+
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-container ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo h3{
+    font-size: 30px;
+    color: var(--color-black);
+}
+
+.nav-link li a{
+    color: var(--color-black);
+    font-size: 18px;
+    transition: .4s ease;
+}
+
+.nav-link li a:hover, 
+.nav-link .active{
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+    transition: all 0.03s;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.social-link li a{
+    height: 40px;
+    width: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid transparent;
+    transform: rotate(45deg);
+    transition: .4s ease;
+}
+
+.social-link li a i{
+    transform: rotate(-45deg);
+    font-size: 22px;
+    color: var(--color-black);
+}
+
+.social-link li a:hover{
+    border-color: var(--color-black);
+}
+
+.nav-container ul li{
+    position: relative;
+}
+
+.nav-container ul li:hover .nav-dropdown{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 2px;
+}
+
+.nav-dropdown ul{
+    display: block;
+    margin: 5px;
+    margin-left: 0;
+}
+
+.nav-dropdown ul li{
+    width: 100px;
+    padding: 8px;
+    padding-left: 5px;
+}
+
+.nav-dropdown{
+    display: none;
+}
+
+.nav-dropdown ul li a{
+    font-size: medium;
+}
+
+.login-register{
+    display: flex;
+}
+
+.login-btn, .register-btn {
+    background-color: white;
+    color: var(--color-black);
+    border: 1px solid var(--color-black);
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 5px;
+    font-size: 15px;
+    height: 36px;
+}
+
+.login-btn:hover, .register-btn:hover {
+    background-color: var(--color-black);
+    color: white;
+    transition: all 0.5s ease;
+}
+
+.login-popup-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+}
+
+.login-popup{
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    width: 30%;
+    height: 75%;
+    overflow-y: auto;
+    border-radius: 5px;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+}
+
+.center h1{
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+}
+
+.center form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.center form .text-field{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.text-field input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.text-field label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.text-field span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--color-primary);
+    transition: .5s;
+}
+
+.text-field input:focus ~ label,
+.text-field input:valid ~ label{
+    top: -5px;
+    color: var(--color-primary);
+}
+
+.text-field input:focus ~ span::before,
+.text-field input:valid ~ span::before{
+    width: 100%;
+}
+
+.pass{
+    margin: -5px 0 20px 5px;
+    color: #a6a6a6;
+    cursor: pointer;
+}
+
+.pass:hover{
+    text-decoration: underline;
+}
+
+.center form input[type="submit"]{
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: var(--color-primary);
+    border-radius: 5px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+
+.center form input[type="submit"]:hover{
+    border-color: var(--color-primary);
+    transition: .5s;
+}
+
+.signup-link{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+}
+
+.signup-link a{
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.signup-link a:hover{
+    text-decoration: underline;
+}
+
+/* ---------------------------------- End navbar ----------------------------------*/
+
+
+/* ---------------------------------- Start header section ----------------------------------*/
+header{
+    padding-top: 80px;
+    /* margin-top: 80px; */
+    width: 100;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-left{
+    max-width: 620px;
+    position: relative;
+}
+
+.header-left h1{
+    font-size: 54px;
+    line-height: 1.2;
+}
+
+.header-left h3{
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--color-primary);
+    margin-top: .5rem;
+}
+
+.header-left p{
+    margin: 15px 0 30px;
+    line-height: 150%;
+    font-size: 16px;
+}
+
+.header-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.header-right{
+    position: relative;
+    width: 450px;
+    height: 450px;
+    transform: rotate(45deg);
+    right: 7%;
+}
+
+.sq-box{
+    border: 25px solid var(--color-primary);
+    height: 100%;
+    width: 100%;
+    background: var(--color-white);
+    box-shadow: -15px 15px 15px rgba(0, 0, 0, 0.2);
+}
+
+.sq-box img{
+    position: absolute;
+    transform: rotate(-45deg);
+    max-width: 750px;
+    top: 80px;
+    left: -150px;
+}
+
+.sq-box2{
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: var(--color-primary);
+    transform: rotate(45deg);
+    top: -26%;
+    right: -26%;
+    z-index: -1;
+}
+/* ---------------------------------- End header section ----------------------------------*/
+
+
+/* ---------------------------------- Start footer section ----------------------------------*/
+.footer{
+    padding-top: 50px;
+    padding-bottom: 40px;
+    background-color: black;
+    color: var(--color-white);
+    border-top: 2px solid var(--color-primary);
+}
+
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.footer-container .logo{
+    color: var(--color-white);
+    margin-bottom: 1rem;
+    font-size: 23px;
+}
+
+.footer-container .footer-box{
+    display: flex;
+    flex-direction: column;
+}
+
+.social-footer{
+    display: flex;
+    align-items: center;
+}
+
+.social-footer a{
+    font-size: 18px;
+    color: var(--color-white);
+    margin-right: 1rem;
+}
+
+.social-footer a:hover{
+    color: var(--color-primary);
+}
+
+.footer-box h3{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.footer-box a,
+.footer-box p{
+    color: #818181;
+    margin-bottom: 10px;
+}
+
+.footer-box a:hover{
+    color: var(--color-primary);
+}
+
+.copyright{
+    padding-bottom: 20px;
+    text-align: center;
+    background: black;
+    color: var(--color-white);
+}
+/* ---------------------------------- End footer section ----------------------------------*/
+
+
+/* ---------------------------------- Start news page ----------------------------------*/
+/* ---------------------------------- Start news banner ----------------------------------*/
+.news-banner {
+    margin-top: 80px;
+    position: relative;
+    background-image: url('banner_news_page.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+
+.news-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.banner-content h1 {
+    font-size: 3.2rem;
+    margin-bottom: 40px;
+}
+
+.banner-content p {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+/* ---------------------------------- End news banner ----------------------------------*/
+
+
+/* ---------------------------------- Start posts ----------------------------------*/
+.posts-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.posts-box{
+    width: 450px;
+    background-color: #fff;
+    border: 1px solid #ececec;
+    margin: 20px;
+    overflow: hidden;
+}
+
+.posts-img{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.posts-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1s ease;
+}
+
+.posts-img img:hover{
+    transform: scale(1.1);
+}
+
+.posts-text{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.posts-text span{
+    color: #9b9b9b;
+    font-size: 0.9rem;
+}
+
+.posts-text .posts-title{
+    margin-top: 5px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #272727;
+}
+
+.posts-text p{
+    color: #7c6e6e;
+    font-size: 0.9rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 20px 0;
+}
+
+.posts-text a{
+    color: #9b9b9b;
+    font-size: 0.9rem;
+}
+/* ---------------------------------- End posts ----------------------------------*/
+/* ---------------------------------- End news page ----------------------------------*/
+
+
+/* ---------------------------------- Start cars page ----------------------------------*/
+/* ---------------------------------- Start cars banner ----------------------------------*/
+.cars-banner {
+    margin-top: 80px;
+    position: relative;
+    background-image: url('banner_cars_page.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff; /* Text color */
+    text-align: center;
+}
+
+.cars-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu nền đen với độ mờ 50% */
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px; /* Adjust width as needed */
+}
+
+.banner-content h1 {
+    font-size: 3.2rem;
+    margin-bottom: 40px;
+}
+
+.banner-content p {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* ---------------------------------- End cars banner ----------------------------------*/
+
+
+/* ---------------------------------- Start brand list ----------------------------------*/
+.car-brands-container{
+    margin: 0 100px;
+    margin-bottom: 100px;
+}
+
+.label-car-brands{
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.label-car-brands h1{
+    font-size: 45px;
+}
+
+.label-car-brands hr{
+    height: 2px;
+    background: #ccc;
+    margin: 10px 0;
+}
+
+.car-brands {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.car-brand {
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.car-brand img {
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+    transition: transform .5s ease;
+}
+
+.car-brand img:hover{
+    transform: scale(1.05);
+}
+
+.car-brand h2{
+    color: var(--color-black);
+    margin: 5px 0;
+}
+
+.car-brand span{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.car-brand p{
+    font-size: 16px;
+    line-height: 25px;
+    margin-top: 10px;
+}
+
+/* ---------------------------------- End brand list ----------------------------------*/
+
+
+/* ---------------------------------- Start car list ----------------------------------*/
+.car-list-container{
+    margin: 0 100px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.label-car-list{
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.label-car-list h1{
+    font-size: 45px;
+}
+
+.label-car-list hr{
+    height: 2px;
+    background: #ccc;
+    margin: 10px 0;
+}
+
+.car-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.car-box{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    width: 400px;
+    margin-bottom: 20px;
+}
+
+.car-box img{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1s ease;
+}
+
+.car-box{
+    flex-direction: row;
+}
+
+.car-text{
+    line-height: 25px;
+    font-size: 15px;
+    padding: 20px;
+}
+
+.car-box img:hover{
+    transform: scale(1.1);
+}
+/* ---------------------------------- End car list ----------------------------------*/
+/* ---------------------------------- End cars page ----------------------------------*/
+
+
+/* ---------------------------------- Start car detail page ----------------------------------*/
+/* ---------------------------------- Start car detail ----------------------------------*/
+.car-detail-container{
+    display: flex;
+    max-width: 75%;
+    height: auto;
+    background: white;
+    box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.3);
+    margin: 130px auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 0px;
+}
+
+.left{
+    width: 60%;
+}
+
+.right{
+    width: 40%;
+    padding: 50px;  
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; 
+    height: 100%;
+}
+
+.main-img img{
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+}
+
+.option{
+    display: flex;
+    justify-content: center;
+}
+
+.option img{
+    width: 20%;
+    height: auto;
+    border-left: 1px solid white;
+}
+
+.car-name{
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.car-name .producing-year{
+    margin-left: 10px;
+}
+
+.car-name h3{
+    color: black;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.right p small{
+    color: #837d7c;
+}
+
+.car-price{
+    display: flex;
+    align-items: center;
+}
+
+.car-price h4{
+    color: var(--color-black);
+    font-size: 18px;
+}
+
+.car-price p{
+    font-size: medium;
+    font-weight: 200;
+    margin-left: 10px;
+}
+
+.car-description p{
+    margin-top: 30px;
+    line-height: 25px;
+}
+
+.btn-order button{
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color-primary);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
+}
+
+.btn-order button:hover{
+    transition: .5s;
+    background-color: white;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+.btn-specs{
+    display: inline-block;
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    background-color: white;
+    color: var(--color-primary);
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+.btn-specs:hover{
+    background-color: var(--color-primary);
+    color: white;
+    transition: .5s;
+}
+
+.btn-mt-score .span-10{
+    color: #9b9b9b;
+    font-size: 15px;
+}
+
+.btn-mt-score{
+    margin: 15px 0;
+}
+
+.btn-mt-score{
+    border: 1px solid var(--color-black);
+    border-radius: 5px;
+    width: 140px;
+    padding: 8px 5px;
+    font-size: 15px;
+    font-weight: bold;
+    background: white;
+    cursor: pointer;
+}
+
+.btn-mt-score span{
+    color: var(--color-mt-score);
+    font-size: large;
+}
+
+.btn-mt-score:hover{
+    color: white;
+    background: var(--color-mt-score);
+    border-color: var(--color-mt-score);
+    transition: all 0.3s ease;
+}
+
+.btn-mt-score:hover span{
+    color: white;
+    transition: all 0.3s ease;
+}
+/* ---------------------------------- End detail car ----------------------------------*/
+
+
+/* ---------------------------------- Start car review ----------------------------------*/
+.car-review-container{
+    max-width: 75%;
+    height: auto;
+    background: white;
+    box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.3);
+    margin: 20px auto;
+    margin-bottom: 100px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.car-review-box{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.label-mt-score{
+    margin-bottom: 15px;
+    display: flex;
+    margin-left: 25px;
+}
+
+.span-score{
+    color: var(--color-mt-score);
+    font-size: 30px;
+}
+
+.span-10{
+    color: #9b9b9b;
+    font-size: 20px;
+}
+
+.specifications-point-box{
+    display: flex;
+    justify-content: space-around;
+}
+
+.specifications-point{
+    border: 0px solid;
+    border-radius: 5px;
+    width: 220px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.specifications-point span{
+    color: var(--color-mt-score);
+    font-size: 25px;
+    font-weight: lighter;
+    margin-right: 4px;
+}
+
+.specifications-point h4{
+    color: #9b9b9b;
+}
+
+.specifications-point p{
+    font-size: 20px;
+    margin-top: 7px;
+}
+
+.score-bar{
+    margin-top: 5px;
+    background-color: var(--color-mt-score);
+    height: 3px;
+    border-radius: 10px;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.horizontal-barore-bar-c1sc{
+    background-color: var(--color-mt-score);
+    height: 3px;
+    border-radius: 10px;
+}
+
+.score-bar-c2{
+    background-color: #d8d8d8;
+    height: 3px;
+    border-radius: 10px;
+}
+
+/* ---------------------------------- End car review ----------------------------------*/
+/* ---------------------------------- End car detail page ----------------------------------*/
+
+.specs-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.specs-popup {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px 60px;
+    width: 75%;
+    height: 80%;
+    overflow-y: auto;
+}
+
+.specs-popup hr{
+    height: 1.5px;
+    border: none;
+    background: #ccc;
+    margin: 5px 0;  
+}
+
+.btn-close-popup{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.btn-close-popup button{
+    color: black;
+    cursor: pointer;
+    border: none;
+    font-size: 20px;
+    background: white;
+}
+
+.specs-box{
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.specs-box > div{
+    flex: 1 0 calc(50% - 10px);
+}
+
+.specs-box h3{
+    padding: 10px;
+}
+
+.specs-box table{
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.specs-box table td{
+    padding: 8px;
+}
+
+.specs-box table .tr-background{
+    background: #f2f2f2;
+    padding: 10px;
+}
+
+.specs-box table td{
+    padding-left: 10px;
+    font-size: 15px;
+}
+
+.specs-box table .td-name{
+    font-weight: bold;
+}
