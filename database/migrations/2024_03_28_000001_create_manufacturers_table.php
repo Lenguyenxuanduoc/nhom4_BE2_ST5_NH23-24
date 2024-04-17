@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image');
+            $table->string('banner')->nullable();
             $table->string('founded_year');
             $table->string('founder_name');
             $table->text('description');
