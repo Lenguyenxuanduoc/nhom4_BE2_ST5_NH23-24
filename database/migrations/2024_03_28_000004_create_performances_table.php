@@ -16,14 +16,14 @@ return new class extends Migration
         Schema::create('performances', function (Blueprint $table) {
             $table->id();
             $table->foreignId('car_id')->constrained('cars');
-            $table->string('engine');
-            $table->string('horsepower');
-            $table->string('trim');
-            $table->string('torque');
-            $table->integer('cylinders');
-            $table->string('standard_mpg');
-            $table->string('transmission');
-            $table->string('transmission_type');
+            $table->string('engine')->nullable();
+            $table->string('horsepower')->nullable();
+            $table->string('trim')->nullable();
+            $table->string('torque')->nullable();
+            $table->integer('cylinders')->nullable();
+            $table->string('standard_mpg')->nullable();
+            $table->string('transmission')->nullable();
+            $table->string('transmission_type')->nullable();
 
             $table->timestamps();
         });

@@ -135,6 +135,116 @@ class CarsSeeder extends Seeder
                 "quantity"=>"4", 
                 "producing_year"=>"2024",
                 "images"=>json_encode(["toyota1.jpg", "toyota2.jpg", "toyota3.jpg", "toyota4.jpg", "toyota5.jpg"])
+            ],
+            [
+                // 12
+                "name"=>"Ferrari 296 GTB", 
+                "manufacturer_id"=>"4", 
+                "category_id"=>"6", 
+                "price"=>"593181", 
+                "description"=>"", 
+                "quantity"=>"4", 
+                "producing_year"=>"2024",
+                "images"=>json_encode(["Ferrari-296-GTB-1.jpg", "Ferrari-296-GTB-2.jpg", "Ferrari-296-GTB-3.jpg", "Ferrari-296-GTB-4.jpg", "Ferrari-296-GTB-5.jpg"])
+            ],
+            [
+                // 13
+                "name"=>"Ferrari F8", 
+                "manufacturer_id"=>"4", 
+                "category_id"=>"10", 
+                "price"=>"343181", 
+                "description"=>"", 
+                "quantity"=>"4", 
+                "producing_year"=>"2024",
+                "images"=>json_encode(["Ferrari-F8-1.jpg", "Ferrari-F8-2.jpg", "Ferrari-F8-3.jpg", "Ferrari-F8-4.jpg", "Ferrari-F8-5.jpg"])
+            ],
+            [
+                // 14
+                "name"=>"Ferrari SF90", 
+                "manufacturer_id"=>"4", 
+                "category_id"=>"10", 
+                "price"=>"443181", 
+                "description"=>"", 
+                "quantity"=>"3", 
+                "producing_year"=>"2024",
+                "images"=>json_encode(["ferrari-sf90-1.jpg", "ferrari-sf90-2.jpg", "ferrari-sf90-3.jpg", "ferrari-sf90-4.jpg", "ferrari-sf90-5.jpg"])
+            ],
+            [
+                // 15
+                "name"=>"Ferrari SF90 Stradale", 
+                "manufacturer_id"=>"4", 
+                "category_id"=>"10", 
+                "price"=>"483181", 
+                "description"=>"", 
+                "quantity"=>"3", 
+                "producing_year"=>"2024",
+                "images"=>json_encode(["Ferrari-SF90-1.jpg", "Ferrari-SF90-2.jpg", "Ferrari-SF90-3.jpg", "Ferrari-SF90-4.jpg", "Ferrari-SF90-5.jpg"])
+            ],
+            [
+                // 16
+                "name"=>"Ford F-150", 
+                "manufacturer_id"=>"5", 
+                "category_id"=>"6", 
+                "price"=>"983181", 
+                "description"=>"", 
+                "quantity"=>"5", 
+                "producing_year"=>"2024",
+                "images"=>json_encode(["Ford-F-150-1.jpg", "Ford-F-150-2.jpg", "Ford-F-150-3.jpg", "Ford-F-150-4.jpg", "Ford-F-150-5.jpg"])
+            ],
+            [
+                // 17
+                "name"=>"Ford Mustang GTD", 
+                "manufacturer_id"=>"5", 
+                "category_id"=>"10", 
+                "price"=>"783181", 
+                "description"=>"", 
+                "quantity"=>"3", 
+                "producing_year"=>"2024",
+                "images"=>json_encode(["ford-mustang-gtd1.jpg", "ford-mustang-gtd2.jpg", "ford-mustang-gtd3.jpg", "ford-mustang-gtd4.jpg", "ford-mustang-gtd5.jpg"])
+            ],
+            [
+                // 18
+                "name"=>"Lamborghini Huracan", 
+                "manufacturer_id"=>"7", 
+                "category_id"=>"10", 
+                "price"=>"793181", 
+                "description"=>"", 
+                "quantity"=>"2", 
+                "producing_year"=>"2024",
+                "images"=>json_encode(["Lamborghini-Huracán-1.jpg", "Lamborghini-Huracán-2.jpg", "Lamborghini-Huracán-3.jpg", "Lamborghini-Huracán-4.jpg", "Lamborghini-Huracán-5.jpg"])
+            ],
+            [
+                // 19
+                "name"=>"Lamborghini Revuelto", 
+                "manufacturer_id"=>"7", 
+                "category_id"=>"10", 
+                "price"=>"703181", 
+                "description"=>"", 
+                "quantity"=>"2", 
+                "producing_year"=>"2024",
+                "images"=>json_encode(["lamborghini-revuelto1.jpg", "lamborghini-revuelto2.jpg", "lamborghini-revuelto3.jpg", "lamborghini-revuelto4.jpg", "lamborghini-revuelto5.jpg"])
+            ],
+            [
+                // 20
+                "name"=>"Nissan Ariya", 
+                "manufacturer_id"=>"9", 
+                "category_id"=>"1", 
+                "price"=>"603081", 
+                "description"=>"", 
+                "quantity"=>"5", 
+                "producing_year"=>"2024",
+                "images"=>json_encode(["Nissan-Ariya1.jpg", "Nissan-Ariya2.jpg", "Nissan-Ariya3.jpg", "Nissan-Ariya4.jpg", "Nissan-Ariya5.jpg"])
+            ],
+            [
+                // 21
+                "name"=>"Nissan Z", 
+                "manufacturer_id"=>"9", 
+                "category_id"=>"1", 
+                "price"=>"753081", 
+                "description"=>"", 
+                "quantity"=>"5", 
+                "producing_year"=>"2024",
+                "images"=>json_encode(["Nissan-Z-1.jpg", "Nissan-Z-2.jpg", "Nissan-Z-3.jpg", "Nissan-Z-4.jpg", "Nissan-Z-5.jpg"])
             ]
         ]);
     }

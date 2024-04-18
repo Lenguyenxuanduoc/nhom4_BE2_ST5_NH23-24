@@ -91,6 +91,76 @@ class WeightsCapacitiesSeeder extends Seeder
                 "fuel_capacity" => "14.5",
                 "cargo_capacity" => "37.6/69.8 cu-ft",
                 "curb_weight" => "3,690 lb"
+            ],
+            [
+                //Ferrari 296 GTB
+                "car_id" => "12",
+                "fuel_capacity" => "",
+                "cargo_capacity" => "",
+                "curb_weight" => ""
+            ],
+            [
+                //Ferrari F8
+                "car_id" => "13",
+                "fuel_capacity" => "",
+                "cargo_capacity" => "",
+                "curb_weight" => ""
+            ],
+            [
+                //Ferrari SF90
+                "car_id" => "14",
+                "fuel_capacity" => "",
+                "cargo_capacity" => "",
+                "curb_weight" => ""
+            ],
+            [
+                //Ferrari SF90 Stradale
+                "car_id" => "15",
+                "fuel_capacity" => "",
+                "cargo_capacity" => "",
+                "curb_weight" => ""
+            ],
+            [
+                //Ford F-150
+                "car_id" => "16",
+                "fuel_capacity" => "23.0",
+                "cargo_capacity" => "",
+                "curb_weight" => ""
+            ],
+            [
+                //Ford Mustang GTD
+                "car_id" => "17",
+                "fuel_capacity" => "",
+                "cargo_capacity" => "",
+                "curb_weight" => ""
+            ],
+            [
+                //Lamborghini Huracan
+                "car_id" => "18",
+                "fuel_capacity" => "",
+                "cargo_capacity" => "",
+                "curb_weight" => ""
+            ],
+            [
+                //Lamborghini Revuelto
+                "car_id" => "19",
+                "fuel_capacity" => "",
+                "cargo_capacity" => "",
+                "curb_weight" => ""
+            ],
+            [
+                //Nissan Ariya
+                "car_id" => "20",
+                "fuel_capacity" => "",
+                "cargo_capacity" => "",
+                "curb_weight" => ""
+            ],
+            [
+                //Nissan Z
+                "car_id" => "21",
+                "fuel_capacity" => "16.4",
+                "cargo_capacity" => "6.9 cu-ft",
+                "curb_weight" => "3,486 lb"
             ]
         ]);
     }

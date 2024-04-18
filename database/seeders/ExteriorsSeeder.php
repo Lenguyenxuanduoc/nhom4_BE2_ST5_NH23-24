@@ -102,6 +102,86 @@ class ExteriorsSeeder extends Seeder
                 "width" => "73.0 in",
                 "height" => "67.0 in",
                 "wheelbase" => "105.9 in"
+            ],
+            [
+                //Ferrari 296 GTB
+                "car_id" => "12",
+                "length" => "",
+                "width" => "",
+                "height" => "",
+                "wheelbase" => ""
+            ],
+            [
+                //Ferrari F8
+                "car_id" => "13",
+                "length" => "",
+                "width" => "",
+                "height" => "",
+                "wheelbase" => ""
+            ],
+            [
+                //Ferrari SF90
+                "car_id" => "14",
+                "length" => "",
+                "width" => "",
+                "height" => "",
+                "wheelbase" => ""
+            ],
+            [
+                //Ferrari SF90 Stradale
+                "car_id" => "15",
+                "length" => "",
+                "width" => "",
+                "height" => "",
+                "wheelbase" => ""
+            ],
+            [
+                //Ford F-150
+                "car_id" => "16",
+                "length" => "209.1 in",
+                "width" => "79.9 in",
+                "height" => "75.6 in",
+                "wheelbase" => "122.8 in"
+            ],
+            [
+                //Ford Mustang GTD
+                "car_id" => "17",
+                "length" => "",
+                "width" => "",
+                "height" => "",
+                "wheelbase" => ""
+            ],
+            [
+                //Lamborghini Huracan
+                "car_id" => "18",
+                "length" => "",
+                "width" => "",
+                "height" => "",
+                "wheelbase" => ""
+            ],
+            [
+                //Lamborghini Revuelto
+                "car_id" => "19",
+                "length" => "",
+                "width" => "",
+                "height" => "",
+                "wheelbase" => ""
+            ],
+            [
+                //Nissan Ariya
+                "car_id" => "20",
+                "length" => "",
+                "width" => "",
+                "height" => "",
+                "wheelbase" => ""
+            ],
+            [
+                //Nissan Z
+                "car_id" => "21",
+                "length" => "172.4 in",
+                "width" => "72.6 in",
+                "height" => "51.8 in",
+                "wheelbase" => "100.4 in"
             ]
         ]);
     }

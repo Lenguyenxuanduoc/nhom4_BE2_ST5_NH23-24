@@ -124,6 +124,106 @@ class InteriorsSeeder extends Seeder
                 "rear_legroom" => "37.8 in",
                 "front_shoulder_room" => "57.8 in",
                 "rear_shoulder_room" => "56.4 in"
+            ],
+            [
+                //Ferrari 296 GTB
+                "car_id" => "12",
+                "front_headroom" => "",
+                "rear_headroom" => "",
+                "front_legroom" => "",
+                "rear_legroom" => "",
+                "front_shoulder_room" => "",
+                "rear_shoulder_room" => ""
+            ],
+            [
+                //Ferrari F8
+                "car_id" => "13",
+                "front_headroom" => "",
+                "rear_headroom" => "",
+                "front_legroom" => "",
+                "rear_legroom" => "",
+                "front_shoulder_room" => "",
+                "rear_shoulder_room" => ""
+            ],
+            [
+                //Ferrari SF90
+                "car_id" => "14",
+                "front_headroom" => "",
+                "rear_headroom" => "",
+                "front_legroom" => "",
+                "rear_legroom" => "",
+                "front_shoulder_room" => "",
+                "rear_shoulder_room" => ""
+            ],
+            [
+                //Ferrari SF90 Stradale
+                "car_id" => "15",
+                "front_headroom" => "",
+                "rear_headroom" => "",
+                "front_legroom" => "",
+                "rear_legroom" => "",
+                "front_shoulder_room" => "",
+                "rear_shoulder_room" => ""
+            ],
+            [
+                //Ford F-150
+                "car_id" => "16",
+                "front_headroom" => "40.8 in",
+                "rear_headroom" => "",
+                "front_legroom" => "43.9 in",
+                "rear_legroom" => "",
+                "front_shoulder_room" => "66.7 in",
+                "rear_shoulder_room" => ""
+            ],
+            [
+                //Ford Mustang GTD
+                "car_id" => "17",
+                "front_headroom" => "",
+                "rear_headroom" => "",
+                "front_legroom" => "",
+                "rear_legroom" => "",
+                "front_shoulder_room" => "",
+                "rear_shoulder_room" => ""
+            ],
+            [
+                //Lamborghini Huracan
+                "car_id" => "18",
+                "front_headroom" => "",
+                "rear_headroom" => "",
+                "front_legroom" => "",
+                "rear_legroom" => "",
+                "front_shoulder_room" => "",
+                "rear_shoulder_room" => ""
+            ],
+            [
+                //Lamborghini Revuelto
+                "car_id" => "19",
+                "front_headroom" => "",
+                "rear_headroom" => "",
+                "front_legroom" => "",
+                "rear_legroom" => "",
+                "front_shoulder_room" => "",
+                "rear_shoulder_room" => ""
+            ],
+            [
+                //Nissan Ariya
+                "car_id" => "20",
+                "front_headroom" => "",
+                "rear_headroom" => "",
+                "front_legroom" => "",
+                "rear_legroom" => "",
+                "front_shoulder_room" => "",
+                "rear_shoulder_room" => ""
+            ],
+            [
+                //Nissan Z
+                "car_id" => "21",
+                "front_headroom" => "38.2 in",
+                "rear_headroom" => "",
+                "front_legroom" => "42.9 in",
+                "rear_legroom" => "",
+                "front_shoulder_room" => "54.2 in",
+                "rear_shoulder_room" => ""
             ]
         ]);
     }
