@@ -37,7 +37,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                     with font-awesome or any other icon font library -->
                 <liv class="nav-item">
-                    <a href="pages/bangdieukhien.html" class="nav-link">Dashboard</a>
+                    <a href="dashboard" class="nav-link">Dashboard</a>
                 </liv>
 
 

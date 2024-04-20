@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('Admin.index');
 });
+
+Route::get('Admin/dashboard', function(){
+    return view('Admin.dashboard');
+});
