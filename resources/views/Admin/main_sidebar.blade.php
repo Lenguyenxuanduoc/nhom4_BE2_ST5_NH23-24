@@ -54,28 +54,29 @@
                     Car
                 </li>
                 <liv class="nav-item">
-                    <a href="pages/quanlioto.html" class="nav-link">Cars</a>
+                    <!-- <a href="Admin/Pages/car" class="nav-link">Cars</a> -->
+                    <a href="car" class="nav-link">Cars</a>
                 </liv>
                 <liv class="nav-item">
-                    <a href="pages/quanlinhasanxuat.html" class="nav-link">Categories</a>
+                    <a href="categories" class="nav-link">Categories</a>
                 </liv>
                 <liv class="nav-item">
-                    <a href="pages/quanlinhasanxuat.html" class="nav-link">Manufacturers</a>
+                    <a href="manufacturers" class="nav-link">Manufacturers</a>
                 </liv>
                 <liv class="nav-item">
-                    <a href="pages/caidatvacauhinh.html" class="nav-link">Car Performance</a>
+                    <a href="car-performance" class="nav-link">Car Performance</a>
                 </liv>
                 <liv class="nav-item">
-                    <a href="pages/quanlituychonnoithat.html" class="nav-link">Car Interior</a>
+                    <a href="car-interior" class="nav-link">Car Interior</a>
                 </liv>
                 <liv class="nav-item">
-                    <a href="pages/caidatvacauhinh.html" class="nav-link">Car Exterior</a>
+                    <a href="car-exterior" class="nav-link">Car Exterior</a>
                 </liv>
                 <liv class="nav-item">
-                    <a href="pages/caidatvacauhinh.html" class="nav-link">Car Weights and Capacities</a>
+                    <a href="" class="nav-link">Car Weights and Capacities</a>
                 </liv>
                 <liv class="nav-item">
-                    <a href="pages/caidatvacauhinh.html" class="nav-link">Car Reviews</a>
+                    <a href="car-reviews" class="nav-link">Car Reviews</a>
                 </liv>
 
 
@@ -83,10 +84,10 @@
                     News
                 </li>
                 <liv class="nav-item">
-                    <a href="pages/quanlioto.html" class="nav-link">Posts</a>
+                    <a href="posts" class="nav-link">Posts</a>
                 </liv>
                 <liv class="nav-item">
-                    <a href="pages/quanlioto.html" class="nav-link">Comments Posts</a>
+                    <a href="comments-post" class="nav-link">Comments Posts</a>
                 </liv>
             </ul>
         </nav>

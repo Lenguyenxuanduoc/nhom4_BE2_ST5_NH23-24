@@ -12,7 +12,9 @@
         @include('admin.main_sidebar')
         
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper"></div>
+        <div class="content-wrapper">
+          
+        </div>
 
         @include('admin.footer')
         
