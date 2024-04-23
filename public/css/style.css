@@ -472,12 +472,10 @@ header{
 /* ---------------------------------- End footer section ----------------------------------*/
 
 
-/* ---------------------------------- Start news page ----------------------------------*/
-/* ---------------------------------- Start news banner ----------------------------------*/
-.news-banner {
+/* ---------------------------------- Start banner ----------------------------------*/
+.banner {
     margin-top: 80px;
     position: relative;
-    background-image: url('banner_news_page.jpg');
     background-size: cover;
     background-position: center;
     height: 600px;
@@ -488,7 +486,7 @@ header{
     text-align: center;
 }
 
-.news-banner::before {
+.banner::before {
     content: "";
     position: absolute;
     top: 0;
@@ -513,9 +511,10 @@ header{
     font-size: 1.8rem;
     font-weight: bold;
 }
-/* ---------------------------------- End news banner ----------------------------------*/
+/* ---------------------------------- End banner ----------------------------------*/
 
 
+/* ---------------------------------- Start news page ----------------------------------*/
 /* ---------------------------------- Start posts ----------------------------------*/
 .posts-container{
     display: flex;
@@ -589,51 +588,7 @@ header{
 /* ---------------------------------- End news page ----------------------------------*/
 
 
-/* ---------------------------------- Start cars page ----------------------------------*/
-/* ---------------------------------- Start cars banner ----------------------------------*/
-.cars-banner {
-    margin-top: 80px;
-    position: relative;
-    background-image: url('banner_cars_page.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff; /* Text color */
-    text-align: center;
-}
-
-.cars-banner::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Màu nền đen với độ mờ 50% */
-}
-
-.banner-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px; /* Adjust width as needed */
-}
-
-.banner-content h1 {
-    font-size: 3.2rem;
-    margin-bottom: 40px;
-}
-
-.banner-content p {
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-
-/* ---------------------------------- End cars banner ----------------------------------*/
-
-
+/* ---------------------------------- Start brands page ----------------------------------*/
 /* ---------------------------------- Start brand list ----------------------------------*/
 .car-brands-container{
     margin: 0 100px;
@@ -703,7 +658,7 @@ header{
 /* ---------------------------------- End brand list ----------------------------------*/
 
 
-/* ---------------------------------- Start car list ----------------------------------*/
+/* ---------------------------------- Start featured car ----------------------------------*/
 .car-list-container{
     margin: 0 100px;
     display: flex;
@@ -744,6 +699,8 @@ header{
 }
 
 .car-box img{
+    border-radius: 5px;
+    margin-top: 10px;
     width: 100%;
     object-fit: cover;
     object-position: center;
@@ -754,6 +711,10 @@ header{
     flex-direction: row;
 }
 
+.car-box h2{
+    color: var(--color-black);
+}
+
 .car-text{
     line-height: 25px;
     font-size: 15px;
@@ -761,24 +722,24 @@ header{
 }
 
 .car-box img:hover{
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
-/* ---------------------------------- End car list ----------------------------------*/
-/* ---------------------------------- End cars page ----------------------------------*/
+/* ---------------------------------- End featured car ----------------------------------*/
+/* ---------------------------------- End brands page ----------------------------------*/
 
 
 /* ---------------------------------- Start car detail page ----------------------------------*/
 /* ---------------------------------- Start car detail ----------------------------------*/
 .car-detail-container{
     display: flex;
-    max-width: 75%;
+    max-width: 80%;
     height: auto;
     background: white;
     box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.3);
     margin: 130px auto;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    margin-bottom: 0px;
+    margin-bottom: 30px;
 }
 
 .left{
@@ -809,6 +770,7 @@ header{
     width: 20%;
     height: auto;
     border-left: 1px solid white;
+    cursor: pointer;
 }
 
 .car-name{
@@ -892,6 +854,10 @@ header{
     transition: .5s;
 }
 
+.category-mtscore{
+    margin: 10px 0 15px 0;
+}
+
 .btn-mt-score .span-10{
     color: #9b9b9b;
     font-size: 15px;
@@ -928,31 +894,59 @@ header{
     color: white;
     transition: all 0.3s ease;
 }
+
+.btn-category {
+    border: 1px solid var(--color-black);
+    border-radius: 5px;
+    width: 100px;
+    padding: 10px 5px;
+    font-size: 15px;
+    font-weight: bold;
+    background: white;
+    margin-left: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn-category:hover {
+    color: white;
+    background: var(--color-mt-score);
+    border-color: var(--color-mt-score);
+    transition: all 0.3s ease;
+}
+
+.btn-category:hover a{
+    color: white;
+}
+
+.btn-category a{
+    color: var(--color-black);
+}
 /* ---------------------------------- End detail car ----------------------------------*/
 
 
 /* ---------------------------------- Start car review ----------------------------------*/
 .car-review-container{
-    max-width: 75%;
+    max-width: 80%;
     height: auto;
     background: white;
     box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.3);
     margin: 20px auto;
-    margin-bottom: 100px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    margin-bottom: 30px;
+    /* border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; */
 }
 
 .car-review-box{
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px 10px 15px 10px;
 }
 
 .label-mt-score{
     margin-bottom: 15px;
     display: flex;
-    margin-left: 25px;
+    margin-left: 35px;
 }
 
 .span-score{
@@ -999,8 +993,6 @@ header{
     background-color: var(--color-mt-score);
     height: 3px;
     border-radius: 10px;
-    /* display: flex;
-    flex-direction: column; */
 }
 
 .horizontal-barore-bar-c1sc{
@@ -1016,8 +1008,80 @@ header{
 }
 
 /* ---------------------------------- End car review ----------------------------------*/
+
+
+/* ---------------------------------- Start related cars ----------------------------------*/
+.related-cars-container{
+    max-width: 80%;
+    height: auto;
+    background: white;
+    box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.3);
+    margin: 20px auto;
+    margin-bottom: 70px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.related-cars{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.related-cars-container h1{
+    padding: 20px 40px;
+    font-size: 40px;
+}
+
+.related-cars-box{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 24%;
+    margin: 12px 0;
+    border-radius: 10px;
+}
+
+.related-cars-box img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 1s;
+}
+
+.related-cars-box img:hover{
+    transform: scale(1.1);
+}
+
+
+.related-cars-text h2{
+    color: var(--color-primary);
+} 
+
+.related-cars-text p{
+    color: #272727;
+    font-size: 15px;
+    padding-top: 5px;
+}
+
+.related-cars-box .span1{
+    color: var(--color-mt-score);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.related-cars-box .span2{
+    color: #9b9b9b;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* ---------------------------------- End related cars ----------------------------------*/
 /* ---------------------------------- End car detail page ----------------------------------*/
 
+
+/* ---------------------------------- Start specs pop up ----------------------------------*/
 .specs-popup-overlay {
     position: fixed;
     top: 0;
@@ -1097,3 +1161,186 @@ header{
 .specs-box table .td-name{
     font-weight: bold;
 }
+/* ---------------------------------- End specs pop up ----------------------------------*/
+
+
+/* ---------------------------------- Start posts page ----------------------------------*/
+/* ---------------------------------- Start banner posts ----------------------------------*/
+.banner-posts{
+    margin-top: 80px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-posts::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.banner-posts-content{
+    position: absolute;
+    z-index: 1;
+    max-width: 800px;
+    bottom: 0;
+    left: 0;
+    padding-left: 50px;
+    margin-bottom: 50px;
+    color: #fff;
+}
+
+.banner-posts-content h1{
+    font-size: 3.2rem;
+    padding-top: 10px;
+}
+
+.banner-posts-content p {
+    font-size: 1.2rem;
+}
+
+.banner-posts-content span {
+    font-size: 1.2rem;
+    color: #ccc;
+    padding-left: 5px;
+}
+/* ---------------------------------- End banner posts ----------------------------------*/
+
+
+/* ---------------------------------- Statrt posts content----------------------------------*/
+.posts-content-container{
+    display: flex;
+    width: 80%;
+    margin: 50px auto;
+}
+
+.posts-content {
+    width: 70%;
+    padding: 0 20px;
+    line-height: 25px;
+}
+
+.posts-content img{
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+.share-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+}
+
+.fb-share-btn{
+    background-color: #3b5998;
+    width: 30%;
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    transition: transform 1s;
+}
+
+.fb-share-btn:hover{
+    transform: scale(1.05);
+}
+
+.fb-share-btn i{
+    color: white;
+    font-size: large;
+}
+
+.ins-share-btn{
+    background-color: #E4405F;
+    width: 30%;
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    transition: transform 1s;
+}
+
+.ins-share-btn:hover{
+    transform: scale(1.05);
+}
+
+.ins-share-btn i{
+    color: white;
+    font-size: large;
+}
+
+.twitter-share-btn{
+    background-color: var(--color-black);
+    width: 30%;
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    transition: transform 1s;
+}
+
+.twitter-share-btn:hover{
+    transform: scale(1.05);
+}
+
+.twitter-share-btn i{
+    color: white;
+    font-size: large;
+}
+
+.related-posts{
+    width: 30%;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #818181;
+}
+
+.related-posts-box{
+    margin-bottom: 50px;
+    padding-left: 15px;
+    overflow: hidden;
+}
+
+.related-posts-box p{
+    font-size: 14px;
+    color: #9b9b9b;
+    font-weight: 600;
+}
+
+.related-posts-box h3{
+    padding: 5px 0;
+    color: var(--color-black);
+}
+
+.img-related-post{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.img-related-posts img{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1s ease;
+}
+
+.img-related-posts img:hover{
+    transform: scale(1.03);
+}
+
+
+/* ---------------------------------- End posts content ----------------------------------*/
+
+
+/* ---------------------------------- End posts page ----------------------------------*/
