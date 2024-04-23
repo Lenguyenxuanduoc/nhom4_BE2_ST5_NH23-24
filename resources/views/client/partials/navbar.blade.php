@@ -1,3 +1,6 @@
+@php
+    use Illuminate\Support\Facades\Auth;
+@endphp
 <!------- Start navbar ------->
 <nav>
     <div class="container nav-container">
@@ -21,14 +24,29 @@
             </li>
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
+
+            @if (Auth::check() && Auth::user()->permission == 1) 
+                <li><a href="/admin">Admin</a></li>
+            @endif  
+
             <li>
                 <form action="" class="search">
                     <input type="text" name="tag" placeholder="Search">
                     <button type="submit" style="display:none"></button>
                 </form>
             </li>
+            
             <div class="login-register">
-                <li><button class="login-btn" onclick="openPopup('login-popup')">Login</button></li>
+                @if (Auth::check())
+                    <li>
+                        <form action="/logout" method="post" id="logout-form">
+                            @csrf
+                            <button type="submit" class="login-btn">Log out</button>
+                        </form>
+                    </li>
+                @else
+                    <li><button class="login-btn" onclick="openPopup('login-popup')">Log in</button></li>
+                @endif
             </div>
         </ul>
         <ul class="social-link">
