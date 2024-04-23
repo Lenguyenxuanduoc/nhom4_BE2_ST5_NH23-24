@@ -1,63 +1,40 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\client\HomeController;
+use App\Http\Controllers\client\NewsController;
+use App\Http\Controllers\client\BrandController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// Client routes 
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index']);
 
-Route::get('/', function () {
-    return view('Admin.index');
+Route::prefix('/news')->group(function(){
+    Route::get('/', [NewsController::class, 'index']);
+
+    // Lấy chi tiết 1 posts
+    Route::get('/posts/{id}', [NewsController::class, 'getPosts']);
 });
-// Route::get('Admin/Pages/car', function () {
-//     return view('Admin.Pages.car');
+
+Route::prefix('/brands')->group(function(){
+    Route::get('/', [BrandController::class, 'index']);
+
+    // Lấy chi tiết 1 brand
+    Route::get('/brand/{id}', [BrandController::class, 'getBrand']);
+});
+
+Route::get('/detail', function(){
+    return view('client.car.detail',[
+        'title'=>''
+    ]);
+});
+
+Route::get('/admin', function(){
+    return view('/admin/home');
+});
+
+// Route::get('/brand/detail', function(){
+//     return view('client.brand.detail',[
+//         'title'=>''
+//     ]);
 // });
-Route::get('car', function () {
-    return view('Admin.car');
-});
-Route::get('edit-car', function () {
-    return view('Admin.edit-car');
-});
-Route::get('create-car', function () {
-    return view('Admin.create-car');
-});
-Route::get('categories', function () {
-    return view('Admin.categories');
-});
-Route::get('edit-categories', function () {
-    return view('Admin.edit-categories');
-});
-Route::get('create-categories', function () {
-    return view('Admin.create-categories');
-});
-Route::get('manufacturers', function () {
-    return view('Admin.manufacturers');
-});
-Route::get('edit-manufacturers', function () {
-    return view('Admin.edit-manufacturers');
-});
-Route::get('create-manufacturers', function () {
-    return view('Admin.create-manufacturers');
-});
-Route::get('car-performance', function () {
-    return view('Admin.car-performance');
-});
-Route::get('car-interior', function () {
-    return view('Admin.car-interior');
-});
-Route::get('car-exterior', function () {
-    return view('Admin.car-exterior');
-});
-Route::get('car-reviews', function () {
-    return view('Admin.car-reviews');
-});
-
-
-

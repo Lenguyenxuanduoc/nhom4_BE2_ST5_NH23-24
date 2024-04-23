@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('quantity')->nullable();
             $table->string('producing_year')->nullable();
             $table->json('images');
+            $table->string('avatar');
             $table->timestamps();
         });
     }
