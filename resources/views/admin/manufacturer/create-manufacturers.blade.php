@@ -27,37 +27,35 @@
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
+        <a href="create-manufacturers" class="btn btn-primary">Tạo Nhà Sản Xuất Mới</a>
         <div class="row">
             <div class="col-md-6">
                 <!-- Manufacturer Creation Form -->
                 <div class="card">
                     <div class="card-body">
-                        <form role="form">
+                        <h5 class="card-title">Tạo Nhà Sản Xuất Mới</h5>
+                        <form>
                             <div class="form-group">
-                                <label for="manufacturerName">Manufacturer Name</label>
-                                <input type="text" class="form-control" id="manufacturerName" placeholder="Enter manufacturer name">
+                                <label for="manufacturerName">Tên Nhà Sản Xuất</label>
+                                <input type="text" class="form-control" id="manufacturerName" placeholder="Nhập tên nhà sản xuất">
                             </div>
                             <div class="form-group">
-                                <label for="manufacturerAddress">Manufacturer Address</label>
-                                <input type="text" class="form-control" id="manufacturerAddress" placeholder="Enter manufacturer address">
+                                <label for="manufacturerImage">Hình Ảnh</label>
+                                <input type="file" class="form-control-file" id="manufacturerImage">
                             </div>
                             <div class="form-group">
-                                <label for="manufacturerPhoneNumber">Phone Number</label>
-                                <input type="text" class="form-control" id="manufacturerPhoneNumber" placeholder="Enter phone number">
+                                <label for="foundationYear">Năm Thành Lập</label>
+                                <input type="text" class="form-control" id="foundationYear" placeholder="Nhập năm thành lập">
                             </div>
                             <div class="form-group">
-                                <label for="manufacturerEmailAddress">Email Address</label>
-                                <input type="email" class="form-control" id="manufacturerEmailAddress" placeholder="Enter email address">
+                                <label for="founderName">Tên Người Sáng Lập</label>
+                                <input type="text" class="form-control" id="founderName" placeholder="Nhập tên người sáng lập">
                             </div>
                             <div class="form-group">
-                                <label for="manufacturerWarranty">Warranty Information</label>
-                                <textarea class="form-control" id="manufacturerWarranty" placeholder="Enter warranty information"></textarea>
+                                <label for="manufacturerDescription">Miêu Tả</label>
+                                <textarea class="form-control" id="manufacturerDescription" placeholder="Nhập miêu tả"></textarea>
                             </div>
-                            <div class="form-group">
-                                <label for="manufacturerServices">Services Information</label>
-                                <textarea class="form-control" id="manufacturerServices" placeholder="Enter services information"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Create Manufacturer</button>
+                            <button type="submit" class="btn btn-primary">Tạo Nhà Sản Xuất</button>
                         </form>
                     </div>
                 </div>
@@ -66,6 +64,7 @@
         </div>
     </div><!-- /.container-fluid -->
 </section>
+
 
     <!-- /.content -->
 </div>

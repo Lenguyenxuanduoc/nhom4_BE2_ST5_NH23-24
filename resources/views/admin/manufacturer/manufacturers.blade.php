@@ -33,55 +33,50 @@
 
     <!-- Main content -->
     <section class="content">
-        <div class="container-fluid">
-        <a href="create-manufacturers" class="btn btn-primary">Created new Manufacturer</a>
-            <div class="row">
-                <!-- Featured Manufacturer 1 -->
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Manufacturer A</h5>
-                            <p class="card-text">Address: [Manufacturer A Address]</p>
-                            <p class="card-text">Contact:</p>
-                            <ul>
-                                <li>Phone: [Manufacturer A Phone Number]</li>
-                                <li>Email: [Manufacturer A Email Address]</li>
-                            </ul>
-                            <p class="card-text">Warranty: [Manufacturer A Warranty Information]</p>
-                            <p class="card-text">Services: [Manufacturer A Services Information]</p>
-                        </div>
-                        <div class="card-footer">
-                            <button type="button" class="btn btn-danger">Delete</button>
-                            <a href="edit-manufacturers" class="btn btn-primary">Edit</a>
-                        </div>
+    <div class="container-fluid">
+        <a href="create-manufacturers" class="btn btn-primary">Tạo Nhà Sản Xuất Mới</a>
+        <div class="row">
+            <!-- Manufacturer 1 -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Manufacturer A</h5>
+                        <!-- Thêm hình ảnh -->
+                        <img src="manufacturer-a-image.jpg" alt="Manufacturer A Image" class="img-fluid mb-2">
+                        <p class="card-text">Năm thành lập: 1990</p>
+                        <p class="card-text">Tên người sáng lập: John Doe</p>
+                        <p class="card-text">Miêu tả: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at justo eget velit fringilla imperdiet.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-danger">Xóa</button>
+                        <a href="edit-manufacturer-a" class="btn btn-primary">Chỉnh Sửa</a>
                     </div>
                 </div>
-                <!-- End Featured Manufacturer 1 -->
-
-                <!-- Featured Manufacturer 2 -->
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Manufacturer B</h5>
-                            <p class="card-text">Address: [Manufacturer B Address]</p>
-                            <p class="card-text">Contact:</p>
-                            <ul>
-                                <li>Phone: [Manufacturer B Phone Number]</li>
-                                <li>Email: [Manufacturer B Email Address]</li>
-                            </ul>
-                            <p class="card-text">Warranty: [Manufacturer B Warranty Information]</p>
-                            <p class="card-text">Services: [Manufacturer B Services Information]</p>
-                        </div>
-                        <div class="card-footer">
-                            <button type="button" class="btn btn-danger">Delete</button>
-                            <a href="edit-manufacturers" class="btn btn-primary">Edit</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Featured Manufacturer 2 -->
             </div>
-        </div><!-- /.container-fluid -->
-    </section>
+            <!-- End Manufacturer 1 -->
+
+            <!-- Manufacturer 2 -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Manufacturer B</h5>
+                        <!-- Thêm hình ảnh -->
+                        <img src="manufacturer-b-image.jpg" alt="Manufacturer B Image" class="img-fluid mb-2">
+                        <p class="card-text">Năm thành lập: 1985</p>
+                        <p class="card-text">Tên người sáng lập: Jane Smith</p>
+                        <p class="card-text">Miêu tả: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at justo eget velit fringilla imperdiet.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-danger">Xóa</button>
+                        <a href="edit-manufacturer-b" class="btn btn-primary">Chỉnh Sửa</a>
+                    </div>
+                </div>
+            </div>
+            <!-- End Manufacturer 2 -->
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->

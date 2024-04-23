@@ -26,46 +26,44 @@
 
     <!-- Main content -->
     <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                    <!-- Manufacturer Edit Form -->
-                    <div class="card">
-                        <div class="card-body">
-                            <form role="form">
-                                <div class="form-group">
-                                    <label for="manufacturerName">Manufacturer Name</label>
-                                    <input type="text" class="form-control" id="manufacturerName" placeholder="Enter manufacturer name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="manufacturerAddress">Manufacturer Address</label>
-                                    <input type="text" class="form-control" id="manufacturerAddress" placeholder="Enter manufacturer address">
-                                </div>
-                                <div class="form-group">
-                                    <label for="manufacturerPhoneNumber">Phone Number</label>
-                                    <input type="text" class="form-control" id="manufacturerPhoneNumber" placeholder="Enter phone number">
-                                </div>
-                                <div class="form-group">
-                                    <label for="manufacturerEmailAddress">Email Address</label>
-                                    <input type="email" class="form-control" id="manufacturerEmailAddress" placeholder="Enter email address">
-                                </div>
-                                <div class="form-group">
-                                    <label for="manufacturerWarranty">Warranty Information</label>
-                                    <textarea class="form-control" id="manufacturerWarranty" placeholder="Enter warranty information"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="manufacturerServices">Services Information</label>
-                                    <textarea class="form-control" id="manufacturerServices" placeholder="Enter services information"></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Save Changes</button>
-                            </form>
-                        </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Manufacturer Edit Form -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Chỉnh Sửa Thông Tin Nhà Sản Xuất</h5>
+                        <form>
+                            <div class="form-group">
+                                <label for="manufacturerName">Tên Nhà Sản Xuất</label>
+                                <input type="text" class="form-control" id="manufacturerName" placeholder="Nhập tên nhà sản xuất">
+                            </div>
+                            <div class="form-group">
+                                <label for="manufacturerImage">Hình Ảnh</label>
+                                <input type="file" class="form-control-file" id="manufacturerImage">
+                            </div>
+                            <div class="form-group">
+                                <label for="foundationYear">Năm Thành Lập</label>
+                                <input type="text" class="form-control" id="foundationYear" placeholder="Nhập năm thành lập">
+                            </div>
+                            <div class="form-group">
+                                <label for="founderName">Tên Người Sáng Lập</label>
+                                <input type="text" class="form-control" id="founderName" placeholder="Nhập tên người sáng lập">
+                            </div>
+                            <div class="form-group">
+                                <label for="manufacturerDescription">Miêu Tả</label>
+                                <textarea class="form-control" id="manufacturerDescription" placeholder="Nhập miêu tả"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Lưu Thay Đổi</button>
+                        </form>
                     </div>
-                    <!-- End Manufacturer Edit Form -->
                 </div>
+                <!-- End Manufacturer Edit Form -->
             </div>
-        </div><!-- /.container-fluid -->
-    </section>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->

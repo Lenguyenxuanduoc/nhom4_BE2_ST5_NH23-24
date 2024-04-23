@@ -77,7 +77,69 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section><section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Thêm Mới Ô Tô</h3>
+                    </div>
+                    <form>
+                        <div class="card-body">
+                            <!-- Tên Ô Tô -->
+                            <div class="form-group">
+                                <label for="carName">Tên ô tô:</label>
+                                <input type="text" class="form-control" id="carName" placeholder="Nhập tên ô tô">
+                            </div>
+
+                            <!-- Nhà Sản Xuất -->
+                            <div class="form-group">
+                                <label for="manufacturer">Nhà sản xuất:</label>
+                                <select class="form-control" id="manufacturer">
+                                    <option value="manufacturer1">Nhà sản xuất 1</option>
+                                    <option value="manufacturer2">Nhà sản xuất 2</option>
+                                    <option value="manufacturer3">Nhà sản xuất 3</option>
+                                    <!-- Thêm các tùy chọn khác nếu cần -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Thể loại:</label>
+                                <select class="form-control" id="category">
+                                    <option value="category1">Thể loại 1</option>
+                                    <option value="category2">Thể loại 2</option>
+                                    <option value="category3">Thể loại 3</option>
+                                    <!-- Thêm các tùy chọn khác nếu cần -->
+                                </select>
+                            </div>
+                            <!-- Ngày Ra Mắt -->
+                            <div class="form-group">
+                                <label for="releaseDate">Ngày ra mắt:</label>
+                                <input type="date" class="form-control" id="releaseDate">
+                            </div>
+
+                            <!-- Giá Bán -->
+                            <div class="form-group">
+                                <label for="price">Giá bán:</label>
+                                <input type="text" class="form-control" id="price" placeholder="Nhập giá bán">
+                            </div>
+
+                            <!-- Chọn Hình Ảnh -->
+                            <div class="form-group">
+                                <label for="carImage">Chọn hình ảnh:</label>
+                                <input type="file" class="form-control-file" id="carImage">
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Lưu</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 </div>
 
 </div>

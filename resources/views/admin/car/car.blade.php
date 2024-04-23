@@ -31,37 +31,44 @@
         </section>
         <!-- Main content -->
         <section class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Cars Overview</h3>
-                                <div class="card-tools">
-                                <a href="create-car" class="btn btn-primary">Created new Car</a>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Cars Overview</h3>
+                        <div class="card-tools">
+                            <a href="create-car" class="btn btn-primary">Create new Car</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- Repeat this block for each car -->
+                        <div class="row car-item mb-4">
+                            <div class="col-md-1">
+                                <img src="car-image.jpg" alt="Car Image" class="img-fluid">
+                            </div>
+                            <div class="col-md-5">
+                                <h5 class="mt-2">BMW 4-Series</h5>
+                                <p>Nhà sản xuất: BMW</p>
+                                <p>Thể loại: Sedan</p>
+                                <p>Giá tiền: $50,000</p>
+                                <p>Số lượng: 10</p>
+                                <p>Năm sản xuất: 2022</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex justify-content-end">
+                                    <a href="edit-car" class="btn btn-warning mr-2">Edit Car</a>
+                                    <button type="button" class="btn btn-danger" onclick="deleteCar()">Delete</button>
                                 </div>
                             </div>
-                            <div class="card-body">
-                                <!-- Repeat this block for each car -->
-                                <div class="row car-item mb-4">
-                                    <div class="col-md-1">
-                                        <img src="car-image.jpg" alt="Car Image" class="img-fluid">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <h5 class="mt-2">Toyota - Created on 2023-01-01</h5>
-                                    </div>
-                                    <div class="col-md-3">
-                                    <!-- <a href="Functions/edit_car" class="btn btn-warning">Edit Car</a> -->
-                                    <a href="edit-car" class="btn btn-warning">Edit Car</a>
-                                        <button type="button" class="btn btn-danger" onclick="deleteCar()">Delete</button>
-                                    </div>
-                                </div><!-- End Car Block -->
-                            </div>
-                        </div>
+                        </div><!-- End Car Block -->
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
+
     </div>
 </div>
         @include('admin.footer')
