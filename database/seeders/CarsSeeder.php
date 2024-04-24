@@ -73,7 +73,7 @@ class CarsSeeder extends Seeder
                 "quantity"=>"3", 
                 "producing_year"=>"2024",
                 "images"=>json_encode(["BMW1.jpg", "BMW2.jpg", "BMW3.jpg", "BMW4.jpg", "BMW5.jpg"]),
-                "avatar"=>""
+                "avatar"=>"bmw-4-series-nobg.png"
             ],
             [
                 // 6
@@ -85,7 +85,7 @@ class CarsSeeder extends Seeder
                 "quantity"=>"4", 
                 "producing_year"=>"2024",
                 "images"=>json_encode(["chevrolet1.jpg", "chevrolet2.jpg", "chevrolet3.jpg", "chevrolet4.jpg", "chevrolet5.jpg"]),
-                "avatar"=>""
+                "avatar"=>"chevrolet-corvette-nobg.png"
             ],
             [
                 // 7
@@ -97,7 +97,7 @@ class CarsSeeder extends Seeder
                 "quantity"=>"5", 
                 "producing_year"=>"2024",
                 "images"=>json_encode(["dodge1.jpg", "dodge2.jpg", "dodge3.jpg", "dodge4.jpg", "dodge5.jpg"]),
-                "avatar"=>""
+                "avatar"=>"dodge-hornet-nobg.png"
             ],
             [
                 // 8
@@ -109,7 +109,7 @@ class CarsSeeder extends Seeder
                 "quantity"=>"2", 
                 "producing_year"=>"2023",
                 "images"=>json_encode(["ferrari1.jpg", "ferrari2.jpg", "ferrari3.jpg", "ferrari4.jpg", "ferrari5.jpg"]),
-                "avatar"=>""
+                "avatar"=>"Ferrari_Daytona_SP3_nobg.png"
             ],
             [
                 // 9
@@ -121,7 +121,7 @@ class CarsSeeder extends Seeder
                 "quantity"=>"4", 
                 "producing_year"=>"2024",
                 "images"=>json_encode(["huyndai1.jpg", "huyndai2.jpg", "huyndai3.jpg", "huyndai4.jpg", "huyndai5.jpg"]),
-                "avatar"=>""
+                "avatar"=>"hyundai-ioniq-nobg.png"
             ],
             [
                 // 10
@@ -133,7 +133,7 @@ class CarsSeeder extends Seeder
                 "quantity"=>"3", 
                 "producing_year"=>"2024",
                 "images"=>json_encode(["porsche1.jpg", "porsche2.jpg", "porsche3.jpg", "porsche4.jpg", "porsche5.jpg"]),
-                "avatar"=>""
+                "avatar"=>"porsche-911-nobg.png"
             ],
             [
                 // 11
@@ -145,7 +145,7 @@ class CarsSeeder extends Seeder
                 "quantity"=>"4", 
                 "producing_year"=>"2024",
                 "images"=>json_encode(["toyota1.jpg", "toyota2.jpg", "toyota3.jpg", "toyota4.jpg", "toyota5.jpg"]),
-                "avatar"=>""
+                "avatar"=>"toyota-highlander-nobg.png"
             ],
             [
                 // 12
@@ -157,7 +157,7 @@ class CarsSeeder extends Seeder
                 "quantity"=>"4", 
                 "producing_year"=>"2024",
                 "images"=>json_encode(["Ferrari-296-GTB-1.jpg", "Ferrari-296-GTB-2.jpg", "Ferrari-296-GTB-3.jpg", "Ferrari-296-GTB-4.jpg", "Ferrari-296-GTB-5.jpg"]),
-                "avatar"=>""
+                "avatar"=>"Ferrari-296-GTB-nobg.png"
             ],
             [
                 // 13
@@ -169,7 +169,7 @@ class CarsSeeder extends Seeder
                 "quantity"=>"4", 
                 "producing_year"=>"2024",
                 "images"=>json_encode(["Ferrari-F8-1.jpg", "Ferrari-F8-2.jpg", "Ferrari-F8-3.jpg", "Ferrari-F8-4.jpg", "Ferrari-F8-5.jpg"]),
-                "avatar"=>""
+                "avatar"=>"Ferrari-F8-Spider-nobg.png"
             ],
             [
                 // 14
@@ -181,7 +181,7 @@ class CarsSeeder extends Seeder
                 "quantity"=>"3", 
                 "producing_year"=>"2024",
                 "images"=>json_encode(["ferrari-sf90-1.jpg", "ferrari-sf90-2.jpg", "ferrari-sf90-3.jpg", "ferrari-sf90-4.jpg", "ferrari-sf90-5.jpg"]),
-                "avatar"=>""
+                "avatar"=>"ferrari-sf90-nobg.png"
             ],
             [
                 // 15
@@ -193,7 +193,7 @@ class CarsSeeder extends Seeder
                 "quantity"=>"3", 
                 "producing_year"=>"2024",
                 "images"=>json_encode(["Ferrari-SF90-Stradale-1.jpg", "Ferrari-SF90-Stradale-2.jpg", "Ferrari-SF90-Stradale-3.jpg", "Ferrari-SF90-Stradale-4.jpg", "Ferrari-SF90-Stradale-5.jpg"]),
-                "avatar"=>""
+                "avatar"=>"Ferrari-SF90-Spider-nobg.png"
             ],
             [
                 // 16
@@ -205,7 +205,7 @@ class CarsSeeder extends Seeder
                 "quantity"=>"5", 
                 "producing_year"=>"2024",
                 "images"=>json_encode(["Ford-F-150-1.jpg", "Ford-F-150-2.jpg", "Ford-F-150-3.jpg", "Ford-F-150-4.jpg", "Ford-F-150-5.jpg"]),
-                "avatar"=>""
+                "avatar"=>"Ford-F-150-nobg.png"
             ],
             [
                 // 17
@@ -217,7 +217,7 @@ class CarsSeeder extends Seeder
                 "quantity"=>"3", 
                 "producing_year"=>"2024",
                 "images"=>json_encode(["ford-mustang-gtd1.jpg", "ford-mustang-gtd2.jpg", "ford-mustang-gtd3.jpg", "ford-mustang-gtd4.jpg", "ford-mustang-gtd5.jpg"]),
-                "avatar"=>""
+                "avatar"=>"ford-mustang-gtd-nobg.png"
             ],
             [
                 // 18
@@ -229,7 +229,7 @@ class CarsSeeder extends Seeder
                 "quantity"=>"2", 
                 "producing_year"=>"2024",
                 "images"=>json_encode(["Lamborghini-Huracán-1.jpg", "Lamborghini-Huracán-2.jpg", "Lamborghini-Huracán-3.jpg", "Lamborghini-Huracán-4.jpg", "Lamborghini-Huracán-5.jpg"]),
-                "avatar"=>""
+                "avatar"=>"Lamborghini-Huracán-nobg.png"
             ],
             [
                 // 19
@@ -241,7 +241,7 @@ class CarsSeeder extends Seeder
                 "quantity"=>"2", 
                 "producing_year"=>"2024",
                 "images"=>json_encode(["lamborghini-revuelto1.jpg", "lamborghini-revuelto2.jpg", "lamborghini-revuelto3.jpg", "lamborghini-revuelto4.jpg", "lamborghini-revuelto5.jpg"]),
-                "avatar"=>""
+                "avatar"=>"lamborghini-revuelto_nobg.png"
             ],
             [
                 // 20
@@ -253,7 +253,7 @@ class CarsSeeder extends Seeder
                 "quantity"=>"5", 
                 "producing_year"=>"2024",
                 "images"=>json_encode(["Nissan-Ariya1.jpg", "Nissan-Ariya2.jpg", "Nissan-Ariya3.jpg", "Nissan-Ariya4.jpg", "Nissan-Ariya5.jpg"]),
-                "avatar"=>""
+                "avatar"=>"Nissan-Ariya-nobg.png"
             ],
             [
                 // 21
@@ -265,7 +265,7 @@ class CarsSeeder extends Seeder
                 "quantity"=>"5", 
                 "producing_year"=>"2024",
                 "images"=>json_encode(["Nissan-Z-1.jpg", "Nissan-Z-2.jpg", "Nissan-Z-3.jpg", "Nissan-Z-4.jpg", "Nissan-Z-5.jpg"]),
-                "avatar"=>""
+                "avatar"=>"Nissan-Z-nobg.png"
             ]
         ]);
     }
