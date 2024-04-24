@@ -7,6 +7,8 @@ use App\Http\Controllers\client\BrandController;
 use App\Http\Controllers\client\LoginController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\CarsController;
+use App\Http\Controllers\admin\CategoriesController;
+use App\Http\Controllers\admin\ManufacturersController;
 
 
 // Client routes
@@ -37,9 +39,21 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
-
 // Admin routes
 Route::middleware('auth.admin')->prefix('/admin')->group(function(){
     Route::get('/', [DashboardController::class, 'index'])->name('admin');
-    Route::get('/cars', [CarsController::class, 'index']);
 });
+
+Route::middleware('auth.admin')->group(function(){
+    Route::get('/cars', [CarsController::class, 'index']);
+    Route::get('/add_car', [CarsController::class, 'add']);
+
+    Route::get('/categories', [CategoriesController::class, 'index']);
+    Route::get('/add_category', [CategoriesController::class, 'add']);
+
+    Route::get('/manufacturers', [ManufacturersController::class, 'index']);
+    Route::get('/add_manufacturer', [ManufacturersController::class, 'add']);
+});
+
+
+

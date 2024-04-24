@@ -54,13 +54,13 @@
                     Car
                 </li>
                 <liv class="nav-item">
-                    <a href="pages/quanlioto.html" class="nav-link">Cars</a>
+                    <a href="/cars" class="nav-link">Cars</a>
                 </liv>
                 <liv class="nav-item">
-                    <a href="pages/quanlinhasanxuat.html" class="nav-link">Categories</a>
+                    <a href="/categories" class="nav-link">Categories</a>
                 </liv>
                 <liv class="nav-item">
-                    <a href="pages/quanlinhasanxuat.html" class="nav-link">Manufacturers</a>
+                    <a href="/manufacturers" class="nav-link">Manufacturers</a>
                 </liv>
                 <liv class="nav-item">
                     <a href="pages/caidatvacauhinh.html" class="nav-link">Car Performance</a>

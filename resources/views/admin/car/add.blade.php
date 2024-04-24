@@ -1,88 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    @include('admin.head')
-</head>
+@include('admin.partials.head')
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
-        @include('admin.navbar')
+        @include('admin.partials.navbar')
 
-        @include('admin.main_sidebar')
-        
-        <!-- Content Wrapper. Contains page content -->
-        <!-- <div class="content-wrapper">
-            <h1>Page Car</h1>
-        </div> -->
+        @include('admin.partials.main_sidebar')
+
 
         <div class="wrapper">
-    <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Tạo Mới Thông Tin Ô Tô</h1>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">Nhập Thông Tin Ô Tô</h3>
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1>Tạo Mới Thông Tin Ô Tô</h1>
+                            </div>
                         </div>
-                        <form>
-                            <div class="card-body">
-                                <!-- Tên Ô Tô -->
-                                <div class="form-group">
-                                    <label for="carName">Tên ô tô:</label>
-                                    <input type="text" class="form-control" id="carName" placeholder="Nhập tên ô tô">
-                                </div>
-
-                                <!-- Nhà Sản Xuất -->
-                                <div class="form-group">
-                                    <label for="manufacturer">Nhà sản xuất:</label>
-                                    <input type="text" class="form-control" id="manufacturer" placeholder="Nhập tên nhà sản xuất">
-                                </div>
-
-                                <!-- Ngày Ra Mắt -->
-                                <div class="form-group">
-                                    <label for="releaseDate">Ngày ra mắt:</label>
-                                    <input type="date" class="form-control" id="releaseDate">
-                                </div>
-
-                                <!-- Giá Bán -->
-                                <div class="form-group">
-                                    <label for="price">Giá bán:</label>
-                                    <input type="text" class="form-control" id="price" placeholder="Nhập giá bán">
-                                </div>
-
-                                <!-- Tải lên Hình Ảnh -->
-                                <div class="form-group">
-                                    <label for="carImage">Tải lên hình ảnh:</label>
-                                    <input type="file" class="form-control-file" id="carImage">
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Tạo Mới</button>
-                            </div>
-                        </form>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
+                </section>
 
-</div>
-        @include('admin.footer')
-        
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card card-primary">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Nhập Thông Tin Ô Tô</h3>
+                                    </div>
+                                    <form>
+                                        <div class="card-body">
+                                            <!-- Tên Ô Tô -->
+                                            <div class="form-group">
+                                                <label for="carName">Tên ô tô:</label>
+                                                <input type="text" class="form-control" id="carName"
+                                                    placeholder="Nhập tên ô tô">
+                                            </div>
+
+                                            <!-- Nhà Sản Xuất -->
+                                            <div class="form-group">
+                                                <label for="manufacturer">Nhà sản xuất:</label>
+                                                <input type="text" class="form-control" id="manufacturer"
+                                                    placeholder="Nhập tên nhà sản xuất">
+                                            </div>
+
+                                            <!-- Ngày Ra Mắt -->
+                                            <div class="form-group">
+                                                <label for="releaseDate">Ngày ra mắt:</label>
+                                                <input type="date" class="form-control" id="releaseDate">
+                                            </div>
+
+                                            <!-- Giá Bán -->
+                                            <div class="form-group">
+                                                <label for="price">Giá bán:</label>
+                                                <input type="text" class="form-control" id="price"
+                                                    placeholder="Nhập giá bán">
+                                            </div>
+
+                                            <!-- Tải lên Hình Ảnh -->
+                                            <div class="form-group">
+                                                <label for="carImage">Tải lên hình ảnh:</label>
+                                                <input type="file" class="form-control-file" id="carImage">
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button type="submit" class="btn btn-primary">Tạo Mới</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+        @include('admin.partials.footer')
+
     </div>
 
     <!-- jQuery -->
@@ -91,7 +85,7 @@
     <script src="adminlte/plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
-      $.widget.bridge('uibutton', $.ui.button)
+        $.widget.bridge('uibutton', $.ui.button)
     </script>
     <!-- Bootstrap 4 -->
     <script src="adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
