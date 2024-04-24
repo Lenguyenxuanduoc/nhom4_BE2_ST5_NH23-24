@@ -7,18 +7,93 @@
         @include('admin.partials.main_sidebar')
 
         <div class="wrapper">
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
-                <section class="content-header">
-                    <div class="container-fluid">
-                        <div class="row mb-2">
-                            <div class="col-sm-6">
-                                <h1>Chỉnh Sửa Thông Tin Ô Tô</h1>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Edit</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Edit</h3>
+                    </div>
+                    <form>
+                        <div class="card-body">
+                            <!-- Tên Ô Tô -->
+                            <div class="form-group">
+                                <label for="namecar">Name Car:</label>
+                                <input type="text" class="form-control" id="namecar" placeholder="Name Car">
+                            </div>
+
+                            <!-- Nhà Sản Xuất -->
+                            <div class="form-group">
+                                <label for="manufacturer">Manufacturer</label>
+                                <select class="form-control" id="manufacturer">
+                                    <option value="Toyota">Toyota</option>
+                                    <option value="Honda">Honda</option>
+                                    <option value="Ford">Ford</option>
+                                    <!-- Thêm các tùy chọn khác tại đây -->
+                                </select>
+                            </div>
+
+                            <!-- Loại Xe -->
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <select class="form-control" id="category">
+                                    <option value="Sedan">Sedan</option>
+                                    <option value="SUV">SUV</option>
+                                    <option value="Coupe">Coupe</option>
+                                    <option value="Truck">Truck</option>
+                                    <!-- Thêm các tùy chọn khác tại đây -->
+                                </select>
+                            </div>
+
+                            <!-- Giá Bán -->
+                            <div class="form-group">
+                                <label for="price">Price:</label>
+                                <input type="text" class="form-control" id="price" placeholder="Price">
+                            </div>
+
+                            <!-- Năm Ra Mắt -->
+                            <div class="form-group">
+                                <label for="releaseYear">Năm ra mắt:</label>
+                                <select class="form-control" id="releaseYear">
+                                    <!-- Thêm các tùy chọn năm từ năm 1800 đến năm hiện tại -->
+                                    <?php
+                                    $currentYear = date("Y");
+                                    for ($year = 1800; $year <= $currentYear; $year++) {
+                                        echo "<option value=\"$year\">$year</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+
+                            <!-- Tải Lên Hình Ảnh -->
+                            <div class="form-group">
+                                <label for="carImages">Upload images:</label>
+                                <input type="file" class="form-control-file" id="carImages" multiple>
                             </div>
                         </div>
-                    </div>
-                </section>
-
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">CREATE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+</div>
                 <section class="content">
                     <div class="container-fluid">
                         <div class="row">

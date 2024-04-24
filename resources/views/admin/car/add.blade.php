@@ -8,10 +8,10 @@
 
 
         <div class="wrapper">
-            <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
               
                 <div class="container-fluid">
+
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-primary">
@@ -20,8 +20,7 @@
                     </div>
                     <form action="#" method="post">
                         @csrf
-                        <div class="card-body">              <!-- Tên Ô Tô -->
-
+                        <div class="card-body">              
                             <div class="form-group">
                                 <label for="namecar">Name Car:</label>
                                 <input type="text" class="form-control" id="namecar" placeholder="Name Car">
@@ -84,9 +83,9 @@
             </div>
         </div>
     </div>
-
         </div>
         @include('admin.partials.footer')
+
 
     </div>
 
