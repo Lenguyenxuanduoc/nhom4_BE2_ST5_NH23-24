@@ -5,7 +5,8 @@ use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\NewsController;
 use App\Http\Controllers\client\BrandController;
 use App\Http\Controllers\client\LoginController;
-use App\Http\Controllers\admin\MainController;
+use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\CarsController;
 
 
 // Client routes 
@@ -26,21 +27,27 @@ Route::prefix('/brands')->group(function(){
     Route::get('/brand/{id}', [BrandController::class, 'getBrand']);
 });
 
-Route::get('/detail', function(){
-    return view('client.car.detail',[
-        'title'=>''
-    ]);
-});
+// Route::get('/detail', function(){
+//     return view('client.car.detail',[
+//         'title'=>''
+//     ]);
+// });
 
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Admin routes
-Route::get('/admin', [MainController::class, 'index'])->name('admin');
-
+Route::middleware('auth.admin')->prefix('/admin')->group(function(){
+    Route::get('/', [DashboardController::class, 'index'])->name('admin');
+    Route::get('/cars', [CarsController::class, 'index']);
+    
+});
 
 // Route::get('/brand/detail', function(){
 //     return view('client.brand.detail',[
 //         'title'=>''
 //     ]);
 // });
+Route::get('/reviews', function(){
+    return view('admin.car.reviews');
+});

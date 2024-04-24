@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    @include('admin.head')
+    @include('admin.partials.head')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
-        @include('admin.navbar')
+        @include('admin.partials.navbar')
 
-        @include('admin.main_sidebar')
+        @include('admin.partials.main_sidebar')
         
         <!-- Content Wrapper. Contains page content -->
         <!-- <div class="content-wrapper">
@@ -95,7 +95,7 @@
 <!-- /.content-wrapper -->
 
 </div>
-        @include('admin.footer')
+        @include('admin.partials.footer')
         
     </div>
 
