@@ -246,8 +246,8 @@ class CarsSeeder extends Seeder
                 'description' => '',
                 'quantity' => '2',
                 'producing_year' => '2024',
-                'images' => json_encode(['Lamborghini-Huracán-1.jpg', 'Lamborghini-Huracán-2.jpg', 'Lamborghini-Huracán-3.jpg', 'Lamborghini-Huracán-4.jpg', 'Lamborghini-Huracán-5.jpg']),
-                'avatar' => 'Lamborghini-Huracán-nobg.png',
+                'images' => json_encode(['Lamborghini-Huracan-1.jpg', 'Lamborghini-Huracan-2.jpg', 'Lamborghini-Huracan-3.jpg', 'Lamborghini-Huracan-4.jpg', 'Lamborghini-Huracan-5.jpg']),
+                'avatar' => 'Lamborghini-Huracan-nobg.png',
                 'slug' => Str::slug('Lamborghini Huracan ' . '2024')
             ],
             [
