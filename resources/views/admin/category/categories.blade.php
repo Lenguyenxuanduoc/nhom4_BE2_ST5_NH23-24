@@ -22,99 +22,58 @@
         <!-- Content Header (Page header) -->
        
     <!-- Main content -->
+   
     <section class="content">
-        <!-- Category box row -->
-        <div class="col-sm-6">
-                        <h1>Categoris List</h1>
-         </div>
-        <a href="create-categories" class="btn btn-primary">Create</a>
-        <div class="row">
-            <!-- Passenger Cars -->
-            <div class="col-md-6">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Passenger Cars</h3>
-                    </div>
-                    <div class="box-body">
-                        Designed for passenger transport in urban or highway settings.
-                    </div>
-                    <div class="box-footer">
-                        <button class="btn btn-danger">Delete</button>
-                        <a href="edit-categories" class="btn btn-info">Edit</a>
+        <div class="container">
+            <div class="row mt-4">
+            <div class="col-sm-6">
+                            <h1>Categories List</h1>
+                        </div>
+                <div class="col-lg-12 d-flex justify-content-between align-items-center">
+                    <div>
+                        <a href="create-categories" class="btn btn-primary">Add New Category</a>
                     </div>
                 </div>
             </div>
-
-            <!-- Sports Cars -->
-            <div class="col-md-6">
-                <div class="box box-danger">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Sports Cars</h3>
-                    </div>
-                    <div class="box-body">
-                        High performance and sport design, often used for recreation and racing.
-                    </div>
-                    <div class="box-footer">
-                        <button class="btn btn-danger">Delete</button>
-                        <a href="edit-categories" class="btn btn-info">Edit</a>
-                    </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="showAlert"></div>
                 </div>
             </div>
-        </div>
-
-        <!-- Second row for other categories -->
-        <div class="row">
-            <!-- SUVs -->
-            <div class="col-md-6">
-                <div class="box box-warning">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">SUVs</h3>
-                    </div>
-                    <div class="box-body">
-                        Capable of carrying multiple passengers and cargo, suitable for all terrains.
-                    </div>
-                    <div class="box-footer">
-                        <button class="btn btn-danger">Delete</button>
-                        <a href="edit-categories" class="btn btn-info">Edit</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pickup Trucks -->
-            <div class="col-md-6">
-                <div class="box box-info">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Pickup Trucks</h3>
-                    </div>
-                    <div class="box-body">
-                        Large space in the back for cargo or transport work.
-                    </div>
-                    <div class="box-footer">
-                        <button class="btn btn-danger">Delete</button>
-                        <a href="edit-categories" class="btn btn-info">Edit</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Ambulances -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="box box-success">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Ambulances</h3>
-                    </div>
-                    <div class="box-body">
-                        Specially designed for rescue operations and transporting injured persons.
-                    </div>
-                    <div class="box-footer">
-                        <button class="btn btn-danger">Delete</button>
-                        <a href="edit-categories" class="btn btn-info">Edit</a>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered text-center">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Image</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Passenger Cars</td>
+                                    <td>Designed for passenger transport in urban or highway settings.</td>
+                                    <td><img src="passenger_cars.jpg" alt="Passenger Cars" style="max-width: 100px;"></td>
+                                    <td>
+                                        <button class="btn btn-danger">Delete</button>
+                                        <a href="edit-categories" class="btn btn-info">Edit</a>
+                                    </td>
+                                </tr>
+                                <!-- Các hàng khác -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- /.content -->
 <!-- /.content-wrapper -->
 

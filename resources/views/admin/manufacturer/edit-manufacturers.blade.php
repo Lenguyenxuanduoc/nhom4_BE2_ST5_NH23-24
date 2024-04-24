@@ -14,57 +14,36 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Edit Manufacturer</h1>
-                </div>
-            </div>
-        </div><!-- /.container-fluid -->
-    </section>
+   
 
     <!-- Main content -->
     <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                    <!-- Manufacturer Edit Form -->
-                    <div class="card">
-                        <div class="card-body">
-                            <form role="form">
-                                <div class="form-group">
-                                    <label for="manufacturerName">Manufacturer Name</label>
-                                    <input type="text" class="form-control" id="manufacturerName" placeholder="Enter manufacturer name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="manufacturerAddress">Manufacturer Address</label>
-                                    <input type="text" class="form-control" id="manufacturerAddress" placeholder="Enter manufacturer address">
-                                </div>
-                                <div class="form-group">
-                                    <label for="manufacturerPhoneNumber">Phone Number</label>
-                                    <input type="text" class="form-control" id="manufacturerPhoneNumber" placeholder="Enter phone number">
-                                </div>
-                                <div class="form-group">
-                                    <label for="manufacturerEmailAddress">Email Address</label>
-                                    <input type="email" class="form-control" id="manufacturerEmailAddress" placeholder="Enter email address">
-                                </div>
-                                <div class="form-group">
-                                    <label for="manufacturerWarranty">Warranty Information</label>
-                                    <textarea class="form-control" id="manufacturerWarranty" placeholder="Enter warranty information"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="manufacturerServices">Services Information</label>
-                                    <textarea class="form-control" id="manufacturerServices" placeholder="Enter services information"></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Save Changes</button>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- End Manufacturer Edit Form -->
-                </div>
+    <div class="container mt-5">
+        <h2>Edit Manufacturer</h2>
+        <form>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter manufacturer name">
             </div>
-        </div><!-- /.container-fluid -->
+            <div class="mb-3">
+                <label for="image" class="form-label">Image:</label>
+                <input type="file" class="form-control" id="image" name="image">
+            </div>
+            <div class="mb-3">
+                <label for="foundedYear" class="form-label">Founded Year:</label>
+                <input type="text" class="form-control" id="foundedYear" placeholder="Enter founded year">
+            </div>
+            <div class="mb-3">
+                <label for="founder" class="form-label">Founder:</label>
+                <input type="text" class="form-control" id="founder" placeholder="Enter founder name">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description:</label>
+                <textarea class="form-control" id="description" rows="3" placeholder="Enter description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
     </section>
     <!-- /.content -->
 </div>

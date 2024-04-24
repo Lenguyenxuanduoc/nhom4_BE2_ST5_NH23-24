@@ -21,66 +21,58 @@
         <!-- Content Header (Page header) -->
         <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Featured Manufacturers</h1>
-                </div>
-            </div>
-        </div><!-- /.container-fluid -->
-    </section>
-
     <!-- Main content -->
     <section class="content">
-        <div class="container-fluid">
-        <a href="create-manufacturers" class="btn btn-primary">Created new Manufacturer</a>
-            <div class="row">
-                <!-- Featured Manufacturer 1 -->
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Manufacturer A</h5>
-                            <p class="card-text">Address: [Manufacturer A Address]</p>
-                            <p class="card-text">Contact:</p>
-                            <ul>
-                                <li>Phone: [Manufacturer A Phone Number]</li>
-                                <li>Email: [Manufacturer A Email Address]</li>
-                            </ul>
-                            <p class="card-text">Warranty: [Manufacturer A Warranty Information]</p>
-                            <p class="card-text">Services: [Manufacturer A Services Information]</p>
-                        </div>
-                        <div class="card-footer">
-                            <button type="button" class="btn btn-danger">Delete</button>
-                            <a href="edit-manufacturers" class="btn btn-primary">Edit</a>
-                        </div>
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-lg-12 d-flex justify-content-between align-items-center">
+                    <div>
+                        <a href="create-manufacturers" class="btn btn-primary">Add New Category</a>
                     </div>
                 </div>
-                <!-- End Featured Manufacturer 1 -->
-
-                <!-- Featured Manufacturer 2 -->
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Manufacturer B</h5>
-                            <p class="card-text">Address: [Manufacturer B Address]</p>
-                            <p class="card-text">Contact:</p>
-                            <ul>
-                                <li>Phone: [Manufacturer B Phone Number]</li>
-                                <li>Email: [Manufacturer B Email Address]</li>
-                            </ul>
-                            <p class="card-text">Warranty: [Manufacturer B Warranty Information]</p>
-                            <p class="card-text">Services: [Manufacturer B Services Information]</p>
-                        </div>
-                        <div class="card-footer">
-                            <button type="button" class="btn btn-danger">Delete</button>
-                            <a href="edit-manufacturers" class="btn btn-primary">Edit</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Featured Manufacturer 2 -->
             </div>
-        </div><!-- /.container-fluid -->
+            <hr>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="showAlert"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered text-center">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Image</th>
+                                    <th>Founded year</th>
+                                    <th>Founder</th>
+                                    <th>Description</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Passenger Cars</td>
+                                    <td><img src="passenger_cars.jpg" alt="Passenger Cars" style="max-width: 100px;"></td>
+                                    <td>1990</td>
+                                    <td>John Doe</td>
+                                    <td>Designed for passenger transport in urban or highway settings.</td>
+                                    <td>
+                                        <button class="btn btn-danger">Delete</button>
+                                        <a href="edit-manufacturers" class="btn btn-info">Edit</a>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Các hàng khác -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <!-- /.content -->
 </div>

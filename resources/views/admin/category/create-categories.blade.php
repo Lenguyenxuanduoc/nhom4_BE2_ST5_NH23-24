@@ -19,48 +19,28 @@
         <div class="wrapper">
     <!-- Content Wrapper. Contains page content -->
      <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Create Categories</h1>
-                </div>
-            </div>
-        </div><!-- /.container-fluid -->
-    </section>
-
     <!-- Main content -->
     <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                    <!-- form start -->
-                    <form role="form">
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="categoryName">Category Name</label>
-                                <input type="text" class="form-control" id="categoryName" placeholder="Enter category name">
-                            </div>
-                            <div class="form-group">
-                                <label for="categoryContent">Category Content</label>
-                                <textarea class="form-control" id="categoryContent" placeholder="Enter category content"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="categoryImage">Category Image</label>
-                                <input type="file" id="categoryImage">
-                                <p class="help-block">Upload category image here</p>
-                            </div>
-                        </div>
-                        <!-- /.card-body -->
-
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
-                </div>
+      
+    <div class="container mt-5">
+        <h2>Create New Category</h2>
+        <form enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter category name">
             </div>
-        </div><!-- /.container-fluid -->
+            <div class="mb-3">
+                <label for="description" class="form-label">Description:</label>
+                <textarea class="form-control" id="description" rows="3" placeholder="Enter category description"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload Image:</label>
+                <input type="file" class="form-control" id="image" name="image">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
     </section>
     <!-- /.content -->
 </div>
