@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class PostsSeeder extends Seeder
 {
@@ -22,7 +23,8 @@ class PostsSeeder extends Seeder
                 "content2" => "Even though the latest Taycan to be unveiled uses nomenclature which was previously exclusive to the range-topping Cayenne SUV—a high-performance car in its own right—the new Porsche Taycan Turbo GT has much more in common with the aforementioned line of GT models. Those cars, as most of us are acutely aware of, are an intricate balance of power and chassis philosophies which ultimately produce a car that is as engaging to drive as it is dominant at the race track.",
                 "author" => "Terence W",
                 "images" => json_encode(["posts1_1.jpg", "posts1_2.jpg"]),
-                "posting_date" => Carbon::now()
+                "posting_date" => Carbon::parse('2024-04-24'),
+                "slug" => Str::slug("Porsche Taycan Turbo GT Unveiled")
             ],
             [
                 "title" => "Lamborghini Eccentrica",
@@ -30,7 +32,8 @@ class PostsSeeder extends Seeder
                 "content2" => "Emanuel hoped to emphasize the character and stylistic features of the original Diablo while maintaining its iconic nature. The BorromeodeSilva Studio has maintained a balance between size and performance, taking inspiration from the Diablo GTR. The bodywork of the “donor car” has been completely revised, except for the windshield, which remains original, while the proportions have been taken to the extreme. The interiors have been designed as the meeting point between the minimalism of the early 90s and the artfully elevated mechanics typical of luxury watchmaking.",
                 "author" => "Rex Mcafee",
                 "images" => json_encode(["posts2_1.jpg", "posts2_2.jpg"]),
-                "posting_date" => Carbon::now()
+                "posting_date" => Carbon::parse('2024-03-13'),
+                "slug" => Str::slug("Lamborghini Eccentrica")
             ],
             [
                 "title" => "2024 McLaren 750S: An In-Depth Look",
@@ -39,7 +42,8 @@ class PostsSeeder extends Seeder
                 The best analogy I could think of, is that the McLaren 750S is an ideal marriage between the civil nature of the 720S and the performance panache of the 765LT. Hmmmm….just like “Goldilocks”, and par for the course in terms of what the model represents, really.",
                 "author" => "Terence W",
                 "images" => json_encode(["posts3_1.jpg", "posts3_2.jpg"]),
-                "posting_date" => Carbon::now()
+                "posting_date" => Carbon::parse('2024-04-13'),
+                "slug" => Str::slug("2024 McLaren 750S: An In-Depth Look")
             ],
             [
                 "title" => "Nissan Z Nismo Unveiled",
@@ -47,7 +51,8 @@ class PostsSeeder extends Seeder
                 "content2" => "",
                 "author" => "Terence W",
                 "images" => json_encode(["posts4_1.jpg", "posts4_2.jpg", "posts4_3.jpg", "posts4_4.jpg", "posts4_5.jpg", "posts4_6.jpg"]),
-                "posting_date" => Carbon::now()
+                "posting_date" => Carbon::parse('2024-02-16'),
+                "slug" => Str::slug("Nissan Z Nismo Unveiled")
             ],
             [
                 //Done
@@ -56,7 +61,8 @@ class PostsSeeder extends Seeder
                 "content2" => "There’s certainly been work done to the bones, but the 2025 model was not intended as a “re-design” by any stretch of the imagination. In terms of exterior design language, the car exhibits an identical silhouette to the ones before it, with only some subtle changes requiring an up-close look in order to be detected. Doing so will reveal a more streamlined LED headlamp design and some low-key modifications made to the front fascia and rear bumper. Turbo and Turbo S variants also have their own unique cues, with additional vents being integrated to the aforementioned.  The front fenders were also reimagined to accommodate the universal styling tweaks.",
                 "author" => "Terence W",
                 "images" => json_encode(["posts5_1.jpg", "posts5_2.jpg", "posts5_3.jpg", "posts5_4.jpg", "posts5_5.jpg", "posts5_6.jpg"]),
-                "posting_date" => Carbon::now()
+                "posting_date" => Carbon::parse('2024-03-30'),
+                "slug" => Str::slug("2025 Porsche Taycan Offers Improved EV Performance and Range")
             ],
             [
                 //Done
@@ -65,7 +71,8 @@ class PostsSeeder extends Seeder
                 "content2" => "One of the key features of the new Macan is its improved aerodynamics—a crucial element in the overall performance and viability of an electric vehicle. Porsche says that a more streamlined design has resulted in a 0.25 Cd, which is an improvement of over 0.1 Cd versus the outgoing design. All else being equal, this unlocks around 85 km more range on the new body style.",
                 "author" => "Terence W",
                 "images" => json_encode(["posts6_1.jpg", "posts6_2.jpg", "posts6_3.jpg", "posts6_4.jpg", "posts6_5.jpg", "posts6_6.jpg"]),
-                "posting_date" => Carbon::now()
+                "posting_date" => Carbon::parse('2024-02-22'),
+                "slug" => Str::slug("Porsche Macan EV Unveiling: Livestream Coverage")
             ],
             [
                 //Done
@@ -74,7 +81,8 @@ class PostsSeeder extends Seeder
                 "content2" => "In 2019, the world witnessed the debut of the P72, an amorous tribute to the legendary sports cars of the 1960s and 70s, most notably the iconic De Tomaso P70. Even today, the P70 remains a bit of a mystery, an unlikely collaboration between two of the most formidable personalities in international motorsport, Carroll Shelby and Alejandro de Tomaso. Together, they envisioned a race car that could dominate the likes of Porsche, Ferrari and Ford.",
                 "author" => "Rex Mcafee",
                 "images" => json_encode(["posts7_1.jpg", "posts7_2.jpg", "posts7_3.jpg", "posts7_4.jpg", "posts7_5.jpg", "posts7_6.jpg"]),
-                "posting_date" => Carbon::now()
+                "posting_date" => Carbon::parse('2024-04-21'),
+                "slug" => Str::slug("De Tomaso announces P72 Hypercar delivery")
             ],
             [
                 //Done
@@ -82,8 +90,9 @@ class PostsSeeder extends Seeder
                 "content1" => "You could be forgiven for thinking that Porsche would be happy resting on their laurels when it comes to the Taycan. After all, there is already a plethora of existing variants—it’s a congested squad to choose from between the barebones base model, all the way up to the sufficiently bonkers Turbo S. Add to the fact that there are two distinct body styles, and the potential combinations for performance and styling become seemingly endless.",
                 "content2" => "On the surface, it’s just a number. But when given a bit of context, a clearer—and quite frankly, stunning—picture gets painted. This achievement places the upcoming Porsche Taycan variant in some very esteemed company, both within its own line-up and relative to other high-performance EVs. It’s not at all far off the pace of the automaker’s flagship 911 GT3 and GT3 RS models, coming in at just a few seconds behind the sub-7-minute benchmark setters. It’s virtually just as quick as the relatively brand new Porsche 718 Cayman GT4 RS MR, of which it has a near-2000-lbs weight penalty against it.",
                 "author" => "Terence W",
-                "images" => json_encode(["posts8_1.jpg", "posts8_2.jpg", "posts8_3.jpg"]),
-                "posting_date" => Carbon::now()
+                "images" => json_encode(["posts8_1.jpeg", "posts8_2.jpeg", "posts8_3.jpeg"]),
+                "posting_date" => Carbon::parse('2024-01-13'),
+                "slug" => Str::slug("New Porsche Taycan Variant Demolishes Tesla’s EV ‘Ring Record")
             ],
             [
                 //Done
@@ -92,7 +101,8 @@ class PostsSeeder extends Seeder
                 "content2" => "For now at least, the Porsche 911 will integrate mild-hybrid technology rather than becoming a full-on PHEV. However, the latter version of hardware is already being used in the current line-up by the likes of the Cayenne and Panamera, so there may yet be accommodations for making that transition later on. Porsche has quickly debunked any notions that the universally loved driving dynamics of its quintessential sports car will be negatively affected by these changes. Rumors are currently swirling that the hybrid components will add no more than 220 lbs—neither a large nor small number, in my opinion—with everything positioned in a way that maintains favorable weight-balance characteristics.",
                 "author" => "Terence W",
                 "images" => json_encode(["posts9_1.jpg", "posts9_2.jpg"]),
-                "posting_date" => Carbon::now()
+                "posting_date" => Carbon::parse('2024-03-04'),
+                "slug" => Str::slug("“992.2” Porsche 911 Slated For 2024 Debut")
             ]
         ]);
     }

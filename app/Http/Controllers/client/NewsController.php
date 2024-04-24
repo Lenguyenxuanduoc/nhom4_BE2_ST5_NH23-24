@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use App\Models\Posts;
 
 class NewsController extends Controller
 {
@@ -14,12 +15,17 @@ class NewsController extends Controller
         return view('client.posts.news', compact('title', 'posts'));
     }
 
-    public function getPosts($id){
-        $title = "Posts detail 1";
+    public function getPosts($slug){
+        $posts_detail = Posts::where('slug', $slug)->first();
 
-        return view('client.posts.detail', [
-            'id'=>$id,
-            'title'=>$title
-        ]);
+        if (!$posts_detail){
+            abort(404);
+        }
+
+        $title = $posts_detail->title;
+
+        $latest_posts = Posts::where('slug', '!=', $slug)->orderBy('posting_date', 'desc')->take(6)->get();
+
+        return view('client.posts.detail', compact('posts_detail', 'latest_posts', 'title'));
     }
 }

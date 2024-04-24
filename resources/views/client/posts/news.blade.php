@@ -26,7 +26,7 @@
                 $countPosts++;
                 $images = json_decode($post->images);
             @endphp
-            <a href="news/posts/{{ $post->id }}">
+            <a href="news/posts/{{ $post->slug }}">
                 <div class="posts-box">
                     <div class="posts-img">
                         <img src="{{ asset('images/posts/' . $images[0]) }}"
@@ -35,9 +35,9 @@
 
                     <div class="posts-text">
                         <span>{{ date('d F Y', strtotime($post->posting_date)) }} / {{ $post->author }}</span>
-                        <a href="news/posts/{{ $post->id }}" class="posts-title">{{ $post->title }}</a>
+                        <a href="news/posts/{{ $post->slug }}" class="posts-title">{{ $post->title }}</a>
                         <p>{{ \Str::limit($post->content1, 60) }}</p>
-                        <a href="news/posts/{{ $post->id }}">READ MORE</a>
+                        <a href="news/posts/{{ $post->slug }}">READ MORE</a>
                     </div>
                 </div>
             </a>
