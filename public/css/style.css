@@ -534,7 +534,7 @@ header{
 
 .posts-img{
     width: 100%;
-    height: auto;
+    height: 300px;
     overflow: hidden;
     position: relative;
 }
@@ -555,6 +555,7 @@ header{
     padding: 30px;
     display: flex;
     flex-direction: column;
+    height: 250px;
 }
 
 .posts-text span{

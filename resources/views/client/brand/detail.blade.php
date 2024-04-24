@@ -5,7 +5,7 @@
 @include('client.partials.login')
 
 <!------- Start banner------->
-<section class="banner" style="background-image: url('images/banners/bmw.jpg');">
+<section class="banner" style="background-image: url('{{asset('images/banners/bmw.jpg')}}');">
     <div class="banner-content">
         <h1>BMW</h1>
         <p>BMW Models</p>
@@ -24,7 +24,7 @@
         <div class="car-box">
             <a href="car_detail.html">
                 <h2>Corvette</h2>
-                <img src="images/cars/ford/mustang-nobg.png" alt="">
+                <img src="{{asset('images/cars/ford/mustang-nobg.png')}}" alt="">
             </a>
             <div class="car-text">
                 <span>MT score:</span>
@@ -39,7 +39,7 @@
         <div class="car-box">
             <a href="car_detail.html">
                 <h2>Corvette</h2>
-                <img src="corvette.png" alt="">
+                <img src="{{asset('images/cars/ford/mustang-nobg.png')}}" alt="">
             </a>
             <div class="car-text">
                 <span>MT score:</span>
@@ -54,7 +54,7 @@
         <div class="car-box">
             <a href="car_detail.html">
                 <h2>Corvette</h2>
-                <img src="corvette.png" alt="">
+                <img src="{{asset('images/cars/ford/mustang-nobg.png')}}" alt="">
             </a>
             <div class="car-text">
                 <span>MT score:</span>
@@ -69,7 +69,7 @@
         <div class="car-box">
             <a href="car_detail.html">
                 <h2>Corvette</h2>
-                <img src="corvette.png" alt="">
+                <img src="{{asset('images/cars/ford/mustang-nobg.png')}}" alt="">
             </a>
             <div class="car-text">
                 <span>MT score:</span>
@@ -84,7 +84,7 @@
         <div class="car-box">
             <a href="car_detail.html">
                 <h2>Corvette</h2>
-                <img src="corvette.png" alt="">
+                <img src="{{asset('images/cars/ford/mustang-nobg.png')}}" alt="">
             </a>
             <div class="car-text">
                 <span>MT score:</span>
@@ -99,7 +99,7 @@
         <div class="car-box">
             <a href="car_detail.html">
                 <h2>Corvette</h2>
-                <img src="corvette.png" alt="">
+                <img src="{{asset('images/cars/ford/mustang-nobg.png')}}" alt="">
             </a>
             <div class="car-text">
                 <span>MT score:</span>

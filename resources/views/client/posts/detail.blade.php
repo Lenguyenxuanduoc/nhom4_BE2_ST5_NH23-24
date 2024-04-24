@@ -5,7 +5,7 @@
 @include('client.partials.login')
 
 <!------- Start banner ------->
-<section class="banner-posts" style="background-image: url('posts1_1.jpg');">
+<section class="banner-posts" style="background-image: url('{{asset('images/posts/posts1/posts1_1.jpg')}}');">
     <div class="banner-posts-content">
         <p>9 April 2024<span> - </span><span>Terence W</span></p>
         <h1>Porsche Taycan Turbo GT Unveiled</h1>
@@ -41,7 +41,7 @@
         <div class="related-posts-box">
             <a href="">
                 <div class="img-related-posts">
-                    <img src="images\posts\posts1\posts1_1.jpg" alt="">
+                    <img src="{{asset('images\posts\posts1\posts1_1.jpg')}}" alt="">
                 </div>
             </a>
             <p>9 April 2024 / Terence W</p>
@@ -51,7 +51,7 @@
         <div class="related-posts-box">
             <a href="">
                 <div class="img-related-posts">
-                    <img src="images\posts\posts1\posts1_1.jpg" alt="">
+                    <img src="{{asset('images\posts\posts1\posts1_1.jpg')}}" alt="">
                 </div>
             </a>
             <p>9 April 2024 / Terence W</p>
@@ -61,7 +61,7 @@
         <div class="related-posts-box">
             <a href="">
                 <div class="img-related-posts">
-                    <img src="images\posts\posts1\posts1_1.jpg" alt="">
+                    <img src="{{asset('images\posts\posts1\posts1_1.jpg')}}" alt="">
                 </div>
             </a>
             <p>9 April 2024 / Terence W</p>
@@ -71,7 +71,7 @@
         <div class="related-posts-box">
             <a href="">
                 <div class="img-related-posts">
-                    <img src="posts1_1.jpg" alt="">
+                    <img src="{{asset('images\posts\posts1\posts1_1.jpg')}}" alt="">
                 </div>
             </a>
             <p>9 April 2024 / Terence W</p>
@@ -81,7 +81,7 @@
         <div class="related-posts-box">
             <a href="">
                 <div class="img-related-posts">
-                    <img src="images\posts\posts1\posts1_1.jpg" alt="">
+                    <img src="{{asset('images\posts\posts1\posts1_1.jpg')}}" alt="">
                 </div>
             </a>
             <p>9 April 2024 / Terence W</p>
@@ -91,7 +91,7 @@
         <div class="related-posts-box">
             <a href="">
                 <div class="img-related-posts">
-                    <img src="images\posts\posts1\posts1_1.jpg" alt="">
+                    <img src="{{asset('images\posts\posts1\posts1_1.jpg')}}" alt="">
                 </div>
             </a>
             <p>9 April 2024 / Terence W</p>

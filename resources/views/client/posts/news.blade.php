@@ -17,101 +17,32 @@
 
 <!------- Start posts ------->
 <div class="posts-container">
-    <a href="news/posts/1">
-        <div class="posts-box">
-            <div class="posts-img">
-                <img src={{ asset('images\posts\posts1\posts1_1.jpg') }} alt="">
-            </div>
+    @if (!empty($posts))
+        @php
+            $countPosts = 0;
+        @endphp
+        @foreach ($posts as $post)
+            @php
+                $countPosts++;
+                $images = json_decode($post->images);
+            @endphp
+            <a href="news/posts/{{ $post->id }}">
+                <div class="posts-box">
+                    <div class="posts-img">
+                        <img src="{{ asset('images/posts/' . $images[0]) }}"
+                            alt="">
+                    </div>
 
-            <div class="posts-text">
-                <span>9 April 2024 / Terence W</span>
-                <a href="news/posts/1" class="posts-title">Porsche Taycan Turbo GT Unveiled</a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque vitae totam voluptates esse quisquam
-                    numquam ab iure quibusdam earum cupiditate?</p>
-                <a href="news/posts/1">READ MORE</a>
-            </div>
-        </div>
-    </a>
-
-    <a href="news/posts/2">
-        <div class="posts-box">
-            <div class="posts-img">
-                <img src={{ asset('images\posts\posts1\posts1_1.jpg') }} alt="">
-            </div>
-
-            <div class="posts-text">
-                <span>9 April 2024 / Terence W</span>
-                <a href="posts_detail.html" class="posts-title">Porsche Taycan Turbo GT Unveiled</a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque vitae totam voluptates esse quisquam
-                    numquam ab iure quibusdam earum cupiditate?</p>
-                <a href="posts_detail.html">READ MORE</a>
-            </div>
-        </div>
-    </a>
-
-    <a href="posts_detail.html">
-        <div class="posts-box">
-            <div class="posts-img">
-                <img src={{ asset('images\posts\posts1\posts1_1.jpg') }} alt="">
-            </div>
-
-            <div class="posts-text">
-                <span>9 April 2024 / Terence W</span>
-                <a href="posts_detail.html" class="posts-title">Porsche Taycan Turbo GT Unveiled</a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque vitae totam voluptates esse quisquam
-                    numquam ab iure quibusdam earum cupiditate?</p>
-                <a href="posts_detail.html">READ MORE</a>
-            </div>
-        </div>
-    </a>
-
-    <a href="posts_detail.html">
-        <div class="posts-box">
-            <div class="posts-img">
-                <img src={{ asset('images\posts\posts1\posts1_1.jpg') }} alt="">
-            </div>
-
-            <div class="posts-text">
-                <span>9 April 2024 / Terence W</span>
-                <a href="posts_detail.html" class="posts-title">Porsche Taycan Turbo GT Unveiled</a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque vitae totam voluptates esse quisquam
-                    numquam ab iure quibusdam earum cupiditate?</p>
-                <a href="posts_detail.html">READ MORE</a>
-            </div>
-        </div>
-    </a>
-
-    <a href="posts_detail.html">
-        <div class="posts-box">
-            <div class="posts-img">
-                <img src={{ asset('images\posts\posts1\posts1_1.jpg') }} alt="">
-            </div>
-
-            <div class="posts-text">
-                <span>9 April 2024 / Terence W</span>
-                <a href="posts_detail.html" class="posts-title">Porsche Taycan Turbo GT Unveiled</a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque vitae totam voluptates esse quisquam
-                    numquam ab iure quibusdam earum cupiditate?</p>
-                <a href="posts_detail.html">READ MORE</a>
-            </div>
-        </div>
-    </a>
-
-    <a href="posts_detail.html">
-        <div class="posts-box">
-            <div class="posts-img">
-                <img src={{ asset('images\posts\posts1\posts1_1.jpg') }} alt="">
-            </div>
-
-            <div class="posts-text">
-                <span>9 April 2024 / Terence W</span>
-                <a href="posts_detail.html" class="posts-title">Porsche Taycan Turbo GT Unveiled</a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque vitae totam voluptates esse quisquam
-                    numquam ab iure quibusdam earum cupiditate?</p>
-                <a href="posts_detail.html">READ MORE</a>
-            </div>
-        </div>
-    </a>
+                    <div class="posts-text">
+                        <span>{{ date('d F Y', strtotime($post->posting_date)) }} / {{ $post->author }}</span>
+                        <a href="news/posts/{{ $post->id }}" class="posts-title">{{ $post->title }}</a>
+                        <p>{{ \Str::limit($post->content1, 60) }}</p>
+                        <a href="news/posts/{{ $post->id }}">READ MORE</a>
+                    </div>
+                </div>
+            </a>
+        @endforeach
+    @endif
 </div>
 <!------- End posts ------->
 
