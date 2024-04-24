@@ -32,7 +32,6 @@
         <!-- Main content -->
        
         <section class="content">
-
         <div class="container">
     <div class="row mt-4">
       <div class="col-lg-12 d-flex justify-content-between align-items-center">
