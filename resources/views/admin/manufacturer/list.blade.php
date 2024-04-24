@@ -43,19 +43,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            @foreach($data as $manufacturer)
+
                                 <tr>
-                                    <td>1</td>
-                                    <td>Passenger Cars</td>
-                                    <td><img src="passenger_cars.jpg" alt="Passenger Cars" style="max-width: 100px;"></td>
-                                    <td>1990</td>
-                                    <td>John Doe</td>
-                                    <td>Designed for passenger transport in urban or highway settings.</td>
+                                 <td>{{$manufacturer->id}}</td>
+                                 <td>{{$manufacturer->name}}</td>
+                                 <td>{{$manufacturer->Image}}</td>
+                                 <td>{{$manufacturer->founded_year}}</td>
+                                 <td>{{$manufacturer->founder_name}}</td>
+                                 <td>{{$manufacturer->description}}</td>
+
                                     <td>
                                         <button class="btn btn-danger">Delete</button>
                                         <a href="edit-manufacturers" class="btn btn-info">Edit</a>
                                     </td>
                                 </tr>
-                                
+                                @endforeach
                                 <!-- Các hàng khác -->
                             </tbody>
                         </table>
@@ -69,7 +72,7 @@
 <!-- /.content-wrapper -->
 
 </div>
-        @include('admin.partials.footer')
+     
         
     </div>
 

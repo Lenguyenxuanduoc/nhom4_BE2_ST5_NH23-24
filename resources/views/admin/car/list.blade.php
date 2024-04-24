@@ -47,51 +47,37 @@
                                                 <th>Manufacturer</th>
                                                 <th>Category</th>
                                                 <th>Price</th>
+                                                <th>description</th>
+                                                <th>quantity</th>
                                                 <th>Publishing year</th>
                                                 <th>Image</th>
+                                                <th>Avatar</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Toyota Camry</td>
-                                                <td>Toyota</td>
-                                                <td>Sedan</td>
-                                                <td>$25,000</td>
-                                                <td>2022</td>
-                                                <td></td>
+                                            @foreach($data as $car)
+                                            <tr> 
+                                                <td>{{$car->id}}</td>
+                                                <td>{{$car->name}}</td>
+                                                <td>{{$car->manufacturer_id}}</td>
+                                                <td>{{$car->category_id}}</td>
+                                                <td>{{$car->price}}</td>
+                                                <td>{{$car->description}}</td>
+                                                <td>{{$car->quantity}}</td>
+                                                <td>{{$car->producing_year}}</td>
+                                                <td>{{$car->images}}</td>
+                                                <!-- <td>{{$car->avatar}}</td> -->
+                                                <td>
+                                                    <img src="{{url('public/images/cars')}}/{{$car->avatar}}" widt="60">
+                                                </td>
                                                 <td>
                                                     <button class="btn btn-danger">Delete</button>
                                                     <a href="edit_car/1" class="btn btn-info">Edit</a>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Honda Civic</td>
-                                                <td>Honda</td>
-                                                <td>Sedan</td>
-                                                <td>$22,000</td>
-                                                <td>2021</td>
-                                                <td></td>
-                                                <td>
-                                                    <button class="btn btn-danger">Delete</button>
-                                                    <a href="edit" class="btn btn-info">Edit</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Ford Mustang</td>
-                                                <td>Ford</td>
-                                                <td>Coupe</td>
-                                                <td>$35,000</td>
-                                                <td>2023</td>
-                                                <td></td>
-                                                <td>
-                                                    <button class="btn btn-danger">Delete</button>
-                                                    <a href="edit" class="btn btn-info">Edit</a>
-                                                </td>
-                                            </tr>
+                                            @endforeach
+                                            
                                         </tbody>
                                     </table>
 
@@ -102,9 +88,7 @@
                 </section>
             </div>
         </div>
-        @include('admin.partials.footer')
     </div>
-
     <!-- jQuery -->
     <script src="{{ asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>
     <!-- jQuery UI 1.11.4 -->

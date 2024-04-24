@@ -45,17 +45,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach($data as $category)
                                             <tr>
-                                                <td>1</td>
-                                                <td>Passenger Cars</td>
-                                                <td>Designed for passenger transport in urban or highway settings.</td>
-                                                <td><img src="passenger_cars.jpg" alt="Passenger Cars"
-                                                        style="max-width: 100px;"></td>
+                                                <td>{{$category->id}}</td>
+                                                <td>{{$category->name}}</td>
                                                 <td>
                                                     <button class="btn btn-danger">Delete</button>
                                                     <a href="edit-categories" class="btn btn-info">Edit</a>
                                                 </td>
                                             </tr>
+                                            @endforeach
                                             <!-- Các hàng khác -->
                                         </tbody>
                                     </table>
@@ -67,8 +66,7 @@
 
             </div>
         </div>
-        @include('admin.partials.footer')
-
+        <!-- @include('admin.partials.footer') -->
     </div>
 
     <!-- jQuery -->

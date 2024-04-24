@@ -48,6 +48,7 @@ Route::middleware('auth.admin')->group(function(){
     Route::get('/cars', [CarsController::class, 'index']);
     Route::get('/add_car', [CarsController::class, 'add']);
 
+
     Route::get('/categories', [CategoriesController::class, 'index']);
     Route::get('/add_category', [CategoriesController::class, 'add']);
 
