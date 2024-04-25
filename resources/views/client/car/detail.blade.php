@@ -8,14 +8,23 @@
 <section class="car-detail-container flex">
     <div class="left">
         <div class="main-img">
-            <img src="images/cars/ford/mustang1.jpg" alt="" class="slide">
+            @php
+                $images = json_decode($car_detail->images);
+            @endphp
+            <img src={{ asset('images/cars/' . $images[0]) }} onclick="img('images/cars/{{ $images[0] }}')"
+                alt="" class="slide">
         </div>
         <div class="option">
-            <img src="images/cars/ford/mustang1.jpg" onclick="img('images/cars/ford/mustang1.jpg')" alt="">
-            <img src="images/cars/ford/mustang2.jpg" onclick="img('images/cars/ford/mustang2.jpg')" alt="">
-            <img src="images/cars/ford/mustang3.jpg" onclick="img('images/cars/ford/mustang3.jpg')" alt="">
-            <img src="images/cars/ford/mustang4.jpg" onclick="img('images/cars/ford/mustang4.jpg')" alt="">
-            <img src="images/cars/ford/mustang5.jpg" onclick="img('images/cars/ford/mustang5.jpg')" alt="">
+            <img src="{{ asset('images/cars/' . $images[0]) }}" onclick="img('{{ asset('images/cars/' . $images[0]) }}')"
+                alt="">
+            <img src="{{ asset('images/cars/' . $images[1]) }}" onclick="img('{{ asset('images/cars/' . $images[1]) }}')"
+                alt="">
+            <img src="{{ asset('images/cars/' . $images[2]) }}" onclick="img('{{ asset('images/cars/' . $images[2]) }}')"
+                alt="">
+            <img src="{{ asset('images/cars/' . $images[3]) }}" onclick="img('{{ asset('images/cars/' . $images[3]) }}')"
+                alt="">
+            <img src="{{ asset('images/cars/' . $images[4]) }}" onclick="img('{{ asset('images/cars/' . $images[4]) }}')"
+                alt="">
         </div>
         <button class="btn-specs" onclick="openPopup('specs-popup')">SEE ALL SPECS</button><br>
     </div>
@@ -27,7 +36,7 @@
             <div class="btn-close-popup">
                 <button onclick="closePopup('specs-popup')"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <h1>Ford Mustang Specifications</h1>
+            <h1>{{ $car_detail->name }}</h1>
             <hr>
             <div class="specs-box">
                 <div class="performance-box">
@@ -36,35 +45,35 @@
                         <tbody>
                             <tr class="tr-background">
                                 <td class="td-name">Engine Name</td>
-                                <td>4-Cyl Turbo 2.3 Liter EcoBoost®</td>
+                                <td>{{ !empty($car_detail->engine) ? $car_detail->engine : 'N/A' }}</td>
                             </tr>
                             <tr>
                                 <td class="td-name">Trim</td>
-                                <td>EcoBoost Coupe</td>
+                                <td>{{ !empty($car_detail->trim) ? $car_detail->trim : 'N/A' }}</td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">Horsepower</td>
-                                <td>315@5,000</td>
+                                <td>{{ !empty($car_detail->horsepower) ? $car_detail->horsepower : 'N/A' }}</td>
                             </tr>
                             <tr>
                                 <td class="td-name">Torque</td>
-                                <td>350@3,000</td>
+                                <td>{{ !empty($car_detail->torque) ? $car_detail->torque : 'N/A' }}</td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">Number Of Cylinders</td>
-                                <td>4</td>
+                                <td>{{ !empty($car_detail->cylinders) ? $car_detail->cylinders : 'N/A' }}</td>
                             </tr>
                             <tr>
                                 <td class="td-name">Standard MPG</td>
-                                <td>22/23</td>
+                                <td>{{ !empty($car_detail->standard_mpg) ? $car_detail->standard_mpg : 'N/A' }}</td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">Transmission</td>
-                                <td>10 Speed Automatic with Manual Mode</td>
+                                <td>{{ !empty($car_detail->transmission) ? $car_detail->transmission : 'N/A' }}</td>
                             </tr>
                             <tr>
                                 <td class="td-name">Transmission Type</td>
-                                <td>Automatic</td>
+                                <td>{{ !empty($car_detail->transmission_type) ? $car_detail->transmission_type : 'N/A' }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -75,28 +84,28 @@
                         <tbody>
                             <tr class="tr-background">
                                 <td class="td-name">Front Headroom</td>
-                                <td>36.7 in</td>
+                                <td>{{ !empty($car_detail->front_headroom) ? $car_detail->front_headroom : 'N/A' }}</td>
                             </tr>
                             <tr>
                                 <td class="td-name">Rear Headroom</td>
-                                <td>34.8 in</td>
+                                <td>{{ !empty($car_detail->rear_headroom) ? $car_detail->rear_headroom : 'N/A' }}</td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">Front Legroom</td>
-                                <td>34.8 in</td>
+                                <td>{{ !empty($car_detail->front_legroom) ? $car_detail->front_legroom : 'N/A' }}</td>
                             </tr>
-                            <tr">
+                            <tr>
                                 <td class="td-name">Rear Legroom</td>
-                                <td>34.8 in</td>
-                                </tr>
-                                <tr class="tr-background">
-                                    <td class="td-name">Front Shoulder Room</td>
-                                    <td>34.8 in</td>
-                                </tr>
-                                <tr>
-                                    <td class="td-name">Rear Shoulder Room</td>
-                                    <td>34.8 in</td>
-                                </tr>
+                                <td>{{ !empty($car_detail->rear_legroom) ? $car_detail->rear_legroom : 'N/A' }}</td>
+                            </tr>
+                            <tr class="tr-background">
+                                <td class="td-name">Front Shoulder Room</td>
+                                <td>{{ !empty($car_detail->front_shoulder_room) ? $car_detail->front_shoulder_room : 'N/A' }}</td>
+                            </tr>
+                            <tr>
+                                <td class="td-name">Rear Shoulder Room</td>
+                                <td>{{ !empty($car_detail->rear_shoulder_room) ? $car_detail->rear_shoulder_room : 'N/A' }}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -106,19 +115,19 @@
                         <tbody>
                             <tr class="tr-background">
                                 <td class="td-name">Length</td>
-                                <td>189.4 in</td>
+                                <td>{{ !empty($car_detail->length) ? $car_detail->length : 'N/A' }}</td>
                             </tr>
                             <tr>
                                 <td class="td-name">Width</td>
-                                <td>34.8 in</td>
+                                <td>{{ !empty($car_detail->width) ? $car_detail->width : 'N/A' }}</td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">Height</td>
-                                <td>34.8 in</td>
+                                <td>{{ !empty($car_detail->height) ? $car_detail->height : 'N/A' }}</td>
                             </tr>
                             <tr>
                                 <td class="td-name">Wheel base</td>
-                                <td>34.8 in</td>
+                                <td>{{ !empty($car_detail->wheel_base) ? $car_detail->wheel_base : 'N/A' }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -129,15 +138,15 @@
                         <tbody>
                             <tr class="tr-background">
                                 <td class="td-name">Fuel Capacity</td>
-                                <td>16.0</td>
+                                <td>{{ !empty($car_detail->fuel_capacity) ? $car_detail->fuel_capacity : 'N/A' }}</td>
                             </tr>
                             <tr>
                                 <td class="td-name">Cargo Capacity</td>
-                                <td>13.3 cu-ft</td>
+                                <td>{{ !empty($car_detail->cargo_capacity) ? $car_detail->cargo_capacity : 'N/A' }}</td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">Curb weight</td>
-                                <td>3.597 lb</td>
+                                <td>{{ !empty($car_detail->curb_weight) ? $car_detail->curb_weight : 'N/A' }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -151,23 +160,22 @@
 
     <div class="right">
         <div class="car-name">
-            <h3>Ford Mustang <h3 class="producing-year">2024</h3>
+            <h3>{{ $car_detail->name }} <h3 class="producing-year">{{ $car_detail->producing_year }}</h3>
             </h3>
         </div>
 
         <div class="category-mtscore">
             <button class="btn-mt-score" onclick="scrollToCarReview()">MT Score <span>8.1</span><span
                     class="span-10">/10</span></button>
-            <button class="btn-category"><a href="">Coupe</a></button>
+            {{-- <button class="btn-category"><a href="">Coupe</a></button> --}}
         </div>
 
         <div class="car-price">
             <h4>Price:</h4>
-            <p>$50.000</p>
+            <p>${{ number_format($car_detail->price, 0, ',', '.') }}</p>
         </div>
         <div class="car-description">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni quae animi, perspiciatis numquam porro
-                quia odit voluptates similique tenetur ducimus?</p>
+            <p>{{$car_detail->description}}</p>
         </div>
         <div class="btn-order">
             <button class="btn-order">Order</button>
@@ -219,7 +227,9 @@
             <p><b>MT Score</b> <span class="span1">8</span><span class="span2">/10</span></p>
             <a href="car_detail.html"><img src="images/cars/ford/mustang-nobg.png" alt=""></a>
             <div class="related-cars-text">
-                <a href=""><h2>Corvette</h2></a>
+                <a href="">
+                    <h2>Corvette</h2>
+                </a>
                 <p>Price: $50.000</p>
             </div>
         </div>
@@ -228,7 +238,9 @@
             <p><b>MT Score</b> <span class="span1">8</span><span class="span2">/10</span></p>
             <a href="car_detail.html"><img src="corvette.png" alt=""></a>
             <div class="related-cars-text">
-                <a href=""><h2>Corvette</h2></a>
+                <a href="">
+                    <h2>Corvette</h2>
+                </a>
                 <p>Price: $50.000</p>
             </div>
         </div>
@@ -237,7 +249,9 @@
             <p><b>MT Score</b> <span class="span1">8</span><span class="span2">/10</span></p>
             <a href="car_detail.html"><img src="corvette.png" alt=""></a>
             <div class="related-cars-text">
-                <a href=""><h2>Corvette</h2></a>
+                <a href="">
+                    <h2>Corvette</h2>
+                </a>
                 <p>Price: $50.000</p>
             </div>
         </div>
@@ -246,7 +260,9 @@
             <p><b>MT Score</b> <span class="span1">8</span><span class="span2">/10</span></p>
             <a href="car_detail.html"><img src="corvette.png" alt=""></a>
             <div class="related-cars-text">
-                <a href=""><h2>Corvette</h2></a>
+                <a href="">
+                    <h2>Corvette</h2>
+                </a>
                 <p>Price: $50.000</p>
             </div>
         </div>

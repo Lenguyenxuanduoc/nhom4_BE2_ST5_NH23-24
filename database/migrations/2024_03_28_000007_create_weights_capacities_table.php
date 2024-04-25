@@ -19,10 +19,6 @@ return new class extends Migration
             $table->string('fuel_capacity')->nullable();
             $table->string('cargo_capacity')->nullable();
             $table->string('curb_weight')->nullable();
-            // $table->string('towing_capacity');
-            // $table->string('gvwr');
-            // $table->string('payload_capacity');
-            // $table->string('tonnage');
             $table->timestamps();
         });
     }
