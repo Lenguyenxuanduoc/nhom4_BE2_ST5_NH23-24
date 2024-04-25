@@ -11,8 +11,7 @@
             @php
                 $images = json_decode($car_detail->images);
             @endphp
-            <img src={{ asset('images/cars/' . $images[0]) }} onclick="img('images/cars/{{ $images[0] }}')"
-                alt="" class="slide">
+            <img src={{ asset('images/cars/' . $images[0]) }} alt="" class="slide">
         </div>
         <div class="option">
             <img src="{{ asset('images/cars/' . $images[0]) }}" onclick="img('{{ asset('images/cars/' . $images[0]) }}')"
@@ -165,8 +164,7 @@
 
     <div class="right">
         <div class="car-name">
-            <h3>{{ $car_detail->name }} <h3 class="producing-year">{{ $car_detail->producing_year }}</h3>
-            </h3>
+            <h3>{{ $car_detail->name }} {{ $car_detail->producing_year }}</h3>
         </div>
 
         <div class="category-mtscore">
@@ -242,16 +240,6 @@
                 </div>
             @endforeach
         @endif
-        {{-- <div class="related-cars-box">
-            <p><b>MT Score</b> <span class="span1">8</span><span class="span2">/10</span></p>
-            <a href="car_detail.html"><img src="images/cars/ford/mustang-nobg.png" alt=""></a>
-            <div class="related-cars-text">
-                <a href="">
-                    <h2>Corvette</h2>
-                </a>
-                <p>Price: $50.000</p>
-            </div>
-        </div> --}}
     </div>
 </section>
 <!------- End same category ------->

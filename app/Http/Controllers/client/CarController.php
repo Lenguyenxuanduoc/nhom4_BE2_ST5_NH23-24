@@ -47,8 +47,8 @@ class CarController extends Controller
 
         $title = $car_detail->name;
 
-        $related_cars = Car::where('manufacturer_id', $car_detail->manufacturer_id)->get();
-        // dd($related_cars);
+        $related_cars = Car::where('slug', '!=', $slug)->where('manufacturer_id', $car_detail->manufacturer_id)->get();
+
         return view('client.car.detail', compact('slug', 'car_detail', 'related_cars', 'title'));
     }
 }
