@@ -5,9 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class CarController extends Controller
 {
-    public function index(){
-        return view('home');
+    public function add(){
+        dd('added');
     }
 }

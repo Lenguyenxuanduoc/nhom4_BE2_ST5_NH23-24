@@ -6,10 +6,10 @@ use App\Http\Controllers\client\NewsController;
 use App\Http\Controllers\client\BrandController;
 use App\Http\Controllers\client\LoginController;
 use App\Http\Controllers\admin\DashboardController;
-use App\Http\Controllers\admin\CarsController;
+use App\Http\Controllers\admin\CarController;
 use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\ManufacturersController;
-use App\Http\Controllers\client\CarController;
+// use App\Http\Controllers\client\CarController;
 
 
 // Client routes
@@ -38,7 +38,7 @@ Route::prefix('/brands')->group(function(){
 // Car
 Route::prefix('/car')->group(function(){
     // Lấy chi tiết 1 car
-    Route::get('/{slug}', [CarController::class, 'getCar']);
+    Route::get('/{slug}', [ClientCarController::class, 'getCar']);
 });
 
 
@@ -52,8 +52,9 @@ Route::middleware('auth.admin')->prefix('/admin')->group(function(){
     Route::get('/', [DashboardController::class, 'index'])->name('admin');
 });
 
-Route::get('admin', function(){
-    return view('home');
+Route::middleware('auth.admin')->prefix('cars')->group(function(){
+    Route::get('/add', [CarController::class, 'add'])->name('cars.add');
+    
 });
 
 // Route::middleware('auth.admin')->group(function(){

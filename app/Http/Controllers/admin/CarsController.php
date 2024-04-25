@@ -9,15 +9,14 @@ use App\Models\Car;
 class CarsController extends Controller
 {
     public function index(){
-        $data = Car::orderBy('id','ASC')->paginate(30);
+        // $data = Car::orderBy('id','ASC')->paginate(30);
         return view('admin.car.list', compact('data'));
     }
 
     public function add(){
-        return view('admin.car.add');
+        dd();
+        // return view('admin.car.add');
     }
-   
-
 
     public function edit($id){
         return view('admin.car.edit', compact('id'));

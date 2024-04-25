@@ -44,7 +44,6 @@
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Car List
-                            <span class="right badge badge-danger">New</span>
                         </p>
                     </a>
                 </li>
