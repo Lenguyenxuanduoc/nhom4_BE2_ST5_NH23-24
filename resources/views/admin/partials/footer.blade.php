@@ -1,8 +1,10 @@
-
+<!-- Main Footer -->
 <footer class="main-footer">
-    <strong>Copyright &copy; 2024 <a href="https://github.com/Lenguyenxuanduoc/nhom4_BE2_ST5_NH23-24.git">Project Back End 2</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 1.x
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+        Anything you want
     </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
+    reserved.
 </footer>

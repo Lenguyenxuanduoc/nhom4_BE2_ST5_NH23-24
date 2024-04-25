@@ -52,17 +52,21 @@ Route::middleware('auth.admin')->prefix('/admin')->group(function(){
     Route::get('/', [DashboardController::class, 'index'])->name('admin');
 });
 
-Route::middleware('auth.admin')->group(function(){
-    Route::get('/cars', [CarsController::class, 'index']);
-    Route::get('/add_car', [CarsController::class, 'add']);
-
-
-    Route::get('/categories', [CategoriesController::class, 'index']);
-    Route::get('/add_category', [CategoriesController::class, 'add']);
-
-    Route::get('/manufacturers', [ManufacturersController::class, 'index']);
-    Route::get('/add_manufacturer', [ManufacturersController::class, 'add']);
+Route::get('admin', function(){
+    return view('home');
 });
+
+// Route::middleware('auth.admin')->group(function(){
+//     Route::get('/cars', [CarsController::class, 'index']);
+//     Route::get('/add_car', [CarsController::class, 'add']);
+
+
+//     Route::get('/categories', [CategoriesController::class, 'index']);
+//     Route::get('/add_category', [CategoriesController::class, 'add']);
+
+//     Route::get('/manufacturers', [ManufacturersController::class, 'index']);
+//     Route::get('/add_manufacturer', [ManufacturersController::class, 'add']);
+// });
 
 
 
