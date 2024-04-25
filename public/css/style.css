@@ -1046,7 +1046,9 @@ header{
 .related-cars{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 10px;
 }
 
 .related-cars-container h1{

@@ -12,7 +12,7 @@ class CarController extends Controller
     public function getCar($slug){
         // $car_detail = Car::where('slug', $slug)->first();
 
-        $car_detail = Car::select('cars.id', 'cars.name','cars.price', 'cars.avatar', 'cars.slug', 'cars.producing_year', 'cars.images',
+        $car_detail = Car::select('cars.id', 'cars.name','cars.price', 'cars.avatar', 'cars.slug', 'cars.producing_year', 'cars.images', 'cars.manufacturer_id',
                     'performances.engine',
                     'performances.horsepower',
                     'performances.trim',
@@ -46,6 +46,9 @@ class CarController extends Controller
         }
 
         $title = $car_detail->name;
-        return view('client.car.detail', compact('slug', 'car_detail', 'title'));
+
+        $related_cars = Car::where('manufacturer_id', $car_detail->manufacturer_id)->get();
+        // dd($related_cars);
+        return view('client.car.detail', compact('slug', 'car_detail', 'related_cars', 'title'));
     }
 }

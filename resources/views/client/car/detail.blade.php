@@ -17,14 +17,14 @@
         <div class="option">
             <img src="{{ asset('images/cars/' . $images[0]) }}" onclick="img('{{ asset('images/cars/' . $images[0]) }}')"
                 alt="">
-            <img src="{{ asset('images/cars/' . $images[1]) }}" onclick="img('{{ asset('images/cars/' . $images[1]) }}')"
-                alt="">
-            <img src="{{ asset('images/cars/' . $images[2]) }}" onclick="img('{{ asset('images/cars/' . $images[2]) }}')"
-                alt="">
-            <img src="{{ asset('images/cars/' . $images[3]) }}" onclick="img('{{ asset('images/cars/' . $images[3]) }}')"
-                alt="">
-            <img src="{{ asset('images/cars/' . $images[4]) }}" onclick="img('{{ asset('images/cars/' . $images[4]) }}')"
-                alt="">
+            <img src="{{ asset('images/cars/' . $images[1]) }}"
+                onclick="img('{{ asset('images/cars/' . $images[1]) }}')" alt="">
+            <img src="{{ asset('images/cars/' . $images[2]) }}"
+                onclick="img('{{ asset('images/cars/' . $images[2]) }}')" alt="">
+            <img src="{{ asset('images/cars/' . $images[3]) }}"
+                onclick="img('{{ asset('images/cars/' . $images[3]) }}')" alt="">
+            <img src="{{ asset('images/cars/' . $images[4]) }}"
+                onclick="img('{{ asset('images/cars/' . $images[4]) }}')" alt="">
         </div>
         <button class="btn-specs" onclick="openPopup('specs-popup')">SEE ALL SPECS</button><br>
     </div>
@@ -73,7 +73,8 @@
                             </tr>
                             <tr>
                                 <td class="td-name">Transmission Type</td>
-                                <td>{{ !empty($car_detail->transmission_type) ? $car_detail->transmission_type : 'N/A' }}</td>
+                                <td>{{ !empty($car_detail->transmission_type) ? $car_detail->transmission_type : 'N/A' }}
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -84,7 +85,8 @@
                         <tbody>
                             <tr class="tr-background">
                                 <td class="td-name">Front Headroom</td>
-                                <td>{{ !empty($car_detail->front_headroom) ? $car_detail->front_headroom : 'N/A' }}</td>
+                                <td>{{ !empty($car_detail->front_headroom) ? $car_detail->front_headroom : 'N/A' }}
+                                </td>
                             </tr>
                             <tr>
                                 <td class="td-name">Rear Headroom</td>
@@ -100,11 +102,13 @@
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">Front Shoulder Room</td>
-                                <td>{{ !empty($car_detail->front_shoulder_room) ? $car_detail->front_shoulder_room : 'N/A' }}</td>
+                                <td>{{ !empty($car_detail->front_shoulder_room) ? $car_detail->front_shoulder_room : 'N/A' }}
+                                </td>
                             </tr>
                             <tr>
                                 <td class="td-name">Rear Shoulder Room</td>
-                                <td>{{ !empty($car_detail->rear_shoulder_room) ? $car_detail->rear_shoulder_room : 'N/A' }}</td>
+                                <td>{{ !empty($car_detail->rear_shoulder_room) ? $car_detail->rear_shoulder_room : 'N/A' }}
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -142,7 +146,8 @@
                             </tr>
                             <tr>
                                 <td class="td-name">Cargo Capacity</td>
-                                <td>{{ !empty($car_detail->cargo_capacity) ? $car_detail->cargo_capacity : 'N/A' }}</td>
+                                <td>{{ !empty($car_detail->cargo_capacity) ? $car_detail->cargo_capacity : 'N/A' }}
+                                </td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">Curb weight</td>
@@ -175,7 +180,7 @@
             <p>${{ number_format($car_detail->price, 0, ',', '.') }}</p>
         </div>
         <div class="car-description">
-            <p>{{$car_detail->description}}</p>
+            <p>{{ $car_detail->description }}</p>
         </div>
         <div class="btn-order">
             <button class="btn-order">Order</button>
@@ -223,7 +228,21 @@
     <h1>Related Cars</h1>
     <hr>
     <div class="related-cars">
-        <div class="related-cars-box">
+        @if (!empty($related_cars))
+            @foreach ($related_cars as $car)
+                <div class="related-cars-box">
+                    <p><b>MT Score</b> <span class="span1">8</span><span class="span2">/10</span></p>
+                    <a href={{asset('car/'. $car->slug)}}><img src={{asset('images/cars/'.$car->avatar)}} alt=""></a>
+                    <div class="related-cars-text">
+                        <a href="">
+                            <h2>{{$car->name}}</h2>
+                        </a>
+                        <p>Price: ${{ number_format($car->price, 0, ',', '.') }}</p>
+                    </div>
+                </div>
+            @endforeach
+        @endif
+        {{-- <div class="related-cars-box">
             <p><b>MT Score</b> <span class="span1">8</span><span class="span2">/10</span></p>
             <a href="car_detail.html"><img src="images/cars/ford/mustang-nobg.png" alt=""></a>
             <div class="related-cars-text">
@@ -232,40 +251,7 @@
                 </a>
                 <p>Price: $50.000</p>
             </div>
-        </div>
-
-        <div class="related-cars-box">
-            <p><b>MT Score</b> <span class="span1">8</span><span class="span2">/10</span></p>
-            <a href="car_detail.html"><img src="corvette.png" alt=""></a>
-            <div class="related-cars-text">
-                <a href="">
-                    <h2>Corvette</h2>
-                </a>
-                <p>Price: $50.000</p>
-            </div>
-        </div>
-
-        <div class="related-cars-box">
-            <p><b>MT Score</b> <span class="span1">8</span><span class="span2">/10</span></p>
-            <a href="car_detail.html"><img src="corvette.png" alt=""></a>
-            <div class="related-cars-text">
-                <a href="">
-                    <h2>Corvette</h2>
-                </a>
-                <p>Price: $50.000</p>
-            </div>
-        </div>
-
-        <div class="related-cars-box">
-            <p><b>MT Score</b> <span class="span1">8</span><span class="span2">/10</span></p>
-            <a href="car_detail.html"><img src="corvette.png" alt=""></a>
-            <div class="related-cars-text">
-                <a href="">
-                    <h2>Corvette</h2>
-                </a>
-                <p>Price: $50.000</p>
-            </div>
-        </div>
+        </div> --}}
     </div>
 </section>
 <!------- End same category ------->
