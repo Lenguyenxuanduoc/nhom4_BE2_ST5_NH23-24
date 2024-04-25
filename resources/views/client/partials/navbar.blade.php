@@ -1,5 +1,6 @@
 @php
     use Illuminate\Support\Facades\Auth;
+    use App\Models\Manufacturer;
 @endphp
 <!------- Start navbar ------->
 <nav>
@@ -14,11 +15,14 @@
                 <a href="/brands">Brands <i class="fa-solid fa-caret-down" style="font-size: 15px;"></i></a>
                 <div class="nav-dropdown">
                     <ul>
-                        <li><a href="/brands/brand/bmw">BMW</a></li>
-                        <li><a href="/brands/brand/chevrolet">Chevrolet</a></li>
-                        <li><a href="/brands/brand">Dodge</a></li>
-                        <li><a href="/brands/brand">Ferrari</a></li>
-                        <li><a href="/brands/brand">Ford</a></li>
+                        @php
+                            $manufacturers = Manufacturer::all();
+                        @endphp
+                        @if (!empty($manufacturers))
+                            @foreach ($manufacturers as $manufacturer)
+                                <li><a href="/brands/{{$manufacturer->slug}}">{{$manufacturer->name}}</a></li>
+                            @endforeach
+                        @endif
                     </ul>
                 </div>
             </li>

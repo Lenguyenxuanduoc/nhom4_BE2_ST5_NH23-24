@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\CarsController;
 use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\ManufacturersController;
+use App\Http\Controllers\client\CarController;
 
 
 // Client routes
@@ -21,7 +22,7 @@ Route::prefix('/news')->group(function(){
     Route::get('/', [NewsController::class, 'index']);
 
     // Lấy chi tiết 1 posts
-    Route::get('/posts/{id}', [NewsController::class, 'getPosts']);
+    Route::get('/posts/{slug}', [NewsController::class, 'getPosts']);
 });
 
 
@@ -30,7 +31,14 @@ Route::prefix('/brands')->group(function(){
     Route::get('/', [BrandController::class, 'index']);
 
     // Lấy chi tiết 1 brand
-    Route::get('/brand/{id}', [BrandController::class, 'getBrand']);
+    Route::get('/{slug}', [BrandController::class, 'getBrand']);
+});
+
+
+// Car
+Route::prefix('/car')->group(function(){
+    // Lấy chi tiết 1 car
+    Route::get('/{slug}', [CarController::class, 'getCar']);
 });
 
 

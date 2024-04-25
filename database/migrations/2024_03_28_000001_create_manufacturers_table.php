@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('banner')->nullable();
             $table->string('founded_year');
             $table->string('founder_name');
+            $table->string('slug')->unique();
             $table->text('description');
             $table->timestamps();
         });

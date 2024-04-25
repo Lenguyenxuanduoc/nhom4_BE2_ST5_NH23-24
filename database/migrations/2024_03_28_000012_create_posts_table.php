@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('author');
             $table->json('images');
             $table->timestamp('posting_date');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

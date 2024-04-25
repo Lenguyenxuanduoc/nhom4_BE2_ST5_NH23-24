@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('producing_year')->nullable();
             $table->json('images');
             $table->string('avatar');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }
