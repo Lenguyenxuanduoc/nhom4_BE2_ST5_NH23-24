@@ -29,7 +29,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="{{route('cars.add')}}" class="btn btn-primary my-2">Add</a>
+                        <a href="{{route('cars.add')}}" class="btn btn-dark my-2">Add</a>
                     </div>
 
                     <div class="col-md-12">

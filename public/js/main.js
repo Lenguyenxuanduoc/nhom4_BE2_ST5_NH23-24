@@ -57,3 +57,45 @@ window.addEventListener('click', function(event){
     }
 });
 
+
+// Hiển thị hình ảnh khi chọn từ input file
+document.getElementById('imageInput').addEventListener('change', function() {
+    var preview = document.getElementById('imagePreview');
+    preview.innerHTML = '';
+    var files = this.files;
+    var maxImagesToShow = 5;
+    for (var i = 0; i < Math.min(files.length, maxImagesToShow); i++) {
+        var file = files[i];
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var img = document.createElement('img');
+            img.style.maxWidth = '170px'; 
+            img.style.marginRight = '10px'; 
+            img.style.marginBottom = '10px'; 
+            img.src = e.target.result;
+            preview.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+// Hiển thị hình ảnh khi chọn từ input file
+document.getElementById('avatarInput').addEventListener('change', function() {
+    var preview = document.getElementById('avatarPreview');
+    preview.innerHTML = '';
+    var files = this.files;
+    var maxImagesToShow = 1;
+    for (var i = 0; i < Math.min(files.length, maxImagesToShow); i++) {
+        var file = files[i];
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var img = document.createElement('img');
+            img.style.maxWidth = '170px'; 
+            img.style.marginRight = '10px'; 
+            img.style.marginBottom = '10px'; 
+            img.src = e.target.result;
+            preview.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+    }
+});

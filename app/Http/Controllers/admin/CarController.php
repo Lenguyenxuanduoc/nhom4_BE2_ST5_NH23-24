@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class CarController extends Controller
 {
     public function add(){
-        dd('added');
+        return view('admin.car.add');
     }
 }
