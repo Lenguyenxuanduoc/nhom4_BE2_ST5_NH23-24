@@ -59,43 +59,91 @@ window.addEventListener('click', function(event){
 
 
 // Hiển thị hình ảnh khi chọn từ input file
-document.getElementById('imageInput').addEventListener('change', function() {
-    var preview = document.getElementById('imagePreview');
-    preview.innerHTML = '';
-    var files = this.files;
-    var maxImagesToShow = 5;
-    for (var i = 0; i < Math.min(files.length, maxImagesToShow); i++) {
-        var file = files[i];
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            var img = document.createElement('img');
-            img.style.maxWidth = '170px'; 
-            img.style.marginRight = '10px'; 
-            img.style.marginBottom = '10px'; 
-            img.src = e.target.result;
-            preview.appendChild(img);
-        };
-        reader.readAsDataURL(file);
-    }
-});
+// document.getElementById('imageInput').addEventListener('change', function() {
+//     var preview = document.getElementById('imagePreview');
+//     preview.innerHTML = '';
+//     var files = this.files;
+//     var maxImagesToShow = 5;
+//     for (var i = 0; i < Math.min(files.length, maxImagesToShow); i++) {
+//         var file = files[i];
+//         var reader = new FileReader();
+//         reader.onload = function(e) {
+//             var img = document.createElement('img');
+//             img.style.maxWidth = '170px'; 
+//             img.style.marginRight = '10px'; 
+//             img.style.marginBottom = '10px'; 
+//             img.src = e.target.result;
+//             preview.appendChild(img);
+//         };
+//         reader.readAsDataURL(file);
+//     }
+// });
+
 
 // Hiển thị hình ảnh khi chọn từ input file
-document.getElementById('avatarInput').addEventListener('change', function() {
-    var preview = document.getElementById('avatarPreview');
-    preview.innerHTML = '';
-    var files = this.files;
-    var maxImagesToShow = 1;
-    for (var i = 0; i < Math.min(files.length, maxImagesToShow); i++) {
-        var file = files[i];
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            var img = document.createElement('img');
-            img.style.maxWidth = '170px'; 
-            img.style.marginRight = '10px'; 
-            img.style.marginBottom = '10px'; 
-            img.src = e.target.result;
-            preview.appendChild(img);
-        };
-        reader.readAsDataURL(file);
-    }
-});
+// document.getElementById('avatarInput').addEventListener('change', function() {
+//     var preview = document.getElementById('avatarPreview');
+//     preview.innerHTML = '';
+//     var files = this.files;
+//     var maxImagesToShow = 1;
+//     for (var i = 0; i < Math.min(files.length, maxImagesToShow); i++) {
+//         var file = files[i];
+//         var reader = new FileReader();
+//         reader.onload = function(e) {
+//             var img = document.createElement('img');
+//             img.style.maxWidth = '170px'; 
+//             img.style.marginRight = '10px'; 
+//             img.style.marginBottom = '10px'; 
+//             img.src = e.target.result;
+//             preview.appendChild(img);
+//         };
+//         reader.readAsDataURL(file);
+//     }
+// });
+
+// Hiển thị hình ảnh khi chọn từ input file (edit car page)
+// function previewImages(input, previewId) {
+//     var preview = document.getElementById(previewId);
+//     preview.innerHTML = '';
+//     var files = input.files;
+//     var maxImagesToShow = 1;
+//     for (var i = 0; i < Math.min(files.length, maxImagesToShow); i++) {
+//         var file = files[i];
+//         var reader = new FileReader();
+//         reader.onload = function(e) {
+//             var img = document.createElement('img');
+//             img.style.maxWidth = '170px'; 
+//             img.style.marginRight = '10px'; 
+//             img.style.marginBottom = '10px'; 
+//             img.src = e.target.result;
+//             preview.appendChild(img);
+//         };
+//         reader.readAsDataURL(file);
+//     }
+// }
+
+// Hiển thị avatar khi chọn từ input file (edit car page)
+// function previewAvatar(input, previewID) {
+//     var preview = document.getElementById(previewID);
+//     preview.innerHTML = '';
+    
+//     var file = input.files[0]; // Chỉ lấy file đầu tiên
+
+//     var reader = new FileReader();
+//     reader.onload = function(e) {
+//         var img = document.createElement('img');
+//         img.style.maxWidth = '170px'; 
+//         img.style.marginRight = '10px'; 
+//         img.style.marginBottom = '10px'; 
+//         img.src = e.target.result;
+//         preview.appendChild(img);
+//     };
+//     reader.readAsDataURL(file);
+// }
+
+// Upload image từ file input
+let profilePic = document.getElementById("profile-pic");
+let inputFile = document.getElementById("input-file");
+inputFile.onchange = function(){
+    profilePic.src = URL.createObjectURL(inputFile.files[0])
+}

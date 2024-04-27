@@ -14,6 +14,23 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
+
+                    <div class="col-md-12">
+                        {{-- Thông báo lỗi khi thêm không thành công --}}
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+
+                        {{-- Thông báo thành công khi thêm thành công --}}
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                    </div>
+
                     <div class="col-md-12">
                         <a href="{{ route('cars.add') }}" class="btn btn-dark my-2">Add</a>
                     </div>
@@ -61,8 +78,10 @@
                                                 @endforeach
                                             </td>
                                             <td>
-                                                <a href="" class="btn btn-warning">Edit</a>
-                                                <a href="" class="btn btn-danger">Delete</a>
+                                                <a href="{{ route('cars.edit', $car->id) }}"
+                                                    class="btn btn-warning">Edit</a>
+                                                <a href="{{ route('cars.delete', $car->id) }}"
+                                                    class="btn btn-danger">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach

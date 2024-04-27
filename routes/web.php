@@ -54,8 +54,14 @@ Route::middleware('auth.admin')->prefix('/admin')->group(function(){
 
 Route::middleware('auth.admin')->prefix('cars')->group(function(){
     Route::get('/', [CarController::class, 'index'])->name('cars.index');
+
     Route::get('/add', [CarController::class, 'add'])->name('cars.add');
     Route::post('/store', [CarController::class, 'store'])->name('cars.store');
+
+    Route::get('/edit/{id}', [CarController::class, 'edit'])->name('cars.edit');
+    Route::post('/update/{id}', [CarController::class, 'update'])->name('cars.update');
+
+    Route::get('/delete/{id}', [CarController::class, 'delete'])->name('cars.delete');
 });
 
 // Route::middleware('auth.admin')->group(function(){

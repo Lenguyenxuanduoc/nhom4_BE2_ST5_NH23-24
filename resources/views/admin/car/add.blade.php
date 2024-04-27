@@ -15,12 +15,28 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12 px-5">
-                        <form method="post" action="{{ route('cars.store') }}">
+
+                        {{-- Thông báo lỗi khi thêm không thành công --}}
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+
+                        {{-- Thông báo thành công khi thêm thành công --}}
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
+                        <form method="post" action="{{ route('cars.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Car Name</label>
                                 <input type="text" class="form-control" name="name" placeholder="Enter car name"
                                     id="name" required>
+                                <div class="valid-tooltip">Please enter a valid car name</div>
                             </div>
 
                             <div class="form-group">
@@ -69,8 +85,8 @@
 
                             <div class="form-group">
                                 <label>Images</label>
-                                <input type="file" class="form-control" id="imageInput" name="images[]" multiple
-                                    accept="image/*" placeholder="Choose 6 images" required>
+                                <input type="file" class="form-control-file" id="imageInput" name="images[]" multiple
+                                    accept="image/*" required>
                                 <small>Choose 5 images</small>
                             </div>
 
@@ -81,19 +97,17 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Avatar</label>
-                                <input type="file" class="form-control" id="avatarInput" name="avatar" multiple
-                                    accept="image/*" placeholder="Choose avatar" required>
-                                <small>Choose avatar</small>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="col-md-12 mb-4">
-                                    <div id="avatarPreview" class="mb-3"></div>
+                                <label for="">Avatar</label>
+                                <div class="avatar-upload">
+                                    <div>
+                                        <input type="file" name="avatar" id="input-file" accept="image/png, image/jpg, image/jpeg">
+                                    </div>
+                                    <img src="{{asset('images/photo.jpg')}}" alt="" id="profile-pic">
                                 </div>
                             </div>
 
                             <button type="submit" class="btn btn-primary mb-5">Add</button>
+                            <a type="submit" href="{{ route('cars.index') }}" class="btn btn-danger mb-5 ml-2">Cancel</a>
                         </form>
                     </div>
 
