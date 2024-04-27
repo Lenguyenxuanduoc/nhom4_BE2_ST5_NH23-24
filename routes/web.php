@@ -53,8 +53,9 @@ Route::middleware('auth.admin')->prefix('/admin')->group(function(){
 });
 
 Route::middleware('auth.admin')->prefix('cars')->group(function(){
+    Route::get('/', [CarController::class, 'index'])->name('cars.index');
     Route::get('/add', [CarController::class, 'add'])->name('cars.add');
-    
+    Route::post('/store', [CarController::class, 'store'])->name('cars.store');
 });
 
 // Route::middleware('auth.admin')->group(function(){

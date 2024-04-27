@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->foreignId('manufacturer_id')->constrained('manufacturers');
             $table->foreignId('category_id')->constrained('categories');
-            $table->double('price')->nullable();
-            $table->string('description')->nullable();
+            $table->double('price');
+            $table->text('description')->nullable();
             $table->integer('quantity')->nullable();
-            $table->string('producing_year')->nullable();
+            $table->string('producing_year');
             $table->json('images');
             $table->string('avatar');
             $table->string('slug')->unique();
