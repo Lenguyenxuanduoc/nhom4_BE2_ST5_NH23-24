@@ -100,7 +100,7 @@ class CarController extends Controller
         $car->quantity = $request->input('quantity');
         $car->description = $request->input('description');
         $car->producing_year = $request->input('producing_year');
-        $car->slug = \Str::slug($car->name . ' ' . $car->producing_year);
+        $car->slug = \Str::slug($posts->title);
 
         $MAX_IMAGE = 5;
         $images = json_decode($car->images);

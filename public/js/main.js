@@ -94,3 +94,25 @@ setInputOnChange("input-file-brand-logo", "profile-brand-logo");
 // Upload image từ file input (Brand Logo) trang add brand
 setInputOnChange("input-file-brand-banner", "profile-brand-banner");
 
+
+
+// Lặp qua tất cả các ảnh và thiết lập thuộc tính src của chúng thành một giá trị rỗng
+function clearImages() {
+    for (let i = 1; i <= 5; i++) {
+        let profileImg = document.getElementById('profile-img' + i);
+        profileImg.src = ''; // Thiết lập src thành chuỗi rỗng
+    }
+}
+
+function clearInputs() {
+    for (let i = 1; i <= 5; i++) {
+        let inputFile = document.getElementById('input-file-img' + i);
+        inputFile.value = ''; // Đặt giá trị của input thành chuỗi rỗng
+    }
+}
+
+// Gắn sự kiện click cho nút "Clear" và gọi hàm clearImages()
+document.querySelector('.btn-dark').addEventListener('click', function() {
+    clearImages();
+    clearInputs();
+});

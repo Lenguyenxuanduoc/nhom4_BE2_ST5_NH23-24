@@ -36,7 +36,7 @@
                     <div class="posts-text">
                         <span>{{ date('d F Y', strtotime($post->posting_date)) }} / {{ $post->author }}</span>
                         <a href="news/posts/{{ $post->slug }}" class="posts-title">{{ $post->title }}</a>
-                        <p>{{ \Str::limit($post->content1, 60) }}</p>
+                        <p>{{ \Str::limit($post->content, 60) }}</p>
                         <a href="news/posts/{{ $post->slug }}">READ MORE</a>
                     </div>
                 </div>

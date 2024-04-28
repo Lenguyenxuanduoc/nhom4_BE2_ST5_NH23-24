@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\CarController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\BrandController;
+use App\Http\Controllers\admin\PostsController;
 
 // Client routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -86,7 +87,6 @@ Route::get('/add', [BrandController::class, 'add'])->name('brands.add');
 Route::middleware('auth.admin')->prefix('/brands')->group(function(){
     Route::get('/', [BrandController::class, 'index'])->name('brands.index');
 
-    // Không truy cập được vào phương thức add của BrandController
     Route::get('/add', [BrandController::class, 'add'])->name('brands.add');
     Route::post('/store', [BrandController::class, 'store'])->name('brands.store');
 
@@ -94,4 +94,17 @@ Route::middleware('auth.admin')->prefix('/brands')->group(function(){
     Route::post('/update/{id}', [BrandController::class, 'update'])->name('brands.update');
 
     Route::get('/delete/{id}', [BrandController::class, 'delete'])->name('brands.delete');
+});
+
+// Posts
+Route::middleware('auth.admin')->prefix('/posts')->group(function(){
+    Route::get('/', [PostsController::class, 'index'])->name('posts.index');
+
+    Route::get('/add', [PostsController::class, 'add'])->name('posts.add');
+    Route::post('/store', [PostsController::class, 'store'])->name('posts.store');
+
+    Route::get('/edit/{id}', [PostsController::class, 'edit'])->name('posts.edit');
+    Route::post('/update/{id}', [PostsController::class, 'update'])->name('posts.update');
+
+    Route::get('/delete/{id}', [PostsController::class, 'delete'])->name('posts.delete');
 });

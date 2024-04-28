@@ -21,9 +21,14 @@
 <!------- Start posts content ------->
 <section class="posts-content-container">
     <div class="posts-content">
-        <p>{{ $posts_detail->content1 }}</p>
+        @php
+            $contentParts = explode("\n", $posts_detail->content);
+            $firstParagraph = isset($contentParts[0]) ? $contentParts[0] : '';
+            $secondParagraph = isset($contentParts[1]) ? $contentParts[1] : '';
+        @endphp
+        <p>{{ $firstParagraph }}</p>
         <img src={{ asset('images/posts/' . $images[0]) }} alt="">
-        <p>{{ $posts_detail->content2 }}</p>
+        <p>{{ $secondParagraph }}</p>
         @php
             $countImg = count($images);
         @endphp
