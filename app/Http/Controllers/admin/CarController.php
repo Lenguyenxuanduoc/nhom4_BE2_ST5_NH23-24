@@ -21,7 +21,7 @@ class CarController extends Controller
         return view('admin.car.list', compact('cars'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
-    
+
     // Chuyển đến trang add
     public function add()
     {
@@ -45,7 +45,6 @@ class CarController extends Controller
         $car->slug = \Str::slug($car->name . ' ' . $car->producing_year);
 
         $MAX_IMAGE = 5;
-
         for ($i = 1; $i <= $MAX_IMAGE; $i++) {
             if ($request->hasFile('img' . $i)) {
                 $file = $request->file('img' . $i);
@@ -55,7 +54,6 @@ class CarController extends Controller
                 $imgJson[] = $fileName;
             }
         }
-
         $car->images = json_encode($imgJson);
 
         if ($request->hasFile('avatar')) {
@@ -104,6 +102,24 @@ class CarController extends Controller
         $car->producing_year = $request->input('producing_year');
         $car->slug = \Str::slug($car->name . ' ' . $car->producing_year);
 
+        $MAX_IMAGE = 5;
+        $images = json_decode($car->images);
+        for ($i = 1; $i <= $MAX_IMAGE; $i++) {
+            if ($request->hasFile('img' . $i)) {
+                $oldImg = 'images/cars/' . $images[$i - 1]; 
+                if (File::exists($oldImg)) {
+                    File::delete($oldImg);
+                }
+        
+                $file = $request->file('img' . $i); 
+                $extension = $file->getClientOriginalExtension();
+                $fileName = uniqid() . '.' . $extension;
+                $file->move('images/cars/', $fileName);
+                $images[$i - 1] = $fileName;
+            }
+        }
+        $car->images = $images;
+        
         if ($request->hasFile('avatar')) {
             $oldImg = 'images/cars/' . $car->avatar;
             if (File::exists($oldImg)) {
@@ -130,9 +146,18 @@ class CarController extends Controller
     public function delete($id)
     {
         $car = Car::find($id);
+        $images = json_decode($car->images);
         $avatar = 'images/cars/' . $car->avatar;
-        if (\File::exists($avatar)) {
-            \File::delete($avatar);
+        
+        foreach ($images as $image) {
+            $oldImg = 'images/cars/'.$image;
+            if (File::exists($oldImg)){
+                File::delete($oldImg);
+            }
+        }
+
+        if (File::exists($avatar)) {
+            File::delete($avatar);
         }
 
         try {
