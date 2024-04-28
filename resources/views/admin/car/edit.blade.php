@@ -30,7 +30,7 @@
                             </div>
                         @endif
 
-                        <form method="post" action="{{ route('cars.update', $car->id) }}" class="needs-validation">
+                        <form method="post" action="{{ route('cars.update', $car->id) }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Car Name</label>
@@ -90,78 +90,45 @@
                                     id="description">{{ $car->description }}</textarea>
                             </div>
 
-                            {{--<label class="mt-3">Images</label>
-                             <div class="form-row">
+                            <div class="form-row mb-3">
                                 @php
                                     $images = json_decode($car->images);
-                                    $imageIds = [
-                                        'imageInput1',
-                                        'imageInput2',
-                                        'imageInput3',
-                                        'imageInput4',
-                                        'imageInput5',
-                                    ];
-                                    $previewIds = [
-                                        'imagePreview1',
-                                        'imagePreview2',
-                                        'imagePreview3',
-                                        'imagePreview4',
-                                        'imagePreview5',
-                                    ];
                                 @endphp
-                                @for ($i = 0; $i < count($imageIds); $i++)
-                                    <div class="col-md-2 mb-4 mr-4">
-                                        <div class="form-group">
-                                            <input type="file" class="form-control-file" id="{{ $imageIds[$i] }}"
-                                                name="images[]" multiple accept="image/*" placeholder="Choose 5 images"
-                                                required onchange="previewImages(this, '{{ $previewIds[$i] }}')">
+                                @for ($i = 0; $i <= 4; $i++)
+                                <div class="col-md-2 col-img">
+                                    <label for="">Image {{ $i+1 }}</label>
+                                    <div class="avatar-upload">
+                                        <div>
+                                            <input type="file" name="img{{ $i+1 }}" id="input-file-img{{ $i+1 }}"
+                                                accept="image/png, image/jpg, image/jpeg" onchange="previewImage(this, 'profile-img{{ $i+1 }}')">
                                         </div>
-                                        <div id="{{ $previewIds[$i] }}" class="mb-3">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <img src="{{ asset('images/cars/' . $images[$i]) }}" alt=""
-                                                        style="max-width: 170px; height: 100px;">
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <img src="{{ asset('images/cars/'.$images[$i]) }}" alt="" id="profile-img{{ $i+1 }}">
                                     </div>
+                                </div>
                                 @endfor
-                            </div> --}}
-
-                            <div class="form-group">
-                                <label>Images</label>
-                                <input type="file" class="form-control-file" id="imageInput" name="images[]" multiple
-                                    accept="image/*" required>
-                                <small>Choose 5 images</small>
                             </div>
 
-                            <div class="form-row">
-                                <div class="col-md-12 mb-4">
-                                    <div id="imagePreview" class="mb-3">
-                                        @php
-                                            $images = json_decode($car->images);
-                                        @endphp
-                                        @foreach ($images as $image)
-                                            <img src="{{ asset('images/cars/' . $image) }}" alt=""
-                                                style="max-width: 170px; height: 100px;">
-                                        @endforeach
+                            <div class="form-group mb-3">
+                                <label for="">Avatar</label>
+                                <div class="avatar-upload">
+                                    <div>
+                                        <input type="file" name="avatar" id="input-file"
+                                            accept="image/png, image/jpg, image/jpeg">
                                     </div>
+                                    <img src="{{ asset('images/cars/'.$car->avatar) }}" alt="" id="profile-avatar">
                                 </div>
                             </div>
 
-                            <label>Avatar</label>
-                            <input type="file" class="form-control-file" id="avatarInput" name="avatar" multiple
-                                accept="image/*" placeholder="Choose avatar" value="{{ $car->avatar }}" required
-                                onchange="previewAvatar(this, 'preview')">
-                            <small>Choose avatar</small>
-
-                            <div class="form-row">
-                                <div id="preview" class="mb-3">
-                                    <img src="{{ asset('images/cars/' . $car->avatar) }}" alt=""
-                                        style="max-width: 170px; height: 100px;" alt="">
+                            <div class="form-group mb-3">
+                                <label for="">Avatar</label>
+                                <div class="avatar-upload">
+                                    <div>
+                                        <input type="file" name="avatar" id="input-file"
+                                            accept="image/png, image/jpg, image/jpeg">
+                                    </div>
+                                    <img src="{{ asset('images/cars/'.$car->avatar) }}" alt="" id="profile-avatar">
                                 </div>
                             </div>
-
 
                             <button type="submit" class="btn btn-warning mb-5">Edit</button>
                             <a type="submit" href="{{route('cars.index')}}" class="btn btn-danger mb-5">Cancel</a>

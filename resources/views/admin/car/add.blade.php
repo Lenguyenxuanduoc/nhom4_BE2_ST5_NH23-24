@@ -15,21 +15,6 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12 px-5">
-
-                        {{-- Thông báo lỗi khi thêm không thành công --}}
-                        @if (session('error'))
-                            <div class="alert alert-danger">
-                                {{ session('error') }}
-                            </div>
-                        @endif
-
-                        {{-- Thông báo thành công khi thêm thành công --}}
-                        @if (session('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-
                         <form method="post" action="{{ route('cars.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
@@ -84,15 +69,15 @@
                             </div>
 
                             <div class="form-row mb-3">
-                                @for ($i = 1; $i <= 5; $i++)
+                                @for ($i = 0; $i <= 4; $i++)
                                 <div class="col-md-2 col-img">
-                                    <label for="">Image {{ $i }}</label>
+                                    <label for="">Image {{ $i+1 }}</label>
                                     <div class="avatar-upload">
                                         <div>
-                                            <input type="file" name="img{{ $i }}" id="input-file-img{{ $i }}"
-                                                accept="image/png, image/jpg, image/jpeg" onchange="previewImage(this, 'profile-img{{ $i }}')">
+                                            <input type="file" name="img{{ $i+1 }}" id="input-file-img{{ $i+1 }}"
+                                                accept="image/png, image/jpg, image/jpeg" onchange="previewImage(this, 'profile-img{{ $i+1 }}')" required>
                                         </div>
-                                        <img src="{{ asset('images/') }}" alt="" id="profile-img{{ $i }}">
+                                        <img src="{{ asset('images/') }}" alt="" id="profile-img{{ $i+1 }}">
                                     </div>
                                 </div>
                                 @endfor

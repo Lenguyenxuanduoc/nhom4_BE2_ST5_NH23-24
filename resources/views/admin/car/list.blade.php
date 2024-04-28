@@ -16,21 +16,21 @@
                 <div class="row">
 
                     <div class="col-md-12">
-                        {{-- Thông báo lỗi khi thêm không thành công --}}
-                        @if (session('error'))
+                        {{-- Thông báo lỗi khi (thêm/xóa/sửa) không thành công --}}
+                        @if (session('add_error'))
                             <div class="alert alert-danger">
-                                {{ session('error') }}
+                                {{ session('add_error') }}
                             </div>
                         @endif
 
-                        {{-- Thông báo thành công khi thêm thành công --}}
-                        @if (session('success'))
+                        {{-- Thông báo thành công khi (thêm/xóa/sửa) thành công --}}
+                        @if (session('add_success'))
                             <div class="alert alert-success">
-                                {{ session('success') }}
+                                {{ session('add_success') }}
                             </div>
                         @endif
                     </div>
-
+                    
                     <div class="col-md-12">
                         <a href="{{ route('cars.add') }}" class="btn btn-dark my-2">Add</a>
                     </div>
