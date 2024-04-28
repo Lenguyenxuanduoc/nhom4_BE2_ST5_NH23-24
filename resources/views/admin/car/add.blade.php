@@ -18,10 +18,9 @@
                         <form method="post" action="{{ route('cars.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
-                                <label>Car Name</label>
+                                <label>Name</label>
                                 <input type="text" class="form-control" name="name" placeholder="Enter car name"
                                     id="name" required>
-                                <div class="valid-tooltip">Please enter a valid car name</div>
                             </div>
 
                             <div class="form-group">

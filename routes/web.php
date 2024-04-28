@@ -1,14 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\NewsController;
 use App\Http\Controllers\client\BrandController;
 use App\Http\Controllers\client\LoginController;
+
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\CarController;
-use App\Http\Controllers\admin\CategoriesController;
-use App\Http\Controllers\admin\ManufacturersController;
+use App\Http\Controllers\admin\CategoryController;
+// use App\Http\Controllers\admin\ManufacturersController;
 // use App\Http\Controllers\client\CarController;
 
 
@@ -64,17 +66,16 @@ Route::middleware('auth.admin')->prefix('cars')->group(function(){
     Route::get('/delete/{id}', [CarController::class, 'delete'])->name('cars.delete');
 });
 
-// Route::middleware('auth.admin')->group(function(){
-//     Route::get('/cars', [CarsController::class, 'index']);
-//     Route::get('/add_car', [CarsController::class, 'add']);
+Route::middleware('auth.admin')->prefix('categories')->group(function(){
+    Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
 
+    Route::get('/add', [CategoryController::class, 'add'])->name('categories.add');
+    Route::post('/store', [CategoryController::class, 'store'])->name('categories.store');
 
-//     Route::get('/categories', [CategoriesController::class, 'index']);
-//     Route::get('/add_category', [CategoriesController::class, 'add']);
+    Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
+    Route::post('/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
 
-//     Route::get('/manufacturers', [ManufacturersController::class, 'index']);
-//     Route::get('/add_manufacturer', [ManufacturersController::class, 'add']);
-// });
-
+    Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('categories.delete');
+});
 
 

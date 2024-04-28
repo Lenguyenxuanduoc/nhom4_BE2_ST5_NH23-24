@@ -17,16 +17,16 @@
 
                     <div class="col-md-12">
                         {{-- Thông báo lỗi khi (thêm/xóa/sửa) không thành công --}}
-                        @if (session('add_error'))
+                        @if (session('error'))
                             <div class="alert alert-danger">
-                                {{ session('add_error') }}
+                                {{ session('error') }}
                             </div>
                         @endif
 
                         {{-- Thông báo thành công khi (thêm/xóa/sửa) thành công --}}
-                        @if (session('add_success'))
+                        @if (session('success'))
                             <div class="alert alert-success">
-                                {{ session('add_success') }}
+                                {{ session('success') }}
                             </div>
                         @endif
                     </div>
