@@ -99,10 +99,18 @@ class CarController extends Controller
         $car->description = $request->input('description');
         $car->producing_year = $request->input('producing_year');
         $car->slug = \Str::slug($car->name . ' ' . $car->producing_year);
-        
+
+        /*
+         * Bị lỗi không cập nhật hình ảnh mới (avatar) của xe.
+         *
+         * Phân tích: Đoạn mã này nhằm mục đích cập nhật hình ảnh avatar cho xe. Tuy nhiên, sau khi tải lên hình ảnh mới,
+         * không có sự cập nhật nào được thực hiện trên đối tượng xe. Do đó, dù hình ảnh đã được tải lên thành công,
+         * nhưng hình ảnh của xe vẫn là hình ảnh cũ.
+         */
+
         if ($request->hasFile('avatar')) {
-            $oldImg = 'images/cars/'.$car->avatar;
-            if (File::exists($oldImg)){
+            $oldImg = 'images/cars/' . $car->avatar;
+            if (File::exists($oldImg)) {
                 File::delete($oldImg);
             }
             $file = $request->file('avatar');
@@ -110,8 +118,6 @@ class CarController extends Controller
             $fileName = uniqid() . '.' . $extension;
             $file->move('images/cars/', $fileName);
             $car->avatar = $fileName;
-        }else{
-            $car->avatar = $car->avatar;
         }
 
         dd($car);
