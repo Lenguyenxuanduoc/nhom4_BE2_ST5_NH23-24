@@ -28,11 +28,11 @@ Route::prefix('/news')->group(function(){
 
 
 // Brands
-Route::prefix('/brands')->group(function(){
-    Route::get('/', [ClientBrandController::class, 'index']);
+Route::prefix('/all-brands')->group(function(){
+    Route::get('/', [ClientBrandController::class, 'index'])->name('all-brands');
 
     // Lấy chi tiết 1 brand
-    Route::get('/{slug}', [ClientBrandController::class, 'getBrand']);
+    Route::get('/{slug}', [ClientBrandController::class, 'getBrand'])->name('brand.detail');
 });
 
 
@@ -79,12 +79,15 @@ Route::middleware('auth.admin')->prefix('categories')->group(function(){
     Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('categories.delete');
 });
 
+Route::get('/add', [BrandController::class, 'add'])->name('brands.add');
+
+
 // Brand
-Route::middleware('auth.admin')->prefix('brands')->group(function(){
+Route::middleware('auth.admin')->prefix('/brands')->group(function(){
     Route::get('/', [BrandController::class, 'index'])->name('brands.index');
 
-    // Route::get('/add', [BrandController::class, 'add'])->name('brands.add');
-    Route::get('/create', [BrandController::class, 'create'])->name('brands.create');
+    // Không truy cập được vào phương thức add của BrandController
+    Route::get('/add', [BrandController::class, 'add'])->name('brands.add');
     Route::post('/store', [BrandController::class, 'store'])->name('brands.store');
 
     Route::get('/edit/{id}', [BrandController::class, 'edit'])->name('brands.edit');

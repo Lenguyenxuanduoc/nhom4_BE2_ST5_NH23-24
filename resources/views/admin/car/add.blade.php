@@ -86,7 +86,7 @@
                                 <label for="">Avatar</label>
                                 <div class="avatar-upload">
                                     <div>
-                                        <input type="file" name="avatar" id="input-file"
+                                        <input type="file" name="avatar" id="input-file-avatar"
                                             accept="image/png, image/jpg, image/jpeg">
                                     </div>
                                     <img src="{{ asset('images/') }}" alt="" id="profile-avatar">
@@ -106,3 +106,4 @@
     </div>
     <!-- /.content-wrapper -->
 @endsection
+

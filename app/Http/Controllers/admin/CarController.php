@@ -21,6 +21,7 @@ class CarController extends Controller
         return view('admin.car.list', compact('cars'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
+    
     // Chuyển đến trang add
     public function add()
     {
@@ -28,6 +29,7 @@ class CarController extends Controller
         $categories = Category::all();
         return view('admin.car.add', compact('brands', 'categories'));
     }
+
 
     // Xử lý chức năng add
     public function store(Request $request)
@@ -73,6 +75,7 @@ class CarController extends Controller
         }
     }
 
+
     // Chuyển đến trang edit
     public function edit($id)
     {
@@ -86,6 +89,7 @@ class CarController extends Controller
 
         return view('admin.car.edit', compact('car', 'brands', 'categories'));
     }
+
 
     // Xử lý chức năng update
     public function update(Request $request, $id)
@@ -120,6 +124,7 @@ class CarController extends Controller
             return redirect()->route('cars.index')->with('error', 'Failed to edit car. Please try again.');
         }
     }
+
 
     // Xử lý chức năng delete
     public function delete($id)

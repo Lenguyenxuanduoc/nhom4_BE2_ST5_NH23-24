@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="col-md-12">
-                        <a href="{{ route('brands.create') }}" class="btn btn-dark my-2">Add</a>
+                        <a href="{{ route('brands.add') }}" class="btn btn-dark my-2">Add</a>
                     </div>
 
                     <div class="col-md-12">
@@ -60,7 +60,7 @@
                                             <td style="max-width: 150px;">{{ $brand->founded_year }}</td>
                                             <td style="max-width: 150px;">{{ $brand->founder_name }}</td>
                                             <td style="max-width: 200px;">{{ \Str::limit($brand->description, 100) }}</td>
-                                            <td><img src="{{ asset('images/brand_logos/' . $brand->logo) }}" alt="">
+                                            <td><img src="{{ asset('images/logos/' . $brand->logo) }}" alt="">
                                             </td>
                                             <td><img src="{{ asset('images/banners/' . $brand->banner) }}" alt=""
                                                     style="width:150px; max-height: 100px;"></td>

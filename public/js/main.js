@@ -57,7 +57,8 @@ closePopup('login-popup');
 }
 });
 
-// ---------------- Start upload image trang add car ----------------
+
+// ---------------- Upload Images ----------------
 // Tạo một mảng chứa các id của hình ảnh và input file
 let imageIds = ["profile-img1", "profile-img2", "profile-img3", "profile-img4", "profile-img5"];
 let inputIds = ["input-file-img1", "input-file-img2", "input-file-img3", "input-file-img4", "input-file-img5"];
@@ -66,16 +67,30 @@ let inputIds = ["input-file-img1", "input-file-img2", "input-file-img3", "input-
 for (let i = 0; i < inputIds.length; i++) {
     let profilePic = document.getElementById(imageIds[i]);
     let inputFile = document.getElementById(inputIds[i]);
-    inputFile.onchange = function() {
-        profilePic.src = URL.createObjectURL(inputFile.files[0]);
-    };
+    if (inputFile){
+        inputFile.onchange = function() {
+            profilePic.src = URL.createObjectURL(inputFile.files[0]);
+        };
+    }
 }
 
-// Upload image từ file input (Avatar)
-let profileAvatar = document.getElementById("profile-avatar");
-let inputFile = document.getElementById("input-file");
-inputFile.onchange = function(){
-profileAvatar.src = URL.createObjectURL(inputFile.files[0])
+function setInputOnChange(inputId, profilePicId) {
+    let profilePic = document.getElementById(profilePicId);
+    let inputFile = document.getElementById(inputId);
+    
+    if (inputFile) {
+        inputFile.onchange = function() {
+            profilePic.src = URL.createObjectURL(inputFile.files[0]);
+        };
+    }
 }
-// ---------------- End upload image trang add car ----------------
+
+// Upload image từ file input (Avatar) trang add car 
+setInputOnChange("input-file-avatar", "profile-avatar");
+
+// Upload image từ file input (Brand Logo) trang add brand
+setInputOnChange("input-file-brand-logo", "profile-brand-logo");
+
+// Upload image từ file input (Brand Logo) trang add brand
+setInputOnChange("input-file-brand-banner", "profile-brand-banner");
 

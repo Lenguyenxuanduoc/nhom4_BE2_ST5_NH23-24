@@ -12,15 +12,15 @@
             <li><a href="/home" class="active">Home</a></li>
             <li><a href="/news">News</a></li>
             <li>
-                <a href="/brands">Brands <i class="fa-solid fa-caret-down" style="font-size: 15px;"></i></a>
+                <a href="{{route('all-brands')}}">Brands <i class="fa-solid fa-caret-down" style="font-size: 15px;"></i></a>
                 <div class="nav-dropdown">
                     <ul>
                         @php
                             $brands = Brand::all();
                         @endphp
                         @if (!empty($brands))
-                            @foreach ($brands as $brands)
-                                <li><a href="/brands/{{$brands->slug}}">{{$brands->name}}</a></li>
+                            @foreach ($brands as $brand)
+                                <li><a href="{{route('brand.detail', $brand->slug)}}">{{$brand->name}}</a></li>
                             @endforeach
                         @endif
                     </ul>

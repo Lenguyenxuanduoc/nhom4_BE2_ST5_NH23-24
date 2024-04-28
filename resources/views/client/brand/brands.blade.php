@@ -25,11 +25,11 @@
             @foreach ($brands as $brand)
                 <div class="car-brand">
                     <div class="car-brand-img">
-                        <a href="/brands/{{ $brand->slug }}"><img
-                                src={{ asset('images/manufacturer_logos/' . $brand->image) }}></a>
+                        <a href="{{ route('brand.detail', $brand->slug) }}"><img
+                                src={{ asset('images/logos/' . $brand->logo) }}></a>
                     </div>
                     <div class="car-brand-name">
-                        <a href="/brands/{{ $brand->slug }}">
+                        <a href="{{ route('brand.detail', $brand->slug) }}">
                             <h2 style="text-align: center;">{{ $brand->name }}</h2>
                         </a>
                     </div>
