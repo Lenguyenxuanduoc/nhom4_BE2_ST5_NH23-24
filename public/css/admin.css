@@ -22,12 +22,15 @@
 
 /* ---------------------------------- Start upload image ----------------------------------*/
 .avatar-upload img{
-    width: auto;
-    max-width: 250px;
-    height: 150px;
+    max-width: 200px;
+    max-height: 150px;
     margin-top: 20px;
     object-fit: fill;
     border-radius: 5px;
+}
+
+.col-img{
+    margin-right: 35px;
 }
 /* ---------------------------------- End upload image ----------------------------------*/
 

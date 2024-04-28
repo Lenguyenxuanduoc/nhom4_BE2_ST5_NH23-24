@@ -83,26 +83,29 @@
                                 <textarea class="form-control" name="description" placeholder="Enter description" id="description"></textarea>
                             </div>
 
-                            <div class="form-group">
-                                <label>Images</label>
-                                <input type="file" class="form-control-file" id="imageInput" name="images[]" multiple
-                                    accept="image/*" required>
-                                <small>Choose 5 images</small>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="col-md-12 mb-4">
-                                    <div id="imagePreview" class="mb-3"></div>
+                            <div class="form-row mb-3">
+                                @for ($i = 1; $i <= 5; $i++)
+                                <div class="col-md-2 col-img">
+                                    <label for="">Image {{ $i }}</label>
+                                    <div class="avatar-upload">
+                                        <div>
+                                            <input type="file" name="img{{ $i }}" id="input-file-img{{ $i }}"
+                                                accept="image/png, image/jpg, image/jpeg" onchange="previewImage(this, 'profile-img{{ $i }}')">
+                                        </div>
+                                        <img src="{{ asset('images/') }}" alt="" id="profile-img{{ $i }}">
+                                    </div>
                                 </div>
+                                @endfor
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="">Avatar</label>
                                 <div class="avatar-upload">
                                     <div>
-                                        <input type="file" name="avatar" id="input-file" accept="image/png, image/jpg, image/jpeg">
+                                        <input type="file" name="avatar" id="input-file"
+                                            accept="image/png, image/jpg, image/jpeg">
                                     </div>
-                                    <img src="{{asset('images/photo.jpg')}}" alt="" id="profile-pic">
+                                    <img src="{{ asset('images/') }}" alt="" id="profile-avatar">
                                 </div>
                             </div>
 
