@@ -4,15 +4,14 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\NewsController;
-use App\Http\Controllers\client\BrandController;
+use App\Http\Controllers\client\ClientBrandController;
+use App\Http\Controllers\client\ClientCarController;
 use App\Http\Controllers\client\LoginController;
 
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\CarController;
 use App\Http\Controllers\admin\CategoryController;
-// use App\Http\Controllers\admin\ManufacturersController;
-// use App\Http\Controllers\client\CarController;
-
+use App\Http\Controllers\admin\BrandController;
 
 // Client routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -30,10 +29,10 @@ Route::prefix('/news')->group(function(){
 
 // Brands
 Route::prefix('/brands')->group(function(){
-    Route::get('/', [BrandController::class, 'index']);
+    Route::get('/', [ClientBrandController::class, 'index']);
 
     // Lấy chi tiết 1 brand
-    Route::get('/{slug}', [BrandController::class, 'getBrand']);
+    Route::get('/{slug}', [ClientBrandController::class, 'getBrand']);
 });
 
 
@@ -54,6 +53,7 @@ Route::middleware('auth.admin')->prefix('/admin')->group(function(){
     Route::get('/', [DashboardController::class, 'index'])->name('admin');
 });
 
+// Car
 Route::middleware('auth.admin')->prefix('cars')->group(function(){
     Route::get('/', [CarController::class, 'index'])->name('cars.index');
 
@@ -66,6 +66,7 @@ Route::middleware('auth.admin')->prefix('cars')->group(function(){
     Route::get('/delete/{id}', [CarController::class, 'delete'])->name('cars.delete');
 });
 
+// Category
 Route::middleware('auth.admin')->prefix('categories')->group(function(){
     Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
 
@@ -78,4 +79,16 @@ Route::middleware('auth.admin')->prefix('categories')->group(function(){
     Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('categories.delete');
 });
 
+// Brand
+Route::middleware('auth.admin')->prefix('brands')->group(function(){
+    Route::get('/', [BrandController::class, 'index'])->name('brands.index');
 
+    // Route::get('/add', [BrandController::class, 'add'])->name('brands.add');
+    Route::get('/create', [BrandController::class, 'create'])->name('brands.create');
+    Route::post('/store', [BrandController::class, 'store'])->name('brands.store');
+
+    Route::get('/edit/{id}', [BrandController::class, 'edit'])->name('brands.edit');
+    Route::post('/update/{id}', [BrandController::class, 'update'])->name('brands.update');
+
+    Route::get('/delete/{id}', [BrandController::class, 'delete'])->name('brands.delete');
+});

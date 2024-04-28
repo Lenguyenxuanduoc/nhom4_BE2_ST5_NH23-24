@@ -1,13 +1,13 @@
 @extends('admin.layouts.admin')
 @section('title')
-    <title>Admin | Add Car</title>
+    <title>Admin | Add Brand</title>
 @endsection
 
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        @include('admin.partials.content_header', ['name' => 'Car', 'key' => 'Add'])
+        @include('admin.partials.content_header', ['name' => 'Brand', 'key' => 'Add'])
         <!-- /.content-header -->
 
         <!-- Main content -->
@@ -15,34 +15,12 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12 px-5">
-                        <form method="post" action="{{ route('cars.store') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('brands.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Name</label>
-                                <input type="text" class="form-control" name="name" placeholder="Enter car name"
+                                <input type="text" class="form-control" name="name" placeholder="Enter brand name"
                                     id="name" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Brand</label>
-                                <select class="form-control" name="brand_id">
-                                    @if (!empty($brands))
-                                        @foreach ($brands as $brand)
-                                            <option value="{{ $brand->id }}">{{ $brand->name }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Category</label>
-                                <select class="form-control" name="category_id">
-                                    @if (!empty($categories))
-                                        @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
                             </div>
 
                             <div class="form-row">
@@ -65,21 +43,6 @@
                             <div class="form-group">
                                 <label>Description</label>
                                 <textarea class="form-control" name="description" placeholder="Enter description" id="description"></textarea>
-                            </div>
-
-                            <div class="form-row mb-3">
-                                @for ($i = 0; $i <= 4; $i++)
-                                <div class="col-md-2 col-img">
-                                    <label for="">Image {{ $i+1 }}</label>
-                                    <div class="avatar-upload">
-                                        <div>
-                                            <input type="file" name="img{{ $i+1 }}" id="input-file-img{{ $i+1 }}"
-                                                accept="image/png, image/jpg, image/jpeg" onchange="previewImage(this, 'profile-img{{ $i+1 }}')" required>
-                                        </div>
-                                        <img src="{{ asset('images/') }}" alt="" id="profile-img{{ $i+1 }}">
-                                    </div>
-                                </div>
-                                @endfor
                             </div>
 
                             <div class="form-group mb-3">

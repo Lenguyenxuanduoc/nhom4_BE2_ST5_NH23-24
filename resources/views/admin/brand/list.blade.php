@@ -1,13 +1,13 @@
 @extends('admin.layouts.admin')
 @section('title')
-    <title>Admin | Car List</title>
+    <title>Admin | Brand List</title>
 @endsection
 
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        @include('admin.partials.content_header', ['name' => 'Car', 'key' => 'List'])
+        @include('admin.partials.content_header', ['name' => 'Brand', 'key' => 'List'])
         <!-- /.content-header -->
 
         <!-- Main content -->
@@ -30,9 +30,9 @@
                             </div>
                         @endif
                     </div>
-                    
+
                     <div class="col-md-12">
-                        <a href="{{ route('cars.add') }}" class="btn btn-dark my-2">Add</a>
+                        <a href="{{ route('brands.create') }}" class="btn btn-dark my-2">Add</a>
                     </div>
 
                     <div class="col-md-12">
@@ -41,46 +41,33 @@
                                 <tr>
                                     <th scope="col"></th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Brand</th>
-                                    <th scope="col">Category</th>
-                                    <th scope="col">Price</th>
+                                    <th scope="col">Founded Year</th>
+                                    <th scope="col">Founder Name</th>
                                     <th scope="col">Description</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Producing</th>
-                                    <th scope="col">Images</th>
+                                    <th scope="col">Logo</th>
+                                    <th scope="col">Banner</th>
                                     <th scope="col">Edit | Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @if (!empty($cars))
-                                    @php
-                                        $i = 0;
-                                    @endphp
-                                    @foreach ($cars as $car)
-                                        @php
-                                            $images = json_decode($car->images);
-                                        @endphp
+                                @if (!empty($brands))
+                                    @foreach ($brands as $brand)
                                         <tr>
                                             <th scope="row">
-                                                {{ ($cars->currentPage() - 1) * $cars->perPage() + $loop->iteration }}</th>
-                                            <td>{{ $car->name }}</td>
-                                            <td>{{ $car->brand->name }}</td>
-                                            <td>{{ $car->category->name }}</td>
-                                            <td>${{ number_format($car->price, 0, ',', '.') }}</td>
-                                            <td style="max-width: 150px">{{ \Str::limit($car->description, 100) }}</td>
-                                            <td>{{ $car->quantity }}</td>
-                                            <td>{{ $car->producing_year }}</td>
-                                            <td style="max-width: 200px">
-                                                <img src="{{ asset('images/cars/' . $car->avatar) }}" alt="">
-                                                @foreach ($images as $image)
-                                                    <img class="mb-1" src="{{ asset('images/cars/' . $image) }}"
-                                                        alt="">
-                                                @endforeach
+                                                {{ ($brands->currentPage() - 1) * $brands->perPage() + $loop->iteration }}
+                                            </th>
+                                            <td style="max-width: 70px;">{{ $brand->name }}</td>
+                                            <td style="max-width: 150px;">{{ $brand->founded_year }}</td>
+                                            <td style="max-width: 150px;">{{ $brand->founder_name }}</td>
+                                            <td style="max-width: 200px;">{{ \Str::limit($brand->description, 100) }}</td>
+                                            <td><img src="{{ asset('images/brand_logos/' . $brand->logo) }}" alt="">
                                             </td>
+                                            <td><img src="{{ asset('images/banners/' . $brand->banner) }}" alt=""
+                                                    style="width:150px; max-height: 100px;"></td>
                                             <td>
-                                                <a href="{{ route('cars.edit', $car->id) }}"
+                                                <a href="{{ route('brands.edit', $brand->id) }}"
                                                     class="btn btn-warning">Edit</a>
-                                                <a href="{{ route('cars.delete', $car->id) }}"
+                                                <a href="{{ route('brands.delete', $brand->id) }}"
                                                     class="btn btn-danger">Delete</a>
                                             </td>
                                         </tr>
@@ -89,7 +76,7 @@
                             </tbody>
                         </table>
                     </div>
-                    {{ $cars->links() }}
+                    {{ $brands->links() }}
                 </div>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->

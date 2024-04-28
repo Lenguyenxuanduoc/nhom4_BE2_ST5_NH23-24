@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
-class ManufacturersSeeder extends Seeder
+class BrandsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,10 +15,10 @@ class ManufacturersSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('manufacturers')->insert([
+        \DB::table('brands')->insert([
             [
                 'name' => 'BMW',
-                'image' => 'bmw.jpg',
+                'logo' => 'bmw.jpg',
                 'banner' => 'bmw.jpg',
                 'founded_year' => '1916',
                 'founder_name' => 'Franz Josef Popp, Karl Rapp',
@@ -30,7 +30,7 @@ class ManufacturersSeeder extends Seeder
             ],
             [
                 'name' => 'Chevrolet',
-                'image' => 'chevrolet.jpg',
+                'logo' => 'chevrolet.jpg',
                 'banner' => 'chevrolet.jpg',
                 'founded_year' => '1911',
                 'founder_name' => 'Louis Chervolet',
@@ -42,7 +42,7 @@ class ManufacturersSeeder extends Seeder
             ],
             [
                 'name' => 'Dodge',
-                'image' => 'dodge.jpg',
+                'logo' => 'dodge.jpg',
                 'banner' => 'dodge.jpg',
                 'founded_year' => '1990',
                 'founder_name' => 'John Francis Dodge, Horace Elgin Dodge',
@@ -51,7 +51,7 @@ class ManufacturersSeeder extends Seeder
             ],
             [
                 'name' => 'Ferrari',
-                'image' => 'ferrari.jpg',
+                'logo' => 'ferrari.jpg',
                 'banner' => 'ferrari.jpg',
                 'founded_year' => '1947',
                 'founder_name' => 'Enzo Ferrari',
@@ -60,7 +60,7 @@ class ManufacturersSeeder extends Seeder
             ],
             [
                 'name' => 'Ford',
-                'image' => 'ford.jpg',
+                'logo' => 'ford.jpg',
                 'banner' => 'ford.jpg',
                 'founded_year' => '1903',
                 'founder_name' => 'Henry Ford',
@@ -69,7 +69,7 @@ class ManufacturersSeeder extends Seeder
             ],
             [
                 'name' => 'Hyundai',
-                'image' => 'hyundai.jpg',
+                'logo' => 'hyundai.jpg',
                 'banner' => 'hyundai.jpg',
                 'founded_year' => '1967',
                 'founder_name' => 'Chung Ju-yung',
@@ -78,7 +78,7 @@ class ManufacturersSeeder extends Seeder
             ],
             [
                 'name' => 'Lamborghini',
-                'image' => 'lamborghini.jpg',
+                'logo' => 'lamborghini.jpg',
                 'banner' => 'lamborghini.jpg',
                 'founded_year' => '1963',
                 'founder_name' => 'Ferruccio Lamborghini',
@@ -87,7 +87,7 @@ class ManufacturersSeeder extends Seeder
             ],
             [
                 'name' => 'McLaren',
-                'image' => 'mclaren.jpg',
+                'logo' => 'mclaren.jpg',
                 'banner' => 'mclaren.jpg',
                 'founded_year' => '1963',
                 'founder_name' => 'Bruce McLaren',
@@ -96,7 +96,7 @@ class ManufacturersSeeder extends Seeder
             ],
             [
                 'name' => 'Nissan',
-                'image' => 'nissan.jpg',
+                'logo' => 'nissan.jpg',
                 'banner' => 'nissan.jpg',
                 'founded_year' => '1963',
                 'founder_name' => 'Yoshisuke Aikawa',
@@ -105,7 +105,7 @@ class ManufacturersSeeder extends Seeder
             ],
             [
                 'name' => 'Porsche',
-                'image' => 'porsche.jpg',
+                'logo' => 'porsche.jpg',
                 'banner' => 'porsche.jpg',
                 'founded_year' => '1931',
                 'founder_name' => 'Ferdinand Porsche',
@@ -114,7 +114,7 @@ class ManufacturersSeeder extends Seeder
             ],
             [
                 'name' => 'Toyota',
-                'image' => 'toyota.jpg',
+                'logo' => 'toyota.jpg',
                 'banner' => 'toyota.jpg',
                 'founded_year' => '1937',
                 'founder_name' => 'Sakichi Toyoda',
@@ -123,7 +123,7 @@ class ManufacturersSeeder extends Seeder
             ],
             [
                 'name' => 'Mercedes Benz',
-                'image' => 'mercedesbenz.jpg',
+                'logo' => 'mercedesbenz.jpg',
                 'banner' => 'mercedesbenz.jpg',
                 'founded_year' => '1926',
                 'founder_name' => 'Karl Benz, Gottlieb Daimler',

@@ -13,7 +13,7 @@ class Car extends Model
     
     protected $fillable = [
         'name',
-        'manufacturer_id',
+        'brand_id',
         'category_id',
         'price',
         'description',
@@ -23,8 +23,8 @@ class Car extends Model
         'slug'
     ];
 
-    public function manufacturer(){
-        return $this->belongsTo(Manufacturer::class);
+    public function brand(){
+        return $this->belongsTo(Brand::class);
     }
 
     public function category(){

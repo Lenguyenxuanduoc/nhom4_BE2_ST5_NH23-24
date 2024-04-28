@@ -39,13 +39,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Manufacturer</label>
-                                <select class="form-control" name="manufacturer_id">
-                                    @if (!empty($manufacturers))
-                                        @foreach ($manufacturers as $manufacturer)
-                                            <option value="{{ $manufacturer->id }}"
-                                                {{ $car->manufacturer_id == $manufacturer->id ? 'selected' : '' }}>
-                                                {{ $manufacturer->name }}
+                                <label>Brand</label>
+                                <select class="form-control" name="brand_id">
+                                    @if (!empty($brands))
+                                        @foreach ($brands as $brand)
+                                            <option value="{{ $brand->id }}"
+                                                {{ $car->brand_id == $brand->id ? 'selected' : '' }}>
+                                                {{ $brand->name }}
                                             </option>
                                         @endforeach
                                     @endif
@@ -106,17 +106,6 @@
                                     </div>
                                 </div>
                                 @endfor
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label for="">Avatar</label>
-                                <div class="avatar-upload">
-                                    <div>
-                                        <input type="file" name="avatar" id="input-file"
-                                            accept="image/png, image/jpg, image/jpeg">
-                                    </div>
-                                    <img src="{{ asset('images/cars/'.$car->avatar) }}" alt="" id="profile-avatar">
-                                </div>
                             </div>
 
                             <div class="form-group mb-3">

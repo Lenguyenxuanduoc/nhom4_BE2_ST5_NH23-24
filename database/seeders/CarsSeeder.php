@@ -19,7 +19,7 @@ class CarsSeeder extends Seeder
             [
                 // 1
                 'name' => 'Ford Mustang',
-                'manufacturer_id' => '5',
+                'brand_id' => '5',
                 'category_id' => '4',
                 'price' => '34105',
                 'description' => 'The arrival of a new Mustang signals a new era for American pony car performance. The 2024 Mustang gets new engines, updated looks, and a big injection of technology. Still offered as a coupe and convertible, the 2024 Mustang uses the S650 chassis code (the last one was internally called the S550). Competition includes gas-powered rear-drive sports cars like the Dodge Challenger and Toyota GR Supra.  ',
@@ -32,7 +32,7 @@ class CarsSeeder extends Seeder
             [
                 // 2
                 'name' => 'Lamborghini Huracan',
-                'manufacturer_id' => '7',
+                'brand_id' => '7',
                 'category_id' => '10',
                 'price' => '234405',
                 'description' => '',
@@ -45,7 +45,7 @@ class CarsSeeder extends Seeder
             [
                 // 3
                 'name' => 'McLaren 720S',
-                'manufacturer_id' => '8',
+                'brand_id' => '8',
                 'category_id' => '11',
                 'price' => '330993',
                 'description' => '',
@@ -58,7 +58,7 @@ class CarsSeeder extends Seeder
             [
                 // 4
                 'name' => 'Nissan GT-R',
-                'manufacturer_id' => '9',
+                'brand_id' => '9',
                 'category_id' => '10',
                 'price' => '140277',
                 'description' => '',
@@ -71,7 +71,7 @@ class CarsSeeder extends Seeder
             [
                 // 5
                 'name' => 'BMW 4-Series',
-                'manufacturer_id' => '1',
+                'brand_id' => '1',
                 'category_id' => '10',
                 'price' => '178624',
                 'description' => '',
@@ -84,7 +84,7 @@ class CarsSeeder extends Seeder
             [
                 // 6
                 'name' => 'Chevrolet Corvette',
-                'manufacturer_id' => '2',
+                'brand_id' => '2',
                 'category_id' => '4',
                 'price' => '221035',
                 'description' => '',
@@ -97,7 +97,7 @@ class CarsSeeder extends Seeder
             [
                 // 7
                 'name' => 'Dodge Hornet',
-                'manufacturer_id' => '3',
+                'brand_id' => '3',
                 'category_id' => '5',
                 'price' => '127845',
                 'description' => '',
@@ -110,7 +110,7 @@ class CarsSeeder extends Seeder
             [
                 // 8
                 'name' => 'Ferrari Daytona SP3',
-                'manufacturer_id' => '4',
+                'brand_id' => '4',
                 'category_id' => '10',
                 'price' => '593181',
                 'description' => '',
@@ -123,7 +123,7 @@ class CarsSeeder extends Seeder
             [
                 // 9
                 'name' => 'Huyndai Ioniq 5',
-                'manufacturer_id' => '6',
+                'brand_id' => '6',
                 'category_id' => '10',
                 'price' => '133175',
                 'description' => '',
@@ -136,7 +136,7 @@ class CarsSeeder extends Seeder
             [
                 // 10
                 'name' => 'Porsche 911',
-                'manufacturer_id' => '10',
+                'brand_id' => '10',
                 'category_id' => '10',
                 'price' => '350336',
                 'description' => '',
@@ -149,7 +149,7 @@ class CarsSeeder extends Seeder
             [
                 // 11
                 'name' => 'Toyota Highlander',
-                'manufacturer_id' => '11',
+                'brand_id' => '11',
                 'category_id' => '8',
                 'price' => '120620',
                 'description' => '',
@@ -162,7 +162,7 @@ class CarsSeeder extends Seeder
             [
                 // 12
                 'name' => 'Ferrari 296 GTB',
-                'manufacturer_id' => '4',
+                'brand_id' => '4',
                 'category_id' => '6',
                 'price' => '593181',
                 'description' => '',
@@ -175,7 +175,7 @@ class CarsSeeder extends Seeder
             [
                 // 13
                 'name' => 'Ferrari F8',
-                'manufacturer_id' => '4',
+                'brand_id' => '4',
                 'category_id' => '10',
                 'price' => '343181',
                 'description' => '',
@@ -188,7 +188,7 @@ class CarsSeeder extends Seeder
             [
                 // 14
                 'name' => 'Ferrari SF90',
-                'manufacturer_id' => '4',
+                'brand_id' => '4',
                 'category_id' => '10',
                 'price' => '443181',
                 'description' => '',
@@ -201,7 +201,7 @@ class CarsSeeder extends Seeder
             [
                 // 15
                 'name' => 'Ferrari SF90 Stradale',
-                'manufacturer_id' => '4',
+                'brand_id' => '4',
                 'category_id' => '10',
                 'price' => '483181',
                 'description' => '',
@@ -214,7 +214,7 @@ class CarsSeeder extends Seeder
             [
                 // 16
                 'name' => 'Ford F-150',
-                'manufacturer_id' => '5',
+                'brand_id' => '5',
                 'category_id' => '6',
                 'price' => '983181',
                 'description' => '',
@@ -227,7 +227,7 @@ class CarsSeeder extends Seeder
             [
                 // 17
                 'name' => 'Ford Mustang GTD',
-                'manufacturer_id' => '5',
+                'brand_id' => '5',
                 'category_id' => '10',
                 'price' => '783181',
                 'description' => '',
@@ -240,7 +240,7 @@ class CarsSeeder extends Seeder
             [
                 // 18
                 'name' => 'Lamborghini Huracan',
-                'manufacturer_id' => '7',
+                'brand_id' => '7',
                 'category_id' => '10',
                 'price' => '793181',
                 'description' => '',
@@ -253,7 +253,7 @@ class CarsSeeder extends Seeder
             [
                 // 19
                 'name' => 'Lamborghini Revuelto',
-                'manufacturer_id' => '7',
+                'brand_id' => '7',
                 'category_id' => '10',
                 'price' => '703181',
                 'description' => '',
@@ -266,7 +266,7 @@ class CarsSeeder extends Seeder
             [
                 // 20
                 'name' => 'Nissan Ariya',
-                'manufacturer_id' => '9',
+                'brand_id' => '9',
                 'category_id' => '1',
                 'price' => '603081',
                 'description' => '',
@@ -279,7 +279,7 @@ class CarsSeeder extends Seeder
             [
                 // 21
                 'name' => 'Nissan Z',
-                'manufacturer_id' => '9',
+                'brand_id' => '9',
                 'category_id' => '1',
                 'price' => '753081',
                 'description' => '',

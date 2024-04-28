@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Manufacturer;
+use App\Models\Brand;
 use App\Models\Car;
 use DB;
 
-class BrandController extends Controller
+class ClientBrandController extends Controller
 {
     public function index(){
-        $brands = DB::select('SELECT * FROM manufacturers ORDER BY name');
+        $brands = DB::select('SELECT * FROM brands ORDER BY name');
         $title = 'Exotic Cars | Brands';
   
         $featured_cars = Car::select('cars.id', 'cars.name','cars.price', 'cars.avatar', 'cars.slug', 'cars.producing_year', 
@@ -30,7 +30,7 @@ class BrandController extends Controller
 
 
     public function getBrand($slug){
-        $brand_detail = Manufacturer::where('slug', $slug)->first();
+        $brand_detail = Brand::where('slug', $slug)->first();
 
         if (!$brand_detail){
             abort(404);
@@ -42,7 +42,7 @@ class BrandController extends Controller
                     DB::raw('AVG(reviews.tech_innovation) as innovation_avg'),
                     DB::raw('AVG(reviews.efficency_range) as efficency_range_avg'))
                 ->leftJoin('reviews', 'cars.id', '=', 'reviews.car_id')
-                ->where('cars.manufacturer_id', $brand_detail->id)
+                ->where('cars.brand_id', $brand_detail->id)
                 ->groupBy('cars.id', 'cars.name', 'cars.price', 'cars.avatar', 'cars.slug', 'cars.producing_year')
                 ->get();
 

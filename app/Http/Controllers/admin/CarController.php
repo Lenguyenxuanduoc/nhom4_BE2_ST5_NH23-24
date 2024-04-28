@@ -5,7 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Car;
-use App\Models\Manufacturer;
+use App\Models\Brand;
 use App\Models\Category;
 use Illuminate\Support\Facades\Paginator;
 use Illuminate\Database\QueryException;
@@ -16,7 +16,7 @@ class CarController extends Controller
     // Chuyển đến trang car list
     public function index()
     {
-        $cars = Car::with('manufacturer', 'category')->paginate(10);
+        $cars = Car::with('brand', 'category')->paginate(10);
 
         return view('admin.car.list', compact('cars'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
@@ -24,9 +24,9 @@ class CarController extends Controller
     // Chuyển đến trang add
     public function add()
     {
-        $manufacturers = Manufacturer::all();
+        $brands = Brand::all();
         $categories = Category::all();
-        return view('admin.car.add', compact('manufacturers', 'categories'));
+        return view('admin.car.add', compact('brands', 'categories'));
     }
 
     // Xử lý chức năng add
@@ -34,7 +34,7 @@ class CarController extends Controller
     {
         $car = new Car();
         $car->name = $request->input('name');
-        $car->manufacturer_id = $request->input('manufacturer_id');
+        $car->brand_id = $request->input('brand_id');
         $car->category_id = $request->input('category_id');
         $car->price = $request->input('price');
         $car->quantity = $request->input('quantity');
@@ -76,15 +76,15 @@ class CarController extends Controller
     // Chuyển đến trang edit
     public function edit($id)
     {
-        $car = Car::with('manufacturer', 'category')->find($id);
+        $car = Car::with('brand', 'category')->find($id);
         if (!$car) {
             abort(404);
         }
 
-        $manufacturers = Manufacturer::all();
+        $brands = Brand::all();
         $categories = Category::all();
 
-        return view('admin.car.edit', compact('car', 'manufacturers', 'categories'));
+        return view('admin.car.edit', compact('car', 'brands', 'categories'));
     }
 
     // Xử lý chức năng update
@@ -92,21 +92,13 @@ class CarController extends Controller
     {
         $car = Car::find($id);
         $car->name = $request->input('name');
-        $car->manufacturer_id = $request->input('manufacturer_id');
+        $car->brand_id = $request->input('brand_id');
         $car->category_id = $request->input('category_id');
         $car->price = $request->input('price');
         $car->quantity = $request->input('quantity');
         $car->description = $request->input('description');
         $car->producing_year = $request->input('producing_year');
         $car->slug = \Str::slug($car->name . ' ' . $car->producing_year);
-
-        /*
-         * Bị lỗi không cập nhật hình ảnh mới (avatar) của xe.
-         *
-         * Phân tích: Đoạn mã này nhằm mục đích cập nhật hình ảnh avatar cho xe. Tuy nhiên, sau khi tải lên hình ảnh mới,
-         * không có sự cập nhật nào được thực hiện trên đối tượng xe. Do đó, dù hình ảnh đã được tải lên thành công,
-         * nhưng hình ảnh của xe vẫn là hình ảnh cũ.
-         */
 
         if ($request->hasFile('avatar')) {
             $oldImg = 'images/cars/' . $car->avatar;
@@ -119,8 +111,7 @@ class CarController extends Controller
             $file->move('images/cars/', $fileName);
             $car->avatar = $fileName;
         }
-
-        dd($car);
+        // dd($car);
 
         try {
             $car->save();

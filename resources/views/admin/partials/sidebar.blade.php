@@ -54,6 +54,16 @@
                     </a>
                 </li>
             </ul>
+
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+            data-accordion="false">
+            <li class="nav-item">
+                <a href="{{route('brands.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>Brands</p>
+                </a>
+            </li>
+        </ul>
         </nav>
         <!-- /.sidebar-menu -->
     </div>

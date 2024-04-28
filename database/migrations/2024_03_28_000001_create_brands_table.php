@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('manufacturers', function (Blueprint $table) {
+        Schema::create('brands', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image');
-            $table->string('banner')->nullable();
             $table->string('founded_year');
             $table->string('founder_name');
-            $table->string('slug')->unique();
             $table->text('description');
+            $table->string('logo');
+            $table->string('banner')->nullable();
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('manufacturers');
+        Schema::dropIfExists('brands');
     }
 };

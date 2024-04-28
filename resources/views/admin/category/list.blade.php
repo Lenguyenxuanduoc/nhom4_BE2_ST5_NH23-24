@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="col-md-5">
-                        <table class="table">
+                        <table class="table" style="background: white">
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col"></th>
