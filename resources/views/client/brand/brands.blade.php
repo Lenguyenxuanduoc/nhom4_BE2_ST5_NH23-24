@@ -37,6 +37,8 @@
                         <p style="text-align: center;"><span>Founded: </span>{{ $brand->founded_year }} /
                             <span>Founder: </span>{{ $brand->founder_name }}
                         </p>
+                    </div>
+                    <div class="car-brand-description">
                         <p style="text-align: center;">{{ $brand->description }}</p>
                     </div>
                 </div>

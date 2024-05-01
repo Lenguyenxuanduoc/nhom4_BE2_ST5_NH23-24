@@ -675,8 +675,8 @@ class CarsSeeder extends Seeder
                 'description' => '',
                 'quantity' => '5',
                 'producing_year' => '2024',
-                'images' => json_encode(['Mercedes-Benz E-Class-1.png', 'Mercedes-Benz E-Class-2.png', 'Mercedes-Benz E-Class-3.png', 'Mercedes-Benz E-Class-4.png', 'Mercedes-Benz E-Class-5.png']),
-                'avatar' => 'Mercedes-Benz E-Class-nobg.png',
+                'images' => json_encode(['Mercedes-Benz-E-Class-1.png', 'Mercedes-Benz-E-Class-2.png', 'Mercedes-Benz-E-Class-3.png', 'Mercedes-Benz-E-Class-4.png', 'Mercedes-Benz-E-Class-5.png']),
+                'avatar' => 'Mercedes-Benz-E-Class-nobg.png',
                 'slug' => Str::slug('Mercedes-Benz E-Class' . '2024'),
             ],
             [
