@@ -46,16 +46,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @if ($weightcapacities)
-                                    @foreach ($weightcapacities as $weight_capacity)
+                                @if ($weights_capacities)
+                                    @foreach ($weights_capacities as $weight_capacity)
                                         <tr>
-                                            <td>{{ $weightcapacity->car->name }}</td>
-                                            <td>{{ $weightcapacity->fuel_capacity }}</td>
-                                            <td>{{ $weightcapacity->cargo_capacity }}</td>
-                                            <td>{{ $weightcapacity->curb_weight }}</td>
+                                            <td>{{ $weight_capacity->car->name }}</td>
+                                            <td>{{ $weight_capacity->fuel_capacity }}</td>
+                                            <td>{{ $weight_capacity->cargo_capacity }}</td>
+                                            <td>{{ $weight_capacity->curb_weight }}</td>
                                             <td>
-                                                <a href="{{ route('weightcapacities.edit', $weightcapacity->id) }}" class="btn btn-warning">Edit</a>
-                                                <a href="{{ route('weightcapacities.delete', $weightcapacity->id) }}" class="btn btn-danger">Delete</a>
+                                                <a href="{{ route('weightcapacities.edit', $weight_capacity->id) }}" class="btn btn-warning">Edit</a>
+                                                <a href="{{ route('weightcapacities.delete', $weight_capacity->id) }}" class="btn btn-danger">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach

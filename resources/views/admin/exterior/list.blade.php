@@ -35,7 +35,7 @@
                         <a href="{{ route('exteriors.add') }}" class="btn btn-dark my-2">Add</a>
                     </div>
 
-                    <div class="col-md-5">
+                    <div class="col-md-10">
                         <table class="table" style="background: white">
                             <thead class="thead-dark">
                                 <tr>
@@ -52,13 +52,13 @@
                                 @if ($exteriors)
                                     @foreach ($exteriors as $exterior)
                                         <tr>
-                                            <th scope="row" style="width: 5%;">{{ $loop->iteration }}</th>
-                                            <td style="width: 20%;">{{ $exterior->car->name }}</td>
-                                            <td style="width: 15%;">{{ $exterior->length }}</td>
-                                            <td style="width: 15%;">{{ $exterior->width }}</td>
-                                            <td style="width: 15%;">{{ $exterior->height }}</td>
-                                            <td style="width: 15%;">{{ $exterior->wheelbase }}</td>
-                                            <td style="width: 15%;">
+                                            <th scope="row">{{ $loop->iteration }}</th>
+                                            <td>{{ $exterior->car->name }}</td>
+                                            <td>{{ $exterior->length }}</td>
+                                            <td>{{ $exterior->width }}</td>
+                                            <td>{{ $exterior->height }}</td>
+                                            <td>{{ $exterior->wheelbase }}</td>
+                                            <td style="width: 20%;">
                                                 <a href="{{ route('exteriors.edit', $exterior->id) }}" class="btn btn-warning">Edit</a>
                                                 <a href="{{ route('exteriors.delete', $exterior->id) }}" class="btn btn-danger">Delete</a>
                                             </td>

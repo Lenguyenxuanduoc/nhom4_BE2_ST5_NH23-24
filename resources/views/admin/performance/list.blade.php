@@ -15,7 +15,7 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                <div class="col-md-12">
+                    <div class="col-md-12">
                         {{-- Thông báo lỗi khi (thêm/xóa/sửa) không thành công --}}
                         @if (session('error'))
                             <div class="alert alert-danger">
@@ -52,10 +52,9 @@
                             </thead>
                             <tbody>
                                 @if ($performances)
-                                    
                                     @foreach ($performances as $performance)
                                         <tr>
-                                        <th scope="row" style="width: 5%;">{{ $loop->iteration }}</th> 
+                                            <th scope="row" style="width: 5%;">{{ $loop->iteration }}</th>
                                             <td>{{ $performance->car->name }}</td>
                                             <td>{{ $performance->engine }}</td>
                                             <td>{{ $performance->horsepower }}</td>
@@ -66,8 +65,10 @@
                                             <td>{{ $performance->transmission }}</td>
                                             <td>{{ $performance->transmission_type }}</td>
                                             <td>
-                                                <a href="{{ route('performances.edit', $performance->id) }}" class="btn btn-warning">Edit</a>
-                                                <a href="{{ route('performances.delete', $performance->id) }}" class="btn btn-danger">Delete</a>
+                                                <a href="{{ route('performances.edit', $performance->id) }}"
+                                                    class="btn btn-warning mb-2" style="width: 70px;">Edit</a>
+                                                <a href="{{ route('performances.delete', $performance->id) }}"
+                                                    class="btn btn-danger mb-2"  style="width: 70px;">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -79,7 +80,7 @@
                 {{ $performances->links() }}
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
-           
+
         </div>
         <!-- /.content -->
     </div>

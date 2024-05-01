@@ -7,6 +7,7 @@ use App\Http\Controllers\client\NewsController;
 use App\Http\Controllers\client\ClientBrandController;
 use App\Http\Controllers\client\ClientCarController;
 use App\Http\Controllers\client\LoginController;
+use App\Http\Controllers\client\SearchController;
 
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\CarController;
@@ -21,20 +22,20 @@ use App\Http\Controllers\admin\WeightCapacityController;
 // Client routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+Route::get('/search', [HomeController::class,  'search_result'])->name('search');
 
 // News
 Route::prefix('/news')->group(function(){
-    Route::get('/', [NewsController::class, 'index']);
+    Route::get('/', [NewsController::class, 'index'])->name('news');
 
     // Lấy chi tiết 1 posts
-    Route::get('/posts/{slug}', [NewsController::class, 'getPosts']);
+    Route::get('/posts/{slug}', [NewsController::class, 'getPosts'])->name('posts.detail');
 });
 
 
 // Brands
 Route::prefix('/all-brands')->group(function(){
-    Route::get('/', [ClientBrandController::class, 'index'])->name('all-brands');
+    Route::get('/', [ClientBrandController::class, 'index'])->name('all.brands');
 
     // Lấy chi tiết 1 brand
     Route::get('/{slug}', [ClientBrandController::class, 'getBrand'])->name('brand.detail');
@@ -44,7 +45,7 @@ Route::prefix('/all-brands')->group(function(){
 // Car
 Route::prefix('/car')->group(function(){
     // Lấy chi tiết 1 car
-    Route::get('/{slug}', [ClientCarController::class, 'getCar']);
+    Route::get('/{slug}', [ClientCarController::class, 'getCar'])->name('car.detail');
 });
 
 
@@ -112,6 +113,7 @@ Route::middleware('auth.admin')->prefix('/posts')->group(function(){
 
     Route::get('/delete/{id}', [PostsController::class, 'delete'])->name('posts.delete');
 });
+
 // Exteriors
 Route::middleware('auth.admin')->prefix('exteriors')->group(function(){
     Route::get('/', [ExteriorController::class, 'index'])->name('exteriors.index');
@@ -124,6 +126,7 @@ Route::middleware('auth.admin')->prefix('exteriors')->group(function(){
 
     Route::get('/delete/{id}', [ExteriorController::class, 'delete'])->name('exteriors.delete');
 });
+
 // Interiors
 Route::middleware('auth.admin')->prefix('interiors')->group(function(){
     Route::get('/', [InteriorController::class, 'index'])->name('interiors.index');
@@ -136,6 +139,7 @@ Route::middleware('auth.admin')->prefix('interiors')->group(function(){
 
     Route::get('/delete/{id}', [InteriorController::class, 'delete'])->name('interiors.delete');
 });
+
 // Performances
 Route::middleware('auth.admin')->prefix('performances')->group(function(){
     Route::get('/', [PerformanceController::class, 'index'])->name('performances.index');
@@ -148,6 +152,7 @@ Route::middleware('auth.admin')->prefix('performances')->group(function(){
 
     Route::get('/delete/{id}', [PerformanceController::class, 'delete'])->name('performances.delete');
 });
+
 // Weights_capacties
 Route::middleware('auth.admin')->prefix('weightcapacities')->group(function(){
     Route::get('/', [WeightCapacityController::class, 'index'])->name('weightcapacities.index');

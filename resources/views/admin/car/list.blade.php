@@ -70,7 +70,7 @@
                                             <td style="max-width: 150px">{{ \Str::limit($car->description, 100) }}</td>
                                             <td>{{ $car->quantity }}</td>
                                             <td>{{ $car->producing_year }}</td>
-                                            <td style="max-width: 200px">
+                                            <td style="max-width: 210px">
                                                 <img src="{{ asset('images/cars/' . $car->avatar) }}" alt="">
                                                 @foreach ($images as $image)
                                                     <img class="mb-1" src="{{ asset('images/cars/' . $image) }}"
@@ -79,9 +79,9 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('cars.edit', $car->id) }}"
-                                                    class="btn btn-warning">Edit</a>
+                                                    class="btn btn-warning mb-1" style="width: 70px;">Edit</a>
                                                 <a href="{{ route('cars.delete', $car->id) }}"
-                                                    class="btn btn-danger">Delete</a>
+                                                    class="btn btn-danger mb-1" style="width: 70px;" >Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach

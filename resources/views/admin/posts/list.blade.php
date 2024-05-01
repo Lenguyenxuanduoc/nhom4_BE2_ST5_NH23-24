@@ -61,10 +61,10 @@
                                             <th scope="row">
                                                 {{ ($posts->currentPage() - 1) * $posts->perPage() + $loop->iteration }}</th>
                                             <td style="max-width: 150px">{{ $post->title }}</td>
-                                            <td style="max-width: 300px">{{ \Str::limit($post->content, 100) }}</td>
+                                            <td style="max-width: 250px">{{ \Str::limit($post->content, 100) }}</td>
                                             <td>{{ $post->author }}</td>
                                             <td>{{ $post->posting_date->format('Y-m-d') }}</td>
-                                            <td style="max-width: 230px">
+                                            <td style="max-width: 250px">
                                                 @foreach ($images as $image)
                                                     <img class="mb-1" src="{{ asset('images/posts/' . $image) }}" alt="" 
                                                     style="width: 110px; height: auto; object-fit: fill;">
@@ -72,9 +72,9 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('posts.edit', $post->id) }}"
-                                                    class="btn btn-warning">Edit</a>
+                                                    class="btn btn-warning mb-1" style="width:70px">Edit</a>
                                                 <a href="{{ route('posts.delete', $post->id) }}"
-                                                    class="btn btn-danger">Delete</a>
+                                                    class="btn btn-danger mb-1" style="width:70px">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach

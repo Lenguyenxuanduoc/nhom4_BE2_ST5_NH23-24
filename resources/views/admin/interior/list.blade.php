@@ -35,7 +35,7 @@
                         <a href="{{ route('interiors.add') }}" class="btn btn-dark my-2">Add</a>
                     </div>
 
-                    <div class="col-md-5">
+                    <div class="col-md-12">
                         <table class="table" style="background: white">
                             <thead class="thead-dark">
                                 <tr>
@@ -57,18 +57,21 @@
                                     @endphp
                                     @foreach ($interiors as $interior)
                                         <tr>
-                                            <th scope="row" style="width: 5%;">
-                                                {{ ($interiors->currentPage() - 1) * $interiors->perPage() + $loop->iteration }}</th>
-                                            <td style="width: 10%;">{{ $interior->car->name }}</td>
-                                            <td style="width: 10%;">{{ $interior->front_headroom }}</td>
-                                            <td style="width: 10%;">{{ $interior->rear_headroom }}</td>
-                                            <td style="width: 10%;">{{ $interior->front_legroom }}</td>
-                                            <td style="width: 10%;">{{ $interior->rear_legroom }}</td>
-                                            <td style="width: 10%;">{{ $interior->front_shoulder_room }}</td>
-                                            <td style="width: 10%;">{{ $interior->rear_shoulder_room }}</td>
-                                            <td style="width: 15%;">
-                                                <a href="{{ route('interiors.edit', $interior->id) }}" class="btn btn-warning">Edit</a>
-                                                <a href="{{ route('interiors.delete', $interior->id) }}" class="btn btn-danger">Delete</a>
+                                            <th scope="row">
+                                                {{ ($interiors->currentPage() - 1) * $interiors->perPage() + $loop->iteration }}
+                                            </th>
+                                            <td>{{ $interior->car->name }}</td>
+                                            <td>{{ $interior->front_headroom }}</td>
+                                            <td>{{ $interior->rear_headroom }}</td>
+                                            <td>{{ $interior->front_legroom }}</td>
+                                            <td>{{ $interior->rear_legroom }}</td>
+                                            <td>{{ $interior->front_shoulder_room }}</td>
+                                            <td>{{ $interior->rear_shoulder_room }}</td>
+                                            <td>
+                                                <a href="{{ route('interiors.edit', $interior->id) }}"
+                                                    class="btn btn-warning mb-1" style="width: 70px">Edit</a>
+                                                <a href="{{ route('interiors.delete', $interior->id) }}"
+                                                    class="btn btn-danger mb-1" style="width: 70px">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach

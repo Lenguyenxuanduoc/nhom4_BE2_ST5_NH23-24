@@ -43,7 +43,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary mb-5">Add</button>
-                            <a type="submit" href="{{ route('weight-capacities.index') }}" class="btn btn-danger mb-5 ml-2">Cancel</a>
+                            <a type="submit" href="{{ route('weightcapacities.index') }}" class="btn btn-danger mb-5 ml-2">Cancel</a>
                         </form>
                     </div>
                 </div>

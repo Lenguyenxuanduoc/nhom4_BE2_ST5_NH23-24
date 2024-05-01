@@ -602,7 +602,8 @@ header{
 }
 
 .label-car-brands h1{
-    font-size: 45px;
+    font-size: 40px;
+    color: #333;
 }
 
 .label-car-brands hr{
@@ -700,7 +701,8 @@ header{
 }
 
 .label-car-list h1{
-    font-size: 45px;
+    font-size: 40px;
+    color: #333;
 }
 
 .label-car-list hr{
@@ -714,7 +716,7 @@ header{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 10px;
+    gap: 2px;
 }
 
 .car-box{
@@ -722,7 +724,7 @@ header{
     display: flex;
     justify-content: center;
     padding: 20px;
-    width: 400px;
+    width: 390px;
     margin-bottom: 20px;
 }
 
@@ -1375,10 +1377,115 @@ header{
 
 
 /* ---------------------------------- End posts content ----------------------------------*/
-
-
 /* ---------------------------------- End posts page ----------------------------------*/
 
 
 
+/* ---------------------------------- Start search results ----------------------------------*/
+.search-results-container{
+    margin: 0 100px;
+    margin-bottom: 100px;
+}
+
+.label-search-results{
+    padding: 20px;
+    margin-top: 150px;
+}
+
+.label-search-results h1{
+    font-size: 40px;
+    color: #333;
+}
+
+.search-filter{
+    margin: 15px 0;
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+    font-size: 20px;
+}
+
+.search-filter a{
+    color: #666666;
+    font-weight: 600;
+}
+
+.search-filter li a:hover, 
+.search-filter .active{
+    color: #333;
+    border-bottom: 3px solid var(--color-primary);
+    transition: all 0.03s;
+}
+
+.search-results-content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    height: auto;
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+.search-results-content-box{
+    margin-bottom: 20px;
+    width: 380px;
+    height: auto;
+    text-align: center;
+}
+
+.search-results-img {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.search-results-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1s ease;
+}
+
+.search-results-img:hover img{
+    transform: scale(1.1);
+}
+
+.search-results-author{
+    margin-top: 30px;
+}
+
+.search-results-author span{
+    font-size: medium;
+    color: #9b9b9b;
+}
+
+.search-results-title {
+    padding: 10px 0;    
+    height: auto;
+    padding-bottom: 15px;
+}
+
+.search-results-title h2{
+    color: var(--color-black);
+}
+
+.search-results-description{
+    height: auto;
+    padding: 10px;
+    padding-top: 0;
+}
+
+.search-results-description p{
+    font-size: 15px;
+    color: #666666;
+    word-spacing: 1px;
+}
+
+.search-results-readmore span{
+    font-size: small;
+    color: #9b9b9b;
+}
+/* ---------------------------------- End search results ----------------------------------*/
 

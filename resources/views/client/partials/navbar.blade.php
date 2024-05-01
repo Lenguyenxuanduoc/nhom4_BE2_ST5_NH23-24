@@ -5,14 +5,14 @@
 <!------- Start navbar ------->
 <nav>
     <div class="container nav-container">
-        <a href="/home" class="logo">
+        <a href="{{route('home')}}" class="logo">
             <h3>Exotic Cars.</h3>
         </a>
         <ul class="nav-link">
-            <li><a href="/home" class="active">Home</a></li>
-            <li><a href="/news">News</a></li>
+            <li><a href="{{route('home')}}" class="active">Home</a></li>
+            <li><a href="{{route('news')}}">News</a></li>
             <li>
-                <a href="{{route('all-brands')}}">Brands <i class="fa-solid fa-caret-down" style="font-size: 15px;"></i></a>
+                <a href="{{route('all.brands')}}">Brands <i class="fa-solid fa-caret-down" style="font-size: 15px;"></i></a>
                 <div class="nav-dropdown">
                     <ul>
                         @php
@@ -34,9 +34,9 @@
             @endif  
 
             <li>
-                <form action="" class="search">
-                    <input type="text" name="tag" placeholder="Search">
-                    <button type="submit" style="display:none"></button>
+                <form action="{{route('search')}}" method="GET" class="search">
+                    <input type="text" name="keyword" placeholder="Search">
+                    <button type="submit" style="display: none;">Search</button>
                 </form>
             </li>
             
