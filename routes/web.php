@@ -13,6 +13,10 @@ use App\Http\Controllers\admin\CarController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\BrandController;
 use App\Http\Controllers\admin\PostsController;
+use App\Http\Controllers\admin\ExteriorController;
+use App\Http\Controllers\admin\InteriorController;
+use App\Http\Controllers\admin\PerformanceController;
+use App\Http\Controllers\admin\WeightCapacityController;
 
 // Client routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -107,4 +111,52 @@ Route::middleware('auth.admin')->prefix('/posts')->group(function(){
     Route::post('/update/{id}', [PostsController::class, 'update'])->name('posts.update');
 
     Route::get('/delete/{id}', [PostsController::class, 'delete'])->name('posts.delete');
+});
+// Exteriors
+Route::middleware('auth.admin')->prefix('exteriors')->group(function(){
+    Route::get('/', [ExteriorController::class, 'index'])->name('exteriors.index');
+
+    Route::get('/add', [ExteriorController::class, 'add'])->name('exteriors.add');
+    Route::post('/store', [ExteriorController::class, 'store'])->name('exteriors.store');
+
+    Route::get('/edit/{id}', [ExteriorController::class, 'edit'])->name('exteriors.edit');
+    Route::post('/update/{id}', [ExteriorController::class, 'update'])->name('exteriors.update');
+
+    Route::get('/delete/{id}', [ExteriorController::class, 'delete'])->name('exteriors.delete');
+});
+// Interiors
+Route::middleware('auth.admin')->prefix('interiors')->group(function(){
+    Route::get('/', [InteriorController::class, 'index'])->name('interiors.index');
+
+    Route::get('/add', [InteriorController::class, 'add'])->name('interiors.add');
+    Route::post('/store', [InteriorController::class, 'store'])->name('interiors.store');
+
+    Route::get('/edit/{id}', [InteriorController::class, 'edit'])->name('interiors.edit');
+    Route::post('/update/{id}', [InteriorController::class, 'update'])->name('interiors.update');
+
+    Route::get('/delete/{id}', [InteriorController::class, 'delete'])->name('interiors.delete');
+});
+// Performances
+Route::middleware('auth.admin')->prefix('performances')->group(function(){
+    Route::get('/', [PerformanceController::class, 'index'])->name('performances.index');
+
+    Route::get('/add', [PerformanceController::class, 'add'])->name('performances.add');
+    Route::post('/store', [PerformanceController::class, 'store'])->name('performances.store');
+
+    Route::get('/edit/{id}', [PerformanceController::class, 'edit'])->name('performances.edit');
+    Route::post('/update/{id}', [PerformanceController::class, 'update'])->name('performances.update');
+
+    Route::get('/delete/{id}', [PerformanceController::class, 'delete'])->name('performances.delete');
+});
+// Weights_capacties
+Route::middleware('auth.admin')->prefix('weightcapacities')->group(function(){
+    Route::get('/', [WeightCapacityController::class, 'index'])->name('weightcapacities.index');
+
+    Route::get('/add', [WeightCapacityController::class, 'add'])->name('weightcapacities.add');
+    Route::post('/store', [WeightCapacityController::class, 'store'])->name('weightcapacities.store');
+
+    Route::get('/edit/{id}', [WeightCapacityController::class, 'edit'])->name('weightcapacities.edit');
+    Route::post('/update/{id}', [WeightCapacityController::class, 'update'])->name('weightcapacities.update');
+
+    Route::get('/delete/{id}', [WeightCapacityController::class, 'delete'])->name('weightcapacities.delete');
 });

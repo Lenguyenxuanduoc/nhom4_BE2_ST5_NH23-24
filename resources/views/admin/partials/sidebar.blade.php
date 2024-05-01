@@ -74,6 +74,43 @@
                     </a>
                 </li>
             </ul>
+            <!-- Duoc lam -->
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <li class="nav-item">
+                    <a href="{{ route('exteriors.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>Exteriors</p>
+                    </a>
+                </li>
+        </ul>
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <li class="nav-item">
+                    <a href="{{ route('interiors.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>Interiors</p>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <li class="nav-item">
+                    <a href="{{ route('performances.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>Performances</p>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <li class="nav-item">
+                    <a href="{{ route('weightcapacities.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>Weight_capacities</p>
+                    </a>
+                </li>
+            </ul> 
         </nav>
         <!-- /.sidebar-menu -->
     </div>
