@@ -26,7 +26,7 @@
                 $countPosts++;
                 $images = json_decode($post->images);
             @endphp
-            <a href="{{ route('posts_detail', $post->slug) }}">
+            <a href="{{ route('posts.detail', $post->slug) }}">
                 <div class="posts-box">
                     <div class="posts-img">
                         <img src="{{ asset('images/posts/' . $images[0]) }}"
