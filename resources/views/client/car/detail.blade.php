@@ -177,7 +177,44 @@
         <div class="category-mtscore">
             <button class="btn-mt-score" onclick="scrollToCarReview()">MT Score <span>8.1</span><span
                     class="span-10">/10</span></button>
-            <button class="btn-category"><a href="">Coupe</a></button>
+            <button class="btn-category"><a href="">{{$car_detail->category->name}}</a></button>
+        </div>
+
+        <div class="car-price">
+            <table>
+                <tbody>
+                    <tr class="table-heading">
+                        <th>Trim</th>
+                        <th>MSRP</th>
+                        <th>Fair Market Price</th>
+                    </tr>
+                    <tr class="tr-background">
+                        <td style="color: #0073d8; font-weight: bold;">
+                            {{ !empty($car_detail->trim) ? $car_detail->trim : 'N/A' }}
+                        </td>
+
+                        <td>
+                            @if ($car_detail->msrp != 0)
+                                ${{ number_format($car->msrp, 0, ',', '.') }}
+                            @else
+                                Coming soon
+                            @endif
+                        </td>
+
+                        <td>
+                            @if ($car_detail->fair_market_price != 0)
+                                ${{ number_format($car_detail->fair_market_price, 0, ',', '.') }}
+                            @else
+                                Coming soon
+                            @endif
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="btn-order-container">
+            <button class="btn-order">Order</button>
         </div>
 
         <div class="horsepower-torque">
@@ -192,24 +229,6 @@
                 <span>Torque:</span>
                 <p>{{ !empty($car_detail->torque) ? $car_detail->torque : 'N/A' }}</p>
             </div>
-        </div>
-
-        <div class="car-price">
-            <h4>MSRP:</h4>
-            <p>
-                @if ($car_detail->msrp != 0)
-                    ${{ number_format($car->msrp, 0, ',', '.') }}
-                @else
-                    Coming soon
-                @endif
-            </p>
-
-            <h4>Fair Market Price:</h4>
-            <p>${{ number_format($car_detail->fair_market_price, 0, ',', '.') }}</p>
-        </div>
-
-        <div class="btn-order-container">
-            <button class="btn-order">Order</button>
         </div>
     </div>
 </section>

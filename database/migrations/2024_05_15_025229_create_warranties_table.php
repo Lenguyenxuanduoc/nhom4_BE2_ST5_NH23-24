@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('warranty', function (Blueprint $table) {
+        Schema::create('warranties', function (Blueprint $table) {
             $table->id();
             $table->foreignId('car_id')->constrained('cars');
 
@@ -57,6 +57,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('warranty');
+        Schema::dropIfExists('warranties');
     }
 };

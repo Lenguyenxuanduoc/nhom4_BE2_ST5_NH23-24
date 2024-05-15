@@ -778,13 +778,17 @@ header{
 }
 
 .right{
-    width: 40%;
+    /* width: 40%;
     padding: 20px;  
     display: flex;
     padding-top: 30px;
     flex-direction: column; 
     justify-content: space-between; 
     height: 100%;
+ */
+    width: 40%;
+    display: grid;
+    padding: 20px;
 }
 
 .main-img img{
@@ -845,7 +849,7 @@ header{
 
 .btn-order-container button{
     padding: 10px 20px;
-    margin-top: 10px;
+    margin-top: auto;
     border: none;
     border-radius: 5px;
     background-color: var(--color-primary);
@@ -995,7 +999,24 @@ header{
     font-size: 15px;
 }
 
+.car-price{
+    display: flex;
+    align-items: center;
+}
 
+.car-price table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.car-price table th{
+    text-align: left;
+    padding: 0 10px;
+}
+
+.car-price table td{
+    padding: 10px;
+}
 /* ---------------------------------- End detail car ----------------------------------*/
 
 
@@ -1007,8 +1028,6 @@ header{
     box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
     margin: 20px auto;
     margin-bottom: 30px;
-    /* border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px; */
     border-radius: 5px;
 }
 
@@ -1165,7 +1184,6 @@ header{
 }
 
 /* ---------------------------------- End related cars ----------------------------------*/
-/* ---------------------------------- End car detail page ----------------------------------*/
 
 
 /* ---------------------------------- Start specs pop up ----------------------------------*/
@@ -1179,6 +1197,7 @@ header{
     display: none;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 
 .specs-popup {
@@ -1235,7 +1254,7 @@ header{
     padding: 8px;
 }
 
-.specs-box table .tr-background{
+.tr-background{
     background: #f2f2f2;
     padding: 10px;
 }
@@ -1249,6 +1268,7 @@ header{
     font-weight: bold;
 }
 /* ---------------------------------- End specs pop up ----------------------------------*/
+/* ---------------------------------- End car detail page ----------------------------------*/
 
 
 /* ---------------------------------- Start posts page ----------------------------------*/
