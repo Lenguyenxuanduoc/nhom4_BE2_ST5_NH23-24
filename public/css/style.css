@@ -22,7 +22,8 @@
     background: var(--color-primary);
     border: 2px solid var(--color-primary);
     border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
     color: var(--color-white);
     letter-spacing: .4px;
     font-weight: 600;
@@ -142,7 +143,8 @@ nav.shadow{
     left: 0;
     top: 100%;
     background: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
     margin-top: 2px;
 }
 
@@ -203,7 +205,8 @@ nav.shadow{
 
 .login-popup{
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
     padding: 20px;
     width: 30%;
     height: 75%;
@@ -382,7 +385,8 @@ header{
     height: 100%;
     width: 100%;
     background: var(--color-white);
-    box-shadow: -15px 15px 15px rgba(0, 0, 0, 0.2);
+    /* box-shadow: -15px 15px 15px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
 }
 
 .sq-box img{
@@ -626,7 +630,8 @@ header{
     flex-direction: column;
     align-items: center;
     padding: 0 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
 }
 
 .car-brand-img{
@@ -720,7 +725,8 @@ header{
 }
 
 .car-box{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
     display: flex;
     justify-content: center;
     padding: 20px;
@@ -767,7 +773,8 @@ header{
     max-width: 80%;
     height: auto;
     background: white;
-    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
     margin: 130px auto;
     border-radius: 5px;
     margin-bottom: 30px;
@@ -858,7 +865,8 @@ header{
     cursor: pointer;
     transition: all 0.5s ease;
     width: 100%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
     margin-top: auto;
 }
 
@@ -1025,7 +1033,8 @@ header{
     max-width: 80%;
     height: auto;
     background: white;
-    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
+    /* box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2); */
     margin: 20px auto;
     margin-bottom: 30px;
     border-radius: 5px;
@@ -1072,7 +1081,8 @@ header{
     border-radius: 5px;
     width: 220px;
     padding: 20px;
-    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
 }
 
 .specifications-point span{
@@ -1118,8 +1128,8 @@ header{
     max-width: 80%;
     height: auto;
     background: white;
-    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
-
+    /* box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
     margin: 20px auto;
     margin-bottom: 70px;
     border-bottom-left-radius: 10px;
@@ -1140,7 +1150,8 @@ header{
 }
 
 .related-cars-box{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
     padding: 12px;
     display: flex;
     flex-direction: column;
@@ -1202,7 +1213,8 @@ header{
 
 .specs-popup {
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
     padding: 20px 60px;
     width: 75%;
     height: 600px;
