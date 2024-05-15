@@ -11,7 +11,7 @@ class ClientCarController extends Controller
 {
     public function getCar($slug)
     {
-        $car_detail = Car::select('cars.id', 'cars.name', 'cars.price', 'cars.avatar', 'cars.slug', 'cars.producing_year', 
+        $car_detail = Car::select('cars.id', 'cars.name', 'cars.fair_market_price', 'cars.avatar', 'cars.slug', 'cars.producing_year', 
             'cars.images', 'cars.brand_id', 'performances.engine', 'performances.horsepower', 'performances.trim', 
             'performances.torque', 'performances.cylinders', 'performances.standard_mpg', 'performances.transmission', 
             'performances.transmission_type', 'interiors.front_headroom', 'interiors.rear_headroom', 'interiors.front_legroom', 

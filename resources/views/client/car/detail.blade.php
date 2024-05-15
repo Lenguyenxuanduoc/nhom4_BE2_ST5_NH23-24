@@ -9,22 +9,29 @@
     <div class="left">
         <div class="main-img">
             @php
-                $images = json_decode($car_detail->images);
+                if (!empty($car_detail->images)) {
+                    $images = json_decode($car_detail->images);
+                }
             @endphp
-            <img src={{ asset('images/cars/' . $images[0]) }} alt="" class="slide">
+            @if (!empty($images[0]))
+                <img src="{{ asset('images/cars/' . $images[0]) }}" alt="" class="slide">
+            @endif
         </div>
+
         <div class="option">
-            <img src="{{ asset('images/cars/' . $images[0]) }}" onclick="img('{{ asset('images/cars/' . $images[0]) }}')"
-                alt="">
-            <img src="{{ asset('images/cars/' . $images[1]) }}"
-                onclick="img('{{ asset('images/cars/' . $images[1]) }}')" alt="">
-            <img src="{{ asset('images/cars/' . $images[2]) }}"
-                onclick="img('{{ asset('images/cars/' . $images[2]) }}')" alt="">
-            <img src="{{ asset('images/cars/' . $images[3]) }}"
-                onclick="img('{{ asset('images/cars/' . $images[3]) }}')" alt="">
-            <img src="{{ asset('images/cars/' . $images[4]) }}"
-                onclick="img('{{ asset('images/cars/' . $images[4]) }}')" alt="">
+            @php
+                if (!empty($images)) {
+                    foreach ($images as $image) {
+                        echo '<img src="' .
+                            asset('images/cars/' . $image) .
+                            '" onclick="img(\'' .
+                            asset('images/cars/' . $image) .
+                            '\')" alt="">';
+                    }
+                }
+            @endphp
         </div>
+
         <button class="btn-specs" onclick="openPopup('specs-popup')">SEE ALL SPECS</button><br>
     </div>
 
@@ -170,29 +177,38 @@
         <div class="category-mtscore">
             <button class="btn-mt-score" onclick="scrollToCarReview()">MT Score <span>8.1</span><span
                     class="span-10">/10</span></button>
-            {{-- <button class="btn-category"><a href="">Coupe</a></button> --}}
+            <button class="btn-category"><a href="">Coupe</a></button>
         </div>
 
         <div class="horsepower-torque">
             <div class="horsepower">
-                <img src={{asset('images/icons/horsepower-icon.png')}} alt="">
+                <img src={{ asset('images/icons/horsepower-icon.png') }} alt="">
                 <span>Horsepower:</span>
                 <p>{{ !empty($car_detail->horsepower) ? $car_detail->horsepower : 'N/A' }}</p>
             </div>
 
             <div class="torque">
-                <img src={{asset('images/icons/torque-icon.png')}} alt="">
+                <img src={{ asset('images/icons/torque-icon.png') }} alt="">
                 <span>Torque:</span>
                 <p>{{ !empty($car_detail->torque) ? $car_detail->torque : 'N/A' }}</p>
             </div>
         </div>
 
-        {{-- Làm xong feul-horse-power nhớ mở lại code --}}
-        {{-- <div class="car-price">
-            <h4>Price:</h4>
-            <p>${{ number_format($car_detail->price, 0, ',', '.') }}</p>
-        </div> --}}
-        <div class="btn-order">
+        <div class="car-price">
+            <h4>MSRP:</h4>
+            <p>
+                @if ($car_detail->msrp != 0)
+                    ${{ number_format($car->msrp, 0, ',', '.') }}
+                @else
+                    Coming soon
+                @endif
+            </p>
+
+            <h4>Fair Market Price:</h4>
+            <p>${{ number_format($car_detail->fair_market_price, 0, ',', '.') }}</p>
+        </div>
+
+        <div class="btn-order-container">
             <button class="btn-order">Order</button>
         </div>
     </div>
@@ -246,26 +262,23 @@
             @foreach ($related_cars as $car)
                 <div class="related-cars-box">
                     <p><b>MT Score</b> <span class="span1">8</span><span class="span2">/10</span></p>
-                    <a href={{asset('car/'. $car->slug)}}><img src={{asset('images/cars/'.$car->avatar)}} alt=""></a>
+                    <a href={{ asset('car/' . $car->slug) }}><img src={{ asset('images/cars/' . $car->avatar) }}
+                            alt=""></a>
                     <div class="related-cars-text">
                         <a href="">
-                            <h2>{{$car->name}}</h2>
+                            <h2>{{ $car->name }}</h2>
                         </a>
-                        <p>Price: ${{ number_format($car->price, 0, ',', '.') }}</p>
+                        <p>MSRP:
+                            @if ($car->msrp != 0)
+                                ${{ number_format($car->msrp, 0, ',', '.') }}
+                            @else
+                                Coming soon
+                            @endif
+                        </p>
                     </div>
                 </div>
             @endforeach
         @endif
-        {{-- <div class="related-cars-box">
-            <p><b>MT Score</b> <span class="span1">8</span><span class="span2">/10</span></p>
-            <a href="car_detail.html"><img src="images/cars/ford/mustang-nobg.png" alt=""></a>
-            <div class="related-cars-text">
-                <a href="">
-                    <h2>Corvette</h2>
-                </a>
-                <p>Price: $50.000</p>
-            </div>
-        </div> --}}
     </div>
 </section>
 <!------- End same category ------->

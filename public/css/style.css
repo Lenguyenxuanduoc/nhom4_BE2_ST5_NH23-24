@@ -724,32 +724,33 @@ header{
     display: flex;
     justify-content: center;
     padding: 20px;
+    padding-bottom: 10px;
     width: 390px;
     margin-bottom: 20px;
+    flex-direction: row;
 }
 
 .car-box img{
     border-radius: 5px;
     margin-top: 10px;
-    width: 100%;
-    height: 150px;
+    width: 220px;
+    height: 70%;
     object-fit: cover;
     object-position: center;
     transition: transform 1s ease;
 }
 
-.car-box{
-    flex-direction: row;
-}
-
-.car-box h2{
+.car-box h3{
+    text-align: start;
+    font-size: 20px;
     color: var(--color-black);
 }
 
 .car-text{
     line-height: 25px;
     font-size: 15px;
-    padding: 20px;
+    padding: 10px;
+    padding-left: 20px;
 }
 
 .car-box img:hover{
@@ -766,11 +767,8 @@ header{
     max-width: 80%;
     height: auto;
     background: white;
-    /* box-shadow: 3px 5px 5px 5px rgba(0, 0, 0, 0.3); */
     box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
     margin: 130px auto;
-    /* border-top-left-radius: 10px;
-    border-top-right-radius: 10px; */
     border-radius: 5px;
     margin-bottom: 30px;
 }
@@ -829,7 +827,9 @@ header{
 
 .car-price{
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: start;
+    padding: 20px 0;
 }
 
 .car-price h4{
@@ -843,7 +843,7 @@ header{
     margin-left: 10px;
 }
 
-.btn-order button{
+.btn-order-container button{
     padding: 10px 20px;
     margin-top: 10px;
     border: none;
@@ -855,10 +855,10 @@ header{
     transition: all 0.5s ease;
     width: 100%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin-top: 50px;
+    margin-top: auto;
 }
 
-.btn-order button:hover{
+.btn-order-container button:hover{
     transition: .5s;
     background-color: white;
     color: var(--color-primary);
@@ -922,31 +922,30 @@ header{
 }
 
 .btn-category {
-    border: 1px solid var(--color-black);
+    border: 1px solid var(--color-mt-score);
     border-radius: 5px;
     width: 100px;
     padding: 10px 5px;
     font-size: 15px;
     font-weight: bold;
-    background: white;
+    background: var(--color-mt-score);
     margin-left: 10px;
     cursor: pointer;
     position: relative;
 }
 
 .btn-category:hover {
-    color: white;
-    background: var(--color-mt-score);
-    border-color: var(--color-mt-score);
+    background: white;
+    border-color: var(--color-black);
     transition: all 0.3s ease;
 }
 
 .btn-category:hover a{
-    color: white;
+    color: black;   
 }
 
 .btn-category a{
-    color: var(--color-black);
+    color: white;
 }
 
 .horsepower-torque{

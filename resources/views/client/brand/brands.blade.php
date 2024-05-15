@@ -61,15 +61,21 @@
             @foreach ($featured_cars as $car)
                 <div class="car-box">
                     <a href={{asset('car/'. $car->slug)}}>
-                        <h2>{{ $car->name }}</h2>
+                        <h3>{{ $car->name }}</h3>
                         <img src={{ asset('images/cars/' . $car->avatar) }} alt="">
                     </a>
                     <div class="car-text">
                         <span>MT score:</span>
                         <h3>{{ round(($car->performance_avg + $car->value_avg + $car->innovation_avg + $car->efficency_range_avg) / 4, 1) }}
                         </h3>
-                        <span>Price:</span>
-                        <h3>${{ number_format($car->price, 0, ',', '.') }}</h3>
+                        <span>MSRP:</span>
+                        <h4>
+                            @if ($car->msrp != 0)
+                                ${{ number_format($car->msrp, 0, ',', '.') }}
+                            @else
+                                Coming soon
+                            @endif
+                        </h4>
                         <span>Producing:</span>
                         <h3>{{ $car->producing_year }}</h3>
                     </div>

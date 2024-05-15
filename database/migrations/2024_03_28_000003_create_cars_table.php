@@ -18,12 +18,13 @@ return new class extends Migration
             $table->string('name');
             $table->foreignId('brand_id')->constrained('brands');
             $table->foreignId('category_id')->constrained('categories');
-            $table->double('price');
+            $table->double('msrp')->nullable(); // MSRP (Giá bán lẻ đề xuất của nhà sản xuất)
+            $table->double('fair_market_price')->nullable(); // Fair Market Price (Giá thị trường hợp lý) 
             $table->text('description')->nullable();
             $table->integer('quantity')->nullable();
             $table->string('producing_year');
-            $table->json('images');
-            $table->string('avatar');
+            $table->json('images')->nullable();
+            $table->string('avatar')->nullable();
             $table->string('slug')->unique();
             $table->timestamps();
         });
