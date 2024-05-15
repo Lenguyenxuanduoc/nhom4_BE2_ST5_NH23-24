@@ -766,10 +766,12 @@ header{
     max-width: 80%;
     height: auto;
     background: white;
-    box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 3px 5px 5px 5px rgba(0, 0, 0, 0.3); */
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
     margin: 130px auto;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    /* border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
+    border-radius: 5px;
     margin-bottom: 30px;
 }
 
@@ -779,8 +781,9 @@ header{
 
 .right{
     width: 40%;
-    padding: 50px;  
+    padding: 20px;  
     display: flex;
+    padding-top: 30px;
     flex-direction: column; 
     justify-content: space-between; 
     height: 100%;
@@ -816,7 +819,7 @@ header{
 
 .car-name h3{
     color: black;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: bold;
 }
 
@@ -838,11 +841,6 @@ header{
     font-size: medium;
     font-weight: 200;
     margin-left: 10px;
-}
-
-.car-description p{
-    margin-top: 30px;
-    line-height: 25px;
 }
 
 .btn-order button{
@@ -877,16 +875,13 @@ header{
     font-size: 16px;
     cursor: pointer;
     margin-top: 4px;
+    border-bottom-left-radius: 5px;
 }
 
 .btn-specs:hover{
     background-color: var(--color-primary);
     color: white;
     transition: .5s;
-}
-
-.category-mtscore{
-    margin: 10px 0 15px 0;
 }
 
 .btn-mt-score .span-10{
@@ -953,6 +948,55 @@ header{
 .btn-category a{
     color: var(--color-black);
 }
+
+.horsepower-torque{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    height: auto;
+}
+
+.horsepower{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.horsepower img{
+    width: 40px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.horsepower span{
+    font-weight: bold;
+}
+
+.horsepower p{
+    font-size: 15px;
+}
+
+.torque{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.torque img{
+    width: 40px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.torque span{
+    font-weight: bold;
+}
+
+.torque p{
+    font-size: 15px;
+}
+
+
 /* ---------------------------------- End detail car ----------------------------------*/
 
 
@@ -961,11 +1005,12 @@ header{
     max-width: 80%;
     height: auto;
     background: white;
-    box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
     margin: 20px auto;
     margin-bottom: 30px;
     /* border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px; */
+    border-radius: 5px;
 }
 
 .car-review-box{
@@ -990,6 +1035,15 @@ header{
     font-size: 20px;
 }
 
+/* .car-description{
+    padding: 0 30px;
+}
+
+.car-description p{
+    margin-top: 30px;
+    line-height: 25px;
+} */
+
 .specifications-point-box{
     display: flex;
     justify-content: space-around;
@@ -1000,7 +1054,7 @@ header{
     border-radius: 5px;
     width: 220px;
     padding: 20px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
 }
 
 .specifications-point span{
@@ -1046,7 +1100,8 @@ header{
     max-width: 80%;
     height: auto;
     background: white;
-    box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
+
     margin: 20px auto;
     margin-bottom: 70px;
     border-bottom-left-radius: 10px;

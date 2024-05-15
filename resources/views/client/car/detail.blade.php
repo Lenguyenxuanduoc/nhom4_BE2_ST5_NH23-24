@@ -11,8 +11,7 @@
             @php
                 $images = json_decode($car_detail->images);
             @endphp
-            <img src={{ asset('images/cars/' . $images[0]) }} onclick="img('images/cars/{{ $images[0] }}')"
-                alt="" class="slide">
+            <img src={{ asset('images/cars/' . $images[0]) }} alt="" class="slide">
         </div>
         <div class="option">
             <img src="{{ asset('images/cars/' . $images[0]) }}" onclick="img('{{ asset('images/cars/' . $images[0]) }}')"
@@ -174,13 +173,25 @@
             {{-- <button class="btn-category"><a href="">Coupe</a></button> --}}
         </div>
 
-        <div class="car-price">
+        <div class="horsepower-torque">
+            <div class="horsepower">
+                <img src={{asset('images/icons/horsepower-icon.png')}} alt="">
+                <span>Horsepower:</span>
+                <p>{{ !empty($car_detail->horsepower) ? $car_detail->horsepower : 'N/A' }}</p>
+            </div>
+
+            <div class="torque">
+                <img src={{asset('images/icons/torque-icon.png')}} alt="">
+                <span>Torque:</span>
+                <p>{{ !empty($car_detail->torque) ? $car_detail->torque : 'N/A' }}</p>
+            </div>
+        </div>
+
+        {{-- Làm xong feul-horse-power nhớ mở lại code --}}
+        {{-- <div class="car-price">
             <h4>Price:</h4>
             <p>${{ number_format($car_detail->price, 0, ',', '.') }}</p>
-        </div>
-        <div class="car-description">
-            <p>{{ $car_detail->description }}</p>
-        </div>
+        </div> --}}
         <div class="btn-order">
             <button class="btn-order">Order</button>
         </div>
@@ -195,6 +206,10 @@
         <div class="label-mt-score">
             <h2>MT Score <span class="span-score">8.1</span><span class="span-10">/10</span></h2>
         </div>
+        {{-- <div class="car-description">
+            <p>{{ $car_detail->description }}The BRZ has a lot to offer as one of the few affordable sports cars available. Its engaging steering, high-speed stability, and confident handling make it a great choice for serious drivers. But the interior can get noisy.
+            </p>
+        </div> --}}
         <div class="specifications-point-box">
             <div class="specifications-point">
                 <h4><span>8</span>/10</h4>
