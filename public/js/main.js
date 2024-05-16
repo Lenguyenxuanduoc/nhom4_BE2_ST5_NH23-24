@@ -116,3 +116,6 @@ document.querySelector('.btn-dark').addEventListener('click', function() {
     clearImages();
     clearInputs();
 });
+
+
+

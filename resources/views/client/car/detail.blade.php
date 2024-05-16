@@ -208,6 +208,10 @@
                                 Coming soon
                             @endif
                         </td>
+
+                        <td>    
+                            <button class="btn-compare"><a href="{{route('car.compare', $car_detail->slug)}}">Compare</a></button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
