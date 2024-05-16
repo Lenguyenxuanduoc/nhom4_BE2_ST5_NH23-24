@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('safeties', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('car_id')->constrained('cars');
+            $table->foreignID('car_id')->constrained('cars');
 
             // Thông tin về danh hiệu "Best Pick" của IIHS. Một chiếc xe được đánh giá cao bởi IIHS có thể nhận danh hiệu này.
             $table->string('IIHS_best_pick')->nullable();

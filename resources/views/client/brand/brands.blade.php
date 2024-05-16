@@ -64,21 +64,28 @@
                         <h3>{{ $car->name }}</h3>
                         <img src={{ asset('images/cars/' . $car->avatar) }} alt="">
                     </a>
+                    
                     <div class="car-text">
                         <span>MT score:</span>
                         <h3>{{ round(($car->performance_avg + $car->value_avg + $car->innovation_avg + $car->efficency_range_avg) / 4, 1) }}
                         </h3>
                         <span>MSRP:</span>
-                        <h4>
+                        <h3>
                             @if ($car->msrp != 0)
                                 ${{ number_format($car->msrp, 0, ',', '.') }}
                             @else
                                 Coming soon
                             @endif
-                        </h4>
+                        </h3>
                         <span>Producing:</span>
                         <h3>{{ $car->producing_year }}</h3>
+
+                        <div class="compare-link">
+                            <a href="{{route('car.compare', $car->slug)}}">Compare <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
                     </div>
+
+                    
                 </div>
             @endforeach
         @endif

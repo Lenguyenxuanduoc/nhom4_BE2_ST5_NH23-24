@@ -13,9 +13,16 @@ class WeightCapacity extends Model
 
     protected $fillable = [
         'car_id',
-        'fuel_capacity',
-        'cargo_capacity',
-        'curb_weight'
+        'free_maintenance_miles',
+        'full_warranty_miles',
+        'powertrain_warranty_miles',
+        'roadside_warranty_miles',
+        'corrosion_warranty_miles',
+        'free_maintenance_months',
+        'full_warranty_months',
+        'powertrain_warranty_months',
+        'roadside_warranty_months',
+        'corrosion_warranty_months'
     ];
 
     public function car()

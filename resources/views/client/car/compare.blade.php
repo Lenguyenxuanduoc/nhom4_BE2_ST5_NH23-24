@@ -21,17 +21,17 @@
                         <div class="_1nUqL">
                             <!-- Car name, slug -->
                             <div>
-                                <h3 class="_1YVTl" href="/cars/genesis/g90/2023/" data-c="link">2023 Genesis
-                                    G90</h3>
+                                <h3 class="_1YVTl" href="{{ route('car.detail', $car->slug) }}" data-c="link">
+                                    {{ $car->name }}</h3>
                             </div>
                             <div class="_3-Ngj"><span></span><span></span><span></span></div>
                         </div>
                         <!-- Car image, slug -->
                         <div>
-                            <a href="/cars/genesis/g90/2023/" data-c="link">
+                            <a href="{{ route('car.detail', $car->slug) }}" data-c="link">
                                 <div class="_1BAwM">
-                                    <img src="subarubrz.png" alt="2023 Genesis G90" width="875" height="220"
-                                        class="_3sDNq">
+                                    <img src="{{ asset('images/cars/' . $car->avatar) }}" alt="{{ $car->name }}"
+                                        width="875" height="220" class="_3sDNq">
                                 </div>
                             </a>
                             <div class="_3q3BO">
@@ -39,13 +39,21 @@
                                     <div class="_6rtCZ">
                                         <h3>MSRP</h3>
                                     </div>
-                                    <div class="_1oPDF"><span>$88,400</span></div>
+                                    <div class="_1oPDF">
+                                        <span>
+                                            @if ($car->msrp != 0)
+                                                ${{ number_format($car->msrp, 0, ',', '.') }}
+                                            @else
+                                                Coming soon
+                                            @endif
+                                        </span>
+                                    </div>
                                 </div>
                                 <div class="_3M7NT">
                                     <div class="_6rtCZ">
                                         <h3>TRIM</h3>
                                     </div>
-                                    <div class="_1oPDF">3.5T Sedan</div>
+                                    <div class="_1oPDF">{{ $performance->trim }}</div>
                                 </div>
                                 <!-- <div class="_2MbFO">
                                     <div class="_6rtCZ">TRIM</div>
@@ -68,7 +76,7 @@
                                         <div class="_6rtCZ">
                                             <h3>MPG</h3>
                                         </div>
-                                        <div class="_1oPDF">18/26</div>
+                                        <div class="_1oPDF">{{ $performance->standard_mpg }}</div>
                                     </div>
                                     <!-- <div class="_1_83q">
                                         <div class="_6rtCZ">SEATING</div>
@@ -78,15 +86,20 @@
                                         <div class="_6rtCZ">
                                             <h3>HORSEPOWER</h3>
                                         </div>
-                                        <div class="_1oPDF">375</div>
+                                        <div class="_1oPDF">
+                                            @php
+                                                $horsepower = explode('@', $performance->horsepower);
+                                            @endphp
+                                            {{ $horsepower[0] }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div><a class="DkjGx" href="/cars/genesis/g90/2023/" data-c="link">See Full</a>
+                        </div><a class="DkjGx" href="{{ route('car.detail', $car->slug) }}" data-c="link">See Full</a>
                     </div>
                 </div>
 
-                <div class="_3N7xD">
+                {{-- <div class="_3N7xD">
                     <div class="nezKb">
                         <!-- <div class="_2qNIr">
                             <button type="button" aria-label="Remove Vehicle">
@@ -159,7 +172,7 @@
                             </div>
                         </div><a class="DkjGx" href="/cars/genesis/g90/2023/" data-c="link">See Full</a>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="_3vbjm">
                     <div class="_3fstS">Add Vehicle</div>
@@ -170,7 +183,7 @@
                                     <option disabled="" selected>Make</option>
                                     @if (!empty($allBrands))
                                         @foreach ($allBrands as $brand)
-                                            <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                            <option value="{{ $brand->id }}">{{ $brand->name }}</option>
                                         @endforeach
                                     @endif
                                 </select>
@@ -183,7 +196,7 @@
                                     <option disabled="" selected>Category</option>
                                     @if (!empty($allCategories))
                                         @foreach ($allCategories as $category)
-                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
                                     @endif
                                 </select>
@@ -192,18 +205,17 @@
 
                         <div class="_1aCSg">
                             <label class="RxvJH" for="Car Model">
-                                <select class="RxvJH"
-                                    id="Car Model" disabled="" aria-label="Car Model">
+                                <select class="RxvJH" id="Car Model" disabled="" aria-label="Car Model">
                                     <option disabled="">Model</option>
                                     @if (!empty($cars))
                                         @foreach ($cars as $car)
-                                            <option value="{{$car->id}}">{{$car->name}}</option>
+                                            <option value="{{ $car->id }}">{{ $car->name }}</option>
                                         @endforeach
                                     @endif
                                 </select>
                             </label>
                         </div>
-                        
+
                         <div class="_2US6W">
                             <button type="button" class="A8zWh" aria-label="Clear Add Vehicle Form">Clear</button>
                             <button type="submit" class="_1_ts0 _3QU5r" aria-label="Add Vehicle">Add</button>
@@ -225,16 +237,28 @@
                                 <div class="_3aAxO">
                                     <div class="RPY4b">
                                         <div class="GvFPg">MSRP:</div>
-                                        <div class="Dsgfa">$88,400</div>
+                                        <div class="Dsgfa">
+                                            @if ($car->msrp != 0)
+                                                ${{ number_format($car->msrp, 0, ',', '.') }}
+                                            @else
+                                                Coming soon
+                                            @endif
+                                        </div>
                                     </div>
                                     <div class="RPY4b">
                                         <div class="GvFPg">Fair Market Price:</div>
-                                        <div class="Dsgfa">$94,385</div>
+                                        <div class="Dsgfa">
+                                            @if ($car->msrp != 0)
+                                                ${{ number_format($car->fair_market_price, 0, ',', '.') }}
+                                            @else
+                                                Coming soon
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="_3N7xD">
+                            {{-- <div class="_3N7xD">
                                 <div class="_3aAxO">
                                     <div class="RPY4b">
                                         <div class="GvFPg">MSRP:</div>
@@ -245,7 +269,7 @@
                                         <div class="Dsgfa">$94,385</div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -266,29 +290,37 @@
                                     <div class="_2Jhuh">
                                         <div class="_3_zbb">
                                             <div class="_2l3_8">Performance</div>
-                                            <div class="Dsgfa">8.2/10</div>
+                                            <div class="Dsgfa">
+                                                {{$review == null ? 0 : $review->performance}}/10
+                                            </div>
                                         </div>
                                         <div class="_3_zbb">
                                             <div class="_2l3_8">Efficiency/Range</div>
-                                            <div class="Dsgfa">5.7/10</div>
+                                            <div class="Dsgfa">
+                                                {{$review == null ? 0 : $review->efficency_range}}/10
+                                            </div>
                                         </div>
                                         <div class="_3_zbb">
                                             <div class="_2l3_8">Tech/Innovation</div>
-                                            <div class="Dsgfa">9.3/10</div>
+                                            <div class="Dsgfa">
+                                                {{$review == null ? 0 : $review->tech_innovation}}/10
+                                            </div>
                                         </div>
                                         <div class="_3_zbb">
                                             <div class="_2l3_8">Value</div>
-                                            <div class="Dsgfa">7/10</div>
+                                            <div class="Dsgfa">
+                                                {{$review == null ? 0 : $review->value}}/10
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="_2LbeO">
                                         <div>Overall Score:</div>
-                                        <div>8.8/10</div>
+                                        <div>{{$mt_score}}/10</div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="_3N7xD">
+                            {{-- <div class="_3N7xD">
                                 <div class="_2_q4f">
                                     <div class="UScrH">
                                         <div>MT Score</div>
@@ -316,7 +348,7 @@
                                         <div>8.8/10</div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -331,16 +363,20 @@
                         <div class="_3JVXT">
                             <div class="_3sqPa">
                                 <div class="Huq7H">
-                                    <button type="button" class="_2xZs_"><img src="mustang1.jpg" class="_3ajq0"
+                                    {{-- Chuyển images từ json sang array --}}
+                                    @php
+                                        $images = json_decode($car->images);
+                                    @endphp
+                                    <button type="button" class="_2xZs_"><img src="{{asset('images/cars/'.$images[0])}}" class="_3ajq0"
                                             alt="Car Compare Image" width="875" height="220">
                                         <div class="_1uB6h">
-                                            <div class="_33qTB">52 Photos</div>
+                                            <div class="_33qTB">{{count($images)}} Photos</div>
                                         </div>
                                     </button>
                                 </div>
                             </div>
 
-                            <div class="_3sqPa">
+                            {{-- <div class="_3sqPa">
                                 <div class="Huq7H">
                                     <button type="button" class="_2xZs_"><img src="mustang1.jpg" class="_3ajq0"
                                             alt="Car Compare Image" width="875" height="220">
@@ -349,7 +385,7 @@
                                         </div>
                                     </button>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -366,60 +402,60 @@
                                 <div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Length</div>
-                                        <div class="_3xILm">207.7 in</div>
+                                        <div class="_3xILm">{{$exterior->length != null ? $exterior->length : 'N/A'}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Width</div>
-                                        <div class="_3xILm">76.0 in</div>
+                                        <div class="_3xILm">{{$exterior->width != null ? $exterior->width : 'N/A'}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Height</div>
-                                        <div class="_3xILm">58.7 in</div>
+                                        <div class="_3xILm">{{$exterior->height != null ? $exterior->height : 'N/A'}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Wheelbase</div>
-                                        <div class="_3xILm">125.2 in</div>
+                                        <div class="_3xILm">{{$exterior->wheelbase != null ? $exterior->wheelbase : 'N/A'}}</div>
                                     </div>
-                                    <div class="_1dguk">
+                                    {{-- <div class="_1dguk">
                                         <div class="_2NjGi">Seating</div>
                                         <div class="_3xILm">5/5</div>
-                                    </div>
+                                    </div> --}}
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Cargo Capacity</div>
-                                        <div class="_3xILm">12.0 cu-ft</div>
+                                        <div class="_3xILm">{{$weightCapacity->cargo_capacity != null ? $weightCapacity->cargo_capacity : 'N/A'}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Front Headroom</div>
-                                        <div class="_3xILm">39.4 in</div>
+                                        <div class="_3xILm">{{$interior->front_headroom != null ? $interior->front_headroom : 'N/A'}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Rear Headroom</div>
-                                        <div class="_3xILm">38.0 in</div>
+                                        <div class="_3xILm">{{$interior->rear_headroom != null ? $interior->rear_headroom : 'N/A'}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Front Legroom</div>
-                                        <div class="_3xILm">42.3 in</div>
+                                        <div class="_3xILm">{{$interior->front_legroom != null ? $interior->front_legroom : 'N/A'}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Rear Legroom</div>
-                                        <div class="_3xILm">37.8 in</div>
+                                        <div class="_3xILm">{{$interior->rear_legroom != null ? $interior->rear_legroom : 'N/A'}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Front Shoulder Room</div>
-                                        <div class="_3xILm">59.1 in</div>
+                                        <div class="_3xILm">{{$interior->front_shoulder_room != null ? $interior->front_shoulder_room : 'N/A'}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Rear Shoulder Room</div>
-                                        <div class="_3xILm">57.9 in</div>
+                                        <div class="_3xILm">{{$interior->rear_shoulder_room != null ? $interior->rear_shoulder_room : 'N/A'}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Curb Weight</div>
-                                        <div class="_3xILm">4,817 lb</div>
+                                        <div class="_3xILm">{{$weightCapacity->curb_weight != null ? $weightCapacity->curb_weight : 'N/A'}}</div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="_3N7xD">
+                            {{-- <div class="_3N7xD">
                                 <div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Length</div>
@@ -474,7 +510,7 @@
                                         <div class="_3xILm">4,817 lb</div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -491,30 +527,31 @@
                                 <div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Engine Name</div>
-                                        <div class="_3xILm">V6 Electric Compressor &amp; Supercharger 3.5 Liter
+                                        <div class="_3xILm">
+                                            {{$performance->engine != null ? $performance->engine : 'N/A'}}
                                         </div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Horsepower</div>
-                                        <div class="_3xILm">375@5,800</div>
+                                        <div class="_3xILm">{{$performance->horsepower != null ? $performance->horsepower : 'N/A'}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Torque</div>
-                                        <div class="_3xILm">391@1,300</div>
+                                        <div class="_3xILm">{{$performance->torque != null ? $performance->torque : 'N/A'}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Transmission</div>
-                                        <div class="_3xILm">8 Speed Automatic with Manual Mode Select</div>
+                                        <div class="_3xILm">{{$performance->tranmission != null ? $performance->tranmission : 'N/A'}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Transmission Type</div>
-                                        <div class="_3xILm">Automatic</div>
+                                        <div class="_3xILm">{{$performance->tranmission_type != null ? $performance->tranmission_type : 'N/A'}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Number of Cylinders</div>
-                                        <div class="_3xILm">6</div>
+                                        <div class="_3xILm">{{$performance->cylinders != null ? $performance->cylinders : 'N/A'}}</div>
                                     </div>
-                                    <div class="_1dguk">
+                                    {{-- <div class="_1dguk">
                                         <div class="_2NjGi">Drivetrain</div>
                                         <div class="_3xILm">AWD</div>
                                     </div>
@@ -534,11 +571,11 @@
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Fuel</div>
                                         <div class="_3xILm">Unleaded Premium</div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
 
-                            <div class="_3N7xD">
+                            {{-- <div class="_3N7xD">
                                 <div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Engine Name</div>
@@ -587,7 +624,7 @@
                                         <div class="_3xILm">Unleaded Premium</div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -794,7 +831,8 @@
             } else {
                 carCategorySelect.setAttribute('disabled', '');
                 carModelSelect.setAttribute('disabled', '');
-                carModelSelect.innerHTML = '<option disabled selected>Model</option>'; // Xóa tất cả các option khi thương hiệu thay đổi
+                carModelSelect.innerHTML =
+                    '<option disabled selected>Model</option>'; // Xóa tất cả các option khi thương hiệu thay đổi
             }
         });
 
@@ -804,23 +842,24 @@
                 const categoryId = carCategorySelect.value;
 
                 fetch(`/api/cars?brandID=${brandId}&categoryID=${categoryId}`)
-                .then(response => response.json())
-                .then(cars => {
-                    // Xóa tất cả các option hiện có trước khi thêm mới
-                    carModelSelect.innerHTML = '<option disabled selected>Model</option>';
-                    // Thêm các option mới từ danh sách các xe
-                    cars.forEach(car => {
-                        const option = document.createElement('option');
-                        option.value = car.id;
-                        option.textContent = car.name;
-                        carModelSelect.appendChild(option);
-                    });
-                    carModelSelect.removeAttribute('disabled');
-                })
-                .catch(error => console.error('Error fetching cars:', error));
+                    .then(response => response.json())
+                    .then(cars => {
+                        // Xóa tất cả các option hiện có trước khi thêm mới
+                        carModelSelect.innerHTML = '<option disabled selected>Model</option>';
+                        // Thêm các option mới từ danh sách các xe
+                        cars.forEach(car => {
+                            const option = document.createElement('option');
+                            option.value = car.id;
+                            option.textContent = car.name;
+                            carModelSelect.appendChild(option);
+                        });
+                        carModelSelect.removeAttribute('disabled');
+                    })
+                    .catch(error => console.error('Error fetching cars:', error));
             } else {
                 carModelSelect.setAttribute('disabled', '');
-                carModelSelect.innerHTML = '<option disabled selected>Model</option>'; // Xóa tất cả các option khi danh mục thay đổi
+                carModelSelect.innerHTML =
+                    '<option disabled selected>Model</option>'; // Xóa tất cả các option khi danh mục thay đổi
             }
         });
     });
@@ -857,9 +896,6 @@
             optionElementsModel.forEach(option => option.remove());
         });
     });
-
-
-
 </script>
 
 @include('client.partials.footer')

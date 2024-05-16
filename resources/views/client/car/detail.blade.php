@@ -189,19 +189,19 @@
                         <th>Fair Market Price</th>
                     </tr>
                     <tr class="tr-background">
-                        <td style="color: #0073d8; font-weight: bold;">
+                        <td style="color: #0073d8; font-weight: bold; width: 30%">
                             {{ !empty($car_detail->trim) ? $car_detail->trim : 'N/A' }}
                         </td>
 
-                        <td>
+                        <td style="width: 25%">
                             @if ($car_detail->msrp != 0)
-                                ${{ number_format($car->msrp, 0, ',', '.') }}
+                                ${{ number_format($car_detail->msrp, 0, ',', '.') }}
                             @else
                                 Coming soon
                             @endif
                         </td>
 
-                        <td>
+                        <td style="width: 35%">
                             @if ($car_detail->fair_market_price != 0)
                                 ${{ number_format($car_detail->fair_market_price, 0, ',', '.') }}
                             @else
@@ -209,7 +209,7 @@
                             @endif
                         </td>
 
-                        <td>    
+                        <td style="width: 15%;">    
                             <button class="btn-compare"><a href="{{route('car.compare', $car_detail->slug)}}">Compare</a></button>
                         </td>
                     </tr>
@@ -298,6 +298,9 @@
                                 Coming soon
                             @endif
                         </p>
+                    </div>
+                    <div class="compare-link">
+                        <a href="{{route('car.compare', $car->slug)}}">Compare <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
             @endforeach

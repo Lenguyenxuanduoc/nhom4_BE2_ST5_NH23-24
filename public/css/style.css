@@ -747,7 +747,7 @@ header{
 
 .car-box h3{
     text-align: start;
-    font-size: 20px;
+    font-size: 19px;
     color: var(--color-black);
 }
 
@@ -761,6 +761,20 @@ header{
 .car-box img:hover{
     transform: scale(1.08);
 }
+
+.compare-link a{
+    color: #000;
+}
+
+.compare-link i{
+    font-size: 13px;
+}
+
+.compare-link a:hover{
+    color: var(--color-mt-score);
+    text-decoration: underline;
+}
+
 /* ---------------------------------- End featured car ----------------------------------*/
 /* ---------------------------------- End brands page ----------------------------------*/
 
@@ -834,6 +848,10 @@ header{
     padding: 20px 0;
 }
 
+.car-price table tbody th, .car-price table tbody td{
+    padding: 5px;
+}
+
 .car-price h4{
     color: var(--color-black);
     font-size: 18px;
@@ -848,7 +866,7 @@ header{
 .btn-order-container button{
     padding: 10px 20px;
     margin-top: auto;
-    border: none;
+    border: 1px solid var(--color-primary);
     border-radius: 5px;
     background-color: var(--color-primary);
     color: #fff;
@@ -856,16 +874,14 @@ header{
     cursor: pointer;
     transition: all 0.5s ease;
     width: 100%;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
     margin-top: auto;
 }
 
 .btn-order-container button:hover{
-    transition: .5s;
+    transition: .3s;
     background-color: white;
     color: var(--color-primary);
-    border: 1px solid var(--color-primary);
 }
 
 .btn-specs{
@@ -1142,12 +1158,10 @@ header{
     max-width: 80%;
     height: auto;
     background: white;
-    /* box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2); */
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
     margin: 20px auto;
     margin-bottom: 70px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-radius: 5px;
 }
 
 .related-cars{
@@ -1164,30 +1178,35 @@ header{
 }
 
 .related-cars-box{
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
+    /* box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12); */
     padding: 12px;
     display: flex;
     flex-direction: column;
     width: 24%;
     margin: 12px 0;
-    border-radius: 10px;
+    border-radius: 5px;
+    border: 0.5px solid #eaeaea;
 }
 
 .related-cars-box img{
     width: 100%;
-    height: auto;
+    height: 140px;
     object-fit: cover;
     transition: transform 1s;
+    padding: 10px;
 }
 
 .related-cars-box img:hover{
     transform: scale(1.1);
 }
 
+.related-cars-text{
+    padding: 5px 0;
+}
 
 .related-cars-text h2{
     color: var(--color-primary);
+    font-size: 22px;
 } 
 
 .related-cars-text p{
@@ -1268,6 +1287,7 @@ header{
 
 .specs-box h3{
     padding: 10px;
+    font-size: 20px;
 }
 
 .specs-box table{
@@ -1837,7 +1857,7 @@ a {
 }
 
 ._3M7NT ._1oPDF {
-    font-size: 1.75rem;
+    font-size: 1.55rem;
     line-height: 2rem;
 }
 

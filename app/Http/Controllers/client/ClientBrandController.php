@@ -14,13 +14,14 @@ class ClientBrandController extends Controller
         $brands = DB::select('SELECT * FROM brands ORDER BY name');
         $title = 'Exotic Cars | Brands';
   
-        $featured_cars = Car::select('cars.id', 'cars.name','cars.fair_market_price', 'cars.avatar', 'cars.slug', 'cars.producing_year', 
+        $featured_cars = Car::select('cars.id', 'cars.name', 'cars.fair_market_price', 'cars.msrp', 
+                'cars.avatar', 'cars.slug', 'cars.producing_year', 
                 DB::raw('AVG(reviews.performance) as performance_avg'), 
                 DB::raw('AVG(reviews.value) as value_avg'),
                 DB::raw('AVG(reviews.tech_innovation) as innovation_avg'),
                 DB::raw('AVG(reviews.efficency_range) as efficency_range_avg'))
         ->leftJoin('reviews', 'cars.id', '=', 'reviews.car_id')
-        ->groupBy('cars.id', 'cars.name', 'cars.fair_market_price', 'cars.avatar', 'cars.slug', 'cars.producing_year')
+        ->groupBy('cars.id', 'cars.name', 'cars.fair_market_price', 'cars.msrp', 'cars.avatar', 'cars.slug', 'cars.producing_year')
         ->orderByRaw('(AVG(reviews.performance) + AVG(reviews.value) + AVG(reviews.tech_innovation) + AVG(reviews.efficency_range)) DESC')
         ->take(6)
         ->get(); 

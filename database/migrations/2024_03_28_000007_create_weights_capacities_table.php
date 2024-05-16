@@ -19,8 +19,6 @@ return new class extends Migration
             $table->string('fuel_capacity')->nullable();
             $table->string('cargo_capacity')->nullable();
             $table->string('curb_weight')->nullable();
-
-            // Cột dữ liệu mới
             $table->string('towing_capacity')->nullable();
             $table->string('GVWR')->nullable();
             $table->string('payload_capacity')->nullable();

@@ -15,17 +15,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            BrandsSeeder::class,
-            CategoriesSeeder::class,
-            CarsSeeder::class,
-            PerformancesSeeder::class,
-            InteriorsSeeder::class,
-            ExteriorsSeeder::class,
-            WeightsCapacitiesSeeder::class,
-            UsersSeeder::class,
-            PostsSeeder::class,
-            PostsCommentSeeder::class,
-            ReviewsSeeder::class
+            // BrandsSeeder::class,
+            // CategoriesSeeder::class,
+            // CarsSeeder::class,
+            // PerformancesSeeder::class,
+            // InteriorsSeeder::class,
+            // ExteriorsSeeder::class,
+            // WeightsCapacitiesSeeder::class,
+            // UsersSeeder::class,
+            // PostsSeeder::class,
+            // PostsCommentSeeder::class,
+            // ReviewsSeeder::class,
+            SafetiesSeeder::class,
+            WarrantiesSeeder::class
         ]);
     }
 }
