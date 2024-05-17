@@ -78,10 +78,7 @@
                                         </div>
                                         <div class="_1oPDF">{{ $performance->standard_mpg }}</div>
                                     </div>
-                                    <!-- <div class="_1_83q">
-                                        <div class="_6rtCZ">SEATING</div>
-                                        <div class="_1oPDF">5/5</div>
-                                    </div> -->
+
                                     <div class="_1_83q">
                                         <div class="_6rtCZ">
                                             <h3>HORSEPOWER</h3>
@@ -257,19 +254,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            {{-- <div class="_3N7xD">
-                                <div class="_3aAxO">
-                                    <div class="RPY4b">
-                                        <div class="GvFPg">MSRP:</div>
-                                        <div class="Dsgfa">$88,400</div>
-                                    </div>
-                                    <div class="RPY4b">
-                                        <div class="GvFPg">Fair Market Price:</div>
-                                        <div class="Dsgfa">$94,385</div>
-                                    </div>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -319,36 +303,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            {{-- <div class="_3N7xD">
-                                <div class="_2_q4f">
-                                    <div class="UScrH">
-                                        <div>MT Score</div>
-                                    </div>
-                                    <div class="_2Jhuh">
-                                        <div class="_3_zbb">
-                                            <div class="_2l3_8">Performance</div>
-                                            <div class="Dsgfa">8.2/10</div>
-                                        </div>
-                                        <div class="_3_zbb">
-                                            <div class="_2l3_8">Efficiency/Range</div>
-                                            <div class="Dsgfa">5.7/10</div>
-                                        </div>
-                                        <div class="_3_zbb">
-                                            <div class="_2l3_8">Tech/Innovation</div>
-                                            <div class="Dsgfa">9.3/10</div>
-                                        </div>
-                                        <div class="_3_zbb">
-                                            <div class="_2l3_8">Value</div>
-                                            <div class="Dsgfa">7/10</div>
-                                        </div>
-                                    </div>
-                                    <div class="_2LbeO">
-                                        <div>Overall Score:</div>
-                                        <div>8.8/10</div>
-                                    </div>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -375,17 +329,6 @@
                                     </button>
                                 </div>
                             </div>
-
-                            {{-- <div class="_3sqPa">
-                                <div class="Huq7H">
-                                    <button type="button" class="_2xZs_"><img src="mustang1.jpg" class="_3ajq0"
-                                            alt="Car Compare Image" width="875" height="220">
-                                        <div class="_1uB6h">
-                                            <div class="_33qTB">52 Photos</div>
-                                        </div>
-                                    </button>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -416,10 +359,6 @@
                                         <div class="_2NjGi">Wheelbase</div>
                                         <div class="_3xILm">{{$exterior->wheelbase != null ? $exterior->wheelbase : 'N/A'}}</div>
                                     </div>
-                                    {{-- <div class="_1dguk">
-                                        <div class="_2NjGi">Seating</div>
-                                        <div class="_3xILm">5/5</div>
-                                    </div> --}}
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Cargo Capacity</div>
                                         <div class="_3xILm">{{$weightCapacity->cargo_capacity != null ? $weightCapacity->cargo_capacity : 'N/A'}}</div>
@@ -454,63 +393,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            {{-- <div class="_3N7xD">
-                                <div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Length</div>
-                                        <div class="_3xILm">207.7 in</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Width</div>
-                                        <div class="_3xILm">76.0 in</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Height</div>
-                                        <div class="_3xILm">58.7 in</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Wheelbase</div>
-                                        <div class="_3xILm">125.2 in</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Seating</div>
-                                        <div class="_3xILm">5/5</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Cargo Capacity</div>
-                                        <div class="_3xILm">12.0 cu-ft</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Front Headroom</div>
-                                        <div class="_3xILm">39.4 in</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Rear Headroom</div>
-                                        <div class="_3xILm">38.0 in</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Front Legroom</div>
-                                        <div class="_3xILm">42.3 in</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Rear Legroom</div>
-                                        <div class="_3xILm">37.8 in</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Front Shoulder Room</div>
-                                        <div class="_3xILm">59.1 in</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Rear Shoulder Room</div>
-                                        <div class="_3xILm">57.9 in</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Curb Weight</div>
-                                        <div class="_3xILm">4,817 lb</div>
-                                    </div>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -551,80 +433,8 @@
                                         <div class="_2NjGi">Number of Cylinders</div>
                                         <div class="_3xILm">{{$performance->cylinders != null ? $performance->cylinders : 'N/A'}}</div>
                                     </div>
-                                    {{-- <div class="_1dguk">
-                                        <div class="_2NjGi">Drivetrain</div>
-                                        <div class="_3xILm">AWD</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Standard Tire</div>
-                                        <div class="_3xILm">P245/45ZR20 All Season BSW Front &amp; P275/40ZR20 All
-                                            Season BSW Rear</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Efficiency</div>
-                                        <div class="_3xILm">18/26 mpg</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Driving Range</div>
-                                        <div class="_3xILm">425 miles</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Fuel</div>
-                                        <div class="_3xILm">Unleaded Premium</div>
-                                    </div> --}}
                                 </div>
                             </div>
-
-                            {{-- <div class="_3N7xD">
-                                <div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Engine Name</div>
-                                        <div class="_3xILm">V6 Electric Compressor &amp; Supercharger 3.5 Liter
-                                        </div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Horsepower</div>
-                                        <div class="_3xILm">375@5,800</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Torque</div>
-                                        <div class="_3xILm">391@1,300</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Transmission</div>
-                                        <div class="_3xILm">8 Speed Automatic with Manual Mode Select</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Transmission Type</div>
-                                        <div class="_3xILm">Automatic</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Number of Cylinders</div>
-                                        <div class="_3xILm">6</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Drivetrain</div>
-                                        <div class="_3xILm">AWD</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Standard Tire</div>
-                                        <div class="_3xILm">P245/45ZR20 All Season BSW Front &amp; P275/40ZR20 All
-                                            Season BSW Rear</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Efficiency</div>
-                                        <div class="_3xILm">18/26 mpg</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Driving Range</div>
-                                        <div class="_3xILm">425 miles</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Fuel</div>
-                                        <div class="_3xILm">Unleaded Premium</div>
-                                    </div>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -641,88 +451,43 @@
                                 <div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Corrosion Warranty Miles</div>
-                                        <div class="_3xILm">Unlimited</div>
+                                        <div class="_3xILm">{{$warranty->corrosion_warranty_miles}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Corrosion Warranty Months</div>
-                                        <div class="_3xILm">84</div>
+                                        <div class="_3xILm">{{$warranty->corrosion_warranty_months}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Full Warranty Miles</div>
-                                        <div class="_3xILm">60,000</div>
+                                        <div class="_3xILm">{{$warranty->full_warranty_miles}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Full Warranty Months</div>
-                                        <div class="_3xILm">60</div>
+                                        <div class="_3xILm">{{$warranty->full_warranty_month}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Free Maintenance, Miles</div>
-                                        <div class="_3xILm">36,000</div>
+                                        <div class="_3xILm">{{$warranty->free_maintenance_miles}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Free Maintenance, Months</div>
-                                        <div class="_3xILm">36</div>
+                                        <div class="_3xILm">{{$warranty->free_maintenance_months}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Powertrain Warranty Miles</div>
-                                        <div class="_3xILm">100,000</div>
+                                        <div class="_3xILm">{{$warranty->powertrain_warranty_miles}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Powertrain Warranty Months</div>
-                                        <div class="_3xILm">120</div>
+                                        <div class="_3xILm">{{$warranty->powertrain_warranty_months}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Roadside Warranty Miles</div>
-                                        <div class="_3xILm">Unlimited</div>
+                                        <div class="_3xILm">{{$warranty->roadside_warranty_miles}}</div>
                                     </div>
                                     <div class="_1dguk">
                                         <div class="_2NjGi">Roadside Warranty Months</div>
-                                        <div class="_3xILm"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="_3N7xD">
-                                <div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Corrosion Warranty Miles</div>
-                                        <div class="_3xILm">Unlimited</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Corrosion Warranty Months</div>
-                                        <div class="_3xILm">84</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Full Warranty Miles</div>
-                                        <div class="_3xILm">60,000</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Full Warranty Months</div>
-                                        <div class="_3xILm">60</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Free Maintenance, Miles</div>
-                                        <div class="_3xILm">36,000</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Free Maintenance, Months</div>
-                                        <div class="_3xILm">36</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Powertrain Warranty Miles</div>
-                                        <div class="_3xILm">100,000</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Powertrain Warranty Months</div>
-                                        <div class="_3xILm">120</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Roadside Warranty Miles</div>
-                                        <div class="_3xILm">Unlimited</div>
-                                    </div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Roadside Warranty Months</div>
-                                        <div class="_3xILm"></div>
+                                        <div class="_3xILm">{{$warranty->roadside_warranty_months}}</div>
                                     </div>
                                 </div>
                             </div>
@@ -732,7 +497,7 @@
 
                 <div>
                     <button type="button" class="_3D37-">
-                        <div class="_1htPG">Towing</div>
+                        <div class="_1htPG">Safety</div>
                         <div class="_2Cq6o R_W5y"></div>
                     </button>
                     <hr>
@@ -741,49 +506,54 @@
                             <div class="_3N7xD">
                                 <div>
                                     <div class="_1dguk">
-                                        <div class="_2NjGi">Towing Capacity</div>
-                                        <div class="_3xILm">N/A</div>
+                                        <div class="_2NjGi">IIHS Best Pick</div>
+                                        <div class="_3xILm">{{$safety->IIHS_best_pick}}</div>
                                     </div>
                                     <div class="_1dguk">
-                                        <div class="_2NjGi">Ground Clearance</div>
-                                        <div class="_3xILm">N/A</div>
+                                        <div class="_2NjGi">IIHS Front Small Overlap</div>
+                                        <div class="_3xILm">
+                                            {{$safety->IIHS_front_small_overlap != null ? $safety->IIHS_front_small_overlap : 'N/R'}}
+                                        </div>
                                     </div>
                                     <div class="_1dguk">
-                                        <div class="_2NjGi">GVWR</div>
-                                        <div class="_3xILm">N/A</div>
+                                        <div class="_2NjGi">IIHS Rear Crash</div>
+                                        <div class="_3xILm">{{$safety->IIHS_rear_crash != null ? $safety->IIHS_rear_crash : 'N/R'}}</div>
                                     </div>
                                     <div class="_1dguk">
-                                        <div class="_2NjGi">Payload Capacity</div>
-                                        <div class="_3xILm">N/A</div>
+                                        <div class="_2NjGi">NHTSA Rating Front Driver</div>
+                                        <div class="_3xILm">{{$safety->IIHS_rating_front_driver != null ? $safety->IIHS_rating_front_driver : 'N/R'}}</div>
                                     </div>
                                     <div class="_1dguk">
-                                        <div class="_2NjGi">Tonnage</div>
-                                        <div class="_3xILm">N/A</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="_3N7xD">
-                                <div>
-                                    <div class="_1dguk">
-                                        <div class="_2NjGi">Towing Capacity</div>
-                                        <div class="_3xILm">N/A</div>
+                                        <div class="_2NjGi">NHTSA Rating Front Side</div>
+                                        <div class="_3xILm">{{$safety->IIHS_rating_front_side != null ? $safety->IIHS_rating_front_side : 'N/R'}}</div>
                                     </div>
                                     <div class="_1dguk">
-                                        <div class="_2NjGi">Ground Clearance</div>
-                                        <div class="_3xILm">N/A</div>
+                                        <div class="_2NjGi">NHTSA Rating Rear Side</div>
+                                        <div class="_3xILm">{{$safety->IIHS_rating_rear_side != null ? $safety->IIHS_rating_rear_side : 'N/R'}}</div>
                                     </div>
                                     <div class="_1dguk">
-                                        <div class="_2NjGi">GVWR</div>
-                                        <div class="_3xILm">N/A</div>
+                                        <div class="_2NjGi">IIHS Front Moderate Overlap</div>
+                                        <div class="_3xILm">{{$safety->IIHS_front_moderate_overlap != null ? $safety->IIHS_front_moderate_overlap : 'N/R'}}</div>
                                     </div>
                                     <div class="_1dguk">
-                                        <div class="_2NjGi">Payload Capacity</div>
-                                        <div class="_3xILm">N/A</div>
+                                        <div class="_2NjGi">IIHS Overall Side Crash</div>
+                                        <div class="_3xILm">{{$safety->IIHS_overall_side_crash != null ? $safety->IIHS_overall_side_crash : 'N/R'}}</div>
                                     </div>
                                     <div class="_1dguk">
-                                        <div class="_2NjGi">Tonnage</div>
-                                        <div class="_3xILm">N/A</div>
+                                        <div class="_2NjGi">IIHS Roof Strength</div>
+                                        <div class="_3xILm">{{$safety->IIHS_roof_strength != null ? $safety->IIHS_roof_strength : 'N/R'}}</div>
+                                    </div>
+                                    <div class="_1dguk">
+                                        <div class="_2NjGi">NHTSA Rating Front Passenger</div>
+                                        <div class="_3xILm">{{$safety->NHTSA_rating_front_passenger != null ? $safety->NHTSA_rating_front_passenger : 'N/R'}}</div>
+                                    </div>
+                                    <div class="_1dguk">
+                                        <div class="_2NjGi">NHTSA Rating Overall</div>
+                                        <div class="_3xILm">{{$safety->NHTSA_rating_overall != null ? $safety->NHTSA_rating_overall : 'N/R'}}</div>
+                                    </div>
+                                    <div class="_1dguk">
+                                        <div class="_2NjGi">NHTSA Rating Rollover</div>
+                                        <div class="_3xILm">{{$safety->NHTSA_rating_rollover != null ? $safety->NHTSA_rating_rollover : 'N/R'}}</div>
                                     </div>
                                 </div>
                             </div>
