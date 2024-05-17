@@ -67,7 +67,7 @@ class ClientCarController extends Controller
         if (!$review) {
             $mt_score = 0;
         } else {
-            $review_performance = $review->performace;
+            $review_performance = $review->performance;
             $review_efficency_range = $review->efficency_range;
             $review_tech_innovation = $review->tech_innovation;
             $review_value = $review->value;
@@ -79,7 +79,7 @@ class ClientCarController extends Controller
 
     public function getMTScore(Review $review)
     {
-        $performance = $review->performace;
+        $performance = $review->performance;
         $efficency_range = $review->efficency_range;
         $tech_innovation = $review->tech_innovation;
         $value = $review->value;

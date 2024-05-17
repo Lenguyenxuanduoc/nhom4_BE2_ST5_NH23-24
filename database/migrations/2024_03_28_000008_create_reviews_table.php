@@ -20,7 +20,6 @@ return new class extends Migration
             $table->float('efficency_range')->nullable();
             $table->float('tech_innovation')->nullable();
             $table->float('value')->nullable();
-            $table->float('mt_score')->nullable();
             $table->string('comment')->nullable();
             $table->timestamps();
         });
