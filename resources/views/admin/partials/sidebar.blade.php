@@ -107,7 +107,7 @@
                 <li class="nav-item">
                     <a href="{{ route('weightcapacities.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
-                        <p>Weight_capacities</p>
+                        <p>Weights and Capacities</p>
                     </a>
                 </li>
             </ul> 

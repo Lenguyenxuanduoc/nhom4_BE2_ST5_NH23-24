@@ -20,15 +20,7 @@ class ClientCarController extends Controller
 {
     public function getCar($slug)
     {
-        $car_detail = Car::select('cars.id', 'cars.name', 'cars.msrp', 'cars.fair_market_price', 'cars.avatar', 
-            'cars.slug', 'cars.producing_year', 'cars.images', 'cars.brand_id', 'cars.category_id', 
-            'performances.engine', 'performances.horsepower', 'performances.trim', 'performances.torque', 
-            'performances.cylinders', 'performances.standard_mpg', 'performances.transmission', 
-            'performances.transmission_type', 'interiors.front_headroom', 'interiors.rear_headroom', 
-            'interiors.front_legroom', 'interiors.rear_legroom', 'interiors.front_shoulder_room', 
-            'interiors.rear_shoulder_room', 'exteriors.length', 'exteriors.width', 'exteriors.height', 
-            'exteriors.wheelbase', 'weights_capacities.fuel_capacity', 'weights_capacities.cargo_capacity', 
-            'weights_capacities.curb_weight')
+        $car_detail = Car::select('cars.id', 'cars.name', 'cars.msrp', 'cars.fair_market_price', 'cars.avatar', 'cars.slug', 'cars.producing_year', 'cars.images', 'cars.brand_id', 'cars.category_id', 'performances.engine', 'performances.horsepower', 'performances.trim', 'performances.torque', 'performances.cylinders', 'performances.standard_mpg', 'performances.transmission', 'performances.transmission_type', 'interiors.front_headroom', 'interiors.rear_headroom', 'interiors.front_legroom', 'interiors.rear_legroom', 'interiors.front_shoulder_room', 'interiors.rear_shoulder_room', 'exteriors.length', 'exteriors.width', 'exteriors.height', 'exteriors.wheelbase', 'weights_capacities.fuel_capacity', 'weights_capacities.cargo_capacity', 'weights_capacities.curb_weight')
             ->leftJoin('performances', 'cars.id', '=', 'performances.car_id')
             ->leftJoin('interiors', 'cars.id', '=', 'interiors.car_id')
             ->leftJoin('exteriors', 'cars.id', '=', 'exteriors.car_id')
@@ -53,9 +45,9 @@ class ClientCarController extends Controller
     {
         $car = Car::where('slug', $slug)->first();
 
-        if (!$car){
+        if (!$car) {
             abort(404);
-        } else{
+        } else {
             $car_id = $car->id;
             $performance = Performance::where('car_id', $car_id)->first();
             $interior = Interior::where('car_id', $car_id)->first();
@@ -72,19 +64,21 @@ class ClientCarController extends Controller
 
         $title = 'Car Comparison';
 
-        if (!$review){
+        if (!$review) {
             $mt_score = 0;
-        }else{
-            $mt_score = getMTScore($review);
+        } else {
+            $review_performance = $review->performace;
+            $review_efficency_range = $review->efficency_range;
+            $review_tech_innovation = $review->tech_innovation;
+            $review_value = $review->value;
+            $mt_score = ($review_performance + $review_efficency_range + $review_tech_innovation + $review_value) / 4;
         }
 
-        // dd($performance);
-        return view('client.car.compare', compact('car', 'performance', 'interior', 'exterior', 'weightCapacity',
-                                                'review', 'warranty', 'safety', 'slug', 'allBrands', 'mt_score',
-                                                'allCategories', 'title'));
+        return view('client.car.compare', compact('car', 'performance', 'interior', 'exterior', 'weightCapacity', 'review', 'warranty', 'safety', 'slug', 'allBrands', 'mt_score', 'allCategories', 'title'));
     }
 
-    public function getMTScore(Review $review){
+    public function getMTScore(Review $review)
+    {
         $performance = $review->performace;
         $efficency_range = $review->efficency_range;
         $tech_innovation = $review->tech_innovation;
