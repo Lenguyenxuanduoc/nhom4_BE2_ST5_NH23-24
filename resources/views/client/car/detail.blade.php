@@ -209,9 +209,9 @@
                             @endif
                         </td>
 
-                        <td style="width: 15%;">    
-                            <button class="btn-compare"><a href="{{route('car.compare', $car_detail->slug)}}">Compare</a></button>
-                        </td>
+                        {{-- <td style="width: 15%;">    
+                            <button class="btn-compare"><a href="{{route('car.comparison')}}">Compare</a></button>
+                        </td> --}}
                     </tr>
                 </tbody>
             </table>
@@ -299,9 +299,9 @@
                             @endif
                         </p>
                     </div>
-                    <div class="compare-link">
-                        <a href="{{route('car.compare', $car->slug)}}">Compare <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
+                    {{-- <div class="compare-link">
+                        <a href="{{route('car.comparison')}}">Compare <i class="fa-solid fa-arrow-right"></i></a>
+                    </div> --}}
                 </div>
             @endforeach
         @endif

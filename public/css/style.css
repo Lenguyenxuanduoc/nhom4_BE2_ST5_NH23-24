@@ -1712,6 +1712,15 @@ body {
     margin: 0 .5rem;
 }
 
+._3N7xD{
+    display: none;
+}
+
+
+/* ._3vbjm{
+    display: none; 
+} */
+
 ._3N7xD, ._3vbjm, .tsjZ6 {
     position: relative;
     width: 100%;
@@ -2702,9 +2711,16 @@ button[type=button] {
     font-family: Gilroy, sans-serif;
     font-weight: 600;
 }
+
+/* Tắt button add vehicle */
 ._2US6W ._3QU5r, .UO7lE {
     pointer-events: none;
 }
+
+._2US6W ._3QU5r.button-enable {
+    pointer-events: auto;
+}
+
 ._2US6W ._1_ts0, ._2US6W ._3QU5r, ._2US6W .A8zWh {
     min-width: 5rem;
 }
@@ -2777,4 +2793,5 @@ button[type=button] {
     background-color: #0073d8;
     color: #fff;
 }
+
 /* ---------------------------------- End compare page ----------------------------------*/

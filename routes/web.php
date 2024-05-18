@@ -46,10 +46,12 @@ Route::prefix('/all-brands')->group(function(){
 Route::prefix('/car')->group(function(){
     // Lấy chi tiết 1 car
     Route::get('/{slug}', [ClientCarController::class, 'getCar'])->name('car.detail');
-    Route::get('/compare/{slug}', [ClientCarController::class, 'getCarToCompare'])->name('car.compare');
 });
 
+Route::get('/compare', [ClientCarController::class, 'compare'])->name('car.compare');
+
 Route::get('/api/cars', [ClientCarController::class, 'getCarsByBrandAndCategory']);
+// Route::get('/api/cars', [ClientCarController::class, 'getCarsByBrandAndCategory']);
 
 
 // Login Logout

@@ -41,51 +41,42 @@ class ClientCarController extends Controller
         return view('client.car.detail', compact('slug', 'car_detail', 'related_cars', 'title'));
     }
 
-    public function getCarToCompare($slug)
-    {
-        $car = Car::where('slug', $slug)->first();
+    // public function getCarToCompare($slug)
+    // {
+    //     $car = Car::where('slug', $slug)->first();
 
-        if (!$car) {
-            abort(404);
-        } else {
-            $car_id = $car->id;
-            $performance = Performance::where('car_id', $car_id)->first();
-            $interior = Interior::where('car_id', $car_id)->first();
-            $review = Review::where('car_id', $car_id)->first();
-            $exterior = Exterior::where('car_id', $car_id)->first();
-            $weightCapacity = WeightCapacity::where('car_id', $car_id)->first();
-            $warranty = Warranty::where('car_id', $car_id)->first();
-            $safety = Safety::where('car_id', $car_id)->first();
-        }
+    //     if (!$car) {
+    //         abort(404);
+    //     } else {
+    //         $car_id = $car->id;
+    //         $performance = Performance::where('car_id', $car_id)->first();
+    //         $interior = Interior::where('car_id', $car_id)->first();
+    //         $review = Review::where('car_id', $car_id)->first();
+    //         $exterior = Exterior::where('car_id', $car_id)->first();
+    //         $weightCapacity = WeightCapacity::where('car_id', $car_id)->first();
+    //         $warranty = Warranty::where('car_id', $car_id)->first();
+    //         $safety = Safety::where('car_id', $car_id)->first();
+    //     }
 
-        $allBrands = Brand::get();
+    //     $allBrands = Brand::get();
 
-        $allCategories = Category::get();
+    //     $allCategories = Category::get();
 
-        $title = 'Car Comparison';
+    //     $title = 'Car Comparison';
 
-        if (!$review) {
-            $mt_score = 0;
-        } else {
-            $review_performance = $review->performance;
-            $review_efficency_range = $review->efficency_range;
-            $review_tech_innovation = $review->tech_innovation;
-            $review_value = $review->value;
-            $mt_score = ($review_performance + $review_efficency_range + $review_tech_innovation + $review_value) / 4;
-        }
+    //     if (!$review) {
+    //         $mt_score = 0;
+    //     } else {
+    //         $review_performance = $review->performance;
+    //         $review_efficency_range = $review->efficency_range;
+    //         $review_tech_innovation = $review->tech_innovation;
+    //         $review_value = $review->value;
+    //         $mt_score = ($review_performance + $review_efficency_range + $review_tech_innovation + $review_value) / 4;
+    //     }
 
-        return view('client.car.compare', compact('car', 'performance', 'interior', 'exterior', 'weightCapacity', 'review', 'warranty', 'safety', 'slug', 'allBrands', 'mt_score', 'allCategories', 'title'));
-    }
+    //     return view('client.car.compare', compact('car', 'performance', 'interior', 'exterior', 'weightCapacity', 'review', 'warranty', 'safety', 'slug', 'allBrands', 'mt_score', 'allCategories', 'title'));
+    // }
 
-    public function getMTScore(Review $review)
-    {
-        $performance = $review->performance;
-        $efficency_range = $review->efficency_range;
-        $tech_innovation = $review->tech_innovation;
-        $value = $review->value;
-
-        return ($performance + $efficency_range + $tech_innovation + $value) / 4;
-    }
 
     public function getCarsByBrandAndCategory(Request $request)
     {
@@ -93,5 +84,16 @@ class ClientCarController extends Controller
         $categoryId = $request->input('categoryID');
         $cars = Car::where('brand_id', $brandId)->where('category_id', $categoryId)->get();
         return response()->json($cars);
+    }
+
+
+    public function compare(){
+        $allBrands = Brand::get();
+
+        $allCategories = Category::get();
+
+        $title = 'Car Comparison';
+
+        return view('client.car.compare', compact('title', 'allBrands', 'allCategories'));
     }
 }
