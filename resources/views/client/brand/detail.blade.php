@@ -35,7 +35,6 @@
                         <span>MSRP:</span>
                         <h3>
                             @if ($car->msrp != 0)
-                                ${{ number_format($car->msrp, 0, ',', '.') }}
                             @else
                                 <h4>Coming soon</h4>
                             @endif

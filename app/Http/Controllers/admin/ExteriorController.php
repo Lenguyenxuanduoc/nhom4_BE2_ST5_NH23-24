@@ -23,7 +23,7 @@ class ExteriorController extends Controller
     // Chuyển đến trang thêm
     public function add()
     {
-        $cars = Car::all();
+        $cars = Car::orderBy('name')->get();
         return view('admin.exterior.add', compact('cars'));
     }
 

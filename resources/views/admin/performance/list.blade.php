@@ -18,18 +18,19 @@
                     <div class="col-md-12">
                         {{-- Thông báo lỗi khi (thêm/xóa/sửa) không thành công --}}
                         @if (session('error'))
-                            <div class="alert alert-danger">
+                            <div id="errorAlert" class="alert alert-danger">
                                 {{ session('error') }}
                             </div>
                         @endif
 
                         {{-- Thông báo thành công khi (thêm/xóa/sửa) thành công --}}
                         @if (session('success'))
-                            <div class="alert alert-success">
+                            <div id="successAlert" class="alert alert-success">
                                 {{ session('success') }}
                             </div>
                         @endif
                     </div>
+
                     <div class="col-md-12">
                         <a href="{{ route('performances.add') }}" class="btn btn-dark my-2">Add</a>
                     </div>
@@ -54,7 +55,9 @@
                                 @if ($performances)
                                     @foreach ($performances as $performance)
                                         <tr>
-                                            <th scope="row" style="width: 5%;">{{ $loop->iteration }}</th>
+                                            <td scope="row" style="width: 5%;">
+                                                {{ ($performances->currentPage() - 1) * $performances->perPage() + $loop->iteration }}
+                                            </td>
                                             <td>{{ $performance->car->name }}</td>
                                             <td>{{ $performance->engine }}</td>
                                             <td>{{ $performance->horsepower }}</td>
@@ -67,8 +70,10 @@
                                             <td>
                                                 <a href="{{ route('performances.edit', $performance->id) }}"
                                                     class="btn btn-warning mb-2" style="width: 70px;">Edit</a>
-                                                <a href="{{ route('performances.delete', $performance->id) }}"
-                                                    class="btn btn-danger mb-2"  style="width: 70px;">Delete</a>
+                                                <a href="#" class="btn btn-danger mb-1" style="width: 70px;"
+                                                    data-toggle="modal" data-target="#deleteConfirmationModal"
+                                                    data-id="{{ $performance->id }}" data-name="{{ $performance->car->name }}"
+                                                    data-delete-route="performances/delete">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -78,6 +83,27 @@
                     </div>
                 </div>
                 {{ $performances->links() }}
+                <!-- Delete Confirmation Modal -->
+                <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog"
+                    aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirm Delete</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete the performance of car "<span id="entityName"></span>"?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
 

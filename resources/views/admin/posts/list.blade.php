@@ -18,14 +18,14 @@
                     <div class="col-md-12">
                         {{-- Thông báo lỗi khi (thêm/xóa/sửa) không thành công --}}
                         @if (session('error'))
-                            <div class="alert alert-danger">
+                            <div id="errorAlert" class="alert alert-danger">
                                 {{ session('error') }}
                             </div>
                         @endif
-
+                    
                         {{-- Thông báo thành công khi (thêm/xóa/sửa) thành công --}}
                         @if (session('success'))
-                            <div class="alert alert-success">
+                            <div id="successAlert" class="alert alert-success">
                                 {{ session('success') }}
                             </div>
                         @endif
@@ -67,7 +67,7 @@
                                             <td style="max-width: 250px">
                                                 @foreach ($images as $image)
                                                     <img class="mb-1" src="{{ asset('images/posts/' . $image) }}" alt="" 
-                                                    style="width: 110px; height: auto; object-fit: fill;">
+                                                    style="width: 110px; height: auto; object-fit: fill; border-radius: 3px;">
                                                 @endforeach
                                             </td>
                                             <td>

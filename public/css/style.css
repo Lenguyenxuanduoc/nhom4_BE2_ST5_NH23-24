@@ -1716,7 +1716,6 @@ body {
     display: none;
 }
 
-
 /* ._3vbjm{
     display: none; 
 } */
@@ -2095,7 +2094,7 @@ button[type=button] {
     margin: 0 .5rem;
 }
 
-._3N7xD, ._3vbjm, .tsjZ6 {
+.DS3K24, ._3vbjm, .tsjZ6 {
     position: relative;
     width: 100%;
     border-radius: .25rem;
@@ -2103,13 +2102,14 @@ button[type=button] {
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
     margin: 1rem 0;
 }
-._3N7xD, ._3sqPa, ._3vbjm, ._3zl7L, .tsjZ6 {
+.DS3K24, ._3sqPa, ._3vbjm, ._3zl7L, .tsjZ6 {
     box-sizing: border-box;
     flex: 0 1 32.4%;
     animation: _2qvfb .3s;
 }
 
 ._3aAxO {
+    padding: 0 10px;
     font-family: Roboto, sans-serif;
 }
 @media (min-width: 768px) {

@@ -11,18 +11,16 @@ class Warranty extends Model
 
     protected $fillable = [
         'car_id',
-        'IIHS_best_pick',
-        'IIHS_front_small_overlap',
-        'IIHS_rear_crash',
-        'IIHS_rating_front_driver',
-        'IIHS_rating_front_side',
-        'IIHS_rating_rear_side',
-        'IIHS_front_moderate_overlap',
-        'IIHS_overall_side_crash',
-        'IIHS_roof_strength',
-        'NHTSA_rating_front_passenger',
-        'NHTSA_rating_overall',
-        'NHTSA_rating_rollover'
+        'free_maintenance_miles',
+        'full_warranty_miles',
+        'powertrain_warranty_miles',
+        'roadside_warranty_miles',
+        'corrosion_warranty_miles',
+        'free_maintenance_months',
+        'full_warranty_months',
+        'powertrain_warranty_months',
+        'roadside_warranty_months',
+        'corrosion_warranty_months'
     ];
 
     public function car()

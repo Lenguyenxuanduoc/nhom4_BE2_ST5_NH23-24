@@ -18,19 +18,19 @@
                     <div class="col-md-12">
                         {{-- Thông báo lỗi khi (thêm/xóa/sửa) không thành công --}}
                         @if (session('error'))
-                            <div class="alert alert-danger">
+                            <div id="errorAlert" class="alert alert-danger">
                                 {{ session('error') }}
                             </div>
                         @endif
 
                         {{-- Thông báo thành công khi (thêm/xóa/sửa) thành công --}}
                         @if (session('success'))
-                            <div class="alert alert-success">
+                            <div id="successAlert" class="alert alert-success">
                                 {{ session('success') }}
                             </div>
                         @endif
                     </div>
-                    
+
                     <div class="col-md-12">
                         <a href="{{ route('cars.add') }}" class="btn btn-dark my-2">Add</a>
                     </div>
@@ -43,8 +43,8 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Brand</th>
                                     <th scope="col">Category</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Description</th>
+                                    <th scope="col">MSRP</th>
+                                    <th scope="col">Fair Market Price</th>
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Producing</th>
                                     <th scope="col">Images</th>
@@ -61,27 +61,31 @@
                                             $images = json_decode($car->images);
                                         @endphp
                                         <tr>
-                                            <th scope="row">
-                                                {{ ($cars->currentPage() - 1) * $cars->perPage() + $loop->iteration }}</th>
+                                            <td style="padding: 12px 5px" scope="row">
+                                                {{ ($cars->currentPage() - 1) * $cars->perPage() + $loop->iteration }}</td>
                                             <td>{{ $car->name }}</td>
-                                            <td>{{ $car->brand->name }}</td>
+                                            <td style="width:80px">{{ $car->brand->name }}</td>
                                             <td>{{ $car->category->name }}</td>
-                                            <td>${{ number_format($car->price, 0, ',', '.') }}</td>
-                                            <td style="max-width: 150px">{{ \Str::limit($car->description, 100) }}</td>
+                                            <td>${{ number_format($car->msrp, 0, ',', '.') }}</td>
+                                            <td>${{ number_format($car->fair_market_price, 0, ',', '.') }}</td>
                                             <td>{{ $car->quantity }}</td>
                                             <td>{{ $car->producing_year }}</td>
-                                            <td style="max-width: 210px">
+                                            <td style="width: 210px;">
                                                 <img src="{{ asset('images/cars/' . $car->avatar) }}" alt="">
-                                                @foreach ($images as $image)
-                                                    <img class="mb-1" src="{{ asset('images/cars/' . $image) }}"
-                                                        alt="">
-                                                @endforeach
+                                                @if ($images)
+                                                    @foreach ($images as $image)
+                                                        <img class="mb-1" src="{{ asset('images/cars/' . $image) }}"
+                                                            alt="" style="border-radius: 3px;">
+                                                    @endforeach
+                                                @endif
                                             </td>
                                             <td>
-                                                <a href="{{ route('cars.edit', $car->id) }}"
-                                                    class="btn btn-warning mb-1" style="width: 70px;">Edit</a>
-                                                <a href="{{ route('cars.delete', $car->id) }}"
-                                                    class="btn btn-danger mb-1" style="width: 70px;" >Delete</a>
+                                                <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-warning mb-1"
+                                                    style="width: 70px;">Edit</a>
+                                                <a href="#" class="btn btn-danger mb-1" style="width: 70px;"
+                                                    data-toggle="modal" data-target="#deleteConfirmationModal"
+                                                    data-id="{{ $car->id }}" data-name="{{ $car->name }}"
+                                                    data-delete-route="cars/delete">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -89,8 +93,30 @@
                             </tbody>
                         </table>
                     </div>
-                    {{ $cars->links() }}
                 </div>
+                {{ $cars->links() }}
+                <!-- Delete Confirmation Modal -->
+                <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog"
+                    aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirm Delete</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete the car "<span id="entityName"></span>"?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>

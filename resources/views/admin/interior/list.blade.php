@@ -18,14 +18,14 @@
                     <div class="col-md-12">
                         {{-- Thông báo lỗi khi (thêm/xóa/sửa) không thành công --}}
                         @if (session('error'))
-                            <div class="alert alert-danger">
+                            <div id="errorAlert" class="alert alert-danger">
                                 {{ session('error') }}
                             </div>
                         @endif
 
                         {{-- Thông báo thành công khi (thêm/xóa/sửa) thành công --}}
                         @if (session('success'))
-                            <div class="alert alert-success">
+                            <div id="successAlert" class="alert alert-success">
                                 {{ session('success') }}
                             </div>
                         @endif
@@ -57,9 +57,9 @@
                                     @endphp
                                     @foreach ($interiors as $interior)
                                         <tr>
-                                            <th scope="row">
+                                            <td scope="row">
                                                 {{ ($interiors->currentPage() - 1) * $interiors->perPage() + $loop->iteration }}
-                                            </th>
+                                            </td>
                                             <td>{{ $interior->car->name }}</td>
                                             <td>{{ $interior->front_headroom }}</td>
                                             <td>{{ $interior->rear_headroom }}</td>
@@ -70,8 +70,10 @@
                                             <td>
                                                 <a href="{{ route('interiors.edit', $interior->id) }}"
                                                     class="btn btn-warning mb-1" style="width: 70px">Edit</a>
-                                                <a href="{{ route('interiors.delete', $interior->id) }}"
-                                                    class="btn btn-danger mb-1" style="width: 70px">Delete</a>
+                                                <a href="#" class="btn btn-danger mb-1" style="width: 70px;"
+                                                    data-toggle="modal" data-target="#deleteConfirmationModal"
+                                                    data-id="{{ $interior->id }}" data-name="{{ $interior->car->name }}"
+                                                    data-delete-route="interiors/delete">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -81,6 +83,27 @@
                     </div>
                 </div>
                 {{ $interiors->links() }}
+                <!-- Delete Confirmation Modal -->
+                <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog"
+                    aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirm Delete</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete the interior of car "<span id="entityName"></span>"?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>

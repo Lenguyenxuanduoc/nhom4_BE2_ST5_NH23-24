@@ -118,4 +118,49 @@ document.querySelector('.btn-dark').addEventListener('click', function() {
 });
 
 
+// Hiển thị bảng confirm xóa
+// document.addEventListener("DOMContentLoaded", function() {
+//     $('#deleteConfirmationModal').on('show.bs.modal', function (event) {
+//         var button = $(event.relatedTarget); 
+//         var carId = button.data('id'); 
+//         var carName = button.data('name');
 
+//         // Update the modal's content
+//         var modal = $(this);
+//         modal.find('#entityName').text(carName);
+
+//         // Set up the confirm delete button
+//         $('#confirmDeleteBtn').off('click').on('click', function() {
+//             window.location.href = `/cars/delete/${carId}`;
+//         });
+//     });
+// });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    $('#deleteConfirmationModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var entityId = button.data('id');
+        var entityName = button.data('name');
+        var deleteRoute = button.data('delete-route');
+
+        // Update the modal's content
+        var modal = $(this);
+        modal.find('#entityName').text("" + entityName + "");
+
+        // Set up the confirm delete button
+        $('#confirmDeleteBtn').off('click').on('click', function() {
+            window.location.href = `/${deleteRoute}/${entityId}`;
+        });
+    });
+});
+
+
+// Hiển thị thông báo success, error trong 1.2s
+setTimeout(function() {
+    $('#errorAlert').fadeOut('slow');
+}, 1200);
+
+setTimeout(function() {
+    $('#successAlert').fadeOut('slow');
+}, 1200);

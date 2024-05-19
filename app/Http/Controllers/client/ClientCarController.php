@@ -96,4 +96,15 @@ class ClientCarController extends Controller
 
         return view('client.car.compare', compact('title', 'allBrands', 'allCategories'));
     }
+
+    public function getCarByCarID(Reqest $request){
+        $id = $request->input('carId');
+        $car = Car::where('id', $id)->get();
+        
+        if (!$car) {
+            return response()->json(['error' => 'Car not found'], 404);
+        }
+        
+        return response()->json($car);
+    }
 }

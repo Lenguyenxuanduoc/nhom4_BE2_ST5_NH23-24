@@ -11,13 +11,13 @@
                 <h1 class="_3GY2o">Compare Cars Side-by-Side</h1>
             </div>
             <div class="_3JVXT">
-                {{---------------------------- Column 1 ----------------------------}}
+                {{-- -------------------------- Start Column 1 -------------------------- --}}
                 <div class="_3N7xD">
                     <div class="nezKb">
-                        <div class="_1nUqL">
+                        <div class="_1nUqL" id="carDetails">
                             <!-- Car name, slug -->
                             <div>
-                                {{-- <h3 class="_1YVTl" href="" data-c="link">{{ $car->name }}</h3> --}}
+                                <h3 class="_1YVTl" href="" data-c="link">Car name</h3>
                             </div>
                             <div class="_3-Ngj"><span></span><span></span><span></span></div>
                         </div>
@@ -25,8 +25,8 @@
                         <div>
                             <a href="" data-c="link">
                                 <div class="_1BAwM">
-                                    <img src="" alt=""
-                                        width="875" height="220" class="_3sDNq">
+                                    <img src="car image path" alt="" width="875" height="220"
+                                        class="_3sDNq">
                                 </div>
                             </a>
                             <div class="_3q3BO">
@@ -110,11 +110,11 @@
                             <label class="RxvJH" for="Car Model">
                                 <select class="RxvJH" id="Car Model" disabled="" aria-label="Car Model">
                                     <option disabled="">Model</option>
-                                    @if (!empty($cars))
+                                    {{-- @if (!empty($cars))
                                         @foreach ($cars as $car)
                                             <option value="{{ $car->id }}">{{ $car->name }}</option>
                                         @endforeach
-                                    @endif
+                                    @endif --}}
                                 </select>
                             </label>
                         </div>
@@ -125,11 +125,11 @@
                         </div>
                     </form>
                 </div>
-                {{---------------------------- End Column 1 ----------------------------}}
+                {{-- -------------------------- End Column 1 -------------------------- --}}
 
 
 
-                {{---------------------------- Start Column 2 ----------------------------}}
+                {{-- -------------------------- Start Column 2 -------------------------- --}}
                 <div class="_3N7xD">
                     <div class="nezKb">
                         <div class="_1nUqL">
@@ -143,8 +143,7 @@
                         <div>
                             <a href="" data-c="link">
                                 <div class="_1BAwM">
-                                    <img src="" alt=""
-                                        width="875" height="220" class="_3sDNq">
+                                    <img src="" alt="" width="875" height="220" class="_3sDNq">
                                 </div>
                             </a>
                             <div class="_3q3BO">
@@ -228,11 +227,11 @@
                             <label class="RxvJH" for="Car Model">
                                 <select class="RxvJH" id="Car Model" disabled="" aria-label="Car Model">
                                     <option disabled="">Model</option>
-                                    @if (!empty($cars))
+                                    {{-- @if (!empty($cars))
                                         @foreach ($cars as $car)
                                             <option value="{{ $car->id }}">{{ $car->name }}</option>
                                         @endforeach
-                                    @endif
+                                    @endif --}}
                                 </select>
                             </label>
                         </div>
@@ -243,11 +242,11 @@
                         </div>
                     </form>
                 </div>
-                {{---------------------------- End Column 2 ----------------------------}}
+                {{-- -------------------------- End Column 2 -------------------------- --}}
 
 
 
-                {{---------------------------- Start Column 3 ----------------------------}}
+                {{-- -------------------------- Start Column 3 -------------------------- --}}
                 <div class="_3N7xD">
                     <div class="nezKb">
                         <div class="_1nUqL">
@@ -261,8 +260,8 @@
                         <div>
                             <a href="" data-c="link">
                                 <div class="_1BAwM">
-                                    <img src="" alt=""
-                                        width="875" height="220" class="_3sDNq">
+                                    <img src="" alt="" width="875" height="220"
+                                        class="_3sDNq">
                                 </div>
                             </a>
                             <div class="_3q3BO">
@@ -346,11 +345,11 @@
                             <label class="RxvJH" for="Car Model">
                                 <select class="RxvJH" id="Car Model" disabled="" aria-label="Car Model">
                                     <option disabled="">Model</option>
-                                    @if (!empty($cars))
+                                    {{-- @if (!empty($cars))
                                         @foreach ($cars as $car)
                                             <option value="{{ $car->id }}">{{ $car->name }}</option>
                                         @endforeach
-                                    @endif
+                                    @endif --}}
                                 </select>
                             </label>
                         </div>
@@ -361,7 +360,7 @@
                         </div>
                     </form>
                 </div>
-                {{---------------------------- End Column 3 ----------------------------}}
+                {{-- -------------------------- End Column 3 -------------------------- --}}
             </div>
 
             <div>
@@ -372,59 +371,61 @@
                     </button>
                     <hr>
                     <div class="_3RBPn _1gEO9">
+                        {{-- -------------------------- Start Column 1 -------------------------- --}}
                         <div class="_3JVXT">
-                            <div class="_3N7xD">
+                            <div class="DS3K24">
                                 <div class="_3aAxO">
                                     <div class="RPY4b">
                                         <div class="GvFPg">MSRP:</div>
                                         <div class="Dsgfa">
-                                            {{-- @if ($car->msrp != 0)
-                                                ${{ number_format($car->msrp, 0, ',', '.') }}
-                                            @else
-                                                Coming soon
-                                            @endif --}}
+
                                         </div>
                                     </div>
                                     <div class="RPY4b">
                                         <div class="GvFPg">Fair Market Price:</div>
                                         <div class="Dsgfa">
-                                            {{-- @if ($car->msrp != 0)
-                                                ${{ number_format($car->fair_market_price, 0, ',', '.') }}
-                                            @else
-                                                Coming soon
-                                            @endif --}}
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="_3N7xD">
+                            {{-- -------------------------- Start Column 2 -------------------------- --}}
+                            <div class="DS3K24">
                                 <div class="_3aAxO">
                                     <div class="RPY4b">
                                         <div class="GvFPg">MSRP:</div>
                                         <div class="Dsgfa">
-                                            {{-- @if ($car->msrp != 0)
-                                                ${{ number_format($car->msrp, 0, ',', '.') }}
-                                            @else
-                                                Coming soon
-                                            @endif --}}
+
                                         </div>
                                     </div>
                                     <div class="RPY4b">
                                         <div class="GvFPg">Fair Market Price:</div>
                                         <div class="Dsgfa">
-                                            {{-- @if ($car->msrp != 0)
-                                                ${{ number_format($car->fair_market_price, 0, ',', '.') }}
-                                            @else
-                                                Coming soon
-                                            @endif --}}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- -------------------------- Start Column 3 -------------------------- --}}
+                            <div class="DS3K24">
+                                <div class="_3aAxO">
+                                    <div class="RPY4b">
+                                        <div class="GvFPg">MSRP:</div>
+                                        <div class="Dsgfa">
+
+                                        </div>
+                                    </div>
+                                    <div class="RPY4b">
+                                        <div class="GvFPg">Fair Market Price:</div>
+                                        <div class="Dsgfa">
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        
                     </div>
                 </div>
 
@@ -736,157 +737,330 @@
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const buttons = document.querySelectorAll('._3D37-'); // Chọn tất cả các nút
-        const infoSections = document.querySelectorAll('._3RBPn'); // Chọn tất cả các phần tử chứa thông tin
+    // document.addEventListener("DOMContentLoaded", function() {
+    //     const buttons = document.querySelectorAll('._3D37-'); // Chọn tất cả các nút
+    //     const infoSections = document.querySelectorAll('._3RBPn'); // Chọn tất cả các phần tử chứa thông tin
 
-        buttons.forEach((button, index) => {
-            button.addEventListener('click', function() {
-                const info = infoSections[index]; // Lấy phần tử thông tin tương ứng với nút
-                if (info.classList.contains('_1gEO9')) {
-                    // Nếu có, loại bỏ lớp _1gEO9 để hiển thị thông tin
-                    info.classList.remove('_1gEO9');
-                    info.style.maxHeight = "125rem"; // Hiển thị phần tử
-                    info.style.opacity = "1"; // Hiển thị phần tử
-                } else {
-                    // Nếu không, thêm lớp _1gEO9 để ẩn đi thông tin
-                    info.classList.add('_1gEO9');
-                    info.style.maxHeight = "0"; // Ẩn đi phần tử
-                    info.style.opacity = "0"; // Ẩn đi phần tử
-                }
-            });
-        });
-    });
-
-
-//     document.addEventListener("DOMContentLoaded", function() {
-//     const buttons = document.querySelectorAll('._3D37-'); // Chọn tất cả các nút
-//     const infoSections = document.querySelectorAll('._3RBPn'); // Chọn tất cả các phần tử chứa thông tin
-
-//     buttons.forEach((button, index) => {
-//         button.addEventListener('click', function() {
-//             const info = infoSections[index]; // Lấy phần tử thông tin tương ứng với nút
-//             if (info.classList.contains('_1gEO9')) {
-//                 // Nếu có, loại bỏ lớp _1gEO9 để hiển thị thông tin
-//                 info.classList.remove('_1gEO9');
-//                 info.style.maxHeight = "125rem"; // Hiển thị phần tử
-//                 info.style.opacity = "1"; // Hiển thị phần tử
-//             } else {
-//                 // Nếu không, thêm lớp _1gEO9 để ẩn đi thông tin
-//                 info.classList.add('_1gEO9');
-//                 info.style.maxHeight = "0"; // Ẩn đi phần tử
-//                 info.style.opacity = "0"; // Ẩn đi phần tử
-//             }
-//         });
-//     });
-// });
+    //     buttons.forEach((button, index) => {
+    //         button.addEventListener('click', function() {
+    //             const info = infoSections[index]; // Lấy phần tử thông tin tương ứng với nút
+    //             if (info.classList.contains('_1gEO9')) {
+    //                 // Nếu có, loại bỏ lớp _1gEO9 để hiển thị thông tin
+    //                 info.classList.remove('_1gEO9');
+    //                 info.style.maxHeight = "125rem"; // Hiển thị phần tử
+    //                 info.style.opacity = "1"; // Hiển thị phần tử
+    //             } else {
+    //                 // Nếu không, thêm lớp _1gEO9 để ẩn đi thông tin
+    //                 info.classList.add('_1gEO9');
+    //                 info.style.maxHeight = "0"; // Ẩn đi phần tử
+    //                 info.style.opacity = "0"; // Ẩn đi phần tử
+    //             }
+    //         });
+    //     });
+    // });
 
 
     document.addEventListener("DOMContentLoaded", function() {
-        // Logic cho nút "Pricing"
-        const buttons = document.querySelectorAll('._3D37-'); // Chọn tất cả các nút Pricing
-        const infoSections = document.querySelectorAll('._3RBPn'); // Chọn tất cả các phần tử chứa thông tin
+        // Helper function to toggle visibility of an element
+        function toggleVisibility(element, isVisible, maxHeight = "125rem") {
+            element.style.maxHeight = isVisible ? maxHeight : "0";
+            element.style.opacity = isVisible ? "1" : "0";
+        }
 
-        buttons.forEach((button, index) => {
-            button.addEventListener('click', function() {
-                const info = infoSections[index]; // Lấy phần tử thông tin tương ứng với nút
-                const newDiv = info.querySelector('._3N7xD'); // Lấy phần tử _3N7xD bên trong infoSections
-                if (info.classList.contains('_1gEO9')) {
-                    info.classList.remove('_1gEO9');
-                    info.style.maxHeight = "125rem";
-                    info.style.opacity = "1";
-                    newDiv.style.display = 'block'; // Hiển thị _3N7xD
-                } else {
-                    info.classList.add('_1gEO9');
-                    info.style.maxHeight = "0";
-                    info.style.opacity = "0";
-                    newDiv.style.display = 'none'; // Ẩn _3N7xD
-                }
+        // Toggle info section
+        function toggleInfoSection(button, infoSection) {
+            const newDiv = infoSection.querySelector('._3N7xD');
+            if (infoSection.classList.contains('_1gEO9')) {
+                infoSection.classList.remove('_1gEO9');
+                toggleVisibility(infoSection, true);
+                newDiv.style.display = 'block';
+            } else {
+                infoSection.classList.add('_1gEO9');
+                toggleVisibility(infoSection, false);
+                newDiv.style.display = 'none';
+            }
+        }
+
+        // Add event listeners for "Pricing" buttons
+        function setupPricingButtons() {
+            const buttons = document.querySelectorAll('._3D37-');
+            const infoSections = document.querySelectorAll('._3RBPn');
+
+            buttons.forEach((button, index) => {
+                button.addEventListener('click', () => toggleInfoSection(button, infoSections[index]));
             });
-        });
+        }
 
-        // Logic cho nút "Add Vehicle"
-        const addButtons = document.querySelectorAll('button[aria-label="Add Vehicle"]');
-        addButtons.forEach((addButton, index) => {
-            const formDiv = document.querySelectorAll('div._3vbjm')[index];
-            const newDiv = document.querySelectorAll('div._3N7xD')[index];
+        // Fetch car models based on selected brand make and category
+        function fetchCarModels(carMakeSelect, carCategorySelect, carModelSelect) {
+            const brandId = carMakeSelect.value;
+            const categoryId = carCategorySelect.value;
 
-            addButton.addEventListener('click', function() {
-                if (newDiv && formDiv) {
-                    formDiv.style.display = 'none';
-                    newDiv.style.display = 'block';
+            fetch(`/api/cars?brandID=${brandId}&categoryID=${categoryId}`)
+                .then(response => response.json())
+                .then(cars => {
+                    carModelSelect.innerHTML = '<option disabled selected>Model</option>';
+                    console.log(cars);
+                    cars.forEach(car => {
+                        const option = document.createElement('option');
+                        option.value = car.id;
+                        option.textContent = car.name;
+                        carModelSelect.appendChild(option);
+                    });
+                    carModelSelect.removeAttribute('disabled');
+                })
+                .catch(error => console.error('Error fetching cars:', error));
+        }
 
-                    // Hiển thị phần tử thông tin tương ứng
-                    const infoSection = infoSections[index];
-                    infoSection.classList.remove('_1gEO9');
-                    infoSection.style.maxHeight = "125rem";
-                    infoSection.style.opacity = "1";
-                }
-            });
+        // Fetch car details based on car ID and update HTML
+        function fetchCarDetailsAndUpdateUI(carId, infoSection) {
+            console.log(`Fetching details for carId: ${carId}`);
+            fetch(`/get-info-car?carId=${carId}`)
+                .then(response => response.json())
+                .then(car => {
+                    console.log('Car details:', car);
+                    
+                })
+                .catch(error => console.error('Error fetching car details:', error));
+        }
 
-            // Lấy các phần tử liên quan trong form hiện tại
+        // Clear form selections and reset form
+        function clearFormSelections(formDiv, addButton) {
             const carMakeSelect = formDiv.querySelector('#Car\\ Make');
             const carCategorySelect = formDiv.querySelector('#Car\\ Category');
             const carModelSelect = formDiv.querySelector('#Car\\ Model');
-            const clearButton = formDiv.querySelector('button[aria-label="Clear Add Vehicle Form"]');
 
-            carMakeSelect.addEventListener('change', function() {
-                if (carMakeSelect.value) {
-                    carCategorySelect.removeAttribute('disabled');
-                } else {
-                    carCategorySelect.setAttribute('disabled', '');
-                    carModelSelect.setAttribute('disabled', '');
-                    carModelSelect.innerHTML = '<option disabled selected>Model</option>';
-                    addButton.classList.remove('button-enable');
-                }
+            carMakeSelect.selectedIndex = 0;
+            carCategorySelect.selectedIndex = 0;
+            carModelSelect.selectedIndex = 0;
+            carCategorySelect.setAttribute('disabled', '');
+            carModelSelect.setAttribute('disabled', '');
+            carModelSelect.innerHTML = '<option disabled selected>Model</option>';
+            addButton.classList.remove('button-enable');
+        }
+
+        // Add event listeners for "Add Vehicle" buttons
+        function setupAddVehicleButtons() {
+            const addButtons = document.querySelectorAll('button[aria-label="Add Vehicle"]');
+            const infoSections = document.querySelectorAll('._3RBPn');
+
+            addButtons.forEach((addButton, index) => {
+                const formDiv = document.querySelectorAll('div._3vbjm')[index];
+                const newDiv = document.querySelectorAll('div._3N7xD')[index];
+
+                addButton.addEventListener('click', function() {
+                    const carModelSelect = formDiv.querySelector('#Car\\ Model');
+                    const carId = carModelSelect.value;
+
+                    if (carId && newDiv && formDiv) {
+                        formDiv.style.display = 'none';
+                        newDiv.style.display = 'block';
+
+                        const infoSection = infoSections[index];
+                        infoSection.classList.remove('_1gEO9');
+                        toggleVisibility(infoSection, true);
+
+                        // Fetch car details and update the UI
+                        fetchCarDetailsAndUpdateUI(carId, newDiv);
+                    }
+                });
+
+                const carMakeSelect = formDiv.querySelector('#Car\\ Make');
+                const carCategorySelect = formDiv.querySelector('#Car\\ Category');
+                const carModelSelect = formDiv.querySelector('#Car\\ Model');
+                const clearButton = formDiv.querySelector(
+                'button[aria-label="Clear Add Vehicle Form"]');
+
+                carMakeSelect.addEventListener('change', function() {
+                    if (carMakeSelect.value) {
+                        carCategorySelect.removeAttribute('disabled');
+                    } else {
+                        carCategorySelect.setAttribute('disabled', '');
+                        carModelSelect.setAttribute('disabled', '');
+                        carModelSelect.innerHTML = '<option disabled selected>Model</option>';
+                        addButton.classList.remove('button-enable');
+                    }
+                });
+
+                carCategorySelect.addEventListener('change', function() {
+                    if (carCategorySelect.value) {
+                        fetchCarModels(carMakeSelect, carCategorySelect, carModelSelect);
+                    } else {
+                        carModelSelect.setAttribute('disabled', '');
+                        carModelSelect.innerHTML = '<option disabled selected>Model</option>';
+                        addButton.classList.remove('button-enable');
+                    }
+                });
+
+                carModelSelect.addEventListener('change', function() {
+                    if (carModelSelect.value) {
+                        addButton.classList.add('button-enable');
+                    } else {
+                        addButton.classList.remove('button-enable');
+                    }
+                });
+
+                clearButton.addEventListener('click', function() {
+                    clearFormSelections(formDiv, addButton);
+                });
             });
+        }
 
-            carCategorySelect.addEventListener('change', function() {
-                if (carCategorySelect.value) {
-                    const brandId = carMakeSelect.value;
-                    const categoryId = carCategorySelect.value;
-
-                    fetch(`/api/cars?brandID=${brandId}&categoryID=${categoryId}`)
-                        .then(response => response.json())
-                        .then(cars => {
-                            carModelSelect.innerHTML = '<option disabled selected>Model</option>';
-                            cars.forEach(car => {
-                                const option = document.createElement('option');
-                                option.value = car.id;
-                                option.textContent = car.name;
-                                carModelSelect.appendChild(option);
-                            });
-                            carModelSelect.removeAttribute('disabled');
-                        })
-                        .catch(error => console.error('Error fetching cars:', error));
-                } else {
-                    carModelSelect.setAttribute('disabled', '');
-                    carModelSelect.innerHTML = '<option disabled selected>Model</option>';
-                    addButton.classList.remove('button-enable');
-                }
-            });
-
-            carModelSelect.addEventListener('change', function() {
-                if (carModelSelect.value) {
-                    addButton.classList.add('button-enable');
-                } else {
-                    addButton.classList.remove('button-enable');
-                }
-            });
-
-            clearButton.addEventListener('click', function() {
-                carMakeSelect.selectedIndex = 0;
-                carCategorySelect.selectedIndex = 0;
-                carModelSelect.selectedIndex = 0;
-                carCategorySelect.setAttribute('disabled', '');
-                carModelSelect.setAttribute('disabled', '');
-                carModelSelect.innerHTML = '<option disabled selected>Model</option>';
-                addButton.classList.remove('button-enable');
-            });
-        });
+        // Initialize all event listeners
+        setupPricingButtons();
+        setupAddVehicleButtons();
     });
 
-    
+
+    // document.addEventListener("DOMContentLoaded", function() {
+    //     // Helper function to toggle visibility of an element
+    //     function toggleVisibility(element, isVisible, maxHeight = "125rem") {
+    //         element.style.maxHeight = isVisible ? maxHeight : "0";
+    //         element.style.opacity = isVisible ? "1" : "0";
+    //     }
+
+    //     // Toggle info section
+    //     function toggleInfoSection(button, infoSection) {
+    //         const newDiv = infoSection.querySelector('._3N7xD');
+    //         if (infoSection.classList.contains('_1gEO9')) {
+    //             infoSection.classList.remove('_1gEO9');
+    //             toggleVisibility(infoSection, true);
+    //             newDiv.style.display = 'block';
+    //         } else {
+    //             infoSection.classList.add('_1gEO9');
+    //             toggleVisibility(infoSection, false);
+    //             newDiv.style.display = 'none';
+    //         }
+    //     }
+
+    //     // Add event listeners for "Pricing" buttons
+    //     function setupPricingButtons() {
+    //         const buttons = document.querySelectorAll('._3D37-');
+    //         const infoSections = document.querySelectorAll('._3RBPn');
+
+    //         buttons.forEach((button, index) => {
+    //             button.addEventListener('click', () => toggleInfoSection(button, infoSections[index]));
+    //         });
+    //     }
+
+    //     // Fetch car models based on selected brand make and category
+    //     function fetchCarModels(carMakeSelect, carCategorySelect, carModelSelect) {
+    //         const brandId = carMakeSelect.value;
+    //         const categoryId = carCategorySelect.value;
+
+    //         fetch(`/api/cars?brandID=${brandId}&categoryID=${categoryId}`)
+    //             .then(response => response.json())
+    //             .then(cars => {
+    //                 carModelSelect.innerHTML = '<option disabled selected>Model</option>';
+    //                 cars.forEach(car => {
+    //                     const option = document.createElement('option');
+    //                     option.value = car.id;
+    //                     option.textContent = car.name;
+    //                     carModelSelect.appendChild(option);
+    //                 });
+    //                 carModelSelect.removeAttribute('disabled');
+    //             })
+    //             .catch(error => console.error('Error fetching cars:', error));
+    //     }
+
+    //     // Fetch car details based on car ID and update HTML
+    //     fucntion fetchCarDetailsAndUpdateUI(carId, infoSection) {
+    //         fetch(`/getInfoCar/${carId}`)
+    //             .then(response => response.json())
+    //             .then(car => {
+    //                 const carDetails = infoSection.querySelector('#carDetails');
+    //                 const carNameElement = carDetails.querySelector('._1YVTl');
+    //                 const carImageElement = carDetails.querySelector('._3sDNq');
+    //                 const carLinkElement = carDetails.querySelector('a[data-c="link"]');
+
+    //                 carNameElement.textContent = car.name;
+    //                 carImageElement.src = car.image_url;
+    //                 carLinkElement.href = car.slug;
+    //             })
+    //             .catch(error => console.error('Error fetching car details:', error));
+    //     }
+
+    //     // Clear form selections and reset form
+    //     function clearFormSelections(formDiv, addButton) {
+    //         const carMakeSelect = formDiv.querySelector('#Car\\ Make');
+    //         const carCategorySelect = formDiv.querySelector('#Car\\ Category');
+    //         const carModelSelect = formDiv.querySelector('#Car\\ Model');
+
+    //         carMakeSelect.selectedIndex = 0;
+    //         carCategorySelect.selectedIndex = 0;
+    //         carModelSelect.selectedIndex = 0;
+    //         carCategorySelect.setAttribute('disabled', '');
+    //         carModelSelect.setAttribute('disabled', '');
+    //         carModelSelect.innerHTML = '<option disabled selected>Model</option>';
+    //         addButton.classList.remove('button-enable');
+    //     }
+
+    //     // Add event listeners for "Add Vehicle" buttons
+    //     function setupAddVehicleButtons() {
+    //         const addButtons = document.querySelectorAll('button[aria-label="Add Vehicle"]');
+    //         const infoSections = document.querySelectorAll('._3RBPn');
+
+    //         addButtons.forEach((addButton, index) => {
+    //             const formDiv = document.querySelectorAll('div._3vbjm')[index];
+    //             const newDiv = document.querySelectorAll('div._3N7xD')[index];
+
+    //             addButton.addEventListener('click', function() {
+    //                 if (newDiv && formDiv) {
+    //                     formDiv.style.display = 'none';
+    //                     newDiv.style.display = 'block';
+
+    //                     const infoSection = infoSections[index];
+    //                     infoSection.classList.remove('_1gEO9');
+    //                     toggleVisibility(infoSection, true);
+    //                 }
+    //             });
+
+    //             const carMakeSelect = formDiv.querySelector('#Car\\ Make');
+    //             const carCategorySelect = formDiv.querySelector('#Car\\ Category');
+    //             const carModelSelect = formDiv.querySelector('#Car\\ Model');
+    //             const clearButton = formDiv.querySelector(
+    //             'button[aria-label="Clear Add Vehicle Form"]');
+
+    //             carMakeSelect.addEventListener('change', function() {
+    //                 if (carMakeSelect.value) {
+    //                     carCategorySelect.removeAttribute('disabled');
+    //                 } else {
+    //                     carCategorySelect.setAttribute('disabled', '');
+    //                     carModelSelect.setAttribute('disabled', '');
+    //                     carModelSelect.innerHTML = '<option disabled selected>Model</option>';
+    //                     addButton.classList.remove('button-enable');
+    //                 }
+    //             });
+
+    //             carCategorySelect.addEventListener('change', function() {
+    //                 if (carCategorySelect.value) {
+    //                     fetchCarModels(carMakeSelect, carCategorySelect, carModelSelect);
+    //                 } else {
+    //                     carModelSelect.setAttribute('disabled', '');
+    //                     carModelSelect.innerHTML = '<option disabled selected>Model</option>';
+    //                     addButton.classList.remove('button-enable');
+    //                 }
+    //             });
+
+    //             carModelSelect.addEventListener('change', function() {
+    //                 if (carModelSelect.value) {
+    //                     addButton.classList.add('button-enable');
+    //                 } else {
+    //                     addButton.classList.remove('button-enable');
+    //                 }
+    //             });
+
+    //             clearButton.addEventListener('click', function() {
+    //                 clearFormSelections(formDiv, addButton);
+    //             });
+    //         });
+    //     }
+
+    //     // Initialize all event listeners
+    //     setupPricingButtons();
+    //     setupAddVehicleButtons();
+    // });
+
 </script>
 
 @include('client.partials.footer')

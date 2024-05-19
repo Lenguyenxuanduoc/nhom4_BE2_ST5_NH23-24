@@ -37,16 +37,15 @@ class ClientBrandController extends Controller
             abort(404);
         }
 
-        $cars = Car::select('cars.id', 'cars.name','cars.fair_market_price', 'cars.avatar', 'cars.slug', 'cars.producing_year', 'cars.images',
+        $cars = Car::select('cars.id', 'cars.name','cars.fair_market_price', 'cars.avatar', 'cars.slug', 'cars.producing_year', 'cars.images', 'cars.msrp',
                     DB::raw('AVG(reviews.performance) as performance_avg'), 
                     DB::raw('AVG(reviews.value) as value_avg'),
                     DB::raw('AVG(reviews.tech_innovation) as innovation_avg'),
                     DB::raw('AVG(reviews.efficency_range) as efficency_range_avg'))
                 ->leftJoin('reviews', 'cars.id', '=', 'reviews.car_id')
                 ->where('cars.brand_id', $brand_detail->id)
-                ->groupBy('cars.id', 'cars.name', 'cars.fair_market_price', 'cars.avatar', 'cars.slug', 'cars.producing_year', 'cars.images')
+                ->groupBy('cars.id', 'cars.name', 'cars.fair_market_price', 'cars.msrp', 'cars.avatar', 'cars.slug', 'cars.producing_year', 'cars.images')
                 ->get();
-
 
         $title = $brand_detail->name;
 

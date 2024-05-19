@@ -18,14 +18,14 @@
                     <div class="col-md-12">
                         {{-- Thông báo lỗi khi (thêm/xóa/sửa) không thành công --}}
                         @if (session('error'))
-                            <div class="alert alert-danger">
+                            <div id="errorAlert" class="alert alert-danger">
                                 {{ session('error') }}
                             </div>
                         @endif
 
                         {{-- Thông báo thành công khi (thêm/xóa/sửa) thành công --}}
                         @if (session('success'))
-                            <div class="alert alert-success">
+                            <div id="successAlert" class="alert alert-success">
                                 {{ session('success') }}
                             </div>
                         @endif
@@ -53,9 +53,9 @@
                                 @if (!empty($brands))
                                     @foreach ($brands as $brand)
                                         <tr>
-                                            <th scope="row">
+                                            <td style="padding: 12px 5px" scope="row">
                                                 {{ ($brands->currentPage() - 1) * $brands->perPage() + $loop->iteration }}
-                                            </th>
+                                            </td>
                                             <td style="max-width: 70px;">{{ $brand->name }}</td>
                                             <td style="max-width: 150px;">{{ $brand->founded_year }}</td>
                                             <td style="max-width: 150px;">{{ $brand->founder_name }}</td>
@@ -63,12 +63,15 @@
                                             <td><img src="{{ asset('images/logos/' . $brand->logo) }}" alt="">
                                             </td>
                                             <td><img src="{{ asset('images/banners/' . $brand->banner) }}" alt=""
-                                                    style="width:150px; max-height: 100px;"></td>
+                                                    style="width:150px; max-height: 100px; border-radius: 3px;"></td>
                                             <td>
                                                 <a href="{{ route('brands.edit', $brand->id) }}"
-                                                    class="btn btn-warning">Edit</a>
-                                                <a href="{{ route('brands.delete', $brand->id) }}"
-                                                    class="btn btn-danger">Delete</a>
+                                                    class="btn btn-warning mb-1">Edit</a>
+                                                <a href="#" class="btn btn-danger mb-1"
+                                                    style="width: 70px;" data-toggle="modal"
+                                                    data-target="#deleteConfirmationModal" data-id="{{ $brand->id }}"
+                                                    data-name="{{ $brand->name }}"
+                                                    data-delete-route="brands/delete">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -77,6 +80,27 @@
                         </table>
                     </div>
                     {{ $brands->links() }}
+                </div>
+                <!-- Delete Confirmation Modal -->
+                <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog"
+                    aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirm Delete</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete the brand "<span id="entityName"></span>"?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->

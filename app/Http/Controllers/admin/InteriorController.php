@@ -20,7 +20,7 @@ class InteriorController extends Controller
     // Chuyển đến trang add
     public function add()
     {
-        $cars = Car::all();
+        $cars = Car::orderBy('name')->get();
         return view('admin.interior.add', compact('cars'));
     }
 

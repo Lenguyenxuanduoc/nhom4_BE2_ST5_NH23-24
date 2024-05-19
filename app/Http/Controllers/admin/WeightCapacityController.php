@@ -15,13 +15,13 @@ class WeightCapacityController extends Controller
     public function index()
     {
         $weights_capacities = WeightCapacity::paginate(10); // Thay đổi
-        return view('admin.weightcapacity.list', compact('weights_capacities'));
+        return view('admin.weightcapacity.list', compact('weights_capacities'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     // Chuyển đến trang add
     public function add()
     {
-        $cars = Car::all();
+        $cars = Car::orderBy('name')->get();
         return view('admin.weightcapacity.add', compact('cars'));
     }
 

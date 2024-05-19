@@ -18,14 +18,14 @@
                     <div class="col-md-12">
                         {{-- Thông báo lỗi khi (thêm/xóa/sửa) không thành công --}}
                         @if (session('error'))
-                            <div class="alert alert-danger">
+                            <div id="errorAlert" class="alert alert-danger">
                                 {{ session('error') }}
                             </div>
                         @endif
 
                         {{-- Thông báo thành công khi (thêm/xóa/sửa) thành công --}}
                         @if (session('success'))
-                            <div class="alert alert-success">
+                            <div id="successAlert" class="alert alert-success">
                                 {{ session('success') }}
                             </div>
                         @endif
@@ -35,7 +35,7 @@
                         <a href="{{ route('exteriors.add') }}" class="btn btn-dark my-2">Add</a>
                     </div>
 
-                    <div class="col-md-10">
+                    <div class="col-md-12">
                         <table class="table" style="background: white">
                             <thead class="thead-dark">
                                 <tr>
@@ -52,15 +52,21 @@
                                 @if ($exteriors)
                                     @foreach ($exteriors as $exterior)
                                         <tr>
-                                            <th scope="row">{{ $loop->iteration }}</th>
+                                            <td style="padding: 12px 5px" scope="row">
+                                                {{ ($exteriors->currentPage() - 1) * $exteriors->perPage() + $loop->iteration }}
+                                            </td>
                                             <td>{{ $exterior->car->name }}</td>
                                             <td>{{ $exterior->length }}</td>
                                             <td>{{ $exterior->width }}</td>
                                             <td>{{ $exterior->height }}</td>
                                             <td>{{ $exterior->wheelbase }}</td>
                                             <td style="width: 20%;">
-                                                <a href="{{ route('exteriors.edit', $exterior->id) }}" class="btn btn-warning">Edit</a>
-                                                <a href="{{ route('exteriors.delete', $exterior->id) }}" class="btn btn-danger">Delete</a>
+                                                <a href="{{ route('exteriors.edit', $exterior->id) }}"
+                                                    class="btn btn-warning mb-1">Edit</a>
+                                                <a href="#" class="btn btn-danger mb-1" style="width: 70px;"
+                                                    data-toggle="modal" data-target="#deleteConfirmationModal"
+                                                    data-id="{{ $exterior->id }}" data-name="{{ $exterior->car->name }}"
+                                                    data-delete-route="exteriors/delete">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -70,6 +76,27 @@
                     </div>
                 </div>
                 {{ $exteriors->links() }}
+                <!-- Delete Confirmation Modal -->
+                <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog"
+                    aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirm Delete</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete the exterior of car "<span id="entityName"></span>"?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>

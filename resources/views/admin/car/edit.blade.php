@@ -67,27 +67,27 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="col-md-4 mb-4">
-                                    <label>Price</label>
-                                    <input type="number" class="form-control" name="price" placeholder="Enter price"
-                                        value="{{ $car->price }}" required>
+                                <div class="col-md-6 mb-6">
+                                    <label>MSRP</label>
+                                    <input type="number" class="form-control" name="msrp" placeholder="Enter MSRP" value="{{$car->msrp}}"
+                                        required>
                                 </div>
-                                <div class="col-md-4 mb-4">
-                                    <label>Quantity</label>
-                                    <input type="number" class="form-control" name="quantity" placeholder="Enter quantity"
-                                        value="{{ $car->quantity }}">
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <label>Producing Year</label>
-                                    <input type="number" class="form-control" name="producing_year" id="producingYear"
-                                        placeholder="Enter producing year" value="{{ $car->producing_year }}" required>
+                                <div class="col-md-6 mb-6">
+                                    <label>Fair Market Price</label>
+                                    <input type="number" class="form-control" name="fair_market_price" placeholder="Enter fair market price"  value="{{$car->fair_market_price}}">
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea class="form-control" style="height: 120px" name="description" placeholder="Enter description"
-                                    id="description">{{ $car->description }}</textarea>
+                            <div class="form-row my-3">
+                                <div class="col-md-6 mb-6">
+                                    <label>Quantity</label>
+                                    <input type="number" class="form-control" name="quantity" placeholder="Enter quantity" value="{{$car->quantity}}">
+                                </div>
+                                <div class="col-md-6 mb-6">
+                                    <label>Producing Year</label>
+                                    <input type="number" class="form-control" name="producing_year" id="producingYear" value="{{$car->producing_year}}"
+                                        placeholder="Enter producing year" required>
+                                </div>
                             </div>
 
                             <div class="form-row mb-3">

@@ -41,7 +41,7 @@
                                             <div>
                                                 <input type="file" name="img{{ $i + 1 }}"
                                                     id="input-file-img{{ $i + 1 }}"
-                                                    accept="image/png, image/jpg, image/jpeg"
+                                                    accept="image/png, image/jpg"
                                                     onchange="previewImage(this, 'profile-img{{ $i + 1 }}')">
                                             </div>
                                             <img src="{{ asset('images/') }}" alt=""

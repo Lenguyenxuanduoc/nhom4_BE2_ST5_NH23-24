@@ -46,25 +46,27 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="col-md-4 mb-4">
-                                    <label>Price</label>
-                                    <input type="number" class="form-control" name="price" placeholder="Enter price"
+                                <div class="col-md-6 mb-6">
+                                    <label>MSRP</label>
+                                    <input type="number" class="form-control" name="msrp" placeholder="Enter MSRP"
                                         required>
                                 </div>
-                                <div class="col-md-4 mb-4">
+                                <div class="col-md-6 mb-6">
+                                    <label>Fair Market Price</label>
+                                    <input type="number" class="form-control" name="fair_market_price" placeholder="Enter fair market price">
+                                </div>
+                            </div>
+
+                            <div class="form-row my-3">
+                                <div class="col-md-6 mb-6">
                                     <label>Quantity</label>
                                     <input type="number" class="form-control" name="quantity" placeholder="Enter quantity">
                                 </div>
-                                <div class="col-md-4 mb-4">
+                                <div class="col-md-6 mb-6">
                                     <label>Producing Year</label>
                                     <input type="number" class="form-control" name="producing_year" id="producingYear"
                                         placeholder="Enter producing year" required>
                                 </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea class="form-control" name="description" placeholder="Enter description" id="description"></textarea>
                             </div>
 
                             <div class="form-row mb-3">
@@ -74,7 +76,7 @@
                                     <div class="avatar-upload">
                                         <div>
                                             <input type="file" name="img{{ $i+1 }}" id="input-file-img{{ $i+1 }}"
-                                                accept="image/png, image/jpg, image/jpeg" onchange="previewImage(this, 'profile-img{{ $i+1 }}')" required>
+                                                accept="image/png, image/jpg" onchange="previewImage(this, 'profile-img{{ $i+1 }}')" >
                                         </div>
                                         <img src="{{ asset('images/') }}" alt="" id="profile-img{{ $i+1 }}">
                                     </div>
@@ -87,7 +89,7 @@
                                 <div class="avatar-upload">
                                     <div>
                                         <input type="file" name="avatar" id="input-file-avatar"
-                                            accept="image/png, image/jpg, image/jpeg">
+                                            accept="image/png, image/jpg">
                                     </div>
                                     <img src="{{ asset('images/') }}" alt="" id="profile-avatar">
                                 </div>
