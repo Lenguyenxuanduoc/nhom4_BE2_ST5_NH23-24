@@ -45,8 +45,7 @@
                                 <label for="">Logo</label>
                                 <div class="avatar-upload">
                                     <div>
-                                        <input type="file" name="logo" id="input-file-brand-logo"
-                                            accept="image/png, image/jpg">
+                                        <input type="file" name="logo" id="input-file-brand-logo" accept="image/png, image/jpg, image/jpeg">
                                     </div>
                                     <img src="{{ asset('images/') }}" alt="" id="profile-brand-logo">
                                 </div>
@@ -56,8 +55,7 @@
                                 <label for="">Banner</label>
                                 <div class="avatar-upload">
                                     <div>
-                                        <input type="file" name="banner" id="input-file-brand-banner"
-                                            accept="image/png, image/jpg">
+                                        <input type="file" name="banner" id="input-file-brand-banner" accept="image/png, image/jpg, image/jpeg">
                                     </div>
                                     <img src="{{ asset('images/') }}" alt="" id="profile-brand-banner">
                                 </div>

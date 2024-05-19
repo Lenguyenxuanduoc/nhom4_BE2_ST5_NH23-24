@@ -156,11 +156,13 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// Hiển thị thông báo success, error trong 1.2s
+// Hiển thị thông báo success, error trong 2s
 setTimeout(function() {
     $('#errorAlert').fadeOut('slow');
-}, 1200);
+}, 2000);
 
 setTimeout(function() {
     $('#successAlert').fadeOut('slow');
-}, 1200);
+}, 2000);
+
+

@@ -114,6 +114,10 @@ class BrandController extends Controller
     public function delete($id)
     {
         $brand = Brand::find($id);
+
+        if ($brand->cars()->count() > 0) {
+            return redirect()->back()->with('error', 'Cannot delete this brand "'. $brand->name.'" because it contains cars.');
+        }
         $logo = 'images/logos/' . $brand->logo;
         $banner = 'images/banners/' . $brand->banner;
 

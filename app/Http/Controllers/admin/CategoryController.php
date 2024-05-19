@@ -62,6 +62,11 @@ class CategoryController extends Controller
     // Xử lý chức năng delete
     public function delete($id){
         $category = Category::find($id);
+
+        if ($category->cars()->count() > 0){
+            return redirect()->back()->with('error', 'Cannot delete this category "'. $category->name.'" because it contains cars.');
+        }
+
         try {
             $category->delete();
             return redirect()->route('categories.index')->with('success', 'The category has been deleted successfully.');
