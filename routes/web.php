@@ -53,8 +53,8 @@ Route::prefix('/car')->group(function(){
 Route::get('/compare', [ClientCarController::class, 'compare'])->name('compare');
 
 Route::get('/api/cars', [ClientCarController::class, 'getCarsByBrandAndCategory']);
+Route::post('/api/car', [ClientCarController::class, 'getCarByCarID']);
 
-Route::get('/get-info-car', [ClientCarController::class, 'getCarByCarID']);
 
 
 // Login Logout

@@ -97,14 +97,23 @@ class ClientCarController extends Controller
         return view('client.car.compare', compact('title', 'allBrands', 'allCategories'));
     }
 
-    public function getCarByCarID(Reqest $request){
-        $id = $request->input('carId');
-        $car = Car::where('id', $id)->get();
+    public function getCarByCarID(Request $request){
+        // $car = Car::where('id', $carId)->get();
         
-        if (!$car) {
+        // if (!$car) {
+        //     return response()->json(['error' => 'Car not found'], 404);
+        // }
+        // dd($car);
+        // return response()->json($car);
+        
+        try {
+            $carId = $request->input('id');
+            $car = Car::findOrFail($carId);
+            return response()->json($car);
+        } catch (ModelNotFoundException $e) {
             return response()->json(['error' => 'Car not found'], 404);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'An error occurred'], 500);
         }
-        
-        return response()->json($car);
     }
 }

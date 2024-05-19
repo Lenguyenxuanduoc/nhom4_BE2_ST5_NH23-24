@@ -118,7 +118,7 @@
                                 </select>
                             </label>
                         </div>
-
+                        @csrf
                         <div class="_2US6W">
                             <button type="button" class="A8zWh" aria-label="Clear Add Vehicle Form">Clear</button>
                             <button type="button" class="_1_ts0 _3QU5r" aria-label="Add Vehicle">Add</button>
@@ -737,29 +737,6 @@
 </div>
 
 <script>
-    // document.addEventListener("DOMContentLoaded", function() {
-    //     const buttons = document.querySelectorAll('._3D37-'); // Chọn tất cả các nút
-    //     const infoSections = document.querySelectorAll('._3RBPn'); // Chọn tất cả các phần tử chứa thông tin
-
-    //     buttons.forEach((button, index) => {
-    //         button.addEventListener('click', function() {
-    //             const info = infoSections[index]; // Lấy phần tử thông tin tương ứng với nút
-    //             if (info.classList.contains('_1gEO9')) {
-    //                 // Nếu có, loại bỏ lớp _1gEO9 để hiển thị thông tin
-    //                 info.classList.remove('_1gEO9');
-    //                 info.style.maxHeight = "125rem"; // Hiển thị phần tử
-    //                 info.style.opacity = "1"; // Hiển thị phần tử
-    //             } else {
-    //                 // Nếu không, thêm lớp _1gEO9 để ẩn đi thông tin
-    //                 info.classList.add('_1gEO9');
-    //                 info.style.maxHeight = "0"; // Ẩn đi phần tử
-    //                 info.style.opacity = "0"; // Ẩn đi phần tử
-    //             }
-    //         });
-    //     });
-    // });
-
-
     document.addEventListener("DOMContentLoaded", function() {
         // Helper function to toggle visibility of an element
         function toggleVisibility(element, isVisible, maxHeight = "125rem") {
@@ -812,17 +789,24 @@
                 .catch(error => console.error('Error fetching cars:', error));
         }
 
-        // Fetch car details based on car ID and update HTML
         function fetchCarDetailsAndUpdateUI(carId, infoSection) {
             console.log(`Fetching details for carId: ${carId}`);
-            fetch(`/get-info-car?carId=${carId}`)
-                .then(response => response.json())
-                .then(car => {
-                    console.log('Car details:', car);
-                    
-                })
-                .catch(error => console.error('Error fetching car details:', error));
+            fetch('/api/car', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({ id: carId })
+            })
+            .then(response => response.json())
+            .then(car => {
+                console.log('Car details:', car);
+                
+            })
+            .catch(error => console.error('Error fetching car details:', error));
         }
+
 
         // Clear form selections and reset form
         function clearFormSelections(formDiv, addButton) {
@@ -910,156 +894,6 @@
         setupPricingButtons();
         setupAddVehicleButtons();
     });
-
-
-    // document.addEventListener("DOMContentLoaded", function() {
-    //     // Helper function to toggle visibility of an element
-    //     function toggleVisibility(element, isVisible, maxHeight = "125rem") {
-    //         element.style.maxHeight = isVisible ? maxHeight : "0";
-    //         element.style.opacity = isVisible ? "1" : "0";
-    //     }
-
-    //     // Toggle info section
-    //     function toggleInfoSection(button, infoSection) {
-    //         const newDiv = infoSection.querySelector('._3N7xD');
-    //         if (infoSection.classList.contains('_1gEO9')) {
-    //             infoSection.classList.remove('_1gEO9');
-    //             toggleVisibility(infoSection, true);
-    //             newDiv.style.display = 'block';
-    //         } else {
-    //             infoSection.classList.add('_1gEO9');
-    //             toggleVisibility(infoSection, false);
-    //             newDiv.style.display = 'none';
-    //         }
-    //     }
-
-    //     // Add event listeners for "Pricing" buttons
-    //     function setupPricingButtons() {
-    //         const buttons = document.querySelectorAll('._3D37-');
-    //         const infoSections = document.querySelectorAll('._3RBPn');
-
-    //         buttons.forEach((button, index) => {
-    //             button.addEventListener('click', () => toggleInfoSection(button, infoSections[index]));
-    //         });
-    //     }
-
-    //     // Fetch car models based on selected brand make and category
-    //     function fetchCarModels(carMakeSelect, carCategorySelect, carModelSelect) {
-    //         const brandId = carMakeSelect.value;
-    //         const categoryId = carCategorySelect.value;
-
-    //         fetch(`/api/cars?brandID=${brandId}&categoryID=${categoryId}`)
-    //             .then(response => response.json())
-    //             .then(cars => {
-    //                 carModelSelect.innerHTML = '<option disabled selected>Model</option>';
-    //                 cars.forEach(car => {
-    //                     const option = document.createElement('option');
-    //                     option.value = car.id;
-    //                     option.textContent = car.name;
-    //                     carModelSelect.appendChild(option);
-    //                 });
-    //                 carModelSelect.removeAttribute('disabled');
-    //             })
-    //             .catch(error => console.error('Error fetching cars:', error));
-    //     }
-
-    //     // Fetch car details based on car ID and update HTML
-    //     fucntion fetchCarDetailsAndUpdateUI(carId, infoSection) {
-    //         fetch(`/getInfoCar/${carId}`)
-    //             .then(response => response.json())
-    //             .then(car => {
-    //                 const carDetails = infoSection.querySelector('#carDetails');
-    //                 const carNameElement = carDetails.querySelector('._1YVTl');
-    //                 const carImageElement = carDetails.querySelector('._3sDNq');
-    //                 const carLinkElement = carDetails.querySelector('a[data-c="link"]');
-
-    //                 carNameElement.textContent = car.name;
-    //                 carImageElement.src = car.image_url;
-    //                 carLinkElement.href = car.slug;
-    //             })
-    //             .catch(error => console.error('Error fetching car details:', error));
-    //     }
-
-    //     // Clear form selections and reset form
-    //     function clearFormSelections(formDiv, addButton) {
-    //         const carMakeSelect = formDiv.querySelector('#Car\\ Make');
-    //         const carCategorySelect = formDiv.querySelector('#Car\\ Category');
-    //         const carModelSelect = formDiv.querySelector('#Car\\ Model');
-
-    //         carMakeSelect.selectedIndex = 0;
-    //         carCategorySelect.selectedIndex = 0;
-    //         carModelSelect.selectedIndex = 0;
-    //         carCategorySelect.setAttribute('disabled', '');
-    //         carModelSelect.setAttribute('disabled', '');
-    //         carModelSelect.innerHTML = '<option disabled selected>Model</option>';
-    //         addButton.classList.remove('button-enable');
-    //     }
-
-    //     // Add event listeners for "Add Vehicle" buttons
-    //     function setupAddVehicleButtons() {
-    //         const addButtons = document.querySelectorAll('button[aria-label="Add Vehicle"]');
-    //         const infoSections = document.querySelectorAll('._3RBPn');
-
-    //         addButtons.forEach((addButton, index) => {
-    //             const formDiv = document.querySelectorAll('div._3vbjm')[index];
-    //             const newDiv = document.querySelectorAll('div._3N7xD')[index];
-
-    //             addButton.addEventListener('click', function() {
-    //                 if (newDiv && formDiv) {
-    //                     formDiv.style.display = 'none';
-    //                     newDiv.style.display = 'block';
-
-    //                     const infoSection = infoSections[index];
-    //                     infoSection.classList.remove('_1gEO9');
-    //                     toggleVisibility(infoSection, true);
-    //                 }
-    //             });
-
-    //             const carMakeSelect = formDiv.querySelector('#Car\\ Make');
-    //             const carCategorySelect = formDiv.querySelector('#Car\\ Category');
-    //             const carModelSelect = formDiv.querySelector('#Car\\ Model');
-    //             const clearButton = formDiv.querySelector(
-    //             'button[aria-label="Clear Add Vehicle Form"]');
-
-    //             carMakeSelect.addEventListener('change', function() {
-    //                 if (carMakeSelect.value) {
-    //                     carCategorySelect.removeAttribute('disabled');
-    //                 } else {
-    //                     carCategorySelect.setAttribute('disabled', '');
-    //                     carModelSelect.setAttribute('disabled', '');
-    //                     carModelSelect.innerHTML = '<option disabled selected>Model</option>';
-    //                     addButton.classList.remove('button-enable');
-    //                 }
-    //             });
-
-    //             carCategorySelect.addEventListener('change', function() {
-    //                 if (carCategorySelect.value) {
-    //                     fetchCarModels(carMakeSelect, carCategorySelect, carModelSelect);
-    //                 } else {
-    //                     carModelSelect.setAttribute('disabled', '');
-    //                     carModelSelect.innerHTML = '<option disabled selected>Model</option>';
-    //                     addButton.classList.remove('button-enable');
-    //                 }
-    //             });
-
-    //             carModelSelect.addEventListener('change', function() {
-    //                 if (carModelSelect.value) {
-    //                     addButton.classList.add('button-enable');
-    //                 } else {
-    //                     addButton.classList.remove('button-enable');
-    //                 }
-    //             });
-
-    //             clearButton.addEventListener('click', function() {
-    //                 clearFormSelections(formDiv, addButton);
-    //             });
-    //         });
-    //     }
-
-    //     // Initialize all event listeners
-    //     setupPricingButtons();
-    //     setupAddVehicleButtons();
-    // });
 
 </script>
 
