@@ -114,14 +114,14 @@ class PostsController extends Controller
     public function delete($id)
     {
         $posts = Posts::find($id);
-        $images = json_decode($posts->images);
+        // $images = json_decode($posts->images);
 
-        foreach ($images as $image) {
-            $oldImg = 'images/posts/' . $image;
-            if (File::exists($oldImg)) {
-                File::delete($oldImg);
-            }
-        }
+        // foreach ($images as $image) {
+        //     $oldImg = 'images/posts/' . $image;
+        //     if (File::exists($oldImg)) {
+        //         File::delete($oldImg);
+        //     }
+        // }
 
         try {
             $posts->delete();

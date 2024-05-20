@@ -203,6 +203,7 @@ Route::middleware('auth.admin')->prefix('safeties')->group(function(){
 
     Route::delete('/delete/{id}', [SafetyController::class, 'delete'])->name('safeties.delete');
 });
+
 //Users
 Route::middleware('auth.admin')->prefix('users')->group(function(){
     Route::get('/', [UserController::class, 'index'])->name('users.index');

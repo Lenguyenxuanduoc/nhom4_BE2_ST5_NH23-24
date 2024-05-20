@@ -25,7 +25,7 @@ class UserController extends Controller
             if ($user->permission) {
                 Session::flash('success', 'Admin rights granted successfully.');
             } else {
-                Session::flash('success', 'Admin rights revoked successfully.');
+                Session::flash('error', 'Admin rights revoked successfully.');
             }
         } else {
             Session::flash('error', 'User not found.');
