@@ -111,6 +111,33 @@
                     </a>
                 </li>
             </ul> 
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <li class="nav-item">
+                    <a href="{{ route('warranties.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>Warranties</p>
+                    </a>
+                </li>
+            </ul> 
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <li class="nav-item">
+                    <a href="{{ route('safeties.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>Safeties</p>
+                    </a>
+                </li>
+            </ul> 
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <li class="nav-item">
+                    <a href="{{ route('users.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>Users</p>
+                    </a>
+                </li>
+            </ul> 
         </nav>
         <!-- /.sidebar-menu -->
     </div>
