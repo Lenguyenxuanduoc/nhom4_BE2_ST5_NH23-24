@@ -18,6 +18,10 @@ use App\Http\Controllers\admin\ExteriorController;
 use App\Http\Controllers\admin\InteriorController;
 use App\Http\Controllers\admin\PerformanceController;
 use App\Http\Controllers\admin\WeightCapacityController;
+use App\Http\Controllers\admin\WarrantyController;
+use App\Http\Controllers\Admin\SafetyController;
+use App\Http\Controllers\Admin\UserController;
+
 
 // Client routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -172,4 +176,35 @@ Route::middleware('auth.admin')->prefix('weightcapacities')->group(function(){
     Route::post('/update/{id}', [WeightCapacityController::class, 'update'])->name('weightcapacities.update');
 
     Route::get('/delete/{id}', [WeightCapacityController::class, 'delete'])->name('weightcapacities.delete');
+});
+
+// Warranties
+Route::middleware('auth.admin')->prefix('warranties')->group(function(){
+    Route::get('/', [WarrantyController::class, 'index'])->name('warranties.index');
+
+    Route::get('/add', [WarrantyController::class, 'add'])->name('warranties.add');
+    Route::post('/store', [WarrantyController::class, 'store'])->name('warranties.store');
+
+    Route::get('/edit/{id}', [WarrantyController::class, 'edit'])->name('warranties.edit');
+    Route::put('/update/{id}', [WarrantyController::class, 'update'])->name('warranties.update');
+
+    Route::delete('/delete/{id}', [WarrantyController::class, 'delete'])->name('warranties.delete');
+});
+
+// Safeties
+Route::middleware('auth.admin')->prefix('safeties')->group(function(){
+    Route::get('/', [SafetyController::class, 'index'])->name('safeties.index');
+
+    Route::get('/add', [SafetyController::class, 'add'])->name('safeties.add');
+    Route::post('/store', [SafetyController::class, 'store'])->name('safeties.store');
+
+    Route::get('/edit/{id}', [SafetyController::class, 'edit'])->name('safeties.edit');
+    Route::put('/update/{id}', [SafetyController::class, 'update'])->name('safeties.update');
+
+    Route::delete('/delete/{id}', [SafetyController::class, 'delete'])->name('safeties.delete');
+});
+//Users
+Route::middleware('auth.admin')->prefix('users')->group(function(){
+    Route::get('/', [UserController::class, 'index'])->name('users.index');
+    Route::post('/toggle-admin/{id}', [UserController::class, 'toggleAdmin'])->name('users.toggleAdmin');
 });
