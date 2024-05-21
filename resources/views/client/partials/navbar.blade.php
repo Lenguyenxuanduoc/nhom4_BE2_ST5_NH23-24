@@ -26,7 +26,7 @@
                     </ul>
                 </div>
             </li>
-            <li><a href="{{route('compare')}}">Compare</a></li>
+            {{-- <li><a href="{{route('compare')}}">Compare</a></li> --}}
             <li><a href="/contact">Contact</a></li>
 
             @if (Auth::check() && Auth::user()->permission == 1) 

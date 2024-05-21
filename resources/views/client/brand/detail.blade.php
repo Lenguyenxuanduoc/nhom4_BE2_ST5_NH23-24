@@ -41,9 +41,9 @@
                         </h3>
                         <span>Producing:</span>
                         <h3>{{ $car->producing_year }}</h3>
-                        {{-- <div class="compare-link">
-                            <a href="{{route('car.comparison')}}">Compare <i class="fa-solid fa-arrow-right"></i></a>
-                        </div> --}}
+                        <div class="compare-link">
+                            <a href="{{route('compare')}}">Compare <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             @endforeach

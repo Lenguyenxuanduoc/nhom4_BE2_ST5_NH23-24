@@ -60,7 +60,7 @@
         @if (!empty($featured_cars))
             @foreach ($featured_cars as $car)
                 <div class="car-box">
-                    <a href={{asset('car/'. $car->slug)}}>
+                    <a href="{{route('car.detail', $car->slug)}}">
                         <h3>{{ $car->name }}</h3>
                         <img src={{ asset('images/cars/' . $car->avatar) }} alt="">
                     </a>
@@ -80,9 +80,9 @@
                         <span>Producing:</span>
                         <h3>{{ $car->producing_year }}</h3>
 
-                        {{-- <div class="compare-link">
-                            <a href="{{route('car.comparison')}}">Compare <i class="fa-solid fa-arrow-right"></i></a>
-                        </div> --}}
+                        <div class="compare-link">
+                            <a href="{{route('compare')}}">Compare <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
                     </div>
 
                     
