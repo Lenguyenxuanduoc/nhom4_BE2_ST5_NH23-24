@@ -20,25 +20,46 @@ class ClientCarController extends Controller
 {
     public function getCar($slug)
     {
-        $car_detail = Car::select('cars.id', 'cars.name', 'cars.msrp', 'cars.fair_market_price', 'cars.avatar', 'cars.slug', 'cars.producing_year', 'cars.images', 'cars.brand_id', 'cars.category_id', 'performances.engine', 'performances.horsepower', 'performances.trim', 'performances.torque', 'performances.cylinders', 'performances.standard_mpg', 'performances.transmission', 'performances.transmission_type', 'interiors.front_headroom', 'interiors.rear_headroom', 'interiors.front_legroom', 'interiors.rear_legroom', 'interiors.front_shoulder_room', 'interiors.rear_shoulder_room', 'exteriors.length', 'exteriors.width', 'exteriors.height', 'exteriors.wheelbase', 'weights_capacities.fuel_capacity', 'weights_capacities.cargo_capacity', 'weights_capacities.curb_weight')
-            ->leftJoin('performances', 'cars.id', '=', 'performances.car_id')
-            ->leftJoin('interiors', 'cars.id', '=', 'interiors.car_id')
-            ->leftJoin('exteriors', 'cars.id', '=', 'exteriors.car_id')
-            ->leftJoin('weights_capacities', 'cars.id', '=', 'weights_capacities.car_id')
-            ->where('cars.slug', $slug)
-            ->first();
+        $car = Car::where('slug', $slug)->first();
 
-        if (!$car_detail) {
+        if (!$car) {
             abort(404);
         }
 
-        $title = $car_detail->name;
+        $carId = $car->id;
+        $performance = Performance::where('car_id', $carId)->first();
+        $interior = Interior::where('car_id', $carId)->first();
+        $review = Review::where('car_id', $carId)->first();
+        $exterior = Exterior::where('car_id', $carId)->first();
+        $weightCapacity = WeightCapacity::where('car_id', $carId)->first();
+        $warranty = Warranty::where('car_id', $carId)->first();
+        $safety = Safety::where('car_id', $carId)->first();
+
+        $mt_score = 0;
+        $performanceInReview = 0;
+        $efficency_rangeInReview = 0;
+        $tech_innovationInReview = 0;
+        $valueInReview = 0;
+
+        if ($review){
+            $performanceInReview = $review->performance;
+            $efficency_rangeInReview = $review->efficency_range;
+            $tech_innovationInReview = $review->tech_innovation;
+            $valueInReview = $review->value;
+            $mt_score = ($performanceInReview + $efficency_rangeInReview + $valueInReview + $tech_innovationInReview) / 4;
+            $mt_score = round($mt_score, 1);
+        }
+
+        $title = $car->name;
 
         $related_cars = Car::where('slug', '!=', $slug)
-            ->where('brand_id', $car_detail->brand_id)
+            ->where('brand_id', $car->brand_id)
             ->get();
 
-        return view('client.car.detail', compact('slug', 'car_detail', 'related_cars', 'title'));
+        return view('client.car.detail', compact('slug', 'car', 'related_cars', 'mt_score', 'performanceInReview',
+                                                'efficency_rangeInReview', 'tech_innovationInReview', 'valueInReview',
+                                                'title', 'performance', 'interior', 'review', 
+                                                'exterior', 'weightCapacity', 'safety', 'warranty'));
     }
 
     public function getCarsByBrandAndCategory(Request $request)
