@@ -17,23 +17,37 @@ class UsersSeeder extends Seeder
     {
         \DB::table("users")->insert([
             [
-                "username" => "admin",
-                "password" => Hash::make("admin"),
+                "username" => "toilavu",
+                "password" => Hash::make("toilavu2212"),
+                "email" => "mainguyenhoangvu2212@gmail.com",
+                "name" => "Hoang Vu",
                 "address" => "Binh Duong",
                 "permission" => true
             ],
             [
-                "username" => "user1",
-                "password" => Hash::make("user1"),
+                "username" => "xuanduoc",
+                "password" => Hash::make("xuanduoc123"),
+                "email" => "lenguynxuandc@gmail.com",
+                "name" => "Xuan Duoc",
+                "address" => "TP HCM",
+                "permission" => true
+            ],
+            [
+                "username" => "thanhcong",
+                "password" => Hash::make("thanhcong123"),
+                "email" => "truonganhthanhcong@gmail.com",
+                "name" => "Thanh Cong",
                 "address" => "TP HCM",
                 "permission" => false
             ],
             [
-                "username" => "user2",
-                "password" => Hash::make("user2"),
-                "address" => "Ha Noi",
+                "username" => "phuquy",
+                "password" => Hash::make("phuquy123"),
+                "email" => "quyliphu@gmail.com",
+                "name" => "Phu Quy",
+                "address" => "TP HCM",
                 "permission" => false
-            ]
+            ],
         ]);
     }
 }

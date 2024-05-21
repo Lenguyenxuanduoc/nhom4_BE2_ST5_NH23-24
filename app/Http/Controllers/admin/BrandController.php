@@ -67,6 +67,7 @@ class BrandController extends Controller
         }
         return view('admin.brand.edit', compact('brand'));
     }
+    
     // Thực hiện chức năng add
     public function update(Request $request, $id)
     {

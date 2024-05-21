@@ -76,7 +76,6 @@
                 </div>
             @endforeach
         @endif
-
     </div>
 </section>
 <!------- End search results ------->

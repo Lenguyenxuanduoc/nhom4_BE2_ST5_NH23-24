@@ -57,6 +57,9 @@
             <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
             <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
             <li><a href=""><i class="fa-brands fa-x-twitter"></i></a></li>
+            @if(Auth::check())
+                <li><a href="{{route('user.info')}}"> <i class="fa-regular fa-user"></i></a></li>
+            @endif
         </ul>
     </div>
 </nav>

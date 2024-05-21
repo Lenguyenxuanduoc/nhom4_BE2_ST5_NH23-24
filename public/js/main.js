@@ -166,3 +166,20 @@ setTimeout(function() {
 }, 2000);
 
 
+// Hiển thị popup thông báo tình trạng login
+document.addEventListener("DOMContentLoaded", function() {
+    // Function to show the popup
+    function showPopup(popupId) {
+        let popupElement = document.getElementById(popupId);
+        if (popupElement) {
+            popupElement.style.display = 'block';
+            setTimeout(function() {
+                popupElement.style.display = 'none';
+            }, 1500); // Hide after 1.5 seconds
+        }
+    }
+
+    // Show the popups if they exist
+    showPopup('errorPopup');
+    showPopup('successPopup');
+});

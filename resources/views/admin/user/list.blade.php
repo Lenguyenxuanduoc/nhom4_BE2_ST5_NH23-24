@@ -37,9 +37,10 @@
                                 <tr>
                                     <th scope="col"></th>
                                     <th scope="col">Username</th>
-                                    <th scope="col">Email Verified At</th>
+                                    <th scope="col">Email</th>
                                     <th scope="col">Address</th>
                                     <th scope="col">Permission</th>
+                                    <th scope="col">Email Verified At</th>
                                     <th scope="col">Created At</th>
                                     <th scope="col">Updated At</th>
                                     <th scope="col">Actions</th>
@@ -49,19 +50,20 @@
                                 @if ($users)
                                     @foreach ($users as $user)
                                         <tr>
-                                            <td scope="row" style="width: 5%;">
+                                            <td scope="row" style="width: 3%;">
                                                 {{ ($users->currentPage() - 1) * $users->perPage() + $loop->iteration }}
                                             </td>
                                             <td>{{ $user->username }}</td>
-                                            <td>{{ $user->email_verified_at }}</td>
-                                            <td>{{ $user->address }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td style="widows: 5%;">{{ $user->address }}</td>
                                             <td>{{ $user->permission ? 'Admin' : 'User' }}</td>
+                                            <td>{{ $user->email_verified_at }}</td>
                                             <td>{{ $user->created_at }}</td>
                                             <td>{{ $user->updated_at }}</td>
                                             <td>
                                                 <form action="{{ route('users.toggleAdmin', $user->id) }}" method="POST" style="display: inline-block;">
                                                     @csrf
-                                                    <button type="submit" class="btn btn-primary mb-1" style="width: 120px;">
+                                                    <button type="submit" class="btn btn-primary mb-1" style="width: 130px;">
                                                         {{ $user->permission ? 'Revoke Admin' : 'Grant Admin' }}
                                                     </button>
                                                 </form>
@@ -80,3 +82,12 @@
     </div>
     <!-- /.content-wrapper -->
 @endsection
+<script>
+    setTimeout(function() {
+        $('#errorAlert').fadeOut('slow');
+    }, 2000);
+
+    setTimeout(function() {
+        $('#successAlert').fadeOut('slow');
+    }, 2000);
+</script>

@@ -205,7 +205,6 @@ nav.shadow{
 
 .login-popup{
     background-color: #fff;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
     padding: 20px;
     width: 30%;
@@ -2805,3 +2804,133 @@ button[type=button] {
 }
 
 /* ---------------------------------- End compare page ----------------------------------*/
+.alert-custom-popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 999; /* Sit on top */
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -70%);
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 300px; /* Limit the width */
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    text-align: center;
+    border-radius: 5px;
+}
+
+.popup-success {
+    background: #28a745;
+    color: white;
+}
+
+.popup-error {
+    background: #dc3545;
+    color: white;
+}
+
+/* ---------------------------------- Start reset password page ----------------------------------*/
+.reset-password-container {
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.reset-password-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.reset-password-container .form-group {
+    margin-bottom: 20px;
+}
+
+.reset-password-container label {
+    display: block;
+    font-weight: bold;
+}
+
+.reset-password-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.reset-password-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-primary);
+    border: none;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 15px;
+    border: 1px solid var(--color-primary);
+}
+
+.reset-password-container button:hover {
+    background-color: white;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+
+
+/* .register-container {
+    max-width: 400px;
+    padding: 100px 0;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.register-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.register-container .form-group {
+    margin-bottom: 20px;
+}
+
+.register-container label {
+    display: block;
+    font-weight: bold;
+}
+
+.register-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.register-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-primary);
+    border: none;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 15px;
+    border: 1px solid var(--color-primary);
+}
+
+.register-container button:hover {
+    background-color: white;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+} */

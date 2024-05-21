@@ -9,6 +9,7 @@ use App\Http\Controllers\client\ClientCarController;
 use App\Http\Controllers\client\LoginController;
 use App\Http\Controllers\client\SearchController;
 use App\Http\Controllers\client\ContactController;
+use App\Http\Controllers\client\UserInfoController;
 
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\CarController;
@@ -24,7 +25,7 @@ use App\Http\Controllers\Admin\SafetyController;
 use App\Http\Controllers\Admin\UserController;
 
 
-// Client routes
+///////////////////////// Client routes ///////////////////////
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/search', [HomeController::class,  'search_result'])->name('search');
@@ -65,11 +66,27 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 
 // Login Logout
+Route::get('/login', [LoginController::class, 'login'])->middleware('auth.check');
+Route::get('/logout', [LoginController::class, 'logout'])->middleware('notAuth.check');
+
 Route::post('/login', [LoginController::class, 'login']);
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/logout', [LoginController::class, 'logout']);
+Route::get('/reset-password', [LoginController::class, 'resetPassword'])->name('reset-password');
+Route::get('/register', [LoginController::class, 'register'])->name('register')->middleware('auth.check');
+Route::post('/register', [LoginController::class, 'store'])->name('store.user');
 
 
-// Admin routes
+// User info
+Route::middleware('notAuth.check')->prefix('/user')->group(function(){
+    Route::get('/info', [UserInfoController::class, 'index'])->name('user.info');
+    Route::post('/update/{id}', [UserInfoController::class, 'update'])->name('user.update');
+    Route::post('/change_password/{id}', [UserInfoController::class, 'changePassword'])->name('user.change_password');
+});
+///////////////////////// Client routes ///////////////////////
+
+
+
+/////////////////////// Admin routes ///////////////////////
 Route::middleware('auth.admin')->prefix('/admin')->group(function(){
     Route::get('/', [DashboardController::class, 'index'])->name('admin');
 });
@@ -212,3 +229,4 @@ Route::middleware('auth.admin')->prefix('users')->group(function(){
     Route::get('/', [UserController::class, 'index'])->name('users.index');
     Route::post('/toggle-admin/{id}', [UserController::class, 'toggleAdmin'])->name('users.toggleAdmin');
 });
+/////////////////////// Admin routes ///////////////////////
