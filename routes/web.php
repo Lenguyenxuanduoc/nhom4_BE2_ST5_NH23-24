@@ -8,6 +8,7 @@ use App\Http\Controllers\client\ClientBrandController;
 use App\Http\Controllers\client\ClientCarController;
 use App\Http\Controllers\client\LoginController;
 use App\Http\Controllers\client\SearchController;
+use App\Http\Controllers\client\ContactController;
 
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\CarController;
@@ -55,10 +56,12 @@ Route::prefix('/car')->group(function(){
 
 // Compare
 Route::get('/compare', [ClientCarController::class, 'compare'])->name('compare');
-
 Route::get('/api/cars', [ClientCarController::class, 'getCarsByBrandAndCategory']);
 Route::post('/api/car', [ClientCarController::class, 'getCarByCarID']);
 
+
+// Contact
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 
 // Login Logout

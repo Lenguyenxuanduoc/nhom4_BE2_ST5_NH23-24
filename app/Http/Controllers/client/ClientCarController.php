@@ -41,42 +41,6 @@ class ClientCarController extends Controller
         return view('client.car.detail', compact('slug', 'car_detail', 'related_cars', 'title'));
     }
 
-    // public function getCarToCompare($slug)
-    // {
-    //     $car = Car::where('slug', $slug)->first();
-
-    //     if (!$car) {
-    //         abort(404);
-    //     } else {
-    //         $car_id = $car->id;
-    //         $performance = Performance::where('car_id', $car_id)->first();
-    //         $interior = Interior::where('car_id', $car_id)->first();
-    //         $review = Review::where('car_id', $car_id)->first();
-    //         $exterior = Exterior::where('car_id', $car_id)->first();
-    //         $weightCapacity = WeightCapacity::where('car_id', $car_id)->first();
-    //         $warranty = Warranty::where('car_id', $car_id)->first();
-    //         $safety = Safety::where('car_id', $car_id)->first();
-    //     }
-
-    //     $allBrands = Brand::get();
-
-    //     $allCategories = Category::get();
-
-    //     $title = 'Car Comparison';
-
-    //     if (!$review) {
-    //         $mt_score = 0;
-    //     } else {
-    //         $review_performance = $review->performance;
-    //         $review_efficency_range = $review->efficency_range;
-    //         $review_tech_innovation = $review->tech_innovation;
-    //         $review_value = $review->value;
-    //         $mt_score = ($review_performance + $review_efficency_range + $review_tech_innovation + $review_value) / 4;
-    //     }
-
-    //     return view('client.car.compare', compact('car', 'performance', 'interior', 'exterior', 'weightCapacity', 'review', 'warranty', 'safety', 'slug', 'allBrands', 'mt_score', 'allCategories', 'title'));
-    // }
-
     public function getCarsByBrandAndCategory(Request $request)
     {
         $brandId = $request->input('brandID');
@@ -91,7 +55,7 @@ class ClientCarController extends Controller
 
         $allCategories = Category::get();
 
-        $title = 'Car Comparison';
+        $title = 'Exotic Cars | Comparison';
 
         return view('client.car.compare', compact('title', 'allBrands', 'allCategories'));
     }
