@@ -77,7 +77,6 @@ class ClientCarController extends Controller
     //     return view('client.car.compare', compact('car', 'performance', 'interior', 'exterior', 'weightCapacity', 'review', 'warranty', 'safety', 'slug', 'allBrands', 'mt_score', 'allCategories', 'title'));
     // }
 
-
     public function getCarsByBrandAndCategory(Request $request)
     {
         $brandId = $request->input('brandID');
@@ -86,8 +85,8 @@ class ClientCarController extends Controller
         return response()->json($cars);
     }
 
-
-    public function compare(){
+    public function compare()
+    {
         $allBrands = Brand::get();
 
         $allCategories = Category::get();
@@ -97,19 +96,32 @@ class ClientCarController extends Controller
         return view('client.car.compare', compact('title', 'allBrands', 'allCategories'));
     }
 
-    public function getCarByCarID(Request $request){
-        // $car = Car::where('id', $carId)->get();
-        
-        // if (!$car) {
-        //     return response()->json(['error' => 'Car not found'], 404);
-        // }
-        // dd($car);
-        // return response()->json($car);
-        
+    public function getCarByCarID(Request $request)
+    {
         try {
             $carId = $request->input('id');
             $car = Car::findOrFail($carId);
-            return response()->json($car);
+
+            if ($car) {
+                $performance = Performance::where('car_id', $carId)->first();
+                $interior = Interior::where('car_id', $carId)->first();
+                $review = Review::where('car_id', $carId)->first();
+                $exterior = Exterior::where('car_id', $carId)->first();
+                $weightCapacity = WeightCapacity::where('car_id', $carId)->first();
+                $warranty = Warranty::where('car_id', $carId)->first();
+                $safety = Safety::where('car_id', $carId)->first();
+            }
+
+            return response()->json([
+                'car' => $car,
+                'performance' => $performance,
+                'interior' => $interior,
+                'review' => $review,
+                'exterior' => $exterior,
+                'weightCapacity' => $weightCapacity,
+                'warranty' => $warranty,
+                'safety' => $safety,
+            ]);
         } catch (ModelNotFoundException $e) {
             return response()->json(['error' => 'Car not found'], 404);
         } catch (\Exception $e) {
