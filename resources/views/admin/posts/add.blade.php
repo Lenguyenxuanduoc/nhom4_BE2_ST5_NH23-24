@@ -13,13 +13,29 @@
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
+
+                {{-- Thông báo lỗi khi (thêm/xóa/sửa) không thành công --}}
+                @if (session('error'))
+                    <div id="errorAlert" class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+                {{-- Thông báo thành công khi (thêm/xóa/sửa) thành công --}}
+                @if (session('success'))
+                    <div id="successAlert" class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
                 <div class="row">
                     <div class="col-md-12 px-5">
                         <form method="post" action="{{ route('posts.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Title</label>
-                                <input type="text" class="form-control" name="title" placeholder="Enter title" required>
+                                <input type="text" class="form-control" name="title" placeholder="Enter title"
+                                    required>
                             </div>
 
                             <div class="form-group">
@@ -40,8 +56,7 @@
                                         <div class="avatar-upload">
                                             <div>
                                                 <input type="file" name="img{{ $i + 1 }}"
-                                                    id="input-file-img{{ $i + 1 }}"
-                                                    accept="image/png, image/jpg"
+                                                    id="input-file-img{{ $i + 1 }}" accept="image/png, image/jpg, image/jpeg"
                                                     onchange="previewImage(this, 'profile-img{{ $i + 1 }}')">
                                             </div>
                                             <img src="{{ asset('images/') }}" alt=""
@@ -66,4 +81,14 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <script>
+        // Hiển thị thông báo success, error trong 2s
+        setTimeout(function() {
+            $('#errorAlert').fadeOut('slow');
+        }, 2000);
+
+        setTimeout(function() {
+            $('#successAlert').fadeOut('slow');
+        }, 2000);
+    </script>
 @endsection

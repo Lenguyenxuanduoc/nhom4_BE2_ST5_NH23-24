@@ -13,8 +13,23 @@
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
+
+                {{-- Thông báo lỗi khi (thêm/xóa/sửa) không thành công --}}
+                @if (session('error'))
+                    <div id="errorAlert" class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+                {{-- Thông báo thành công khi (thêm/xóa/sửa) thành công --}}
+                @if (session('success'))
+                    <div id="successAlert" class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
                 <div class="row">
-                    <div class="col-md-12 px-5">
+                    <div class="col-md-12 px-5" style="margin-bottom: 70px;">
                         <form method="post" action="{{ route('cars.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
@@ -53,7 +68,8 @@
                                 </div>
                                 <div class="col-md-6 mb-6">
                                     <label>Fair Market Price</label>
-                                    <input type="number" class="form-control" name="fair_market_price" placeholder="Enter fair market price">
+                                    <input type="number" class="form-control" name="fair_market_price"
+                                        placeholder="Enter fair market price">
                                 </div>
                             </div>
 
@@ -71,16 +87,19 @@
 
                             <div class="form-row mb-3">
                                 @for ($i = 0; $i <= 4; $i++)
-                                <div class="col-md-2 col-img">
-                                    <label for="">Image {{ $i+1 }}</label>
-                                    <div class="avatar-upload">
-                                        <div>
-                                            <input type="file" name="img{{ $i+1 }}" id="input-file-img{{ $i+1 }}"
-                                                accept="image/png, image/jpg" onchange="previewImage(this, 'profile-img{{ $i+1 }}')" >
+                                    <div class="col-md-2 col-img">
+                                        <label for="">Image {{ $i + 1 }}</label>
+                                        <div class="avatar-upload">
+                                            <div>
+                                                <input type="file" name="img{{ $i + 1 }}"
+                                                    id="input-file-img{{ $i + 1 }}"
+                                                    accept="image/png, image/jpg, image/jpeg"
+                                                    onchange="previewImage(this, 'profile-img{{ $i + 1 }}')">
+                                            </div>
+                                            <img src="{{ asset('images/') }}" alt=""
+                                                id="profile-img{{ $i + 1 }}">
                                         </div>
-                                        <img src="{{ asset('images/') }}" alt="" id="profile-img{{ $i+1 }}">
                                     </div>
-                                </div>
                                 @endfor
                             </div>
 
@@ -89,7 +108,7 @@
                                 <div class="avatar-upload">
                                     <div>
                                         <input type="file" name="avatar" id="input-file-avatar"
-                                            accept="image/png, image/jpg">
+                                            accept="image/png, image/jpg, image/jpeg">
                                     </div>
                                     <img src="{{ asset('images/') }}" alt="" id="profile-avatar">
                                 </div>
@@ -107,5 +126,15 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <script>
+        // Hiển thị thông báo success, error trong 2s
+        setTimeout(function() {
+            $('#errorAlert').fadeOut('slow');
+        }, 2000);
+    
+        setTimeout(function() {
+            $('#successAlert').fadeOut('slow');
+        }, 2000);
+    </script>
 @endsection
 

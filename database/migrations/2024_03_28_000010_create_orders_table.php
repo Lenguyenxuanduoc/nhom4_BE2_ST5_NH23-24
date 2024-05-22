@@ -17,8 +17,6 @@ return new class extends Migration
             $table->id();
             $table->timestamp('oder_date');
             $table->foreignId('user_id')->constrained('users');
-            $table->double('price');
-            $table->integer('quantity');
             $table->timestamps();
         });
     }

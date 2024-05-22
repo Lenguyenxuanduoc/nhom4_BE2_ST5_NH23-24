@@ -28,7 +28,7 @@
                     doloremque
                     quaerat aspernatur!
                 </p>
-                <a href="brands" class="btn">Explore Cars</a>
+                <a href="{{route('all.brands')}}" class="btn">Explore Cars</a>
             </div>
             <div class="header-right">
                 <div class="sq-box">

@@ -13,6 +13,21 @@
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
+
+                {{-- Thông báo lỗi khi (thêm/xóa/sửa) không thành công --}}
+                @if (session('error'))
+                    <div id="errorAlert" class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+                {{-- Thông báo thành công khi (thêm/xóa/sửa) thành công --}}
+                @if (session('success'))
+                    <div id="successAlert" class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
                 <div class="row">
                     <div class="col-md-12 px-5">
                         <form method="post" action="{{ route('brands.update', $brand->id) }}" enctype="multipart/form-data">
@@ -38,8 +53,7 @@
 
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control" name="description" 
-                                    placeholder="Enter description" id="description"> {{ $brand->description }}"</textarea>
+                                <textarea class="form-control" name="description" placeholder="Enter description" id="description"> {{ $brand->description }}"</textarea>
                             </div>
 
                             <div class="form-group mb-3">
@@ -49,7 +63,8 @@
                                         <input type="file" name="logo" id="input-file-brand-logo"
                                             accept="image/png, image/jpg, image/jpeg">
                                     </div>
-                                    <img src="{{ asset('images/logos/'. $brand->logo) }}" alt="" id="profile-brand-logo">
+                                    <img src="{{ asset('images/logos/' . $brand->logo) }}" alt=""
+                                        id="profile-brand-logo">
                                 </div>
                             </div>
 
@@ -60,7 +75,8 @@
                                         <input type="file" name="banner" id="input-file-brand-banner"
                                             accept="image/png, image/jpg, image/jpeg">
                                     </div>
-                                    <img src="{{ asset('images/banners/'. $brand->banner) }}" alt="" id="profile-brand-banner">
+                                    <img src="{{ asset('images/banners/' . $brand->banner) }}" alt=""
+                                        id="profile-brand-banner">
                                 </div>
                             </div>
 
@@ -75,4 +91,14 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <script>
+        // Hiển thị thông báo success, error trong 2s
+        setTimeout(function() {
+            $('#errorAlert').fadeOut('slow');
+        }, 2000);
+    
+        setTimeout(function() {
+            $('#successAlert').fadeOut('slow');
+        }, 2000);
+    </script>
 @endsection

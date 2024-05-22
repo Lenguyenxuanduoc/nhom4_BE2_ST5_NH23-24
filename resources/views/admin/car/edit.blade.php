@@ -131,4 +131,14 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <script>
+        // Hiển thị thông báo success, error trong 2s
+        setTimeout(function() {
+            $('#errorAlert').fadeOut('slow');
+        }, 2000);
+    
+        setTimeout(function() {
+            $('#successAlert').fadeOut('slow');
+        }, 2000);
+    </script>
 @endsection

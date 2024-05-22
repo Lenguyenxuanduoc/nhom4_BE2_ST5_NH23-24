@@ -33,10 +33,14 @@ class PostsController extends Controller
         $posts->slug = \Str::slug($posts->name);
 
         $MAX_IMAGE = 5;
+        $allowedExtensions = ['png', 'jpg', 'jpeg'];
         for ($i = 1; $i <= $MAX_IMAGE; $i++) {
             if ($request->hasFile('img' . $i)) {
                 $file = $request->file('img' . $i);
                 $extension = $file->getClientOriginalExtension();
+                if (!in_array(strtolower($extension), $allowedExtensions)) {
+                    return redirect()->back()->with('error', 'Only PNG and JPG images are allowed.');
+                }
                 $fileName = uniqid() . '.' . $extension;
                 $file->move('images/posts/', $fileName);
                 $imgJson[] = $fileName;
@@ -75,6 +79,7 @@ class PostsController extends Controller
         $images = json_decode($posts->images);
 
         $MAX_IMAGE = 5;
+        $allowedExtensions = ['png', 'jpg', 'jpeg'];
         $imgJson = []; // Khởi tạo mảng chứa tất cả các ảnh
 
         for ($i = 1; $i <= $MAX_IMAGE; $i++) {
@@ -88,6 +93,9 @@ class PostsController extends Controller
 
                 $file = $request->file('img' . $i);
                 $extension = $file->getClientOriginalExtension();
+                if (!in_array(strtolower($extension), $allowedExtensions)) {
+                    return redirect()->back()->with('error', 'Only PNG and JPG images are allowed.');
+                }
                 $fileName = uniqid() . '.' . $extension;
                 $file->move('images/posts/', $fileName);
                 $imgJson[] = $fileName;
@@ -114,20 +122,29 @@ class PostsController extends Controller
     public function delete($id)
     {
         $posts = Posts::find($id);
-        // $images = json_decode($posts->images);
 
-        // foreach ($images as $image) {
-        //     $oldImg = 'images/posts/' . $image;
-        //     if (File::exists($oldImg)) {
-        //         File::delete($oldImg);
-        //     }
-        // }
+        if (!$posts) {
+            return redirect()->back()->with('error', 'Post not found.');
+        }
+
+        $images = json_decode($posts->images, true);
 
         try {
             $posts->delete();
-            return redirect()->back()->with('success', 'The posts has been deleted successfully.');
+
+            // Xóa ảnh sau khi bài viết đã được xóa thành công
+            if ($images) {
+                foreach ($images as $image) {
+                    $oldImg = 'images/posts/' . $image;
+                    if (File::exists($oldImg)) {
+                        File::delete($oldImg);
+                    }
+                }
+            }
+
+            return redirect()->back()->with('success', 'The post has been deleted successfully.');
         } catch (QueryException $e) {
-            return redirect()->back()->with('error', 'Failed to delete posts. Please try again.');
+            return redirect()->back()->with('error', 'Failed to delete post. Please try again.');
         }
     }
 }

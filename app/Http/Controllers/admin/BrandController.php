@@ -33,9 +33,14 @@ class BrandController extends Controller
         $brand->description = $request->input('description');
         $brand->slug = \Str::slug($brand->name);
 
+        $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
         if ($request->hasFile('logo')) {
             $file = $request->file('logo');
             $extension = $file->getClientOriginalExtension();
+            if (!in_array(strtolower($extension), $allowedExtensions)) {
+                return redirect()->back()->with('error', 'Only PNG and JPG images are allowed.');
+            }
             $fileName = strtolower($brand->name) . '.' . $extension;
             $file->move('images/logos/', $fileName);
             $brand->logo = $fileName;
@@ -44,6 +49,9 @@ class BrandController extends Controller
         if ($request->hasFile('banner')) {
             $file = $request->file('banner');
             $extension = $file->getClientOriginalExtension();
+            if (!in_array(strtolower($extension), $allowedExtensions)) {
+                return redirect()->back()->with('error', 'Only PNG and JPG images are allowed.');
+            }
             $fileName = strtolower($brand->name) . '.' . $extension;
             $file->move('images/banners/', $fileName);
             $brand->banner = $fileName;
@@ -67,7 +75,7 @@ class BrandController extends Controller
         }
         return view('admin.brand.edit', compact('brand'));
     }
-    
+
     // Thực hiện chức năng add
     public function update(Request $request, $id)
     {
@@ -77,6 +85,7 @@ class BrandController extends Controller
         $brand->founder_name = $request->input('founder_name');
         $brand->description = $request->input('description');
         $brand->slug = \Str::slug($brand->name);
+        $allowedExtensions = ['png', 'jpg', 'jpeg'];
 
         if ($request->hasFile('logo')) {
             $oldImg = 'images/logos' . $brand->logo;
@@ -85,6 +94,9 @@ class BrandController extends Controller
             }
             $file = $request->file('logo');
             $extension = $file->getClientOriginalExtension();
+            if (!in_array(strtolower($extension), $allowedExtensions)) {
+                return redirect()->back()->with('error', 'Only PNG and JPG images are allowed.');
+            }
             $fileName = strtolower($brand->name) . '.' . $extension;
             $file->move('images/logos/', $fileName);
             $brand->logo = $fileName;
@@ -97,6 +109,9 @@ class BrandController extends Controller
             }
             $file = $request->file('banner');
             $extension = $file->getClientOriginalExtension();
+            if (!in_array(strtolower($extension), $allowedExtensions)) {
+                return redirect()->back()->with('error', 'Only PNG and JPG images are allowed.');
+            }
             $fileName = strtolower($brand->name) . '.' . $extension;
             $file->move('images/banners/', $fileName);
             $brand->banner = $fileName;
@@ -116,19 +131,31 @@ class BrandController extends Controller
     {
         $brand = Brand::find($id);
 
-        if ($brand->cars()->count() > 0) {
-            return redirect()->back()->with('error', 'Cannot delete this brand "'. $brand->name.'" because it contains cars.');
+        if (!$brand) {
+            return redirect()->back()->with('error', 'Brand not found.');
         }
+
+        if ($brand->cars()->count() > 0) {
+            return redirect()
+                ->back()
+                ->with('error', 'Cannot delete this brand "' . $brand->name . '" because it contains cars.');
+        }
+
         $logo = 'images/logos/' . $brand->logo;
         $banner = 'images/banners/' . $brand->banner;
 
-        if (File::exists($banner) || File::exists($logo)) {
-            File::delete($logo);
-            File::delete($banner);
-        }
-
         try {
             $brand->delete();
+
+            // Xóa ảnh chỉ sau khi xóa thương hiệu thành công
+            if (File::exists($logo)) {
+                File::delete($logo);
+            }
+
+            if (File::exists($banner)) {
+                File::delete($banner);
+            }
+
             return redirect()->back()->with('success', 'The brand has been deleted successfully.');
         } catch (QueryException $e) {
             return redirect()->back()->with('error', 'Failed to delete brand. Please try again.');

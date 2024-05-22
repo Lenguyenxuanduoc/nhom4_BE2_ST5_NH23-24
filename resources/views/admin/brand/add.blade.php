@@ -13,6 +13,21 @@
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
+
+                {{-- Thông báo lỗi khi (thêm/xóa/sửa) không thành công --}}
+                @if (session('error'))
+                    <div id="errorAlert" class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+                {{-- Thông báo thành công khi (thêm/xóa/sửa) thành công --}}
+                @if (session('success'))
+                    <div id="successAlert" class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
                 <div class="row">
                     <div class="col-md-12 px-5">
                         <form method="post" action="{{ route('brands.store') }}" enctype="multipart/form-data">
@@ -72,4 +87,14 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <script>
+        // Hiển thị thông báo success, error trong 2s
+        setTimeout(function() {
+            $('#errorAlert').fadeOut('slow');
+        }, 2000);
+    
+        setTimeout(function() {
+            $('#successAlert').fadeOut('slow');
+        }, 2000);
+    </script>
 @endsection

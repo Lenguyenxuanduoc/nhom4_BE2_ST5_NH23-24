@@ -52,23 +52,31 @@ class CarController extends Controller
         $car->slug = \Str::slug($car->name . ' ' . $car->producing_year);
 
         $MAX_IMAGE = 5;
+        $allowedExtensions = ['png', 'jpg', 'jpeg'];
+        $imgJson = [];
         for ($i = 1; $i <= $MAX_IMAGE; $i++) {
             if ($request->hasFile('img' . $i)) {
                 $file = $request->file('img' . $i);
                 $extension = $file->getClientOriginalExtension();
+                if (!in_array(strtolower($extension), $allowedExtensions)) {
+                    return redirect()->back()->with('error', 'Only PNG and JPG images are allowed.');
+                }
                 $fileName = uniqid() . '.' . $extension;
                 $file->move('images/cars/', $fileName);
                 $imgJson[] = $fileName;
             }
         }
-        
-        if ($car->images){
+
+        if (!empty($imgJson)) {
             $car->images = json_encode($imgJson);
         }
 
         if ($request->hasFile('avatar')) {
             $file = $request->file('avatar');
             $extension = $file->getClientOriginalExtension();
+            if (!in_array(strtolower($extension), $allowedExtensions)) {
+                return redirect()->back()->with('error', 'Only PNG and JPG images are allowed.');
+            }
             $fileName = uniqid() . '.' . $extension;
             $file->move('images/cars/', $fileName);
             $car->avatar = $fileName;
@@ -111,6 +119,7 @@ class CarController extends Controller
         $car->producing_year = $request->input('producing_year');
         $car->slug = \Str::slug($car->title);
 
+        $allowedExtensions = ['png', 'jpg', 'jpeg'];
         $MAX_IMAGE = 5;
         $images = json_decode($car->images);
         for ($i = 1; $i <= $MAX_IMAGE; $i++) {
@@ -122,6 +131,9 @@ class CarController extends Controller
 
                 $file = $request->file('img' . $i);
                 $extension = $file->getClientOriginalExtension();
+                if (!in_array(strtolower($extension), $allowedExtensions)) {
+                    return redirect()->back()->with('error', 'Only PNG and JPG images are allowed.');
+                }
                 $fileName = uniqid() . '.' . $extension;
                 $file->move('images/cars/', $fileName);
                 $images[$i - 1] = $fileName;
@@ -136,6 +148,9 @@ class CarController extends Controller
             }
             $file = $request->file('avatar');
             $extension = $file->getClientOriginalExtension();
+            if (!in_array(strtolower($extension), $allowedExtensions)) {
+                return redirect()->back()->with('error', 'Only PNG and JPG images are allowed.');
+            }
             $fileName = uniqid() . '.' . $extension;
             $file->move('images/cars/', $fileName);
             $car->avatar = $fileName;
@@ -153,36 +168,42 @@ class CarController extends Controller
     // Xử lý chức năng delete
     public function delete($id)
     {
-        $car = Car::find($id);
-        $images = json_decode($car->images);
-        $avatar = 'images/cars/' . $car->avatar;
-
-        // foreach ($images as $image) {
-        //     $oldImg = 'images/cars/' . $image;
-        //     if (File::exists($oldImg)) {
-        //         File::delete($oldImg);
-        //     }
-        // }
-
-        // if (File::exists($avatar)) {
-        //     File::delete($avatar);
-        // }
-
         try {
-            // Xóa các bảng có khóa ngoại là car id trước khi xóa car
-            if ($car) {
-                $interior = Interior::where('car_id', $id)->delete();
-                $exterior = Exterior::where('car_id', $id)->delete();
-                $performance = Performance::where('car_id', $id)->delete();
-                $weight_capacity = WeightCapacity::where('car_id', $id)->delete();
-                $warranty = Warranty::where('car_id', $id)->delete();
-                $safety = Safety::where('car_id', $id)->delete();
-                $review = Review::where('car_id', $id)->delete();
+            $car = Car::find($id);
+            if (!$car) {
+                return redirect()->back()->with('error', 'Car not found.');
             }
 
+            // Xóa các bảng có khóa ngoại là car id trước khi xóa car
+            $interior = Interior::where('car_id', $id)->delete();
+            $exterior = Exterior::where('car_id', $id)->delete();
+            $performance = Performance::where('car_id', $id)->delete();
+            $weight_capacity = WeightCapacity::where('car_id', $id)->delete();
+            $warranty = Warranty::where('car_id', $id)->delete();
+            $safety = Safety::where('car_id', $id)->delete();
+            $review = Review::where('car_id', $id)->delete();
+
             $car->delete();
+
+            $images = json_decode($car->images);
+            $avatar = 'images/cars/' . $car->avatar;
+
+            if ($images) {
+                foreach ($images as $image) {
+                    $oldImg = 'images/cars/' . $image;
+                    if (File::exists($oldImg)) {
+                        File::delete($oldImg);
+                    }
+                }
+            }
+    
+            if (File::exists($avatar)) {
+                File::delete($avatar);
+            }
+    
             return redirect()->back()->with('success', 'The car has been deleted successfully.');
         } catch (QueryException $e) {
+            dd($e);
             return redirect()->back()->with('error', 'Failed to delete car. Please try again.');
         }
     }
