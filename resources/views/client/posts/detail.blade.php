@@ -5,11 +5,18 @@
 @include('client.partials.login')
 @php
     use Illuminate\Support\Carbon;
-@endphp
-<!------- Start banner ------->
-@php
     $images = json_decode($posts_detail->images);
 @endphp
+
+<!-- Các thẻ meta khác của bạn -->
+<meta property="og:url" content="{{ url()->current() }}" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{ $posts_detail->title }}" />
+<meta property="og:description" content="{{ $posts_detail->description }}" />
+<meta property="og:image" content="{{ $images[0] }}" />
+
+<!------- Start banner ------->
+
 <section class="banner-posts" style="background-image: url('{{ asset('images/posts/' . $images[0]) }}');">
     <div class="banner-posts-content">
         <p>{{ date('d F Y', strtotime($posts_detail->posting_date)) }}<span> -
@@ -43,15 +50,15 @@
         @endif
 
         <div class="share-buttons">
-            <button class="fb-share-btn">
-                <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+            <button class="fb-share-btn" onclick="shareOnFacebook(event)">
+                <a href="" target="blank"><i class="fa-brands fa-facebook-f"></i></a>
             </button>
 
             <button class="ins-share-btn">
                 <a href=""><i class="fa-brands fa-instagram"></i></a>
             </button>
 
-            <button class="twitter-share-btn">
+            <button class="twitter-share-btn" onclick="shareOnTwitter(event)">
                 <a href=""><i class="fa-brands fa-x-twitter"></i></a>
             </button>
         </div>
@@ -62,7 +69,7 @@
                 @csrf
                 <div>
                     <textarea class="comment-message" name="content" rows="4" placeholder="Add a comment..." required></textarea>
-                    <input type="hidden" name="posts_id" value="{{$posts_detail->id}}">
+                    <input type="hidden" name="posts_id" value="{{ $posts_detail->id }}">
                 </div>
                 <button type="submit">Send</button>
             </form>
@@ -110,5 +117,28 @@
 
 </section>
 <!------- End posts content ------->
+<script>
+    function shareOnFacebook() {
+        const postUrl = encodeURIComponent("{{ url()->current() }}");
+        const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${postUrl}`;
+        window.open(facebookUrl, '_blank');
+    }
 
+    // function shareOnInstagram() {
+    //     const postUrl = "{{ url()->current() }}";
+    //     const tempInput = document.createElement("input");
+    //     tempInput.value = postUrl;
+    //     document.body.appendChild(tempInput);
+    //     tempInput.select();
+    //     document.execCommand("copy");
+    //     document.body.removeChild(tempInput);
+    //     alert("URL copied to clipboard. Open Instagram and paste the URL into your post.");
+    // }
+
+    function shareOnTwitter() {
+        const postUrl = encodeURIComponent("{{ url()->current() }}");
+        const twitterUrl = `https://twitter.com/intent/tweet?url=${postUrl}`;
+        window.open(twitterUrl, '_blank');
+    }
+</script>
 @include('client.partials.footer')
