@@ -141,6 +141,10 @@
                 </tr>
             </table>
         </div>
+
+        <div class="oder">
+            <a href="">Oder</a>
+        </div>
     </div>
 </div>
 

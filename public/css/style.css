@@ -3173,4 +3173,23 @@ button[type=button] {
     background: white;
     color: #E4405F;
 }
+
+.oder{
+    margin-top: 20px;
+}
+
+.oder a{
+    padding: 10px 30px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 5px;
+    border: 1px solid var(--color-primary);
+}
+
+.oder a:hover{
+    background: white;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}    
+
 /* ---------------------------------- End cart ----------------------------------*/

@@ -14,6 +14,7 @@ use App\Http\Controllers\client\WishlistController;
 use App\Http\Controllers\client\CartInfoController;
 use App\Http\Controllers\client\CommentController;
 use App\Http\Controllers\client\CouponController;
+use App\Http\Controllers\client\OrderController;
 
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\CarController;
@@ -105,6 +106,9 @@ Route::post('/storePostComment', [CommentController::class, 'storePostComment'])
 // Check Coupon
 Route::post('/checkCoupon', [CouponController::class, 'checkCoupon'])->name('check.coupon');
 Route::post('/remove', [CouponController::class, 'removeCoupon'])->name('remove.coupon');
+
+// Oder
+// Route::get('/oder', )
 
 ///////////////////////// Client routes ///////////////////////
 

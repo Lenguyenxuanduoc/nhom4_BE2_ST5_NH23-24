@@ -32,6 +32,7 @@
         <h1>Models</h1>
         <hr>
     </div>
+
     <div class="car-list">
         @if (!empty($cars))
             @foreach ($cars as $car)
