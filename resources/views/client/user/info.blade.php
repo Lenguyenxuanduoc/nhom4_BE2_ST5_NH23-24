@@ -134,8 +134,15 @@
                                                                         Coming soon
                                                                     @endif
                                                                 </p>
-                                                                <a href="{{ route('remove.to.wishlist', $car->id) }}"
-                                                                    class="btn btn-primary align-self-center py-1">Remove</a>
+                                                                <div>
+                                                                    <a href="{{ route('add.to.cart', $car->id) }}" class="btn btn-primary align-self-center py-1 px-2">
+                                                                        Add to Cart
+                                                                    </a>
+
+                                                                    <a href="{{ route('remove.to.wishlist', $car->id) }}" style="color: red; align-self: center;" class="m-2">
+                                                                        Remove
+                                                                    </a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>

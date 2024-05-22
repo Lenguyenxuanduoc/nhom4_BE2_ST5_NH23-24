@@ -60,9 +60,9 @@
             @if(Auth::check())
                 <li><a href="{{route('user.info')}}"><i class="fa-regular fa-user"></i></a></li>
             @endif
-            {{-- @if(Auth::check())
+            @if(Auth::check())
                 <li><a href="{{route('cart.info')}}"><i class="fa-solid fa-cart-shopping"></i></a></li>
-            @endif --}}
+            @endif
         </ul>
     </div>
 </nav>

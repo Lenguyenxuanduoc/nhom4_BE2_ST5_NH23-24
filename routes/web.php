@@ -91,15 +91,18 @@ Route::get('/addToWishlist/{id}', [WishlistController::class, 'addToWishlist'])-
 Route::get('/removeToWishlist/{id}', [WishlistController::class, 'removeToWishlist'])->name('remove.to.wishlist');
 
 // // Cart
-// Route::middleware('notAuth.check')->prefix('/cart')->group(function(){
-//     Route::get('/info', [CartInfoController::class, 'index'])->name('cart.info');
-// });
+Route::middleware('notAuth.check')->prefix('/cart')->group(function(){
+    Route::get('/info', [CartInfoController::class, 'index'])->name('cart.info');
+    Route::get('/addToCart/{id}', [CartInfoController::class, 'addToCart'])->name('add.to.cart');
+    Route::get('/removeFromCart/{id}', [CartInfoController::class, 'removeFromCart'])->name('remove.from.cart');
+});
 
 // Car Comment
 Route::middleware('notAuth.check')->prefix('/comment')->group(function(){
-    Route::post('/storeCarComment', [CommentController::class, 'storeCarComment'])->name('store.car.comment');
-    Route::post('/storePostComment', [CommentController::class, 'storePostComment'])->name('store.post.comment');
+    
 });
+Route::post('/storeCarComment', [CommentController::class, 'storeCarComment'])->name('store.car.comment');
+Route::post('/storePostComment', [CommentController::class, 'storePostComment'])->name('store.post.comment');
 
 ///////////////////////// Client routes ///////////////////////
 

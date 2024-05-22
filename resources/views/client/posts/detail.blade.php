@@ -26,6 +26,18 @@
 </section>
 <!------- End banner ------->
 
+@if (session('error'))
+    <div id="errorPopup" class="alert-custom-popup popup-error">
+        {{ session('error') }}
+    </div>
+@endif
+
+@if (session('success'))
+    <div id="successPopup" class="alert-custom-popup popup-success">
+        {{ session('success') }}
+        <a href="{{ route('user.info') }}" style="color: White; text-decoration: underline">Wishlist</a>
+    </div>
+@endif
 
 <!------- Start posts content ------->
 <section class="posts-content-container">
@@ -140,5 +152,22 @@
         const twitterUrl = `https://twitter.com/intent/tweet?url=${postUrl}`;
         window.open(twitterUrl, '_blank');
     }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to show the popup
+        function showPopup(popupId) {
+            let popupElement = document.getElementById(popupId);
+            if (popupElement) {
+                popupElement.style.display = 'block';
+                setTimeout(function() {
+                    popupElement.style.display = 'none';
+                }, 2500); // Hide after 2.5 seconds
+            }
+        }
+
+        // Show the popups if they exist
+        showPopup('errorPopup');
+        showPopup('successPopup');
+    });
 </script>
 @include('client.partials.footer')

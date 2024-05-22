@@ -922,12 +922,6 @@ header{
     text-decoration: none; /* Ensure links don't have underline */
 }
 
-.btn-order:hover {
-    transition: .3s;
-    background-color: white;
-    color: var(--color-primary);
-}
-
 .btn-order:hover a {
     color: var(--color-primary);
 }
@@ -3033,4 +3027,119 @@ button[type=button] {
 .reply a:hover{
     text-decoration: underline;
 }
-/* ---------------------------------- Start car comments ----------------------------------*/
+/* ---------------------------------- End car comments ----------------------------------*/
+
+
+/* ---------------------------------- Start cart ----------------------------------*/
+/* .cart-container {
+    margin: 120px auto;
+    width: 90%;
+    height: 500px;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
+}
+
+.cart-container .car-box {
+    display: grid;
+    grid-gap: 20px;
+    width: 50%;
+}
+
+.cart-container .car-item {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+.cart-container .car-item img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.cart-container .car-details h3 {
+    margin-bottom: 5px;
+}
+
+.cart-container .btn-remove {
+    background-color: #dc3545; 
+    color: #fff; 
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+} */
+
+
+.cart-container{
+    margin: 150px auto;
+    place-items: center;
+    width: 80%;
+}
+
+.cart-container table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cart-container th{
+    text-align: left;
+    padding: 10px;
+    color: #fff;
+    background: var(--color-mt-score);
+    font-weight: normal;
+}
+
+.cart-container td{
+    padding: 10px;
+}
+
+.cart-container td input{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+
+.cart-container td a{
+    color: var(--color-mt-score);
+}
+
+.cart-info img{
+    width: 200px;
+    height: auto;
+    object-fit: fill;
+    margin-right: 10px;
+}
+
+.cart-info{
+    align-items: center;
+}
+
+.total-price{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.total-price table{
+    border-top: 3px solid var(--color-mt-score);
+    max-width: 350px;
+    width: 100%;
+}
+
+.cart-container td:last-child{
+    text-align: right;
+}
+
+.cart-container th:last-child{
+    text-align: right;
+}
+/* ---------------------------------- End cart ----------------------------------*/

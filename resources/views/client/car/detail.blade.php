@@ -4,6 +4,10 @@
 
 @include('client.partials.login')
 
+@php
+    use Illuminate\Support\Carbon;
+@endphp
+
 @if (session('error'))
     <div id="errorPopup" class="alert-custom-popup popup-error">
         {{ session('error') }}
@@ -13,7 +17,6 @@
 @if (session('success'))
     <div id="successPopup" class="alert-custom-popup popup-success">
         {{ session('success') }}
-        <a href="{{ route('user.info') }}" style="color: White; text-decoration: underline">Wishlist</a>
     </div>
 @endif
 
@@ -385,7 +388,7 @@
         </div>
 
         <div class="btn-order-container">
-            <button class="btn-order"><a href="">Add to Cart</a></button>
+            <a href="{{route('add.to.cart', $car->id)}}"><button class="btn-order" style="font-size: 17px; color:white; font-weight: bold;">Add to Cart</button></a>
         </div>
 
         <div class="horsepower-torque">
@@ -442,7 +445,7 @@
                 @csrf
                 <div>
                     <textarea class="comment-message" name="content" rows="4" placeholder="Add a comment..." required></textarea>
-                    <input type="hidden" name="car_id" value="{{$car->id}}">
+                    <input type="hidden" name="car_id" value="{{ $car->id }}">
                 </div>
                 <button type="submit">Send</button>
             </form>
@@ -452,8 +455,9 @@
                     @foreach ($comments as $comment)
                         <div class="comment">
                             <div class="comment-header">
-                                <span class="comment-user">{{$comment->user->name}}</span>
-                                <span class="comment-date">{{\Carbon::parse($comment->comment_date)->format('d/m/Y')}}</span>
+                                <span class="comment-user">{{ $comment->user->name }}</span>
+                                <span
+                                    class="comment-date">{{ Carbon::parse($comment->comment_date)->format('d/m/Y') }}</span>
                             </div>
                             <div class="comment-content">
                                 {{ $comment->content }}
