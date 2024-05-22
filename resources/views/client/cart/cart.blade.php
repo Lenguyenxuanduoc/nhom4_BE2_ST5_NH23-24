@@ -4,6 +4,9 @@
 
 @include('client.partials.login')
 
+<div class="cart-container">
+    
+</div>
 
 
 @include('client.partials.footer')

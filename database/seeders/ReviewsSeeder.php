@@ -21,7 +21,6 @@ class ReviewsSeeder extends Seeder
                 "efficency_range" => "8.4",  
                 "tech_innovation" => "7.8",
                 "value" => "9",
-                "comment" => ""
             ],
             [
                 "car_id" => "2", 
@@ -29,7 +28,6 @@ class ReviewsSeeder extends Seeder
                 "efficency_range" => "8.7",  
                 "tech_innovation" => "8.3",
                 "value" => "9",
-                "comment" => ""
             ],
             [
                 "car_id" => "3", 
@@ -37,7 +35,6 @@ class ReviewsSeeder extends Seeder
                 "efficency_range" => "9",  
                 "tech_innovation" => "8.6",
                 "value" => "8.8",
-                "comment" => ""
             ],
             [
                 "car_id" => "4", 
@@ -45,7 +42,6 @@ class ReviewsSeeder extends Seeder
                 "efficency_range" => "8.8",  
                 "tech_innovation" => "8.5",
                 "value" => "9",
-                "comment" => ""
             ],
             [
                 "car_id" => "5", 
@@ -53,7 +49,6 @@ class ReviewsSeeder extends Seeder
                 "efficency_range" => "9.5",  
                 "tech_innovation" => "8.2",
                 "value" => "9",
-                "comment" => ""
             ],
             [
                 "car_id" => "6", 
@@ -61,7 +56,6 @@ class ReviewsSeeder extends Seeder
                 "efficency_range" => "7",  
                 "tech_innovation" => "8",
                 "value" => "10",
-                "comment" => ""
             ],
             [
                 "car_id" => "7", 
@@ -69,7 +63,6 @@ class ReviewsSeeder extends Seeder
                 "efficency_range" => "5.4",  
                 "tech_innovation" => "8.5",
                 "value" => "8",
-                "comment" => ""
             ],
             [
                 "car_id" => "8", 
@@ -77,7 +70,6 @@ class ReviewsSeeder extends Seeder
                 "efficency_range" => "8.4",  
                 "tech_innovation" => "8.5",
                 "value" => "9",
-                "comment" => ""
             ],
             [
                 "car_id" => "9", 
@@ -85,7 +77,6 @@ class ReviewsSeeder extends Seeder
                 "efficency_range" => "8.6",  
                 "tech_innovation" => "9",
                 "value" => "10",
-                "comment" => ""
             ],
             [
                 "car_id" => "10", 
@@ -93,7 +84,6 @@ class ReviewsSeeder extends Seeder
                 "efficency_range" => "7.2",  
                 "tech_innovation" => "7.8",
                 "value" => "10",
-                "comment" => ""
             ],
             [
                 "car_id" => "11", 
@@ -101,7 +91,6 @@ class ReviewsSeeder extends Seeder
                 "efficency_range" => "9.2",  
                 "tech_innovation" => "8",
                 "value" => "10",
-                "comment" => ""
             ],
        ]);
     }

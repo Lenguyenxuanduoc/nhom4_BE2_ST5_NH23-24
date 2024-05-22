@@ -11,6 +11,8 @@ use App\Http\Controllers\client\SearchController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\UserInfoController;
 use App\Http\Controllers\client\WishlistController;
+use App\Http\Controllers\client\CartInfoController;
+use App\Http\Controllers\client\CommentController;
 
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\CarController;
@@ -87,6 +89,17 @@ Route::middleware('notAuth.check')->prefix('/user')->group(function(){
 // Wishlist
 Route::get('/addToWishlist/{id}', [WishlistController::class, 'addToWishlist'])->name('add.to.wishlist');
 Route::get('/removeToWishlist/{id}', [WishlistController::class, 'removeToWishlist'])->name('remove.to.wishlist');
+
+// // Cart
+// Route::middleware('notAuth.check')->prefix('/cart')->group(function(){
+//     Route::get('/info', [CartInfoController::class, 'index'])->name('cart.info');
+// });
+
+// Car Comment
+Route::middleware('notAuth.check')->prefix('/comment')->group(function(){
+    Route::post('/storeCarComment', [CommentController::class, 'storeCarComment'])->name('store.car.comment');
+    Route::post('/storePostComment', [CommentController::class, 'storePostComment'])->name('store.post.comment');
+});
 
 ///////////////////////// Client routes ///////////////////////
 

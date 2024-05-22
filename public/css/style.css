@@ -22,7 +22,6 @@
     background: var(--color-primary);
     border: 2px solid var(--color-primary);
     border-radius: 4px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
     color: var(--color-white);
     letter-spacing: .4px;
@@ -57,16 +56,6 @@ nav.shadow{
     background-color: white;
     box-shadow: 4px 4px 20px rgb(15 54 55 / 10%);
     transition: 0.5s;
-
-    /* .social-link li a i{
-        transform: rotate(-45deg);
-        font-size: 22px;
-        color: var(--color-primary);
-    }
-    
-    .social-link li a:hover{
-        border-color: var(--color-primary);
-    } */
 }
 
 .nav-container{
@@ -1582,6 +1571,10 @@ header{
     color: #333;
 }
 
+.search input{
+    width: 180px;
+}
+
 .search-filter{
     margin: 15px 0;
     display: flex;
@@ -2950,53 +2943,94 @@ button[type=button] {
 
 
 
-/* .register-container {
-    max-width: 400px;
-    padding: 100px 0;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* ---------------------------------- Start car comments ----------------------------------*/
+.comment-box{
+    margin-top: 35px;
+    margin-left: 35px;
 }
 
-.register-container h2 {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.register-container .form-group {
+.comment-form {
     margin-bottom: 20px;
 }
 
-.register-container label {
+.comment-form label {
     display: block;
+    margin-bottom: 5px;
+}
+
+.comment-form input[type="text"],
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.comment-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-form button:hover {
+    background-color: #0056b3;
+}
+
+.comment {
+    margin-bottom: 10px;
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .12);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.comment textarea{
+    border: none;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 5px;
+    align-items: center;
+}
+
+.comment-user {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.comment-date {
+    color: #888;
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+.comment-message {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.comment-content{
+    margin-top: 5px;
+    height: 50px;
+}
+
+.reply a{
+    font-size: 13px;
+    color: black;
     font-weight: bold;
 }
 
-.register-container input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+.reply a:hover{
+    text-decoration: underline;
 }
-
-.register-container button {
-    width: 100%;
-    padding: 10px;
-    background-color: var(--color-primary);
-    border: none;
-    color: #fff;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 15px;
-    border: 1px solid var(--color-primary);
-}
-
-.register-container button:hover {
-    background-color: white;
-    color: var(--color-primary);
-    border: 1px solid var(--color-primary);
-} */
+/* ---------------------------------- Start car comments ----------------------------------*/

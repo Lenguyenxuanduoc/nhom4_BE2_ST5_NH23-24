@@ -15,6 +15,7 @@ use App\Models\Review;
 use App\Models\WeightCapacity;
 use App\Models\Safety;
 use App\Models\Warranty;
+use App\Models\CarComment;
 
 class ClientCarController extends Controller
 {
@@ -56,9 +57,11 @@ class ClientCarController extends Controller
             ->where('brand_id', $car->brand_id)
             ->get();
 
+        $comments = CarComment::where('car_id', $carId)->get();
+
         return view('client.car.detail', compact('slug', 'car', 'related_cars', 'mt_score', 'performanceInReview',
                                                 'efficency_rangeInReview', 'tech_innovationInReview', 'valueInReview',
-                                                'title', 'performance', 'interior', 'review', 
+                                                'title', 'performance', 'interior', 'review', 'comments', 
                                                 'exterior', 'weightCapacity', 'safety', 'warranty'));
     }
 

@@ -3,7 +3,9 @@
 @include('client.partials.navbar')
 
 @include('client.partials.login')
-
+@php
+    use Illuminate\Support\Carbon;
+@endphp
 <!------- Start banner ------->
 @php
     $images = json_decode($posts_detail->images);
@@ -52,6 +54,38 @@
             <button class="twitter-share-btn">
                 <a href=""><i class="fa-brands fa-x-twitter"></i></a>
             </button>
+        </div>
+
+        <div class="comment-box" style="margin-left: 0;">
+            <h2>Comments</h2>
+            <form class="comment-form" method="post" action="{{ route('store.post.comment') }}">
+                @csrf
+                <div>
+                    <textarea class="comment-message" name="content" rows="4" placeholder="Add a comment..." required></textarea>
+                    <input type="hidden" name="posts_id" value="{{$posts_detail->id}}">
+                </div>
+                <button type="submit">Send</button>
+            </form>
+
+            <div class="comments-section">
+                @if (!empty($comments))
+                    @foreach ($comments as $comment)
+                        <div class="comment">
+                            <div class="comment-header">
+                                <span class="comment-user">{{ $comment->user->name }}</span>
+                                @php
+                                    $comment_date = Carbon::parse($comment->comment_date)->format('d/m/Y');
+                                @endphp
+                                <span class="comment-date">{{ $comment_date }}</span>
+                            </div>
+                            <div class="comment-content">
+                                {{ $comment->content }}
+                            </div>
+                            <div class="reply"><a href="">Reply</a></div>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
         </div>
     </div>
 

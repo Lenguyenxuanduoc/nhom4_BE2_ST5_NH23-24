@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('car_comments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('car_id')->constrained('cars');
-            $table->float('performance')->nullable();
-            $table->float('efficency_range')->nullable();
-            $table->float('tech_innovation')->nullable();
-            $table->float('value')->nullable();
+            $table->foreignId('user_id')->constrained('cars');
+            $table->string('content')->nullable();
+            $table->timestamp('comment_date')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('car_comments');
     }
 };

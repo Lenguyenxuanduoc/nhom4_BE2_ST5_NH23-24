@@ -13,7 +13,7 @@
 @if (session('success'))
     <div id="successPopup" class="alert-custom-popup popup-success">
         {{ session('success') }}
-        <a href="{{route('user.info')}}" style="color: White; text-decoration: underline">Wishlist</a>
+        <a href="{{ route('user.info') }}" style="color: White; text-decoration: underline">Wishlist</a>
     </div>
 @endif
 
@@ -164,7 +164,8 @@
                         <tbody>
                             <tr class="tr-background">
                                 <td class="td-name">Fuel Capacity</td>
-                                <td>{{ !empty($weightCapacity->fuel_capacity) ? $weightCapacity->fuel_capacity : 'N/A' }}</td>
+                                <td>{{ !empty($weightCapacity->fuel_capacity) ? $weightCapacity->fuel_capacity : 'N/A' }}
+                                </td>
                             </tr>
                             <tr>
                                 <td class="td-name">Cargo Capacity</td>
@@ -173,11 +174,13 @@
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">Curb Weight</td>
-                                <td>{{ !empty($weightCapacity->curb_weight) ? $weightCapacity->curb_weight : 'N/A' }}</td>
+                                <td>{{ !empty($weightCapacity->curb_weight) ? $weightCapacity->curb_weight : 'N/A' }}
+                                </td>
                             </tr>
                             <tr>
                                 <td class="td-name">Towing Capacity</td>
-                                <td>{{ !empty($weightCapacity->towing_capacity) ? $weightCapacity->towing_capacity : 'N/A' }}</td>
+                                <td>{{ !empty($weightCapacity->towing_capacity) ? $weightCapacity->towing_capacity : 'N/A' }}
+                                </td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">GVWR</td>
@@ -185,7 +188,8 @@
                             </tr>
                             <tr>
                                 <td class="td-name">Payload Capacity</td>
-                                <td>{{ !empty($weightCapacity->payload_capacity) ? $weightCapacity->payload_capacity : 'N/A' }}</td>
+                                <td>{{ !empty($weightCapacity->payload_capacity) ? $weightCapacity->payload_capacity : 'N/A' }}
+                                </td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">Tonnage</td>
@@ -206,7 +210,8 @@
                             </tr>
                             <tr>
                                 <td class="td-name">IIHS Front Small Overlap</td>
-                                <td>{{ !empty($safety->IIHS_front_small_overlap) ? $safety->IIHS_front_small_overlap : 'N/R' }}</td>
+                                <td>{{ !empty($safety->IIHS_front_small_overlap) ? $safety->IIHS_front_small_overlap : 'N/R' }}
+                                </td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">IIHS Rear Crash</td>
@@ -214,7 +219,8 @@
                             </tr>
                             <tr>
                                 <td class="td-name">IIHS Rating Front Driver</td>
-                                <td>{{ !empty($safety->IIHS_rating_front_driver) ? $safety->IIHS_rating_front_driver : 'N/R' }}</td>
+                                <td>{{ !empty($safety->IIHS_rating_front_driver) ? $safety->IIHS_rating_front_driver : 'N/R' }}
+                                </td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">IIHS Rating Front Side</td>
@@ -241,7 +247,7 @@
                                 <td>{{ !empty($safety->IIHS_roof_strength) ? $safety->IIHS_roof_strength : 'N/R' }}
                                 </td>
                             </tr>
-                            <tr>    
+                            <tr>
                                 <td class="td-name">NHTSA Rating Front Passenger</td>
                                 <td>{{ !empty($safety->NHTSA_rating_front_passenger) ? $safety->NHTSA_rating_front_passenger : 'N/R' }}
                                 </td>
@@ -251,7 +257,7 @@
                                 <td>{{ !empty($safety->NHTSA_rating_overall) ? $safety->NHTSA_rating_overall : 'N/R' }}
                                 </td>
                             </tr>
-                            <tr>    
+                            <tr>
                                 <td class="td-name">NHTSA Rating Rollover</td>
                                 <td>{{ !empty($safety->NHTSA_rating_rollover) ? $safety->NHTSA_rating_rollover : 'N/R' }}
                                 </td>
@@ -271,15 +277,18 @@
                             </tr>
                             <tr>
                                 <td class="td-name">Full Warranty Miles</td>
-                                <td>{{ !empty($warranty->full_warranty_miles) ? $warranty->full_warranty_miles : 'N/R' }}</td>
+                                <td>{{ !empty($warranty->full_warranty_miles) ? $warranty->full_warranty_miles : 'N/R' }}
+                                </td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">Powertrain Warranty Miles</td>
-                                <td>{{ !empty($warranty->powertrain_warranty_miles) ? $warranty->powertrain_warranty_miles : 'N/R' }}</td>
+                                <td>{{ !empty($warranty->powertrain_warranty_miles) ? $warranty->powertrain_warranty_miles : 'N/R' }}
+                                </td>
                             </tr>
                             <tr>
                                 <td class="td-name">Roadside Warranty Miles</td>
-                                <td>{{ !empty($warranty->roadside_warranty_miles) ? $warranty->roadside_warranty_miles : 'N/R' }}</td>
+                                <td>{{ !empty($warranty->roadside_warranty_miles) ? $warranty->roadside_warranty_miles : 'N/R' }}
+                                </td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">Corrosion Warranty Miles</td>
@@ -329,13 +338,13 @@
                     <a href="{{ route('add.to.wishlist', $car->id) }}"><i class="fa-regular fa-star"></i></a>
                 </li>
                 <div class="tooltip-text">Add to Wishlist</div>
-            </div>  
+            </div>
         </div>
 
         <div class="category-mtscore">
-            <button class="btn-mt-score" onclick="scrollToCarReview()">MT Score <span>{{$mt_score}}</span><span
+            <button class="btn-mt-score" onclick="scrollToCarReview()">MT Score <span>{{ $mt_score }}</span><span
                     class="span-10">/10</span></button>
-            <button class="btn-category"><a href="">{{$car->category->name}}</a></button>
+            <button class="btn-category"><a href="">{{ $car->category->name }}</a></button>
         </div>
 
         <div class="car-price">
@@ -367,8 +376,8 @@
                             @endif
                         </td>
 
-                        <td style="width: 15%;">    
-                            <button class="btn-compare"><a href="{{route('compare')}}">Compare</a></button>
+                        <td style="width: 15%;">
+                            <button class="btn-compare"><a href="{{ route('compare') }}">Compare</a></button>
                         </td>
                     </tr>
                 </tbody>
@@ -401,35 +410,62 @@
 <section class="car-review-container">
     <div class="car-review-box">
         <div class="label-mt-score">
-            <h2>MT Score <span class="span-score">{{$mt_score}}</span><span class="span-10">/10</span></h2>
+            <h2>MT Score <span class="span-score">{{ $mt_score }}</span><span class="span-10">/10</span></h2>
         </div>
-        {{-- <div class="car-description">
-            <p>{{ $car->description }}The BRZ has a lot to offer as one of the few affordable sports cars available. Its engaging steering, high-speed stability, and confident handling make it a great choice for serious drivers. But the interior can get noisy.
-            </p>
-        </div> --}}
+
         <div class="specifications-point-box">
             <div class="specifications-point">
-                <h4><span>{{$performanceInReview}}</span>/10</h4>
+                <h4><span>{{ $performanceInReview }}</span>/10</h4>
                 <p>Performance</p>
                 <div class="score-bar"></div>
             </div>
             <div class="specifications-point">
-                <h4><span>{{$efficency_rangeInReview}}</span>/10</h4>
+                <h4><span>{{ $efficency_rangeInReview }}</span>/10</h4>
                 <p>Efficiency/Range</p>
                 <div class="score-bar"></div>
             </div>
             <div class="specifications-point">
-                <h4><span>{{$tech_innovationInReview}}</span>/10</h4>
+                <h4><span>{{ $tech_innovationInReview }}</span>/10</h4>
                 <p>Tech/Innovation</p>
                 <div class="score-bar"></div>
             </div>
             <div class="specifications-point">
-                <h4><span>{{$valueInReview}}</span>/10</h4>
+                <h4><span>{{ $valueInReview }}</span>/10</h4>
                 <p>Value</p>
                 <div class="score-bar"></div>
             </div>
         </div>
+
+        <div class="comment-box">
+            <h2>Comments</h2>
+            <form class="comment-form" method="post" action="{{ route('store.car.comment') }}">
+                @csrf
+                <div>
+                    <textarea class="comment-message" name="content" rows="4" placeholder="Add a comment..." required></textarea>
+                    <input type="hidden" name="car_id" value="{{$car->id}}">
+                </div>
+                <button type="submit">Send</button>
+            </form>
+
+            <div class="comments-section">
+                @if (!empty($comments))
+                    @foreach ($comments as $comment)
+                        <div class="comment">
+                            <div class="comment-header">
+                                <span class="comment-user">{{$comment->user->name}}</span>
+                                <span class="comment-date">{{\Carbon::parse($comment->comment_date)->format('d/m/Y')}}</span>
+                            </div>
+                            <div class="comment-content">
+                                {{ $comment->content }}
+                            </div>
+                            <div class="reply"><a href="">Reply</a></div>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+        </div>
     </div>
+
 </section>
 <!------- End car review ------->
 
@@ -445,17 +481,18 @@
                     <p><b>MT Score</b> <span class="span1">8</span><span class="span2">/10</span></p>
                     <a href={{ asset('car/' . $car->slug) }}><img src={{ asset('images/cars/' . $car->avatar) }}
                             alt=""></a>
-                            
+
                     <div class="related-cars-text">
-                        <a href="{{route('car.detail', $car->slug)}}">
+                        <a href="{{ route('car.detail', $car->slug) }}">
                             <div class="D23ds">
                                 <h2>{{ $car->name }}</h2>
 
                                 <div class="icon-wishlist">
-                                    <li><a href="{{ route('add.to.wishlist', $car->id) }}"><i class="fa-regular fa-star"></i></a>
+                                    <li><a href="{{ route('add.to.wishlist', $car->id) }}"><i
+                                                class="fa-regular fa-star"></i></a>
                                     </li>
                                     <div class="tooltip-text">Add to Wishlist</div>
-                                </div>    
+                                </div>
                             </div>
                         </a>
                         <p>MSRP:
@@ -467,9 +504,9 @@
                         </p>
                     </div>
                     <div class="compare-link">
-                        <a href="{{route('compare')}}">Compare <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="{{ route('compare') }}">Compare <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
-                    
+
                 </div>
             @endforeach
         @endif

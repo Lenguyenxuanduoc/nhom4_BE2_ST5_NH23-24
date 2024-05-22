@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('posts_comment', function (Blueprint $table) {
+        Schema::create('posts_comments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('posts_id')->constrained('posts');
-            $table->foreignId('users_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('content')->nullable();
             $table->timestamp('comment_date')->nullable();
             $table->timestamps();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts_comment');
+        Schema::dropIfExists('posts_comments');
     }
 };

@@ -11,10 +11,10 @@
              </div>
              <div class="footer-box">
                  <h3>Page</h3>
-                 <a href="">Home</a>
-                 <a href="">News</a>
-                 <a href="">Cars</a>
-                 <a href="">About</a>
+                 <a href="{{route('home')}}">Home</a>
+                 <a href="{{route('news')}}">News</a>
+                 <a href="{{route('all.brands')}}">Brands</a>
+                 <a href="{{route('contact')}}">Contact</a>
              </div>
              <div class="footer-box">
                  <h3>Legal</h3>
