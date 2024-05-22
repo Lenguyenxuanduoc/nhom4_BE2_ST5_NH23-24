@@ -28,7 +28,8 @@ class DatabaseSeeder extends Seeder
             ReviewsSeeder::class,
             SafetiesSeeder::class,
             WarrantiesSeeder::class,
-            CarCommentsSeeder::class
+            CarCommentsSeeder::class,
+            CouponsSeeder::class
         ]);
     }
 }

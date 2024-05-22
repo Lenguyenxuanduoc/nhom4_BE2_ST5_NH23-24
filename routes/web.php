@@ -13,6 +13,7 @@ use App\Http\Controllers\client\UserInfoController;
 use App\Http\Controllers\client\WishlistController;
 use App\Http\Controllers\client\CartInfoController;
 use App\Http\Controllers\client\CommentController;
+use App\Http\Controllers\client\CouponController;
 
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\CarController;
@@ -98,11 +99,12 @@ Route::middleware('notAuth.check')->prefix('/cart')->group(function(){
 });
 
 // Car Comment
-Route::middleware('notAuth.check')->prefix('/comment')->group(function(){
-    
-});
 Route::post('/storeCarComment', [CommentController::class, 'storeCarComment'])->name('store.car.comment');
 Route::post('/storePostComment', [CommentController::class, 'storePostComment'])->name('store.post.comment');
+
+// Check Coupon
+Route::post('/checkCoupon', [CouponController::class, 'checkCoupon'])->name('check.coupon');
+Route::post('/remove', [CouponController::class, 'removeCoupon'])->name('remove.coupon');
 
 ///////////////////////// Client routes ///////////////////////
 

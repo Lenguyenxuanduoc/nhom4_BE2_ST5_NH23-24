@@ -26,23 +26,31 @@
         </tr>
         @if (!empty($userCarts))
             @php
-               $subtotal = 0; 
+                $subtotal = 0;
             @endphp
             @foreach ($userCarts as $carInCart)
                 <tr>
                     <td>
                         <div class="cart-info">
-                            <a href="{{route('car.detail', $carInCart->car->slug)}}">
+                            <a href="{{ route('car.detail', $carInCart->car->slug) }}">
                                 <img src="{{ asset('images/cars/' . $carInCart->car->avatar) }}"
-                                alt="{{ $carInCart->car->name }}">
+                                    alt="{{ $carInCart->car->name }}">
                             </a>
                             <div>
-                                <a href="{{route('car.detail', $carInCart->car->slug)}}">
-                                    <p style="font-size: 20px; color: rgb(62, 49, 49);"><b>{{ $carInCart->car->name }}</b></p>
+                                <a href="{{ route('car.detail', $carInCart->car->slug) }}">
+                                    <p style="font-size: 20px; color: rgb(62, 49, 49);">
+                                        <b>{{ $carInCart->car->name }}</b>
+                                    </p>
                                 </a>
-                                <small class="Fwfwe3">MSRP: {{ $carInCart->car->msrp }}</small>
+                                <small class="Fwfwe3">MSRP:
+                                    @if ($carInCart->car->msrp != 0)
+                                        ${{ number_format($carInCart->car->msrp, 0, ',', '.') }}
+                                    @else
+                                        Coming soon
+                                    @endif
+                                </small>
                                 <br>
-                                <a href="{{route('remove.from.cart', $carInCart->car->id)}}">Remove</a>
+                                <a href="{{ route('remove.from.cart', $carInCart->car->id) }}">Remove</a>
                             </div>
                         </div>
                     </td>
@@ -73,27 +81,66 @@
 
     </table>
 
-    <div class="total-price">
-        <table>
-            <tr>
-                <td>Subtotal</td>
-                <td>${{ number_format($subtotal, 0, ',', '.') }}</td>
-            </tr>
+    <div class="Fw3tr">
+        <div class="enter-coupon">
+            <form action="{{ route('check.coupon') }}" method="post">
+                @csrf
+                <input type="text" name="code" placeholder="Coupon">
+                <input type="hidden" name="subtotal" value="{{ $subtotal }}">
+                <button type="submit">Apply</button>
+            </form>
+        </div>
 
-            <tr>
-                @php
-                    $taxRate = 0.5; // 50%
-                    $tax = $subtotal * $taxRate;
-                @endphp
-                <td>Tax (50%)</td>
-                <td>${{ number_format($tax, 0, ',', '.') }}</td>
-            </tr>
+        @if (session('success'))
+            <div class="alert alert-success my-3">
+                <p style="font-size: 14px; margin: 10px 0;">
+                <form action="{{ route('remove.coupon') }}" method="POST">
+                    @csrf
+                    {{ session('success') }}
+                    You saved ${{ number_format(session('discount'), 0, ',', '.') }}.
+                    <input type="submit" value="Remove" style="padding: 5px; border-radius: 3px; background: white; cursor: pointer">
+                </form>
+                </p>
+            </div>
+        @endif
 
-            <tr>
-                <td>Total</td>
-                <td>${{ number_format($tax + $subtotal, 0, ',', '.') }}</td>
-            </tr>
-        </table>
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>${{ number_format($subtotal, 0, ',', '.') }}</td>
+                </tr>
+
+                <tr>
+                    @php
+                        $taxRate = 0.5; // 50%
+                        $tax = $subtotal * $taxRate;
+                    @endphp
+                    <td>Tax (50%)</td>
+                    <td>${{ number_format($tax, 0, ',', '.') }}</td>
+                </tr>
+
+                @if (session('discount'))
+                    <tr>
+                        <td>Discount</td>
+                        <td>-${{ number_format(session('discount'), 0, ',', '.') }}</td>
+                    </tr>
+
+                    @php
+                        $total = $subtotal + $tax - session('discount');
+                    @endphp
+                @else
+                    @php
+                        $total = $subtotal + $tax;
+                    @endphp
+                @endif
+
+                <tr>
+                    <td>Total</td>
+                    <td>${{ number_format($total, 0, ',', '.') }}</td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 

@@ -3123,15 +3123,21 @@ button[type=button] {
     align-items: center;
 }
 
+.Fw3tr{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    /* margin-left: 50%; */
+    align-items: flex-end;
+}
+
 .total-price{
     margin-top: 10px;
-    display: flex;
-    justify-content: flex-end;
+    width: 450px;
 }
 
 .total-price table{
     border-top: 3px solid var(--color-mt-score);
-    max-width: 350px;
     width: 100%;
 }
 
@@ -3141,5 +3147,30 @@ button[type=button] {
 
 .cart-container th:last-child{
     text-align: right;
+}
+
+.enter-coupon{
+    margin-top: 10px;
+    width: 450px;
+}
+
+.enter-coupon input{
+    padding: 8px;
+    border-radius: 5px;
+    width: 67%;
+}
+
+.enter-coupon button{
+    padding: 8px 0;
+    border-radius: 5px;
+    background: #E4405F;
+    cursor: pointer;
+    color: white;
+    width: 30%;
+}
+
+.enter-coupon button:hover{
+    background: white;
+    color: #E4405F;
 }
 /* ---------------------------------- End cart ----------------------------------*/
