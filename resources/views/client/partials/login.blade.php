@@ -26,7 +26,7 @@
                     <label for="remember">Remember me</label>
                 </div>
 
-                <div class="pass"><a href="{{route('reset-password')}}">Forgot password?</a></div>
+                <div class="pass"><a href="{{route('forgot_password')}}">Forgot password?</a></div>
                 <input type="submit" value="Login">
                 <div class="signup-link">
                     Not a member? <a href="{{route('register')}}">Register now</a>

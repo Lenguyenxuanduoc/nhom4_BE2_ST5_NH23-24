@@ -74,7 +74,14 @@ Route::get('/logout', [LoginController::class, 'logout'])->middleware('notAuth.c
 
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout']);
-Route::get('/reset-password', [LoginController::class, 'resetPassword'])->name('reset-password');
+//
+Route::get('/forgot-password', [LoginController::class, 'forgot_password'])->name('forgot_password');
+Route::post('/forgot-password', [LoginController::class, 'check_forgot_password']);
+
+Route::get('/reset-password/{token}', [LoginController::class, 'reset_password'])->name('reset_password');
+Route::post('/reset-password/{token}', [LoginController::class, 'check_reset_password']);
+//
+
 Route::get('/register', [LoginController::class, 'register'])->name('register')->middleware('auth.check');
 Route::post('/register', [LoginController::class, 'store'])->name('store.user');
 
