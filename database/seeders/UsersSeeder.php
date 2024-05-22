@@ -27,7 +27,7 @@ class UsersSeeder extends Seeder
             [
                 "username" => "xuanduoc",
                 "password" => Hash::make("xuanduoc123"),
-                "email" => "lenguynxuandc@gmail.com",
+                "email" => "lenguyenxuanduoc@gmail.com",
                 "name" => "Xuan Duoc",
                 "address" => "TP HCM",
                 "permission" => true

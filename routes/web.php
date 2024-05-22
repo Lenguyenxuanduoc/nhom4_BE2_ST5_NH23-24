@@ -80,6 +80,14 @@ Route::get('/reset-password', [LoginController::class, 'resetPassword'])->name('
 Route::get('/register', [LoginController::class, 'register'])->name('register')->middleware('auth.check');
 Route::post('/register', [LoginController::class, 'store'])->name('store.user');
 
+//
+Route::get('/forgot-password', [LoginController::class, 'forgot_password'])->name('forgot_password');
+Route::post('/forgot-password', [LoginController::class, 'check_forgot_password']);
+
+Route::get('/reset-password/{token}', [LoginController::class, 'reset_password'])->name('reset_password');
+Route::post('/reset-password/{token}', [LoginController::class, 'check_reset_password']);
+//
+
 
 // User info
 Route::middleware('notAuth.check')->prefix('/user')->group(function(){
