@@ -143,7 +143,7 @@
         </div>
 
         <div class="oder">
-            <a href="">Oder</a>
+            <a href="{{ route('order', ['id' => $user_id, 'total' => $total]) }}">Order</a>
         </div>
     </div>
 </div>

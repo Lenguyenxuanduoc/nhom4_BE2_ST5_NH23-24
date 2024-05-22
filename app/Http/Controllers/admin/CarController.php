@@ -25,8 +25,10 @@ class CarController extends Controller
     public function index()
     {
         $cars = Car::with('brand', 'category')->paginate(10);
+        $categories = Category::get();
+        $brands = Brand::get();
 
-        return view('admin.car.list', compact('cars'))->with('i', (request()->input('page', 1) - 1) * 10);
+        return view('admin.car.list', compact('cars', 'categories', 'brands'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     // Chuyển đến trang add
@@ -206,5 +208,21 @@ class CarController extends Controller
             dd($e);
             return redirect()->back()->with('error', 'Failed to delete car. Please try again.');
         }
+    }
+
+    public function getCarsByCategory(Request $request){
+        $categories = Category::get();
+        $brands = Brand::get();
+        $categoryId = $request->input('category_id');
+        $cars = Car::where('category_id', $categoryId)->paginate(10);
+        return view('admin.car.list', compact('cars', 'categories', 'brands'))->with('i', (request()->input('page', 1) - 1) * 10);
+    }
+
+    public function getCarsByBrand(Request $request){
+        $categories = Category::get();
+        $brands = Brand::get();
+        $brandId = $request->input('brand_id');
+        $cars = Car::where('brand_id', $brandId)->paginate(10);
+        return view('admin.car.list', compact('cars', 'categories', 'brands'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
 }

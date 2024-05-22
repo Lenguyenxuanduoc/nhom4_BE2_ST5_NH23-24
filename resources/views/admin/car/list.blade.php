@@ -31,12 +31,54 @@
                         @endif
                     </div>
 
-                    <div class="col-md-12">
+                    <div class="col-md-4">
                         <a href="{{ route('cars.add') }}" class="btn btn-dark my-2">Add</a>
                     </div>
 
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <form action="{{route('cars.by.category')}}" method="post">
+                                @csrf
+                                <div class="row">
+                                    <select class="form-control my-2 col-md-8" name="category_id">
+                                        <option value="">-- Categories --</option>
+                                        @if (!empty($categories))
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                    <div class=" col-md-4 my-2">
+                                        <input type="submit" class="btn btn-success">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <form action="{{route('cars.by.brand')}}" method="post">
+                                @csrf
+                                <div class="row">
+                                    <select class="form-control my-2 col-md-8" name="brand_id">
+                                        <option value="">-- Brands --</option>
+                                        @if (!empty($brands))
+                                            @foreach ($brands as $brand)
+                                                <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                    <div class=" col-md-4 my-2">
+                                        <input type="submit" class="btn btn-success">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
                     <div class="col-md-12">
-                        <table class="table table-car" style="background: white">
+                        <table class="table table-car" id="carTable" style="background: white">
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col"></th>

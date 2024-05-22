@@ -16,11 +16,13 @@ class CartInfoController extends Controller
             return redirect()->back()->with('error', 'You need to log in to perform this function.');
         }
         $user = Auth::user();
-        $userCarts = Cart::where('user_id', $user->id)
+        $user_id = $user->id;
+
+        $userCarts = Cart::where('user_id', $user_id)
             ->with('car')
             ->get();
         // dd($userCarts);
-        return view('client.cart.cart', compact('title', 'userCarts'));
+        return view('client.cart.cart', compact('title', 'userCarts', 'user_id'));
     }
 
     public function addToCart($id)

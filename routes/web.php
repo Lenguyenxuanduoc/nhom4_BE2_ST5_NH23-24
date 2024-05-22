@@ -107,8 +107,8 @@ Route::post('/storePostComment', [CommentController::class, 'storePostComment'])
 Route::post('/checkCoupon', [CouponController::class, 'checkCoupon'])->name('check.coupon');
 Route::post('/remove', [CouponController::class, 'removeCoupon'])->name('remove.coupon');
 
-// Oder
-// Route::get('/oder', )
+// Order
+Route::get('/order/{id}/{total}', [OrderController::class, 'order'])->name('order');
 
 ///////////////////////// Client routes ///////////////////////
 
@@ -131,6 +131,9 @@ Route::middleware('auth.admin')->prefix('cars')->group(function(){
 
     Route::get('/delete/{id}', [CarController::class, 'delete'])->name('cars.delete');
 });
+
+Route::post('/carsByCategory', [CarController::class, 'getCarsByCategory'])->name('cars.by.category');
+Route::post('/carsByBrand', [CarController::class, 'getCarsByBrand'])->name('cars.by.brand');
 
 // Category
 Route::middleware('auth.admin')->prefix('categories')->group(function(){
