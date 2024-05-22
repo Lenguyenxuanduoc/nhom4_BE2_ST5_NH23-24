@@ -31,4 +31,10 @@ class Car extends Model
     public function category(){
         return $this->belongsTo(Category::class);
     }
+
+    public function wishlistUsers()
+    {
+        return $this->belongsToMany(User::class, 'wishlists', 'car_id', 'user_id')
+                    ->withTimestamps();
+    }
 }

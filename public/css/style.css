@@ -750,6 +750,57 @@ header{
     color: var(--color-black);
 }
 
+.icon-wishlist li a i.fa-regular {
+    font-size: 20px;
+}
+
+.icon-wishlist {
+    position: relative;
+    display: inline-block;
+}
+
+.icon-wishlist li {
+    list-style: none;
+}
+
+.icon-wishlist a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.icon-wishlist .tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 110%; /* Position the tooltip above the icon */
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.icon-wishlist .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.icon-wishlist:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
 .car-text{
     line-height: 25px;
     font-size: 15px;
@@ -824,6 +875,7 @@ header{
     margin: 0;
     padding: 0;
     display: flex;
+    justify-content: space-between;
 }
 
 .car-name .producing-year{
@@ -862,14 +914,12 @@ header{
     margin-left: 10px;
 }
 
-.btn-order-container button{
+.btn-order-container button {
     padding: 10px 20px;
     margin-top: auto;
     border: 1px solid var(--color-primary);
     border-radius: 5px;
     background-color: var(--color-primary);
-    color: #fff;
-    font-size: 16px;
     cursor: pointer;
     transition: all 0.5s ease;
     width: 100%;
@@ -877,9 +927,19 @@ header{
     margin-top: auto;
 }
 
-.btn-order-container button:hover{
+.btn-order a {
+    color: white;
+    font-size: 16px;
+    text-decoration: none; /* Ensure links don't have underline */
+}
+
+.btn-order:hover {
     transition: .3s;
     background-color: white;
+    color: var(--color-primary);
+}
+
+.btn-order:hover a {
     color: var(--color-primary);
 }
 
@@ -1212,6 +1272,12 @@ header{
     color: #272727;
     font-size: 15px;
     padding-top: 5px;
+}
+
+.D23ds{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .related-cars-box .span1{

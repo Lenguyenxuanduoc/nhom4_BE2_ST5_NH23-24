@@ -10,6 +10,7 @@ use App\Http\Controllers\client\LoginController;
 use App\Http\Controllers\client\SearchController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\UserInfoController;
+use App\Http\Controllers\client\WishlistController;
 
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\CarController;
@@ -82,6 +83,11 @@ Route::middleware('notAuth.check')->prefix('/user')->group(function(){
     Route::post('/update/{id}', [UserInfoController::class, 'update'])->name('user.update');
     Route::post('/change_password/{id}', [UserInfoController::class, 'changePassword'])->name('user.change_password');
 });
+
+// Wishlist
+Route::get('/addToWishlist/{id}', [WishlistController::class, 'addToWishlist'])->name('add.to.wishlist');
+Route::get('/removeToWishlist/{id}', [WishlistController::class, 'removeToWishlist'])->name('remove.to.wishlist');
+
 ///////////////////////// Client routes ///////////////////////
 
 

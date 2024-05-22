@@ -4,6 +4,19 @@
 
 @include('client.partials.login')
 
+@if (session('error'))
+    <div id="errorPopup" class="alert-custom-popup popup-error">
+        {{ session('error') }}
+    </div>
+@endif
+
+@if (session('success'))
+    <div id="successPopup" class="alert-custom-popup popup-success">
+        {{ session('success') }}
+        <a href="{{route('user.info')}}" style="color: White; text-decoration: underline">Wishlist</a>
+    </div>
+@endif
+
 <!------- Start car detail ------->
 <section class="car-detail-container flex">
     <div class="left">
@@ -188,59 +201,59 @@
                         <tbody>
                             <tr class="tr-background">
                                 <td class="td-name">IIHS Best Pick</td>
-                                <td>{{ !empty($safety->IIHS_best_pick) ? $safety->IIHS_best_pick : 'N/A' }}
+                                <td>{{ !empty($safety->IIHS_best_pick) ? $safety->IIHS_best_pick : 'N/R' }}
                                 </td>
                             </tr>
                             <tr>
                                 <td class="td-name">IIHS Front Small Overlap</td>
-                                <td>{{ !empty($safety->IIHS_front_small_overlap) ? $safety->IIHS_front_small_overlap : 'N/A' }}</td>
+                                <td>{{ !empty($safety->IIHS_front_small_overlap) ? $safety->IIHS_front_small_overlap : 'N/R' }}</td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">IIHS Rear Crash</td>
-                                <td>{{ !empty($safety->IIHS_rear_crash) ? $safety->IIHS_rear_crash : 'N/A' }}</td>
+                                <td>{{ !empty($safety->IIHS_rear_crash) ? $safety->IIHS_rear_crash : 'N/R' }}</td>
                             </tr>
                             <tr>
                                 <td class="td-name">IIHS Rating Front Driver</td>
-                                <td>{{ !empty($safety->IIHS_rating_front_driver) ? $safety->IIHS_rating_front_driver : 'N/A' }}</td>
+                                <td>{{ !empty($safety->IIHS_rating_front_driver) ? $safety->IIHS_rating_front_driver : 'N/R' }}</td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">IIHS Rating Front Side</td>
-                                <td>{{ !empty($safety->IIHS_rating_front_side) ? $safety->IIHS_rating_front_side : 'N/A' }}
+                                <td>{{ !empty($safety->IIHS_rating_front_side) ? $safety->IIHS_rating_front_side : 'N/R' }}
                                 </td>
                             </tr>
                             <tr>
                                 <td class="td-name">IIHS Rating Rear Side</td>
-                                <td>{{ !empty($safety->IIHS_rating_rear_side) ? $safety->IIHS_rating_rear_side : 'N/A' }}
+                                <td>{{ !empty($safety->IIHS_rating_rear_side) ? $safety->IIHS_rating_rear_side : 'N/R' }}
                                 </td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">IIHS Front Moderate Overlap</td>
-                                <td>{{ !empty($safety->IIHS_front_moderate_overlap) ? $safety->IIHS_front_moderate_overlap : 'N/A' }}
+                                <td>{{ !empty($safety->IIHS_front_moderate_overlap) ? $safety->IIHS_front_moderate_overlap : 'N/R' }}
                                 </td>
                             </tr>
                             <tr>
                                 <td class="td-name">IIHS Overall Side Crash</td>
-                                <td>{{ !empty($safety->IIHS_overall_side_crash) ? $safety->IIHS_overall_side_crash : 'N/A' }}
+                                <td>{{ !empty($safety->IIHS_overall_side_crash) ? $safety->IIHS_overall_side_crash : 'N/R' }}
                                 </td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">IIHS Roof Strength</td>
-                                <td>{{ !empty($safety->IIHS_roof_strength) ? $safety->IIHS_roof_strength : 'N/A' }}
+                                <td>{{ !empty($safety->IIHS_roof_strength) ? $safety->IIHS_roof_strength : 'N/R' }}
                                 </td>
                             </tr>
                             <tr>    
                                 <td class="td-name">NHTSA Rating Front Passenger</td>
-                                <td>{{ !empty($safety->NHTSA_rating_front_passenger) ? $safety->NHTSA_rating_front_passenger : 'N/A' }}
+                                <td>{{ !empty($safety->NHTSA_rating_front_passenger) ? $safety->NHTSA_rating_front_passenger : 'N/R' }}
                                 </td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">NHTSA Rating Overall</td>
-                                <td>{{ !empty($safety->NHTSA_rating_overall) ? $safety->NHTSA_rating_overall : 'N/A' }}
+                                <td>{{ !empty($safety->NHTSA_rating_overall) ? $safety->NHTSA_rating_overall : 'N/R' }}
                                 </td>
                             </tr>
                             <tr>    
                                 <td class="td-name">NHTSA Rating Rollover</td>
-                                <td>{{ !empty($safety->NHTSA_rating_rollover) ? $safety->NHTSA_rating_rollover : 'N/A' }}
+                                <td>{{ !empty($safety->NHTSA_rating_rollover) ? $safety->NHTSA_rating_rollover : 'N/R' }}
                                 </td>
                             </tr>
                         </tbody>
@@ -253,49 +266,49 @@
                         <tbody>
                             <tr class="tr-background">
                                 <td class="td-name">Free Maintenance Miles</td>
-                                <td>{{ !empty($warranty->free_maintenance_miles) ? $warranty->free_maintenance_miles : 'N/A' }}
+                                <td>{{ !empty($warranty->free_maintenance_miles) ? $warranty->free_maintenance_miles : 'N/R' }}
                                 </td>
                             </tr>
                             <tr>
                                 <td class="td-name">Full Warranty Miles</td>
-                                <td>{{ !empty($warranty->full_warranty_miles) ? $warranty->full_warranty_miles : 'N/A' }}</td>
+                                <td>{{ !empty($warranty->full_warranty_miles) ? $warranty->full_warranty_miles : 'N/R' }}</td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">Powertrain Warranty Miles</td>
-                                <td>{{ !empty($warranty->powertrain_warranty_miles) ? $warranty->powertrain_warranty_miles : 'N/A' }}</td>
+                                <td>{{ !empty($warranty->powertrain_warranty_miles) ? $warranty->powertrain_warranty_miles : 'N/R' }}</td>
                             </tr>
                             <tr>
                                 <td class="td-name">Roadside Warranty Miles</td>
-                                <td>{{ !empty($warranty->roadside_warranty_miles) ? $warranty->roadside_warranty_miles : 'N/A' }}</td>
+                                <td>{{ !empty($warranty->roadside_warranty_miles) ? $warranty->roadside_warranty_miles : 'N/R' }}</td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">Corrosion Warranty Miles</td>
-                                <td>{{ !empty($warranty->corrosion_warranty_miles) ? $warranty->corrosion_warranty_miles : 'N/A' }}
+                                <td>{{ !empty($warranty->corrosion_warranty_miles) ? $warranty->corrosion_warranty_miles : 'N/R' }}
                                 </td>
                             </tr>
                             <tr>
                                 <td class="td-name">Free Maintenance Months</td>
-                                <td>{{ !empty($warranty->free_maintenance_months) ? $warranty->free_maintenance_months : 'N/A' }}
+                                <td>{{ !empty($warranty->free_maintenance_months) ? $warranty->free_maintenance_months : 'N/R' }}
                                 </td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">Full Warranty Months</td>
-                                <td>{{ !empty($warranty->full_warranty_months) ? $warranty->full_warranty_months : 'N/A' }}
+                                <td>{{ !empty($warranty->full_warranty_months) ? $warranty->full_warranty_months : 'N/R' }}
                                 </td>
                             </tr>
                             <tr>
                                 <td class="td-name">Powertrain Warranty Months</td>
-                                <td>{{ !empty($warranty->powertrain_warranty_months) ? $warranty->powertrain_warranty_months : 'N/A' }}
+                                <td>{{ !empty($warranty->powertrain_warranty_months) ? $warranty->powertrain_warranty_months : 'N/R' }}
                                 </td>
                             </tr>
                             <tr class="tr-background">
                                 <td class="td-name">Roadside Warranty Months</td>
-                                <td>{{ !empty($warranty->roadside_warranty_months) ? $warranty->roadside_warranty_months : 'N/A' }}
+                                <td>{{ !empty($warranty->roadside_warranty_months) ? $warranty->roadside_warranty_months : 'N/R' }}
                                 </td>
                             </tr>
                             <tr>
                                 <td class="td-name">Corrosion Warranty Months</td>
-                                <td>{{ !empty($warranty->corrosion_warranty_months) ? $warranty->corrosion_warranty_months : 'N/A' }}
+                                <td>{{ !empty($warranty->corrosion_warranty_months) ? $warranty->corrosion_warranty_months : 'N/R' }}
                                 </td>
                             </tr>
                         </tbody>
@@ -304,13 +317,19 @@
             </div>
         </div>
     </div>
-    </div>
     <!------- End specifications pop up ------->
 
 
     <div class="right">
         <div class="car-name">
             <h3>{{ $car->name }} {{ $car->producing_year }}</h3>
+
+            <div class="icon-wishlist">
+                <li>
+                    <a href="{{ route('add.to.wishlist', $car->id) }}"><i class="fa-regular fa-star"></i></a>
+                </li>
+                <div class="tooltip-text">Add to Wishlist</div>
+            </div>  
         </div>
 
         <div class="category-mtscore">
@@ -357,7 +376,7 @@
         </div>
 
         <div class="btn-order-container">
-            <button class="btn-order">Order</button>
+            <button class="btn-order"><a href="">Add to Cart</a></button>
         </div>
 
         <div class="horsepower-torque">
@@ -426,9 +445,18 @@
                     <p><b>MT Score</b> <span class="span1">8</span><span class="span2">/10</span></p>
                     <a href={{ asset('car/' . $car->slug) }}><img src={{ asset('images/cars/' . $car->avatar) }}
                             alt=""></a>
+                            
                     <div class="related-cars-text">
-                        <a href="">
-                            <h2>{{ $car->name }}</h2>
+                        <a href="{{route('car.detail', $car->slug)}}">
+                            <div class="D23ds">
+                                <h2>{{ $car->name }}</h2>
+
+                                <div class="icon-wishlist">
+                                    <li><a href="{{ route('add.to.wishlist', $car->id) }}"><i class="fa-regular fa-star"></i></a>
+                                    </li>
+                                    <div class="tooltip-text">Add to Wishlist</div>
+                                </div>    
+                            </div>
                         </a>
                         <p>MSRP:
                             @if ($car->msrp != 0)
@@ -441,6 +469,7 @@
                     <div class="compare-link">
                         <a href="{{route('compare')}}">Compare <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
+                    
                 </div>
             @endforeach
         @endif
@@ -449,5 +478,23 @@
 <!------- End same category ------->
 
 
+<script>
+    // Wait for the DOM to be fully loaded
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to show the popup
+        function showPopup(popupId) {
+            let popupElement = document.getElementById(popupId);
+            if (popupElement) {
+                popupElement.style.display = 'block';
+                setTimeout(function() {
+                    popupElement.style.display = 'none';
+                }, 2500); // Hide after 2.5 seconds
+            }
+        }
 
+        // Show the popups if they exist
+        showPopup('errorPopup');
+        showPopup('successPopup');
+    });
+</script>
 @include('client.partials.footer')

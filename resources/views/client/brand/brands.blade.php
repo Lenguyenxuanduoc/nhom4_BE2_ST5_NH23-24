@@ -13,6 +13,18 @@
 </section>
 <!------- End banner ------->
 
+@if (session('error'))
+    <div id="errorPopup" class="alert-custom-popup popup-error">
+        {{ session('error') }}
+    </div>
+@endif
+
+@if (session('success'))
+    <div id="successPopup" class="alert-custom-popup popup-success">
+        {{ session('success') }}
+        <a href="{{route('user.info')}}" style="color: White; text-decoration: underline">Wishlist</a>
+    </div>
+@endif
 
 <!------- Start logo brand list ------->
 <section class="car-brands-container">
@@ -85,12 +97,35 @@
                         </div>
                     </div>
 
-                    
+                    <div class="icon-wishlist">
+                        <li><a href="{{ route('add.to.wishlist', $car->id) }}"><i class="fa-regular fa-star"></i></a>
+                        </li>
+                        <div class="tooltip-text">Add to Wishlist</div>
+                        {{-- <li><a href=""><i class="fa-solid fa-star"></i></a></li> --}}
+                    </div>
                 </div>
             @endforeach
         @endif
     </div>
 </section>
 <!------- End featured cars ------->
+<script>
+    // Wait for the DOM to be fully loaded
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to show the popup
+        function showPopup(popupId) {
+            let popupElement = document.getElementById(popupId);
+            if (popupElement) {
+                popupElement.style.display = 'block';
+                setTimeout(function() {
+                    popupElement.style.display = 'none';
+                }, 2500); // Hide after 2.5 seconds
+            }
+        }
 
+        // Show the popups if they exist
+        showPopup('errorPopup');
+        showPopup('successPopup');
+    });
+</script>
 @include('client.partials.footer')

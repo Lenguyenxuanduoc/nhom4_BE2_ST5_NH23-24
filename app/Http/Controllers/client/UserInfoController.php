@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Wishlist;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Hash;
 
@@ -14,7 +15,10 @@ class UserInfoController extends Controller
     public function index(){
         $title = "Exotic Cars | User Info";
         $user = Auth::user();
-        return view('client.user.info', compact('user', 'title'));
+
+        $wishlistCars = $user->wishlist;
+
+        return view('client.user.info', compact('user', 'wishlistCars', 'title'));
     }
 
 
