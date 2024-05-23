@@ -11,7 +11,7 @@ Welcome to **CarZone**, your ultimate destination for the latest news and the be
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
-- [Contact](#https://www.facebook.com/lenguyenxuanduoc.10.12.2004)
+- [Contact](https://www.facebook.com/lenguyenxuanduoc.10.12.2004)
 
 ## About
 
